@@ -1,9 +1,9 @@
 {
-  "title": "Webcomponent Boilerplate",
-  "description": "A webcomponent boilerplate that can be used to build your own boilerplate.",
-  "descriptionAbstract": "A webcomponent boilerplate",
+  "title": "NOI Maps webcomponent",
+  "description": "NOI Techpark map app",
+  "descriptionAbstract": "NOI Techpark map app",
   "license": "AGPL-3.0",
-  "repositoryUrl": "https://github.com/noi-techpark/webcomp-boilerplate",
+  "repositoryUrl": "https://github.com/noi-techpark/webcomp-maps-noi",
   "authors": [
     {
       "name": "NOI",
@@ -21,7 +21,7 @@
     ]
   },
   "configuration": {
-    "tagName": "webcomponent-boilerplate",
+    "tagName": "webcomponent-noi-maps",
     "options": []
   }
 }

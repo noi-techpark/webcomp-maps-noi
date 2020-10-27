@@ -1,14 +1,6 @@
-Replace all `ToDo` notes in this file and adjust also the following files:
-- package.json:
-    - Adjust the general parts like name, description, ...
-    - Adjust the three scripts `npm run start`, `npm run build` and `npm run test`
-- wcs-manifest.json:
-    - Adjust the general parts like title, description, ...
-    - Adjust the configuration part with all possible configuration options (https://webcomponents.opendatahub.bz.it/getting-started)
+# NOI Maps webcomponent
 
-# ToDo: Project Name
-
-ToDo: Description of the project.
+NOI Techpark map app
 
 ## Table of contents
 
@@ -21,26 +13,21 @@ ToDo: Description of the project.
 
 ## Usage
 
-ToDo: Include the webcompscript file `dist/webcomp-boilerplate.min.js` in your HTML and define the web component like this:
+Webcompscript file `dist/noi_maps_widget.min.js`:
 
 ```html
-<webcomp-boilerplate xxx="test" yyy="2"></webcomp-boilerplate>
+<map-view lang="it"></map-view>
 ```
 
 ### Attributes
 
-#### xxxx
+#### lang
 
-The description of the parameter xxx.
+Webcomponent main language
 
 Type: string
-Options: "test", "123"
+Options: "it", "de", "en"
 
-#### yyy
-
-The description of the parameter yyy.
-
-Type: int
 
 ## Getting started
 
@@ -51,8 +38,7 @@ on your local machine for development and testing purposes.
 
 To build the project, the following prerequisites must be met:
 
-- ToDo: Check the prerequisites
-- Node 12 / NPM 6
+* Node.js https://nodejs.org/
 
 For a ready to use Docker environment with all prerequisites already installed and prepared, you can check out the [Docker environment](#docker-environment) section.
 
@@ -61,13 +47,13 @@ For a ready to use Docker environment with all prerequisites already installed a
 Get a copy of the repository:
 
 ```bash
-ToDo: git clone https://github.com/noi-techpark/project-name.git
+git clone https://github.com/noi-techpark/webcomp-maps-noi.git
 ```
 
 Change directory:
 
 ```bash
-ToDo: cd project-name/
+cd webcomp-maps-noi/
 ```
 
 ### Dependencies
@@ -78,7 +64,7 @@ Download all dependencies:
 npm install
 ```
 
-### Build
+### Build / Test
 
 Build and start the project:
 
@@ -88,14 +74,6 @@ npm run start
 
 The application will be served and can be accessed at [http://localhost:8080](http://localhost:8080).
 
-## Tests and linting
-
-The tests and the linting can be executed with the following commands:
-
-```bash
-npm run test
-npm run lint
-```
 
 ## Deployment
 
@@ -104,6 +82,23 @@ To create the distributable files, execute the following command:
 ```bash
 npm run build
 ```
+
+## Deployment server prerequisites
+
+The server that hosts the image resources (svg, jpg, ...) must allow cross-origin domain request. You can use an .htaccess file like:
+
+```html
+<FilesMatch "\.(svg)$">
+	<IfModule mod_headers.c>
+		Header set Access-Control-Allow-Origin "*"
+	</IfModule>
+</FilesMatch>
+```
+
+## Folders
+* dist - compiled and distributable file (*npm run build*)
+* node_modules - installed node modules (*npm install*)
+* work - production (*npm start*)
 
 ## Docker environment
 
