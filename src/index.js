@@ -37,6 +37,7 @@ class MapView extends LitElement {
 
 	render() {
 		return html`
+			<div class="outer-map-container">
 			<div class="inner-map-component" class="axonometric" data-building='axonometric'>
 				<style>
 					${getStyle(style)}
@@ -135,6 +136,7 @@ class MapView extends LitElement {
 					</div>
 				</div>
 			</div>
+			</div>
 		`;
 		/*return html`
 			${styleTag()}
@@ -171,7 +173,6 @@ function getStyle(style) {
 
 var ODHdata = '';
 var controller = '';
-var jsMediaQueryTester = '.js-media-query-tester';
 var shadowRoot = '';
 var buildings_summary = [];
 var clickedElementID = '';
@@ -189,6 +190,7 @@ function resizeEndActions(){
 	//tooltipViewport();
 	//langSwitcherLabels();
 	sidebarHeight();
+	setMediaQueries();
 	if(typeof controller === 'object' && controller !== null && typeof controller.moveBy!='undefined') {
 		try {
 			controller.moveBy(0.001, 0.001);
@@ -206,7 +208,7 @@ function cleanupRoomLabel(roomLabel) {
 function documentReady(shadowRootInit,thisLang) {
 	shadowRoot = shadowRootInit;
 
-
+	setMediaQueries();
 	//Disables scroll events from mousewheels, touchmoves and keypresses.
 	//disableBodyScroll(shadowRoot.querySelectorAll('.inner-map-component'));
 
@@ -310,14 +312,14 @@ function documentReady(shadowRootInit,thisLang) {
 	originalTooltip = jQuery(shadowRoot.querySelectorAll('.tooltip')).html();
 
 	jQuery(shadowRoot.querySelectorAll('.option-trigger')).on('click',function(){
-		jQuery(shadowRoot.querySelectorAll('.inner-map-component')).addClass('option-open');
+		jQuery(shadowRoot.querySelectorAll('.outer-map-container')).addClass('option-open');
 	});
 	jQuery(shadowRoot.querySelectorAll('.option-close')).on('click',function(){
-		jQuery(shadowRoot.querySelectorAll('.inner-map-component')).removeClass('option-open');
+		jQuery(shadowRoot.querySelectorAll('.outer-map-container')).removeClass('option-open');
 	});
 	jQuery(shadowRoot.querySelectorAll('.search-trigger')).on('click',function(){
-		jQuery(shadowRoot.querySelectorAll('.inner-map-component')).toggleClass('search-open');
-		if(jQuery(shadowRoot.querySelectorAll('.inner-map-component')).hasClass('search-open')) {
+		jQuery(shadowRoot.querySelectorAll('.outer-map-container')).toggleClass('search-open');
+		if(jQuery(shadowRoot.querySelectorAll('.outer-map-container')).hasClass('search-open')) {
 			jQuery(shadowRoot.querySelectorAll("input.search")).focus();
 		}
 		setTimeout(function() {
@@ -764,7 +766,7 @@ function setMapZoom() {
 		controller.zoomAbs(0, 0, 1);
 		controller.moveBy(0.001, 0.001);
 
-		if(jQuery(shadowRoot.querySelectorAll(jsMediaQueryTester)).outerWidth()<=30) {
+		if(!jQuery(shadowRoot.querySelectorAll('.inner-map-component')).hasClass('dim_40')) {
 			//controller.zoomAbs(0, 0, 1.6);
 			setTimeout(function() {
 				if(jQuery(shadowRoot.querySelectorAll('.tooltip')).hasClass('active') && typeof(clickedElementID)!='undefined' && jQuery(shadowRoot.querySelector("[id='"+clickedElementID+"']")).length>0) {
@@ -772,22 +774,29 @@ function setMapZoom() {
 						var x = jQuery(shadowRoot.querySelector("[id='"+clickedElementID+"']")).offset().left;
 						var y = jQuery(shadowRoot.querySelector("[id='"+clickedElementID+"']")).offset().top;
 
-						if(x>jQuery("#map").innerWidth()/2) {
-							controller.smoothZoom(x+(jQuery(shadowRoot.getElementById("#mapContainer")).innerWidth()/3),y,3);
-						} else {
-							controller.smoothZoom(x+(jQuery(shadowRoot.getElementById("#mapContainer")).innerWidth()/16),y,3);
+						if(!isNaN(x) &&!isNaN(y)) {
+							if(x>jQuery("#map").innerWidth()/2) {
+								controller.smoothZoom(x+(jQuery(shadowRoot.getElementById("#mapContainer")).innerWidth()/3),y,3);
+							} else {
+								controller.smoothZoom(x+(jQuery(shadowRoot.getElementById("#mapContainer")).innerWidth()/16),y,3);
+							}
 						}
 
 						
 					},500);
 				} else {
 					if(jQuery(shadowRoot.querySelectorAll("#map #main-entrance")).length>0) {
-						controller.smoothZoom(jQuery(shadowRoot.querySelectorAll("#map #main-entrance")).offset().left+jQuery(shadowRoot.querySelectorAll("#map #main-entrance"))[0].getBoundingClientRect().width/2, jQuery(shadowRoot.querySelectorAll("#map #main-entrance")).offset().top,3);
+
+						if(!isNaN(jQuery(shadowRoot.querySelectorAll("#map #main-entrance")).offset().left) &&!isNaN(jQuery(shadowRoot.querySelectorAll("#map #main-entrance"))[0].getBoundingClientRect().width/2) && !isNaN(jQuery(shadowRoot.querySelectorAll("#map #main-entrance")).offset().top)) {
+							controller.smoothZoom(jQuery(shadowRoot.querySelectorAll("#map #main-entrance")).offset().left+jQuery(shadowRoot.querySelectorAll("#map #main-entrance"))[0].getBoundingClientRect().width/2, jQuery(shadowRoot.querySelectorAll("#map #main-entrance")).offset().top,3);
+						}
 					} else {
-						if(jQuery(shadowRoot.querySelectorAll('.inner-map-component')).hasClass('axonometric')) {
-							controller.smoothZoom(jQuery(shadowRoot.getElementById("#map")).outerWidth()/2,jQuery(shadowRoot.getElementById("#map")).outerHeight()/2,2);
-						} else {
-							controller.smoothZoom(jQuery(shadowRoot.getElementById("#map")).outerWidth()/2,jQuery(shadowRoot.getElementById("#map")).outerHeight()/2,3);
+						if (!isNaN(jQuery(shadowRoot.getElementById("#map")).outerWidth()/2) && !isNaN(jQuery(shadowRoot.getElementById("#map")).outerHeight()/2)) {
+							if(jQuery(shadowRoot.querySelectorAll('.inner-map-component')).hasClass('axonometric')) {
+								controller.smoothZoom(jQuery(shadowRoot.getElementById("#map")).outerWidth()/2,jQuery(shadowRoot.getElementById("#map")).outerHeight()/2,2);
+							} else {
+								controller.smoothZoom(jQuery(shadowRoot.getElementById("#map")).outerWidth()/2,jQuery(shadowRoot.getElementById("#map")).outerHeight()/2,3);
+							}
 						}
 					}
 				}
@@ -837,8 +846,8 @@ function clickableBehaviour() {
 				) {
 					//console.log('clicked sidebar');
 					setMapZoom();
-					if(jQuery(jsMediaQueryTester).outerWidth()<=30) {
-						jQuery("body").removeClass('search-open');
+					if(!jQuery(shadowRoot.querySelectorAll('.inner-map-component')).hasClass('dim_40')) {
+						jQuery(shadowRoot.querySelectorAll('.outer-map-container')).removeClass('search-open');
 					}
 					//This is a room
 					if(jQuery(shadowRoot.querySelectorAll(".inner-map-component")).attr('data-building')==buildingCode && jQuery(shadowRoot.querySelectorAll(".inner-map-component")).attr('data-floor')==floorCode) {
@@ -1102,7 +1111,6 @@ function clickedElement(elementCode, type="room") {
 }*/
 
 function setTooltipPosition() {
-	let currentMediaQuery = jQuery(shadowRoot.querySelectorAll(jsMediaQueryTester)).outerWidth();
 	if(jQuery(shadowRoot.querySelector("[id='"+clickedElementID+"']")).length>0) {
 
 		let jsElem = jQuery(shadowRoot.querySelector("[id='"+clickedElementID+"']"))[0];
@@ -1110,16 +1118,15 @@ function setTooltipPosition() {
 			jsElem = jQuery(shadowRoot.querySelector("[id='"+clickedElementID+"']")).children()[0];
 		}
 
-		if(currentMediaQuery >= 50){
+		if(jQuery(shadowRoot.querySelectorAll('.inner-map-component')).hasClass('dim_50')){
 			/*jQuery(shadowRoot.querySelectorAll(".tooltip")).css({
 				left: jQuery(jsElem).offset().left + (jsElem.getBoundingClientRect().width/2),
 				top: jQuery(jsElem).offset().top + (jsElem.getBoundingClientRect().height/2)-8
 			});*/
 			jQuery(shadowRoot.querySelectorAll(".tooltip")).css({
-				left: jQuery(jsElem).offset().left + (jsElem.getBoundingClientRect().width/2) - jQuery(document.querySelectorAll("map-view")).position().left,
-				top: jQuery(jsElem).offset().top - document.querySelectorAll("map-view")[0].offsetTop + (jsElem.getBoundingClientRect().height/2)-8
+				left: jQuery(jsElem).offset().left + (jsElem.getBoundingClientRect().width/2) - jQuery(shadowRoot.querySelectorAll('.inner-map-component')).position().left,
+				top: jQuery(jsElem).offset().top - jQuery(shadowRoot.querySelectorAll('.inner-map-component'))[0].offsetTop + (jsElem.getBoundingClientRect().height/2)-8
 			});
-
 			/*jQuery(shadowRoot.querySelectorAll(".tooltip")).css({
 				top: getOffsetPosition(jQuery(shadowRoot.querySelectorAll(".inner-map-component svg")), jQuery(jsElem)).top - document.querySelectorAll("map-view")[0].offsetTop + (jsElem.getBoundingClientRect().height/2)-8,
 				left: getOffsetPosition(jQuery(shadowRoot.querySelectorAll(".inner-map-component svg")), jQuery(jsElem)).left + (jsElem.getBoundingClientRect().width/2) - jQuery(document.querySelectorAll("map-view")).position().left,
@@ -1127,8 +1134,8 @@ function setTooltipPosition() {
 
 		} else {
 			jQuery(shadowRoot.querySelectorAll(".tooltip")).css({
-				left: (jQuery(jsElem).offset().left + (jsElem.getBoundingClientRect().width/2))-15 - jQuery(document.querySelectorAll("map-view")).position().left,
-				top: (jQuery(jsElem).offset().top - document.querySelectorAll("map-view")[0].offsetTop + (jsElem.getBoundingClientRect().height/2))-45
+				left: (jQuery(jsElem).offset().left + (jsElem.getBoundingClientRect().width/2))-15 - jQuery(shadowRoot.querySelectorAll('.inner-map-component')).position().left,
+				top: (jQuery(jsElem).offset().top - jQuery(shadowRoot.querySelectorAll('.inner-map-component'))[0].offsetTop + (jsElem.getBoundingClientRect().height/2))-45
 			});
 		}
 	}
@@ -1553,6 +1560,44 @@ function sidebarHeight() {
 
 	jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container')).css('height', h - jQuery(shadowRoot.querySelectorAll('.search-container .input-container')).outerHeight() );
 
+}
+
+function setMediaQueries() {
+	let w = jQuery(shadowRoot.querySelectorAll('.inner-map-component')).outerWidth();
+	let breakpoints = ["dim_5","dim_10","dim_20","dim_30","dim_40","dim_50","dim_70"];
+	jQuery(shadowRoot.querySelectorAll('.inner-map-component')).removeClass(breakpoints);
+	let responsiveClass = '';
+	switch(true) {
+		case (w <= 400):
+			responsiveClass = 'dim_5';
+		break;
+		case (w > 400 && w <= 450):
+			responsiveClass = 'dim_5 dim_10';
+		break;
+		case (w > 450 && w <= 500):
+			responsiveClass = 'dim_5 dim_10 dim_20';
+		break;
+		case (w > 500 && w <= 600):
+			responsiveClass = 'dim_5 dim_10 dim_20 dim_30';
+		break;
+		case (w > 600 && w <= 700):
+			responsiveClass = 'dim_5 dim_10 dim_20 dim_30 dim_40';
+		break;
+		case (w > 700 && w <= 800):
+			responsiveClass = 'dim_5 dim_10 dim_20 dim_30 dim_40 dim_50';
+		break;
+		case (w > 800):
+			responsiveClass = 'dim_5 dim_10 dim_20 dim_30 dim_40 dim_50 dim_70';
+		break;
+		default:
+		break;
+	}
+	if(responsiveClass !== '') {
+		jQuery(shadowRoot.querySelectorAll('.inner-map-component')).addClass(responsiveClass);
+	}
+	console.log(w);
+	console.log(responsiveClass);
+	console.log('------------');
 }
 
 customElements.define('map-view', MapView);

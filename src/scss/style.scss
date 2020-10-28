@@ -5,7 +5,7 @@
 
 // Media query:
 // ============
-// @include media('screen', '>dim_50') {
+// .dim_50 & {
 // 	// rules
 // } 
 
@@ -39,9 +39,10 @@
 #mapContainer {
 	position: absolute;
 }
-.inner-map-component {
+.outer-map-container, .inner-map-component {
 	height: 100%;
 	width: 100%;
+	display: block;
 }
 
 
@@ -134,10 +135,10 @@
 		@include prefix('justify-content', 'space-between');
 		@include prefix('flex-wrap', 'wrap');
 
-		@include media('screen', '>dim_40') {
+		.dim_40 & {
 			padding: 35px;
 		}
-		@include media('screen', '>dim_50') {
+		.dim_50 & {
 			padding: 50px;
 			max-width: 545px;
 		}
@@ -182,7 +183,7 @@
 	z-index: 9999;
 	text-align: left;
 
-	@include media('screen', '>dim_50') {
+	.dim_50 & {
 		@include prefix('transform', 'translate(-50%,-100%)');
 	}
 
@@ -223,7 +224,7 @@
 		@include prefix('box-shadow','0px 5px 10px 0px rgba(0,0,0,0.25)');
 			
 
-		@include media('screen', '>dim_50') {
+		.dim_50 & {
 			position: absolute;
 			bottom: auto;
 			top: 75px;
@@ -597,7 +598,7 @@ html:not(.body-scrollable){
 	pointer-events: all;
 	text-align: center;
 
-	@include media('screen', '>dim_50') {
+	.dim_50 & {
 		right: auto;
 		left: 40px;
 		top: 130px; //50%;
@@ -776,7 +777,7 @@ body {
 				top: 25px;
 				left: 20px;
 
-				@include media('screen', '>dim_50') {
+				.dim_50 & {
 					width: 50px;
 					height: 50px;
 					bottom: 5%;
@@ -784,7 +785,7 @@ body {
 
 					top: auto;
 				}
-				@include media('screen', '>dim_70') {
+				.dim_70 & {
 					//bottom: 15%;
 					//left: 5%;
 				}
@@ -804,14 +805,14 @@ body {
 			left: 50%;
 			@include prefix('transform', 'translate(-50%, -50%)');
 
-			@include media('screen', '>dim_30') {
+			.dim_30 & {
 				//width: 130%;
 			}
-			@include media('screen', '>dim_50') {
+			.dim_50 & {
 				//width: 90%;
 				top: 49.2%;
 			}
-			@include media('screen', '>dim_70') {
+			.dim_70 & {
 				//width: 80%;
 			}
 		}
@@ -824,15 +825,15 @@ body {
 			position: absolute;
 			bottom: 35px;
 			left: 20px;
-			@include media('screen', '>dim_30') {
+			.dim_30 & {
 				max-width: 110px;
 			}
-			@include media('screen', '>dim_50') {
+			.dim_50 & {
 				max-width: 150px;
 				bottom: 5%;
 				left: 4%;
 			}
-			@include media('screen', '>dim_70') {
+			.dim_70 & {
 				max-width: 170px;
 				bottom: 15%;
 				left: 5%;
@@ -866,7 +867,7 @@ body {
 		}
 	}
 
-	@include media('screen', '>dim_50') {
+	.dim_50 & {
 		width: 100%;
 		height: 80vh;
 		overflow: hidden;
@@ -902,13 +903,13 @@ body {
 
 	@include prefix('box-shadow','0px 3px 6px 0px rgba(0,0,0,0.25)');
 
-	@include media('screen', '>dim_5') {
+	.dim_5 & {
 		padding: 16px 20px;
 	}
-	@include media('screen', '>dim_10') {
+	.dim_10 & {
 		padding: 16px 25px;
 	}
-	@include media('screen', '>dim_50') {
+	.dim_50 & {
 		padding: 17px/*25px*/ 20px;
 		z-index: 16;
 		@include prefix('box-shadow','none');
@@ -931,12 +932,12 @@ body {
 
 		padding: 13px 0; //8px 0 9px;
 
-		@include media('screen', '>dim_5') {
+		.dim_5 & {
 			font-size: 1.7rem;
 			max-width: calc(100% - 200px);
 			margin-left: 135px;
 		}
-		@include media('screen', '>dim_50') {
+		.dim_50 & {
 			margin-left: 140px;
 			max-width: calc(100% - 225px);
 		}
@@ -947,16 +948,16 @@ body {
 
 		.default &{
 			margin-left: 0;
-			@include media('screen', '>dim_50') {
+			.dim_50 & {
 				margin-left: 110px;
 			}
-			@include media('screen', '>dim_70') {
+			.dim_70 & {
 				margin-left: 140px;
 			}
 		}
 	}
 	.navbar-container{
-		@include media('screen', '>dim_50') {
+		.dim_50 & {
 			margin-left: 140px;
 			width: calc(100% - 225px);
 			text-transform: uppercase;
@@ -978,7 +979,7 @@ body {
 
 			vertical-align: middle;
 
-			@include media('screen', '>dim_50') {
+			.dim_50 & {
 				text-indent: 0;
 				color: $color4;
 				background: none;
@@ -1017,7 +1018,7 @@ body {
 				left: -30px;
 			}
 
-			@include media('screen', '>dim_50') {
+			.dim_50 & {
 				color: #fff;
 				margin-left: 50px;
 				background: $color4;
@@ -1027,7 +1028,7 @@ body {
 			}
 
 			&.open{
-				@include media('screen', '<=dim_50') {
+				.dim_5 &, .dim_10 &, .dim_20 &, .dim_30 &, .dim_40 & {
 					color: $color4;
 					@include prefix('box-shadow','0px 5px 10px 0px rgba(0,0,0,0.25)');
 				}
@@ -1039,7 +1040,7 @@ body {
 						@include prefix('transform', 'rotate(180deg)');
 					}
 
-					@include media('screen', '>dim_50') {
+					.dim_50 & {
 						background: $color4;
 						color: #fff;
 						&:after{
@@ -1048,7 +1049,7 @@ body {
 					}
 				}
 				.dropdown-list{
-					@include media('screen', '<=dim_50') {
+					.dim_5 &, .dim_10 &, .dim_20 &, .dim_30 &, .dim_40 & {
 						@include prefix('box-shadow','0px 5px 10px 0px rgba(0,0,0,0.25)');
 					}
 				}
@@ -1077,7 +1078,7 @@ body {
 					@include prefix('transform-origin', 'center 2px');
 				}
 
-				@include media('screen', '>dim_50') {
+				.dim_50 & {
 					background: $color4;
 					color: #fff;
 
@@ -1102,7 +1103,7 @@ body {
 
 				@include prefix('box-sizing', 'border-box');
 				
-				@include media('screen', '>dim_50') {
+				.dim_50 & {
 					background: $color4;
 					a{
 						color: #fff;
@@ -1124,24 +1125,24 @@ body {
 		height: 24px;
 		background: url(images/logo.svg) no-repeat;
 
-		@include media('screen', '>dim_5') {
+		.dim_5 & {
 			width: 75px;
 			height: 27px;
 		}
-		@include media('screen', '>dim_50') {
+		.dim_50 & {
 			width: 100px;
 			height: 36px;
 		}
 	}
 
 	&.hide-on-desktop{
-		@include media('screen', '>dim_50') {
+		.dim_50 & {
 			display: none;
 		}
 	}
 
 	body:not(.external) &{
-		@include media('screen', '<=dim_50') {
+		.dim_5 &, .dim_10 &, .dim_20 &, .dim_30 &, .dim_40 & {
 			display: none;
 		}
 	}
@@ -1152,10 +1153,10 @@ body {
 		top:50%;
 		@include prefix('transform', 'translate(0, -50%)');
 		
-		@include media('screen', '>dim_5') {
+		.dim_5 & {
 			left: 45px;
 		}
-		@include media('screen', '>dim_50') {
+		.dim_50 & {
 			left: 0;
 		}
 	}
@@ -1188,7 +1189,7 @@ body {
 		display: none;
 	}
 
-	@include media('screen', '>dim_50') {
+	.dim_50 & {
 		display: none;
 	}
 
@@ -1239,7 +1240,7 @@ body {
 	@include prefix('transform', 'translate(0, -50%)');
 	@include prefix('transition', 'all 0.3s ease-in-out');
 
-	@include media('screen', '>dim_50') {
+	.dim_50 & {
 		display: none;
 	}
 
@@ -1293,7 +1294,7 @@ body {
 	@include prefix('transform', 'translate(0, -50%)');
 	@include prefix('transition', 'all 0.3s ease-in-out');
 
-	@include media('screen', '>dim_50') {
+	.dim_50 & {
 		display: block;
 		/*width:auto;
 		height:auto;
@@ -1304,7 +1305,7 @@ body {
 	}
 
 	.search-open &{
-		@include media('screen', '<=dim_50') {
+		.dim_5 &, .dim_10 &, .dim_20 &, .dim_30 &, .dim_40 & {
 			display: block;
 			z-index:17;
 			right: 10px;
@@ -1316,7 +1317,7 @@ body {
 				}
 			}
 		}
-		@include media('screen', '>dim_50') {
+		.dim_50 & {
 			right: 6px;
 			&{
 				right: 25px;
@@ -1354,7 +1355,7 @@ body {
 			@include prefix('transition-property', 'top, transform');
 			top:-6px;
 
-			@include media('screen', '>dim_50') {
+			.dim_50 & {
 				height: 18px;
 				width: 18px;
 				@include prefix('border-radius', '0');
@@ -1371,14 +1372,14 @@ body {
 			@include prefix('transition-property', 'bottom, transform');
 			bottom:-6px;
 
-			@include media('screen', '>dim_50') {
+			.dim_50 & {
 				display: none;
 			}
 		}
 
 
 
-		@include media('screen', '>dim_50') {
+		.dim_50 & {
 			/*text-indent:0;
 			line-height:1;
 			text-transform: uppercase;
@@ -1410,7 +1411,7 @@ body {
 	cursor: pointer;
 
 		
-	@include media('screen', '<=dim_50') {
+	.dim_5 &, .dim_10 &, .dim_20 &, .dim_30 &, .dim_40 & {
 		position:absolute;
 		right: 35px;
 		top:50%;
@@ -1433,7 +1434,7 @@ body {
 			}
 		}
 	}
-	@include media('screen', '>dim_50') {
+	.dim_50 & {
 		position:absolute;
 		right: 45px;
 		top:50%;
@@ -1458,7 +1459,7 @@ body {
 		.search-open &{
 			right: 402px;
 			top: calc(50% - 2px);
-
+			left: unset;
 			width: 18px;
 			height:18px;
 			text-indent:-9999px;
@@ -1521,7 +1522,7 @@ body {
 		}
 	}
 
-	@include media('screen', '>dim_50') {
+	.dim_50 & {
 		left: -40px;
 		top: calc(50% - 1px);
 	}
@@ -1692,7 +1693,7 @@ body {
 
 		//background: #ddd;
 
-		@include media('screen', '>dim_50') {
+		.dim_50 & {
 			padding: 25px 30px 26px;
 		}
 	}
@@ -1796,11 +1797,12 @@ body {
 		width: 400px;
 
 		.input-container{
-			position: relative;
+			position: absolute;
+			width: 100%;
 		}
 	}
 
-	@include media('screen', '>dim_50') {
+	.dim_50 & {
 		overflow-x: hidden !important;
 		bottom: 0;
 		right: -425px;
@@ -1815,7 +1817,7 @@ body {
 
 	.loader{
 		margin: 15px 0 5px;
-		@include media('screen', '>dim_50') {
+		.dim_50 & {
 			margin: 20px 0 10px;
 		}
 
@@ -1833,9 +1835,9 @@ body {
 		width: 10px;
 		z-index: 16;
 
-		@include media('screen', '>dim_50') {
-			position: relative;
-		
+		.dim_50 & {
+			position: absolute;
+			top: 0;
 			padding: 0;
 			left: 0;
 			@include prefix('transition', 'all 0.3s ease-in-out');
@@ -1860,7 +1862,7 @@ body {
 		}
 
 		.search-open &{
-			@include media('screen', '>dim_50') {
+			.dim_50 & {
 				position: absolute;
 				width: 100%;
 				top: 0;
@@ -1882,7 +1884,7 @@ body {
 			@include prefix('border-radius','2px');
 			@include prefix('box-sizing','border-box');
 
-			@include media('screen', '>dim_50') {
+			.dim_50 & {
 				@include prefix('border-radius','0');
 
 				padding: 29px 28px 29px 56px; //29px 28px; //28px 28px 29px;
@@ -1892,14 +1894,14 @@ body {
 	.category-group-container{
 		overflow-y: scroll;
 
-		@include media('screen', '>dim_50') {
+		.dim_50 & {
 			padding-bottom: 35px;
 		}
 
 		.no-results{
 			width: calc(100% - 20px);
 			margin: 15px auto;
-			@include media('screen', '>dim_50') {
+			.dim_50 & {
 				width: calc(100% - 60px);
 				margin: 40px auto 0;
 			}
@@ -2097,11 +2099,11 @@ body {
 	margin: 0 auto;
 
 	padding: 30px 0 40px;
-	@include media('screen', '>dim_50') {
+	.dim_50 & {
 		width: calc(100% - 65px);
 		padding: 60px 0 130px;
 	}
-	@include media('screen', '>dim_70') {
+	.dim_70 & {
 		width: calc(100% - 100px);
 		padding: 90px 0 160px;
 	}
@@ -2110,10 +2112,10 @@ body {
 		color: $color4;
 		font-size: 1.7rem;
 		line-height: 1.5;
-		@include media('screen', '>dim_40') {
+		.dim_40 & {
 			font-size: 1.8rem;
 		}
-		@include media('screen', '>dim_70') {
+		.dim_70 & {
 			font-size: 1.9rem;
 		}
 
@@ -2185,7 +2187,7 @@ body {
 		@include prefix('transition','all 0.2s ease-in-out');
 	}
 
-	@include media('screen', '>dim_50') {
+	.dim_50 & {
 		position: fixed;
 		bottom: 0;
 		left: 0;
@@ -2208,7 +2210,7 @@ body {
 		z-index: 0;
 		@include prefix('transition','background 0.2s ease-in-out 0.2s');
 
-		@include media('screen', '>dim_50') {
+		.dim_50 & {
 			display: none;
 		}
 
@@ -2236,7 +2238,7 @@ body {
 			@include prefix('transition','all 0.3s ease-in-out 0.3s');
 		}
 
-		@include media('screen', '>dim_50') {
+		.dim_50 & {
 			position: relative;
 			top: auto;
 			left: auto;
@@ -2273,7 +2275,7 @@ body {
 		font-weight: bold;
 		font-size: 1.6rem;
 
-		@include media('screen', '>dim_50') {
+		.dim_50 & {
 			text-transform: uppercase;
 			font-weight: 600;
 			padding: 15px 25px;
@@ -2282,14 +2284,14 @@ body {
 
 		li{
 			margin-bottom: 20px;
-			@include media('screen', '>dim_50') {
+			.dim_50 & {
 				display: inline-block;
 				margin-bottom: 0;
 				margin-right: 20px;
 			}
 
 			a{
-				@include media('screen', '<=dim_50') {
+				.dim_5 &, .dim_10 &, .dim_20 &, .dim_30 &, .dim_40 & {
 					position: relative;
 					padding-left: 30px;
 					&:before{
@@ -2323,10 +2325,10 @@ body {
 	height:0;
 	opacity:0;
 	visibility:hidden;
-	@include media('screen', '>dim_30'){
+	.dim_30 & {
 		width:30px;
 	}
-	@include media('screen', '>dim_50'){
+	.dim_50 & {
 		width:50px;
 	}
 }
@@ -2373,7 +2375,7 @@ body {
 	text-align: left;
 
 	padding: 4px 0 10px;
-	@include media('screen', '>dim_20'){
+	.dim_20 & {
 		padding: 4px 0;
 	}
 
@@ -2391,7 +2393,7 @@ body {
 		float: left;
 		text-align: center;
 
-		@include media('screen', '>dim_20'){
+		.dim_20 & {
 			width: calc(100% - 160px);
 			text-align: left;
 		}
@@ -2407,7 +2409,7 @@ body {
 		text-align: center;
 		width: 100%;
 
-		@include media('screen', '>dim_20'){
+		.dim_20 & {
 			float: right;
 			width: auto;
 			padding: 7px 0;
@@ -2430,14 +2432,14 @@ body {
 
 		cursor: pointer;
 
-		@include media('screen', '>dim_20'){
+		.dim_20 & {
 			float: left;
 		}
 
 		&.cm-cookie-decline{
 			margin-left: 20px;
 
-			@include media('screen', '>dim_20'){
+			.dim_20 & {
 				float: right;
 			}
 		}
