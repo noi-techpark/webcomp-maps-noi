@@ -1595,9 +1595,6 @@ function setMediaQueries() {
 	if(responsiveClass !== '') {
 		jQuery(shadowRoot.querySelectorAll('.inner-map-component')).addClass(responsiveClass);
 	}
-	console.log(w);
-	console.log(responsiveClass);
-	console.log('------------');
 }
 
 customElements.define('map-view', MapView);
