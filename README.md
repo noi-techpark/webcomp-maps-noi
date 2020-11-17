@@ -30,9 +30,9 @@ Options: "it", "de", "en"
 
 #### totem
 
-Optional. Ability to turn on/off totem functionalities (e.g. for Pepper Robot) with QR Code sharing
+Optional. Ability to turn off (0) or on (1) the totem functionalities (e.g. for Pepper Robot) with QR Code sharing
 
-Type: string
+Type: Int
 Options: "0", "1"
 
 
