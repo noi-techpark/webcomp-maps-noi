@@ -4,10 +4,11 @@ import jQuery from './vendors/jquery.min.js';
 import Hammer from 'hammerjs';
 import propagating from 'propagating-hammerjs';
 import panzoom from 'panzoom';
+import QRCode from 'davidshimjs-qrcodejs';
 //import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import config from "./config";
 
-import { LoaderSVG } from "./scss/images/loading.svg";
+//import { LoaderSVG } from "./scss/images/loading.svg";
 
 const { detect } = require('detect-browser');
 const browser = detect();
@@ -15,14 +16,8 @@ const browser = detect();
 var ODHdata;
 
 class MapView extends LitElement {
-
 	constructor() {
 		super();
-		/*//console.log('......Constructor......');
-			//console.group('this in constructor()');
-			//console.log(this);
-		//console.groupEnd();*/
-
 		const userLanguage = window.navigator.userLanguage || window.navigator.language;
 		this.language = userLanguage.split('-')[0];
 		this.title = 'ODH Webcomponent';
@@ -32,6 +27,7 @@ class MapView extends LitElement {
 		// prende i data attributes dall'elemento component (es. <map-view language=""></map-view>)
 		return {
 			language: { type: String },
+			totem: { type: String },
 		};
   	}
 
@@ -44,8 +40,8 @@ class MapView extends LitElement {
 				</style>
 				<div class="header">
 					<div class="aux">
-						<div class="navbar-container hide">
-							<p class="site-title hide clickable" data-building-code="axonometric">NOI Techpark Maps</p>
+						<div class="navbar-container">
+							<p class="site-title clickable" data-building-code="axonometric">NOI Techpark Maps</p>
 							<nav class="dropdown building-select hide">
 								<span class="dropdown-trigger hide"></span>
 								<ul class="dropdown-list hide"></ul>
@@ -63,7 +59,7 @@ class MapView extends LitElement {
 								    <div class="group-title-container dropdown-trigger">
 								        <h2></h2>
 								    </div>
-								    <ul class="group-rooms-list dropdown-list" style="display:block;">
+								    <ul class="group-rooms-list dropdown-list" style="/*display:block;*/">
 								    </ul>
 								</div>
 							</div>
@@ -95,8 +91,7 @@ class MapView extends LitElement {
 					<div class="loader loader-map">
 						<svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" stroke="#010101"> <g fill="none" fill-rule="evenodd" stroke-width="2"> <circle cx="22" cy="22" r="1"> <animate attributeName="r" begin="0s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite" /> <animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite" /> </circle> <circle cx="22" cy="22" r="1"> <animate attributeName="r" begin="-0.9s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite" /> <animate attributeName="stroke-opacity" begin="-0.9s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite" /> </circle> </g></svg>
 					</div>	
-					<div id="map">
-					</div>
+					
 					<div class="tooltip">
 						<div class="pin">PIN</div>
 						<div class="card">
@@ -114,6 +109,7 @@ class MapView extends LitElement {
 								<a class="website hide" target="_blank">Website</a>
 								<p class="share-element hide translatable">Share</p>
 							</div>
+							<div id="room-qrcode"></div>
 						</div>
 					</div>
 					<div class="floors-zoom-selector">
@@ -126,6 +122,8 @@ class MapView extends LitElement {
 							<span class="plus">+</span>
 							<span class="minus">_</span>
 						</div>
+					</div>
+					<div id="map">
 					</div>
 				</div>
 				<span class="js-media-query-tester"></span>
@@ -154,7 +152,8 @@ class MapView extends LitElement {
 	firstUpdated(changedProperties) {
 		var shadowRoot = this.shadowRoot;
 		var thisLang = this.language;
-		documentReady(shadowRoot,thisLang);
+		var thisTotem = Number.parseInt(this.totem);
+		documentReadyNOIMaps(shadowRoot,thisLang,thisTotem);
 			/*jQuery.each(result.data, function(i, field){
 					//console.log(field.sname);
 					jQuery(results).append('<li>'+field.sname+'</li>');
@@ -174,9 +173,11 @@ function getStyle(style) {
 var ODHdata = '';
 var controller = '';
 var shadowRoot = '';
+var thisQrcode = null;
 var buildings_summary = [];
 var clickedElementID = '';
 var thisNoiMapsSettingsLang = 'it';
+var thisNoiMapsSettingsTotem = false;
 var originalTooltip = '';
 var maps_svgs = [];
 var NOIrooms = [];
@@ -184,13 +185,11 @@ var selettoriType = [];
 var translations = [];
 var minCharsToSearch = 2;
 
-function resizeEndActions(){
-	setTooltipPosition();
-	//mapContainerHeight();
-	//tooltipViewport();
-	//langSwitcherLabels();
-	sidebarHeight();
-	setMediaQueries();
+function resizeEndActionsNOIMaps() {
+	sidebarHeightNOIMaps();
+	setMediaQueriesNOIMaps();
+	setTooltipPositionNOIMaps();
+	tooltipViewportNOIMaps();
 	if(typeof controller === 'object' && controller !== null && typeof controller.moveBy!='undefined') {
 		try {
 			controller.moveBy(0.001, 0.001);
@@ -198,17 +197,16 @@ function resizeEndActions(){
 	}
 }
 
-function cleanupRoomLabel(roomLabel) {
+function cleanupRoomLabelNOIMaps(roomLabel) {
 	if(typeof roomLabel !== 'undefined') {
 		return roomLabel.replace(/ |\./g,'-')
 	}
 	return false;
 }
 
-function documentReady(shadowRootInit,thisLang) {
+function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem) {
 	shadowRoot = shadowRootInit;
-
-	setMediaQueries();
+	setMediaQueriesNOIMaps();
 	//Disables scroll events from mousewheels, touchmoves and keypresses.
 	//disableBodyScroll(shadowRoot.querySelectorAll('.inner-map-component'));
 
@@ -219,6 +217,7 @@ function documentReady(shadowRootInit,thisLang) {
 	var NoiMapsSettingsUrlChecker = new URL(window.location.href);
 	var NoiMapsSettingsShared = NoiMapsSettingsUrlChecker.searchParams.get("shared");
 	var NoiMapsSettingsLang = NoiMapsSettingsUrlChecker.searchParams.get("lang");
+	var NoiMapsSettingsTotem = NoiMapsSettingsUrlChecker.searchParams.get("totem");
 	
 	if(typeof thisLang != 'undefined' && thisLang !== null || jQuery.inArray( thisLang, ['it','en','de'] ) >= 0) {
 		thisNoiMapsSettingsLang = thisLang;
@@ -227,6 +226,24 @@ function documentReady(shadowRootInit,thisLang) {
 		thisNoiMapsSettingsLang = NoiMapsSettingsLang;
 	}
 
+	if(typeof thisTotem != 'undefined' && thisTotem !== null && !isNaN(thisTotem)) {
+		if(thisTotem > 0) {
+			thisNoiMapsSettingsTotem = true;
+		} else {
+			thisNoiMapsSettingsTotem = false;
+		}
+	}
+	if(typeof NoiMapsSettingsTotem != 'undefined' && NoiMapsSettingsTotem !== null && !isNaN(NoiMapsSettingsTotem)) {
+		if(NoiMapsSettingsTotem > 0) {
+			thisNoiMapsSettingsTotem = true;
+		} else {
+			thisNoiMapsSettingsTotem = false;
+		}
+	}
+
+	if(thisNoiMapsSettingsTotem) {
+		jQuery(shadowRoot.querySelectorAll('.outer-map-container')).addClass("totem");
+	}
 
 	//console.log("Lingua "+thisNoiMapsSettingsLang);
 
@@ -237,20 +254,20 @@ function documentReady(shadowRootInit,thisLang) {
 		for(var i in ODHdata.data) {
 			let roomLabel = ODHdata.data[i].smetadata.room_label;
 			if(typeof roomLabel !== 'undefined') {
-				roomLabel = cleanupRoomLabel(roomLabel);
+				roomLabel = cleanupRoomLabelNOIMaps(roomLabel);
 				NOIrooms[roomLabel] = ODHdata.data[i].smetadata;
 			}
 		}
 
 		//CHECK RESULTS FIRST FETCH (NOI DATA ALLS) AND THEN GET BUILDINGS
 		if(Object.keys(ODHdata).length > 0) {
-			writeGroupsSidebar(ODHdata);
+			writeGroupsSidebarNOIMaps(ODHdata);
 			//console.log('OPEN_DATA_HUB_ONLY_SHOW_MAP valid');
 
 			//THEN GET BUILDINGS
 			jQuery.getJSON(config.OPEN_DATA_HUB_BUILDINGS, function(result){
 				//buildings = result;
-				printMap("axonometric");
+				printMapNOIMaps("axonometric");
 
 				for(var i in result.data) {
 					buildings_summary[result.data[i].smetadata.building_code] = result.data[i].smetadata;
@@ -265,8 +282,8 @@ function documentReady(shadowRootInit,thisLang) {
 					//console.log('OPEN_DATA_HUB_BUILDINGS valid');
 					setTimeout(function() {
 						jQuery(shadowRoot.querySelectorAll('.loader')).fadeOut();
-						getTranslations();
-						
+						getTranslationsNOIMaps();
+						dropdownToggleNOIMaps(); //NOTE: Aggiunto qua dopo il caricamento
 						//CHECK SHARE
 
 
@@ -275,7 +292,8 @@ function documentReady(shadowRootInit,thisLang) {
 
 						setTimeout(function() {
 							if(typeof(NoiMapsSettingsShared)!='undefined' && NoiMapsSettingsShared!=null && NoiMapsSettingsShared!='') {
-								clickedElement(NoiMapsSettingsShared.toUpperCase());
+								clickedElementNOIMaps(NoiMapsSettingsShared.toUpperCase());
+								
 							}
 						}, 500)
 					},500);
@@ -286,11 +304,11 @@ function documentReady(shadowRootInit,thisLang) {
 		        //console.log("error " + textStatus);
 		        //console.log("incoming Text " + jqXHR.responseText);
 		    	setTimeout(function() {
-		    		documentReady(shadowRootInit,thisLang);
+		    		documentReadyNOIMaps(shadowRootInit,thisLang);
 		    	})
 		    })
 			.always(function() {
-				setupMapBehaviours();
+				setupMapBehavioursNOIMaps();				
 			});
 
 		}
@@ -299,7 +317,8 @@ function documentReady(shadowRootInit,thisLang) {
         //console.log("incoming Text " + jqXHR.responseText);
     })
     .always(function() {
-		clickableBehaviour();
+		clickableBehaviourNOIMaps();
+		
 		/*setTimeout(function() {
 			//console.log(NOIrooms);
 		},500);*/
@@ -323,21 +342,20 @@ function documentReady(shadowRootInit,thisLang) {
 			jQuery(shadowRoot.querySelectorAll("input.search")).focus();
 		}
 		setTimeout(function() {
-			setTooltipPosition();
+			setTooltipPositionNOIMaps();
 		},300);
 	});
 
-	dropdownToggle();
-	dropdownSelection();
-	sharerBehaviours();
-
-	sidebarHeight();
+	dropdownToggleNOIMaps();
+	dropdownSelectionNOIMaps();
+	sharerBehavioursNOIMaps();
+	roomQRCodeNOIMaps();
+	sidebarHeightNOIMaps();
 
 	jQuery(window).resize(function() {
-		//console.log('Resizing....');
-		clearTimeout(window.resizedFinished);
-		window.resizedFinished = setTimeout(function(){
-			resizeEndActions();
+		clearTimeout(window.resizedFinishedNOIMaps);
+		window.resizedFinishedNOIMaps = setTimeout(function(){
+			resizeEndActionsNOIMaps();
 		}, 250);
 	});
 
@@ -360,7 +378,7 @@ function documentReady(shadowRootInit,thisLang) {
 	*/
 }
 
-function getTranslations() {
+function getTranslationsNOIMaps() {
 	jQuery.getJSON(config.OPEN_DATA_HUB_TRANSLATIONS, function(result){
 		let objects = result.data.filter(function(v){
 			return v.mvalue=="Traduzioni";
@@ -372,15 +390,13 @@ function getTranslations() {
 		}
 
 		if( Object.keys(translations).length > 0 ) {
-			clickableBehaviour();
-			getSelettoriType();
-			searchElementsStarter();			
-
-			translateElements();
-
+			clickableBehaviourNOIMaps();
+			getSelettoriTypeNOIMaps();
+			searchElementsStarterNOIMaps();
+			translateElementsNOIMaps();
 		} else {
 			location.reload();
-			//getTranslations();
+			//getTranslationsNOIMaps();
 			return;
 		}
 	})
@@ -393,17 +409,17 @@ function getTranslations() {
 	});
 }
 
-function translateElements() {
+function translateElementsNOIMaps() {
 	jQuery(shadowRoot.querySelectorAll(".translatable")).each(function() {
 		if(jQuery(this).is('input')) {
-			jQuery(this).attr( 'placeholder', getTranslation(jQuery(this).attr('placeholder')) );
+			jQuery(this).attr( 'placeholder', getTranslationNOIMaps(jQuery(this).attr('placeholder')) );
 		} else {
-			jQuery(this).text( getTranslation(jQuery(this).text()) );
+			jQuery(this).text( getTranslationNOIMaps(jQuery(this).text()) );
 		}
 	});
 }
 
-function getBuildingData(buildingCode, key) {
+function getBuildingDataNOIMaps(buildingCode, key) {
 	if(typeof buildings == 'undefined' || typeof buildings.data == 'undefined' || typeof buildingCode == 'undefined' || typeof key == 'undefined' || key == '' || key == null) {
 		return false;
 	}
@@ -417,13 +433,13 @@ function getBuildingData(buildingCode, key) {
 	return false;
 }
 
-function printMap(this_building_code) {
+function printMapNOIMaps(this_building_code) {
 	if(Object.keys(maps_svgs).length === 0) {
-		fetchMapsSVG(this_building_code);
+		fetchMapsSVGNOIMaps(this_building_code);
 	}
 }
 
-function fetchMapsSVG(this_building_code) {
+function fetchMapsSVGNOIMaps(this_building_code) {
 	jQuery.getJSON(config.OPEN_DATA_HUB_FLOORS, function(result){
 		for(var i in result.data) {
 			let currentBuildingCode = result.data[i].smetadata.building_code;
@@ -448,7 +464,7 @@ function fetchMapsSVG(this_building_code) {
 					if(typeof this_building_code !== 'undefined' && typeof currentBuildingCode !== 'undefined' && currentBuildingCode == this_building_code) {
 						jQuery(shadowRoot.getElementById('map')).html($svg.prop("outerHTML"));
 						setTimeout(function() {
-							clickableBehaviour();
+							clickableBehaviourNOIMaps();
 						},50);
 					}
 				}, 'xml');
@@ -457,26 +473,7 @@ function fetchMapsSVG(this_building_code) {
 	});
 }
 
-
-function drawRooms() {
-	for(var i in ODHdata.data) {
-		let beaconID = ODHdata.data[i].smetadata.beacon_id;
-		let x = jQuery(shadowRoot.getElementById('map')).find(".clickable#"+beaconID).children().attr('x');
-		if(isNaN(x)) {
-			x = 0;
-		}
-		let y = jQuery(shadowRoot.getElementById('map')).find(".clickable#"+beaconID).children().attr('y');
-		if(isNaN(y)) {
-			y = 0;
-		}
-		x = parseInt(x)+20;
-		y = parseInt(y)+20;
-		jQuery(shadowRoot.getElementById('map')).find(".clickable#"+beaconID).append('<text x="'+x+'" y="'+y+'">'+beaconID+'</text>');
-	}
-	shadowRoot.getElementById('Livello_1').innerHTML += '';
-}
-
-function writeGroupsSidebar(ODHdata) {
+function writeGroupsSidebarNOIMaps(ODHdata) {
 	jQuery.getJSON(config.OPEN_DATA_HUB_TYPES_GROUPS, function(result){
 		let objects = result.data.filter(function(v){
 			return v.mvalue=="Selettori Group";
@@ -508,13 +505,23 @@ function writeGroupsSidebar(ODHdata) {
 			
 			for(var k in ODHdata.data) {
 				if(ODHdata.data[k].smetadata.group == sorted[index].name && typeof ODHdata.data[k].smetadata.name !== 'undefined' && ODHdata.data[k].smetadata.name[thisNoiMapsSettingsLang]!=='undefined') {
-					let elementCode = cleanupRoomLabel(ODHdata.data[k].smetadata.room_label);
+					let elementCode = cleanupRoomLabelNOIMaps(ODHdata.data[k].smetadata.room_label);
 					let roomPieces = elementCode.split("-");
 					let roomNr = roomPieces[roomPieces.length - 1];
 					if(isNaN(roomNr)) {
 						roomNr = roomPieces[roomPieces.length - 2] +"-"+roomPieces[roomPieces.length - 1];
 					}
-					categoryGroupClone.find('.group-rooms-list').append('<li class="clickable" data-building-code="'+roomPieces[0]+'" data-room-code="'+elementCode+'" data-floor-code="'+ODHdata.data[k].smetadata.floor+'">('+ODHdata.data[k].smetadata.beacon_id+") "+ODHdata.data[k].smetadata.name[thisNoiMapsSettingsLang]+'</li>')
+					var roomLabelCiph = ODHdata.data[k].smetadata.room_label.split('.');
+					var roomLabel;
+					for(var j = 0;j<roomLabelCiph.length;j++){
+						if(roomLabelCiph.length > 3){
+							roomLabel =  roomLabelCiph[roomLabelCiph.length - 2] + '-' +roomLabelCiph[roomLabelCiph.length - 1];
+						}else{
+							roomLabel = roomLabelCiph[roomLabelCiph.length - 1];
+						}
+						
+					}
+					categoryGroupClone.find('.group-rooms-list').append('<li class="clickable" data-building-code="'+roomPieces[0]+'" data-room-code="'+elementCode+'" data-floor-code="'+ODHdata.data[k].smetadata.floor+'"><span class="room-icon-building icon-building-'+roomPieces[0]+'">'+roomPieces[0]+'</span><span class="room-name">' + ODHdata.data[k].smetadata.name[thisNoiMapsSettingsLang] + '</span><span class="room-floor">' + ODHdata.data[k].smetadata.floor + '</span><span class="room-number">' + roomLabel + '</span></li>')
 				}
 			}
 
@@ -528,7 +535,7 @@ function writeGroupsSidebar(ODHdata) {
 	})
 }
 
-function filtersBehaviours() {
+function filtersBehavioursNOIMaps() {
 	for(let i in selettoriType) {
 		/*let filter = jQuery(shadowRoot.querySelectorAll(".filter-container .single-filter.original")).clone();
 		filter.text(selettoriType[i][thisNoiMapsSettingsLang]);
@@ -540,14 +547,9 @@ function filtersBehaviours() {
 			filter.find('label').attr("for","filter-"+i);
 			filter.find('input').attr("id","filter-"+i);
 			filter.find('input').attr("data-category",i);
-
-
 			jQuery(shadowRoot.querySelectorAll(".filter-container .filters")).append(filter);
 		}
-
 	}
-
-
 	jQuery(shadowRoot.querySelectorAll(".all-filters-checkbox")).click(function(){
 		if(jQuery(this).is(':checked')) {
 			jQuery(shadowRoot.querySelectorAll(".filter-container .single-filter .filter-trigger")).prop( "checked", true );
@@ -569,32 +571,7 @@ function filtersBehaviours() {
 	});
 }
 
-function getSelettoriType() {
-	/*jQuery.getJSON(config.OPEN_DATA_HUB_TYPES_GROUPS, function(result){
-		let objects = result.data.filter(function(v){
-			return v.mvalue=="Selettori Type";
-		});
-		objects = Object.values(objects[0].tmetadata);
-		objects = objects.sort((a, b) => (a.order > b.order) ? 1 : -1);
-		if(typeof objects[0] !== 'undefined' && objects[0]!=null) {
-			selettoriType = objects[0].tmetadata;*/
-			/*for(var i in selettoriType) {
-				if(typeof selettoriType[i]['image'] !== 'undefined' && selettoriType[i]['image'] !== null) {
-					jQuery.get(selettoriType[i]['image'], (data2) => {
-						let $svg = jQuery(data2).find('svg');
-						// Remove any invalid XML tags as per http://validator.w3.org
-						$svg = $svg.removeAttr('xmlns:a');
-						// Check if the viewport is set, if the viewport is not set the SVG wont't scale.
-						if (!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
-							$svg.attr(`viewBox 0 0  ${$svg.attr('height')} ${$svg.attr('width')}`);
-						}
-						selettoriType[i]['SVG'] = $svg.prop("outerHTML");
-					}, 'xml');
-				}
-			}*/
-		/*}
-	});*/
-
+function getSelettoriTypeNOIMaps() {
 	jQuery.getJSON(config.OPEN_DATA_HUB_TYPES_GROUPS, function(result){
 		let objects = result.data.filter(function(v){
 			return v.mvalue=="Selettori Type";
@@ -604,63 +581,20 @@ function getSelettoriType() {
 		if(typeof objects[0] !== 'undefined' && objects[0]!=null) {
 			selettoriType = objects[0].tmetadata;
 		}
-		//filtersBehaviours();
+		//filtersBehavioursNOIMaps();
 		if( Object.keys(selettoriType).length > 0 ) {
-			filtersBehaviours();
+			filtersBehavioursNOIMaps();
 		} else {
-			getSelettoriType();
+			getSelettoriTypeNOIMaps();
 			return;
 		}
-
-		
-
-		/*for(var i in selettoriType) {
-			if(typeof selettoriType[i]['image'] !== 'undefined' && selettoriType[i]['image'] !== null) {
-				jQuery.get(selettoriType[i]['image'], function (data) {
-				    selettoriType[i]['image'] = data;
-				});
-			}
-		}*/
 	});
 }
 
 
-function startHammer(shadowRoot) {
-	//console.log('starting hammer');
-	var mc = new Hammer(shadowRoot.getElementById("myElement"));
-	var lastPosX = 0;
-	var lastPosY = 0;
-	var isDragging = false;
-	mc.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold: 0 }) );
-	mc.on("pan", function(ev){
-		var elem = ev.target;  
-		// DRAG STARTED
-		// here, let's snag the current position
-		// and keep track of the fact that we're dragging
-		if ( ! isDragging ) {
-			isDragging = true;
-			lastPosX = elem.offsetLeft;
-			lastPosY = elem.offsetTop;
-		}
-		// we simply need to determine where the x,y of this
-		// object is relative to where it's "last" known position is
-		// NOTE: 
-		//    deltaX and deltaY are cumulative
-		// Thus we need to always calculate 'real x and y' relative
-		// to the "lastPosX/Y"
-		var posX = ev.deltaX + lastPosX;
-		var posY = ev.deltaY + lastPosY;
-		// move our element to that position
-		elem.style.left = posX + "px";
-		elem.style.top = posY + "px";
-		if (ev.isFinal) {
-			isDragging = false;
-		}
-	});
-}
 
 
-function setupMapBehaviours() {
+function setupMapBehavioursNOIMaps() {
 	//Disable scroll (Safari zoom bug)
 	//shadowRoot.getElementById("map").disablescroll();
 
@@ -673,22 +607,30 @@ function setupMapBehaviours() {
 		smoothScroll: true,
 		bounds: true,
 		boundsPadding: 1,
-		boundsDisabledForZoom: true
+		boundsDisabledForZoom: true,
 	});
 	controller.on('transform', function(e) {
-		setTooltipPosition();
+		setTooltipPositionNOIMaps();
 	});
 
-	setMapZoom(shadowRoot);	
+	setMapZoomNOIMaps(shadowRoot);
 
 	//Clickables
 	//Tooltip & View floorplans
 	
 
 	jQuery(shadowRoot.querySelectorAll("#mapContainer")).unbind();
+
 	var hammertime = propagating(new Hammer(jQuery(shadowRoot.querySelectorAll("#mapContainer"))[0], {}));
 	hammertime.off('tap');
+
+	hammertime.on('pan', function(ev) {
+		if( jQuery(ev.firstTarget).parents('.floors-list').length!==0 ) {
+			controller.pause();
+		}
+	});
 	hammertime.on('tap', function(ev) {
+		ev.stopPropagation();
 		if( jQuery(ev.firstTarget).parents('.tooltip.active').length==0 ) {
 			jQuery(shadowRoot.querySelectorAll("#map .clickable")).each(function(i) {
 				var thisClickable = jQuery(this);
@@ -700,10 +642,11 @@ function setupMapBehaviours() {
 				}
 			});
 		}
+		
 
 		if(typeof(ev)!='undefined' && typeof(ev.firstTarget)!='undefined') {
 			if( jQuery(ev.firstTarget).parents('.tooltip').length == 0 && !jQuery(ev.firstTarget).hasClass('clickable') && jQuery(ev.firstTarget).parents('.clickable').length == 0 ) {
-				closeTooltip(ev, shadowRoot);
+				closeTooltipNOIMaps(ev, shadowRoot);
 			}
 			if( jQuery(ev.firstTarget).hasClass('share-element') ) {
 				jQuery(shadowRoot.querySelectorAll('.sharer-container')).removeClass('hide').fadeIn();
@@ -712,12 +655,15 @@ function setupMapBehaviours() {
 			}
 			if(
 				jQuery(ev.firstTarget).parents('.tooltip').length>0 &&
+				!jQuery(shadowRoot.querySelectorAll('.outer-map-container')).hasClass("totem") &&
 				(
 					jQuery(ev.firstTarget).hasClass('heading') ||
 					jQuery(ev.firstTarget).parents('.heading').length>0 ||
 					jQuery(ev.firstTarget).hasClass('expand-info')
-				)
+				) &&
+				jQuery(shadowRoot.querySelectorAll('.tooltip')).find('.long-description').html() !== ''
 			) {
+				
 				jQuery(shadowRoot.querySelectorAll('.tooltip')).find('.long-description').slideToggle();
 			}
 		}
@@ -726,21 +672,21 @@ function setupMapBehaviours() {
 			typeof(jQuery(ev.firstTarget).data('building-code'))!=='undefined' && jQuery(ev.firstTarget).data('building-code')!==null && jQuery(ev.firstTarget).data('building-code')!=='' &&
 			typeof(jQuery(ev.firstTarget).data('building-floor'))!=='undefined' && jQuery(ev.firstTarget).data('building-floor')!==null && jQuery(ev.firstTarget).data('building-floor')!==''
 		) {
-			goToBuildingFloor(jQuery(ev.firstTarget).data('building-code'),jQuery(ev.firstTarget).data('building-floor'), true);
-
+			goToBuildingFloorNOIMaps(jQuery(ev.firstTarget).data('building-code'),jQuery(ev.firstTarget).data('building-floor'), true);
 		}
+
+		setTimeout(function() {
+			controller.pause();
+			setTimeout(function() {
+				controller.resume();
+			}, 100);
+		}, 100);
 	});
 
 	//Navbar
-	jQuery(shadowRoot.querySelectorAll(".navbar-container .site-title")).click(function(e) {
+	jQuery(shadowRoot.querySelectorAll(".navbar-container .site-title")).click(function(e) {;
 		e.preventDefault();
-		//console.log('GOING OUTSIDE..........');
-		goToBuildingFloor('axonometric','0', true);
-		if(typeof(controller)!='undefined') {
-			try {
-				mapContainerHeight();
-			}catch(err) {}
-		}		
+		goToBuildingFloorNOIMaps('axonometric','0', true);
 		return;
 	});
 
@@ -758,10 +704,19 @@ function setupMapBehaviours() {
 		controller.smoothZoom(jQuery(shadowRoot.getElementById("map")).outerWidth()/2,jQuery(shadowRoot.getElementById("map")).outerHeight()/2,0.5);
 	});
 
-	clickableBehaviour();
+	clickableBehaviourNOIMaps();
+
+	jQuery(shadowRoot.querySelectorAll('.floors-list')).on('click', '.floor', function() {
+		goToBuildingFloorNOIMaps(jQuery(this).data('building-code'),jQuery(this).data('floor-code'),true);
+	});
+	jQuery(shadowRoot.querySelectorAll('.dropdown.building-select')).on('click', '.building-select-trigger', function(e) {
+		e.preventDefault();
+		goToBuildingFloorNOIMaps(jQuery(this).data('building-code'),'0',true);
+		return false;
+	});
 }
 
-function setMapZoom() {
+function setMapZoomNOIMaps() {
 	if(typeof(controller)!='undefined') {
 		controller.zoomAbs(0, 0, 1);
 		controller.moveBy(0.001, 0.001);
@@ -780,13 +735,10 @@ function setMapZoom() {
 							} else {
 								controller.smoothZoom(x+(jQuery(shadowRoot.getElementById("#mapContainer")).innerWidth()/16),y,3);
 							}
-						}
-
-						
+						}						
 					},500);
 				} else {
 					if(jQuery(shadowRoot.querySelectorAll("#map #main-entrance")).length>0) {
-
 						if(!isNaN(jQuery(shadowRoot.querySelectorAll("#map #main-entrance")).offset().left) &&!isNaN(jQuery(shadowRoot.querySelectorAll("#map #main-entrance"))[0].getBoundingClientRect().width/2) && !isNaN(jQuery(shadowRoot.querySelectorAll("#map #main-entrance")).offset().top)) {
 							controller.smoothZoom(jQuery(shadowRoot.querySelectorAll("#map #main-entrance")).offset().left+jQuery(shadowRoot.querySelectorAll("#map #main-entrance"))[0].getBoundingClientRect().width/2, jQuery(shadowRoot.querySelectorAll("#map #main-entrance")).offset().top,3);
 						}
@@ -802,14 +754,14 @@ function setMapZoom() {
 				}
 			},250);
 		}
-
 	}
 }
 
-function clickableBehaviour() {
+function clickableBehaviourNOIMaps() {
 	//Clickable elements (building SVG - sidebar groups)
 	jQuery(shadowRoot.querySelectorAll('.clickable a')).unbind();
 	jQuery(shadowRoot.querySelectorAll('.clickable')).unbind();
+	jQuery(shadowRoot.querySelectorAll('.clickable')).click(function(ev) { ev.preventDefault(); return false; });
 	jQuery(shadowRoot.querySelectorAll('.clickable a')).click(function(ev) { ev.preventDefault(); return false; });
 	jQuery(shadowRoot.querySelectorAll('.clickable')).each(function() {
 		var thisEl = this;
@@ -818,12 +770,19 @@ function clickableBehaviour() {
 		} else {
 			return true;
 		}
-
-
-		var hammertime = new Hammer(thisEl, {});
+		var hammertime = propagating(new Hammer(thisEl, {preventDefault: true}));
 		hammertime.off('tap');
 		setTimeout(function() {
 			hammertime.on('tap', function(ev) {
+				if(typeof controller !== 'undefined') {
+					setTimeout(function() {
+						controller.pause();
+						setTimeout(function() {
+							controller.resume();
+						}, 50);
+					}, 50);
+				}
+				ev.stopPropagation();
 				//console.log('clickableBehaviour TAP');
 				var buildingCode = jQuery(thisEl).data('building-code');
 				var roomCode = jQuery(thisEl).data('room-code');
@@ -844,8 +803,7 @@ function clickableBehaviour() {
 					( (typeof(floorCode)!=='undefined' && floorCode!='') || (floorCode===0)) &&
 					typeof(roomCode)!=='undefined' && roomCode!=''
 				) {
-					//console.log('clicked sidebar');
-					setMapZoom();
+					setMapZoomNOIMaps();
 					if(!jQuery(shadowRoot.querySelectorAll('.inner-map-component')).hasClass('dim_40')) {
 						jQuery(shadowRoot.querySelectorAll('.outer-map-container')).removeClass('search-open');
 					}
@@ -853,11 +811,11 @@ function clickableBehaviour() {
 					if(jQuery(shadowRoot.querySelectorAll(".inner-map-component")).attr('data-building')==buildingCode && jQuery(shadowRoot.querySelectorAll(".inner-map-component")).attr('data-floor')==floorCode) {
 						//We are in the same building or in the same floor as the clicked element
 						//console.log('same floor same building');			
-						clickedElement(roomCode, 'room');
+						clickedElementNOIMaps(roomCode, 'room');
 					} else {
-						//console.log('goto building '+buildingCode+' floor '+floorCode);				
-						goToBuildingFloor(buildingCode, floorCode, false);
-						clickedElement(roomCode, 'room');
+						console.log('goto building '+buildingCode+' floor '+floorCode);				
+						goToBuildingFloorNOIMaps(buildingCode, floorCode, false);
+						clickedElementNOIMaps(roomCode, 'room');
 					}
 				} else if(typeof(buildingCode)!='undefined' && buildingCode!='' && typeof(floorCode)=='undefined') {
 					//console.log('clicked building');
@@ -869,17 +827,17 @@ function clickableBehaviour() {
 						if(thisBuilding && thisFloor) {
 							//We're in axonometric mode, clicked an item with buildingcode and floor -> go directly
 							//console.log("We're in axonometric mode, clicked an item with buildingcode and floor -> go directly");
-							goToBuildingFloor(thisBuilding, thisFloor, true);
+							goToBuildingFloorNOIMaps(thisBuilding, thisFloor, true);
 						} else {
 							//We're in axonometric mode, open popup
 							//console.log("We're in axonometric mode, open popup");
-							clickedElement(buildingCode, 'building');
+							clickedElementNOIMaps(buildingCode, 'building');
 						}								
 					} else {
 						//console.log('not axonometric We\'re inside some floor, goto building');
 						//console.log(ev.target);
 						//We're inside some floor, goto building
-						goToBuildingFloor(buildingCode, '0', true);
+						goToBuildingFloorNOIMaps(buildingCode, '0', true);
 					}
 				} else if(
 					typeof(buildingCode)!=='undefined' && buildingCode!='' &&
@@ -889,11 +847,11 @@ function clickableBehaviour() {
 				) {
 					//console.log('clicked something with BUILDING and FLOOR');
 					if(jQuery(shadowRoot.querySelectorAll(".inner-map-component")).attr('data-building')!=buildingCode || jQuery(shadowRoot.querySelectorAll(".inner-map-component")).attr('data-floor')!=floorCode) {
-						goToBuildingFloor(buildingCode, floorCode);
+						goToBuildingFloorNOIMaps(buildingCode, floorCode);						
 					}
 				}else {
 					//console.log('Clicked something we dont know about');
-					clickedElement(jQuery(thisEl).attr('id'),'room');
+					clickedElementNOIMaps(jQuery(thisEl).attr('id'),'room');
 				}
 			});
 		}, 50);
@@ -901,7 +859,7 @@ function clickableBehaviour() {
 }
 
 
-function clickedElement(elementCode, type="room") {
+function clickedElementNOIMaps(elementCode, type="room") {
 	if(Object.keys(NOIrooms).length === 0) {
 		alert("NOIrooms empty - ERROR!");
 	} else {
@@ -921,7 +879,7 @@ function clickedElement(elementCode, type="room") {
 			if(type=="building") {
 				if(typeof maps_svgs[elementCode] == 'undefined') {
 					//console.log('ATTENZIONE! Non è presente alcuna mappa SVG per: '+elementCode);
-					closeTooltip();
+					closeTooltipNOIMaps();
 					return true;
 				}
 				if(typeof(buildings_summary[elementCode])!='undefined' && typeof maps_svgs[elementCode] !== 'undefined') {
@@ -999,9 +957,9 @@ function clickedElement(elementCode, type="room") {
 						building!=='' && floor !== '' &&
 						( jQuery(shadowRoot.querySelectorAll('.inner-map-component')).data('building')!==building || jQuery(shadowRoot.querySelectorAll('.inner-map-component')).data('floor')!==floor )
 					) {
-						goToBuildingFloor(building, floor, false);
+						goToBuildingFloorNOIMaps(building, floor, false);
 					}
-					//setMapZoom();
+					//setMapZoomNOIMaps();
 				}
 
 
@@ -1011,7 +969,7 @@ function clickedElement(elementCode, type="room") {
 				//console.log('^^^^^^^^^^^^^^^^^^^^^^');			
 				if(jQuery(shadowRoot.querySelector("[id='"+clickedElementID+"']")).length==0) {
 					//console.log('ATTENZIONE! Non è presente in alcuna mappa l\'elemento con codice:\n'+clickedElementID+'\nControllare SVG');
-					closeTooltip();
+					closeTooltipNOIMaps();
 					return true;
 				}
 			}
@@ -1020,10 +978,10 @@ function clickedElement(elementCode, type="room") {
 			jQuery(shadowRoot.querySelectorAll('.tooltip .icon, .tooltip .name, .tooltip .short-description, .tooltip .long-description, .tooltip .lower, .tooltip .view-floorplan, .tooltip .website, .tooltip .share-element, .tooltip .expand-info')).addClass('hide');
 			if(icon_code==''&&name==''&&shortdesc==''&&longdesc=='') {
 				//console.log('ATTENZIONE! Nessuna informazione per l\'elemento cliccato:\n'+elementCode+'\nControllare il foglio Google');
-				closeTooltip();
+				closeTooltipNOIMaps();
 				return true;
 			} else {
-				//$(".tooltip .view-floorplan").text(getTranslation($(".tooltip .view-floorplan").text()));
+				//$(".tooltip .view-floorplan").text(getTranslationNOIMaps($(".tooltip .view-floorplan").text()));
 				if(icon_code!='') {
 					////console.log('----------------elementCode');
 					////console.log(elementCode);
@@ -1060,6 +1018,8 @@ function clickedElement(elementCode, type="room") {
 					jQuery(shadowRoot.querySelectorAll(".tooltip .long-description")).removeClass('hide');
 					jQuery(shadowRoot.querySelectorAll(".tooltip .expand-info")).removeClass('hide');
 					jQuery(shadowRoot.querySelectorAll(".tooltip .long-description")).text(longdesc);
+				} else {
+					jQuery(shadowRoot.querySelectorAll(".tooltip .long-description")).text('');
 				}
 				if(type=="building") {
 					jQuery(shadowRoot.querySelectorAll(".tooltip .lower")).removeClass('hide');
@@ -1076,24 +1036,55 @@ function clickedElement(elementCode, type="room") {
 					jQuery(shadowRoot.querySelectorAll(".tooltip .lower .share-element")).removeClass('hide');
 					jQuery(shadowRoot.querySelectorAll(".tooltip .lower .share-element")).attr('data-element-code',elementCode);
 					jQuery(shadowRoot.querySelectorAll(".tooltip .room-url")).text(location.origin+location.pathname+'?shared='+elementCode+'&lang='+thisNoiMapsSettingsLang);
-					/*if($('body').hasClass('totem') && typeof QRCode !== 'undefined') {
-						roomQRCode();
-						qrcode.clear(); // clear the code.
-						qrcode.makeCode(location.origin+location.pathname+'?shared='+elementCode+'&lang='+thisNoiMapsSettingsLang); // make another code.
+					if(jQuery(shadowRoot.querySelectorAll('.outer-map-container')).hasClass("totem") && typeof QRCode !== 'undefined') {
+						roomQRCodeNOIMaps();
+						thisQrcode.clear(); // clear the code.
+						thisQrcode.makeCode(location.origin+location.pathname+'?shared='+elementCode+'&lang='+thisNoiMapsSettingsLang); // make another code.
 						//new QRCode(document.getElementById("room-qrcode"), location.origin+location.pathname+'?shared='+elementCode+'&lang='+thisNoiMapsSettingsLang);
-					}*/
+					}
 
 					if(website) {
 						jQuery(shadowRoot.querySelectorAll(".tooltip .lower .website")).removeClass('hide');
 						jQuery(shadowRoot.querySelectorAll(".tooltip .lower .website")).attr('href',website);
 					}
 				}
-				jQuery(shadowRoot.querySelectorAll(".tooltip")).fadeIn(function() {});
+				jQuery(shadowRoot.querySelectorAll(".tooltip .long-description")).hide();
+				jQuery(shadowRoot.querySelectorAll(".tooltip")).fadeIn();
 				jQuery(shadowRoot.querySelectorAll(".tooltip")).addClass('active');
 			}
-			setTooltipPosition();
-			tooltipViewport();
+			setTooltipPositionNOIMaps();
+			tooltipViewportNOIMaps();
 		}
+	}
+}
+
+
+/*function totemChangeLinks() {
+	if(jQuery(shadowRoot.querySelectorAll('.outer-map-container')).hasClass("totem")) {
+		var querystring = 'totem=1';
+		$('a').filter( function(i,el) {
+		var startofurl = location.protocol+'//'+location.hostname;
+			return el.href.indexOf(startofurl)===0;
+		}).each(function() {
+			var href = $(this).attr('href');
+			if (href) {
+				href += (href.match(/\?/) ? '&' : '?') + querystring;
+				$(this).attr('href', href);
+			}
+		});
+	}
+}*/
+
+function roomQRCodeNOIMaps() {
+	if(jQuery(shadowRoot.querySelectorAll('.outer-map-container')).hasClass("totem") && typeof QRCode !== 'undefined' && jQuery(shadowRoot.querySelectorAll(".inner-map-component")).attr('data-building')!=='axonometric') {
+		jQuery(shadowRoot.querySelectorAll("#room-qrcode")).html('');
+		thisQrcode = new QRCode(  jQuery(shadowRoot.querySelectorAll("#room-qrcode"))[0] , {
+			text: location.origin+location.pathname,
+			width: 100,
+			height: 100,
+			colorDark : "#000000",
+			colorLight : "#ffffff",
+		});
 	}
 }
 
@@ -1110,7 +1101,7 @@ function clickedElement(elementCode, type="room") {
     };
 }*/
 
-function setTooltipPosition() {
+function setTooltipPositionNOIMaps() {
 	if(jQuery(shadowRoot.querySelector("[id='"+clickedElementID+"']")).length>0) {
 
 		let jsElem = jQuery(shadowRoot.querySelector("[id='"+clickedElementID+"']"))[0];
@@ -1118,7 +1109,7 @@ function setTooltipPosition() {
 			jsElem = jQuery(shadowRoot.querySelector("[id='"+clickedElementID+"']")).children()[0];
 		}
 
-		if(jQuery(shadowRoot.querySelectorAll('.inner-map-component')).hasClass('dim_50')){
+		if(jQuery(shadowRoot.querySelectorAll('.inner-map-component')).hasClass('dim_40')){
 			/*jQuery(shadowRoot.querySelectorAll(".tooltip")).css({
 				left: jQuery(jsElem).offset().left + (jsElem.getBoundingClientRect().width/2),
 				top: jQuery(jsElem).offset().top + (jsElem.getBoundingClientRect().height/2)-8
@@ -1134,6 +1125,10 @@ function setTooltipPosition() {
 
 		} else {
 			jQuery(shadowRoot.querySelectorAll(".tooltip")).css({
+				left: 0,
+				top: 0
+			});
+			jQuery(shadowRoot.querySelectorAll(".tooltip .pin")).css({ //NOTE: Spostato coordinate su pin
 				left: (jQuery(jsElem).offset().left + (jsElem.getBoundingClientRect().width/2))-15 - jQuery(shadowRoot.querySelectorAll('.inner-map-component')).position().left,
 				top: (jQuery(jsElem).offset().top - jQuery(shadowRoot.querySelectorAll('.inner-map-component'))[0].offsetTop + (jsElem.getBoundingClientRect().height/2))-45
 			});
@@ -1141,7 +1136,7 @@ function setTooltipPosition() {
 	}
 }
 
-function tooltipViewport(){
+function tooltipViewportNOIMaps(){
 	jQuery(shadowRoot.querySelectorAll('.tooltip .card')).removeClass('overflow-right');
 	jQuery(shadowRoot.querySelectorAll('.tooltip .card')).removeClass('overflow-bottom');
 
@@ -1149,13 +1144,13 @@ function tooltipViewport(){
 		if( (jQuery(shadowRoot.querySelectorAll('.tooltip')).position().left+jQuery(shadowRoot.querySelectorAll('.tooltip .card')).outerWidth()) > jQuery(shadowRoot.querySelectorAll('.inner-map-component')).innerWidth()) {
 			jQuery(shadowRoot.querySelectorAll('.tooltip .card')).addClass('overflow-right');
 		}
-		if( (jQuery(shadowRoot.querySelectorAll('.tooltip')).position().top+jQuery(shadowRoot.querySelectorAll('.tooltip .card')).outerHeight()) > jQuery(shadowRoot.querySelectorAll('.inner-map-component')).innerHeight()) {
+		if( (jQuery(shadowRoot.querySelectorAll('.tooltip')).position().top+jQuery(shadowRoot.querySelectorAll('.tooltip .card')).outerHeight()) > jQuery(shadowRoot.querySelectorAll('.inner-map-component')).innerHeight() - 75) {
 			jQuery(shadowRoot.querySelectorAll('.tooltip .card')).addClass('overflow-bottom');
 		}
 	}
 }
 
-function closeTooltip(ev) {
+function closeTooltipNOIMaps(ev) {
 	//console.log('CHIUDO');
 	var fadeSpeed = 200;
 	if(typeof(ev)!='undefined' && ev!='' && ev!=null) {
@@ -1166,15 +1161,17 @@ function closeTooltip(ev) {
 			!jQuery(ev.target).hasClass('tooltip') && jQuery(ev.target).parents('.tooltip').length==0
 		) {
 			jQuery(shadowRoot.querySelectorAll('.tooltip')).fadeOut(fadeSpeed, function() { jQuery(shadowRoot.querySelectorAll('.tooltip')).removeClass('active').html(originalTooltip); });
+			//console.log(jQuery(shadowRoot.querySelectorAll('.tooltip')).html());
 		}
 	} else {
 		jQuery(shadowRoot.querySelectorAll('.tooltip')).fadeOut(fadeSpeed, function() {
 			jQuery(shadowRoot.querySelectorAll('.tooltip')).removeClass('active').html(originalTooltip);
+			//console.log(jQuery(shadowRoot.querySelectorAll('.tooltip')).html());
 		});
 	}
 }
 
-function drawRoomsCategoryIcons() {
+function drawRoomsCategoryIconsNOIMaps() {
 	if(typeof(selettoriType)!='undefined' && selettoriType != null && selettoriType!='') {
 		var currentBuilding = jQuery(shadowRoot.querySelectorAll('.inner-map-component')).attr('data-building');
 		if(currentBuilding == 'axonometric') {
@@ -1219,7 +1216,7 @@ function drawRoomsCategoryIcons() {
 					}
 				}
 
-				//printElementOnMap( thisElement, elementCode, jQuery(selettoriType[NOIrooms[elementCode]['type']]['image']) );	
+				//printElementOnMapNOIMaps( thisElement, elementCode, jQuery(selettoriType[NOIrooms[elementCode]['type']]['image']) );	
 			} else {
 				let textLabel = "A000000";
 				if(
@@ -1230,14 +1227,14 @@ function drawRoomsCategoryIcons() {
 				} else {
 					textLabel = elementCode;
 				}
-				printElementOnMap( thisElement, elementCode, jQuery('<svg class="label-room" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#fff"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="30" fill="#000" font-family="Arial">'+textLabel+'</text></svg>') );				
+				printElementOnMapNOIMaps( thisElement, elementCode, jQuery('<svg class="label-room" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#fff"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="30" fill="#000" font-family="Arial">'+textLabel+'</text></svg>') );				
 			}
 		});
 		
 	}
 }
 
-function printElementOnMap(thisElement, elementCode, thisSVG) {
+function printElementOnMapNOIMaps(thisElement, elementCode, thisSVG) {
 	
 	shadowRoot.querySelectorAll('#map svg').innerHTML += '';
 	let x = 0;
@@ -1273,15 +1270,15 @@ function printElementOnMap(thisElement, elementCode, thisSVG) {
 	thisElement.append(thisSVG);
 }
 
-function goToBuildingFloor(buildingCode, buildingFloor, close = true) {
+function goToBuildingFloorNOIMaps(buildingCode, buildingFloor, close = true) {
 	if(
 		typeof(buildingCode)!=='undefined' && buildingCode!==null && buildingCode!=='' &&
 		typeof(buildingFloor)!=='undefined' && buildingFloor!==null && buildingFloor!=='' &&
 		typeof(maps_svgs)!=='undefined' && maps_svgs!==null && maps_svgs!==''
 	) {
-		//console.group("goToBuildingFloor");
+		//console.group("goToBuildingFloorNOIMaps(");
 		//console.log('--------------');
-		//console.log('goToBuildingFloor '+buildingCode+' '+buildingFloor+' close '+close);
+		//console.log('goToBuildingFloorNOIMaps( '+buildingCode+' '+buildingFloor+' close '+close);
 		//console.log('--------------');
 		//console.groupEnd();
 
@@ -1298,23 +1295,23 @@ function goToBuildingFloor(buildingCode, buildingFloor, close = true) {
 			typeof(maps_svgs[buildingCode]['floors'][buildingFloor])!=='undefined' && maps_svgs[buildingCode]['floors'][buildingFloor]!==null && maps_svgs[buildingCode]['floors'][buildingFloor]!==''
 		) {
 			if(close) {
-				//console.log('CHIUDO DA goToBuildingFloor con close = true');
-				closeTooltip();
+				//console.log('CHIUDO DA goToBuildingFloorNOIMaps( con close = true');
+				closeTooltipNOIMaps();
 			}
 			jQuery(shadowRoot.querySelectorAll('#map')).html(maps_svgs[buildingCode]['floors'][buildingFloor]);			
-			clickableBehaviour();
-			floorsZoomSelector(buildingCode,buildingFloor);
-			navBars(buildingCode,buildingFloor);
-			drawRoomsCategoryIcons();
-			translateElements();
+			clickableBehaviourNOIMaps();
+			floorsZoomSelectorNOIMaps(buildingCode,buildingFloor);
+			navBarsNOIMaps(buildingCode,buildingFloor);
+			drawRoomsCategoryIconsNOIMaps();
+			translateElementsNOIMaps();
 			/*			
-			setMapZoom();*/
+			setMapZoomNOIMaps();*/
 		}
 	}
 }
 
 
-function floorsZoomSelector(buildingCode,buildingFloor) {
+function floorsZoomSelectorNOIMaps(buildingCode,buildingFloor) {
 	if(
 		typeof(buildingCode)!=='undefined' && buildingCode!==null && buildingCode!=='' &&
 		typeof(buildingFloor)!=='undefined' && buildingFloor!==null && buildingFloor!==''
@@ -1333,7 +1330,7 @@ function floorsZoomSelector(buildingCode,buildingFloor) {
 							//////console.log(j);
 							var item = jQuery('<li/>', {
 								text: j,
-								class: 'clickable floor',
+								class: 'floor',
 								'data-building-code': buildingCode,
 								'data-floor-code': j,
 							})
@@ -1351,7 +1348,7 @@ function floorsZoomSelector(buildingCode,buildingFloor) {
 			selector.find('.floors-list li')
 				.sort((a,b) => jQuery(b).data("floor-code") - jQuery(a).data("floor-code"))
 				.appendTo(selector.find('.floors-list'));
-			clickableBehaviour();
+			clickableBehaviourNOIMaps();
 		} else {
 			selector.find('.icon-building').removeClass().addClass('icon-building').empty();
 			selector.find('.floors-list').empty();
@@ -1360,7 +1357,7 @@ function floorsZoomSelector(buildingCode,buildingFloor) {
 	}
 }
 
-function navBars(buildingCode,buildingFloor) {
+function navBarsNOIMaps(buildingCode,buildingFloor) {
 	//Breadcrumbs and selectors
 	if(
 		typeof(buildingCode)!=='undefined' && buildingCode!==null && buildingCode!=='' &&
@@ -1378,10 +1375,10 @@ function navBars(buildingCode,buildingFloor) {
 			jQuery(shadowRoot.querySelectorAll(".navbar-container .dropdown-list, .filters-dropdown.building-select .dropdown-list")).empty();
 			for(var i in maps_svgs) {
 				if(i!='axonometric' && i!=buildingCode) {
-					jQuery(shadowRoot.querySelectorAll(".navbar-container .dropdown-list, .filters-dropdown.building-select .dropdown-list")).append('<li><a href="#" class="clickable" data-building-code="'+i+'">'+i+'</a></li>');
+					jQuery(shadowRoot.querySelectorAll(".navbar-container .dropdown-list, .filters-dropdown.building-select .dropdown-list")).append('<li><a href="#" class="building-select-trigger" data-building-code="'+i+'">'+i+'</a></li>');
 				}
 			}
-			clickableBehaviour();
+			clickableBehaviourNOIMaps();
 		} else {
 			jQuery(shadowRoot.querySelectorAll('.inner-map-component')).addClass('axonometric');
 			jQuery(shadowRoot.querySelectorAll(".navbar-container, .navbar-container .site-title")).addClass("hide");
@@ -1389,15 +1386,15 @@ function navBars(buildingCode,buildingFloor) {
 	}
 }
 
-function dropdownToggle(){
+function dropdownToggleNOIMaps(){
 	jQuery(shadowRoot.querySelectorAll(".dropdown-trigger")).unbind('click');
 	jQuery(shadowRoot.querySelectorAll(".dropdown-trigger")).click(function() {
 		var thisEl = jQuery(this);
-		thisEl.parents('.dropdown').toggleClass('open');
+		thisEl.parents('.category-group').toggleClass('open');
 		thisEl.parent().find('.dropdown-list').slideToggle(300);
 	});
 }
-function dropdownSelection(){
+function dropdownSelectionNOIMaps(){
 	jQuery(shadowRoot.querySelectorAll(".dropdown")).find('.dropdown-list a:not(.clickable)').click(function() {
 		var thisEl = jQuery(this);
 		var thisElText = thisEl.text();		
@@ -1408,7 +1405,7 @@ function dropdownSelection(){
 	});
 }
 
-function sharerBehaviours() {
+function sharerBehavioursNOIMaps() {
 	jQuery(shadowRoot.getElementById("copy-sharer-url")).click(function() {
 		//console.log('cluck');
 		var copyText = shadowRoot.getElementById("sharer-url-input");
@@ -1416,7 +1413,7 @@ function sharerBehaviours() {
 		document.execCommand("copy");
 
 		var originalText = jQuery(shadowRoot.getElementById("copy-sharer-url")).text();
-		var copiedText = getTranslation('Copiato!');
+		var copiedText = getTranslationNOIMaps('Copiato!');
 
 		jQuery(shadowRoot.getElementById("copy-sharer-url")).text(copiedText);
 		setTimeout(function() {
@@ -1431,11 +1428,10 @@ function sharerBehaviours() {
 		}
 	});
 }
-
-function getTranslation(string) {
+function getTranslationNOIMaps(string) {
 	if(typeof translations == 'undefined' || translations == null) {
-		getTranslations();
-		getTranslation(string);
+		getTranslationsNOIMaps();
+		getTranslationNOIMaps(string);
 		return;
 	}
 	for(var i in translations) {
@@ -1446,7 +1442,7 @@ function getTranslation(string) {
 	return string;
 }
 
-function delay(callback, ms) {
+function delayNOIMaps(callback, ms) {
 	var timer = 0;
 	return function() {
 		var context = this, args = arguments;
@@ -1457,22 +1453,23 @@ function delay(callback, ms) {
 	};
 }
 
-function searchElementsStarter() {
+function searchElementsStarterNOIMaps() {
 	//console.log('searchElementsStarter');
-	jQuery(shadowRoot.querySelectorAll('.search-container .no-results-container p')).text(getTranslation("Nessun risultato"));
+	jQuery(shadowRoot.querySelectorAll('.search-container .no-results-container p')).text(getTranslationNOIMaps("Nessun risultato"));
 	jQuery(shadowRoot.querySelectorAll('.search-container .search')).unbind('keyup');
 	/*jQuery(shadowRoot.querySelectorAll('.search-container .search')).keyup(function() {
 		//$(".search-container .loader").fadeIn();
 	} );*/
-	jQuery(shadowRoot.querySelectorAll('.search-container .search')).keyup(delay(function(){		
+	jQuery(shadowRoot.querySelectorAll('.search-container .search')).keyup(delayNOIMaps(function(){		
 		var searchFieldVal = jQuery(this).val();
 		jQuery(shadowRoot.querySelectorAll('.search-container .no-results-container')).hide();
-		searchElements(searchFieldVal);
+		searchElementsNOIMaps(searchFieldVal);
 	}, 250));
 }
 
 
-function searchElements(string) {	
+function searchElementsNOIMaps(string) {	
+	jQuery(shadowRoot.querySelectorAll('.search-container .no-results-container')).hide();
 	var founds = [];
 	jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group')).hide();
 	jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group .group-rooms-list li')).hide();
@@ -1530,7 +1527,7 @@ function searchElements(string) {
 		//loadAfterSearch( JSON.stringify(founds) );
 		for(var f in founds) {
 			if(typeof founds[f]["room_label"] !== 'undefined' && founds[f]["room_label"] !== null) {
-				let roomID = cleanupRoomLabel(founds[f]["room_label"]);
+				let roomID = cleanupRoomLabelNOIMaps(founds[f]["room_label"]);
 				jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li[data-room-code="'+roomID+'"]')).show();
 				jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li[data-room-code="'+roomID+'"]')).closest('.category-group').show();
 			}
@@ -1540,7 +1537,7 @@ function searchElements(string) {
 	}
 
 	let visibleElements = 0;
-	jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li')).each(function() {
+	jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original)')).each(function() {
 		if(jQuery(this).is(':visible')) {
 			visibleElements++;
 		}
@@ -1552,17 +1549,17 @@ function searchElements(string) {
 	}
 }
 
-function sidebarHeight() {
+function sidebarHeightNOIMaps() {
 	let h = jQuery(shadowRoot.querySelectorAll('.inner-map-component')).outerHeight();
 
 	jQuery(shadowRoot.querySelectorAll('.search-container')).css('height',h);
 	jQuery(shadowRoot.querySelectorAll('.option-filter-container')).css('height',h);
 
-	jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container')).css('height', h - jQuery(shadowRoot.querySelectorAll('.search-container .input-container')).outerHeight() );
+	jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container')).css('height', h - jQuery(shadowRoot.querySelectorAll('.search-container .input-container')).outerHeight() - 110);
 
 }
 
-function setMediaQueries() {
+function setMediaQueriesNOIMaps() {
 	let w = jQuery(shadowRoot.querySelectorAll('.inner-map-component')).outerWidth();
 	let breakpoints = ["dim_5","dim_10","dim_20","dim_30","dim_40","dim_50","dim_70"];
 	jQuery(shadowRoot.querySelectorAll('.inner-map-component')).removeClass(breakpoints);

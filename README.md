@@ -28,6 +28,13 @@ Webcomponent main language
 Type: string
 Options: "it", "de", "en"
 
+#### totem
+
+Ability to turn on/off totem functionalities (e.g. for Pepper Robot) with QR Code sharing
+
+Type: string
+Options: "0", "1"
+
 
 ## Getting started
 
