@@ -16,7 +16,7 @@ NOI Techpark map app
 Webcompscript file `dist/noi_maps_widget.min.js`:
 
 ```html
-<map-view lang="it"></map-view>
+<map-view lang="it" totem="0"></map-view>
 ```
 
 ### Attributes
@@ -30,7 +30,7 @@ Options: "it", "de", "en"
 
 #### totem
 
-Ability to turn on/off totem functionalities (e.g. for Pepper Robot) with QR Code sharing
+Optional. Ability to turn on/off totem functionalities (e.g. for Pepper Robot) with QR Code sharing
 
 Type: string
 Options: "0", "1"
