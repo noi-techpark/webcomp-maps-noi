@@ -1227,7 +1227,11 @@ function drawRoomsCategoryIconsNOIMaps() {
 				} else {
 					textLabel = elementCode;
 				}
-				printElementOnMapNOIMaps( thisElement, elementCode, jQuery('<svg class="label-room" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#fff"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="30" fill="#000" font-family="Arial">'+textLabel+'</text></svg>') );				
+				if( typeof NOIrooms[elementCode] !== 'undefined' && NOIrooms[elementCode]!=null && typeof NOIrooms[elementCode]['room_label'] !== 'undefined' && typeof NOIrooms[elementCode]['show_on_map'] !== 'undefined' && NOIrooms[elementCode]['show_on_map'] == 1 ) {
+					printElementOnMapNOIMaps( thisElement, elementCode, jQuery('<svg class="label-room" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#fff"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="30" fill="#000" font-family="Arial">'+textLabel+'</text></svg>') );				
+				} else {
+					jQuery(thisElement).removeClass('clickable');
+				}
 			}
 		});
 		

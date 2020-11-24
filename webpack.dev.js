@@ -8,7 +8,7 @@ module.exports = {
   entry: './src/index.js',
   watch: true,
   output: {
-    path: path.resolve(__dirname, './work/scripts'),
+    path: path.resolve(__dirname, './work/src/js/webcomponent'),
     filename: 'noi_maps_widget.min.js'
   },
   devtool: 'inline-source-map',
