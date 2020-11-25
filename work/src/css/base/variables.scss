@@ -1,0 +1,63 @@
+$grayscale00: red; // grey scale 0%
+$grayscale10: green; // grey scale 10%
+$grayscale20: blue; // grey scale 20%
+$grayscale30: pink; // grey scale 30%
+$grayscale40: yellow; // grey scale 40%
+$grayscale50: purple; // grey scale 50%
+$grayscale60: orange; // grey scale 60%
+
+
+$grayscale90: fuchsia; // grey scale 90%
+
+$color1: #A9BF00; // verder medio Lukas
+$color2: #50742F; // verde scuro
+$color3: #7c9918; // verde chiaro
+
+$color4: #010101; // almost black
+$color5: #f8f8f8; // almost white
+$color6: #B7B7B7; //grey dark
+
+$accent: $color1; 
+
+$darkink10: #000000;
+$darkink20: #9FB6C4;
+
+$lightink10: #fff;
+$lightink30: #36424A;
+
+
+
+$breakpoints: (
+	// horizontal breakpoints
+	'dim_3' : 21.875em, 	// 350px
+	'dim_5' : 25em, 		// 400px
+	'dim_10' : 28.125em, 	// 450px
+	'dim_20' : 31.250em, 	// 500px
+	'dim_25' : 36.250em, 	// 580px
+	'dim_30' : 37.5em, 		// 600px
+	'dim_40' : 43.75em, 	// 700px
+	'dim_45' : 46.875em,	// 750px
+	'dim_50' : 50em, 		// 800px
+	'dim_60' : 56.250em, 	// 900px
+	'dim_70' : 62.5em, 		// 1000px
+	'dim_80' : 68.750em, 		// 1100px
+	'dim_90' : 75em,		// 1200px
+	'dim_91' : 76.750em,		// 1200px
+	'dim_100' : 82em,		// 1300px
+	'dim_110' : 87.500em,		// 1400px
+	'dim_120' : 93.750em,		// 1500px
+	'dim_130' : 100em,		// 1600px
+);
+
+$media-expressions: (
+	'screen': 'screen',
+	'print': 'print',
+	'handheld': 'handheld',
+	'landscape': '(orientation: landscape)',
+	'portrait': '(orientation: portrait)',
+	'retina2x': '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)',
+	'retina3x': '(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)',
+
+	//'max_aspect_ratio_type_40': '(max-aspect-ratio: 320/215)',
+	
+);

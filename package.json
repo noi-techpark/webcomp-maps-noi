@@ -1,12 +1,36 @@
 {
-  "name": "webcomp-boilerplate",
+  "name": "webcomponent-noi-maps",
+  "version": "1.0.0",
   "private": true,
-  "dependencies": {},
-  "devDependencies": {},
   "scripts": {
-    "start": "...",
-    "build": "...",
-    "lint": "...",
-    "test": "..."
+    "build": "webpack --config webpack.prod.js",
+    "start": "webpack-dev-server --open --config webpack.dev.js"
+  },
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "^2.4.3",
+    "davidshimjs-qrcodejs": "0.0.2",
+    "detect-browser": "^5.2.0",
+    "hammerjs": "^2.0.8",
+    "lit-element": "^2.1.0",
+    "lit-html": "1.2.1",
+    "panzoom": "^9.2.5",
+    "propagating-hammerjs": "^1.4.7"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^6.0.3",
+    "css-loader": "^3.6.0",
+    "cssnano-webpack-plugin": "^1.0.3",
+    "file-loader": "^6.0.0",
+    "html-loader": "^1.1.0",
+    "node-sass": "^4.11.0",
+    "raw-loader": "^4.0.1",
+    "sass-loader": "^9.0.0",
+    "style-loader": "^1.2.1",
+    "svg-inline-loader": "^0.8.0",
+    "uglifyjs-webpack-plugin": "^2.1.2",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0"
   }
 }
