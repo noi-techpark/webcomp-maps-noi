@@ -17,7 +17,7 @@
   "dist": {
     "basePath": "dist",
     "files": [
-      "app.min.js"
+      "noi_maps_widget.min.js"
     ]
   },
   "configuration": {
