@@ -26,7 +26,7 @@
     ]
   },
   "configuration": {
-    "tagName": "webcomponent-noi-maps",
+    "tagName": "map-view",
     "options": [{
       "key": "lang",
       "type": "select",
