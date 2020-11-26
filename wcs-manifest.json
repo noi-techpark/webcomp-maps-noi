@@ -3,7 +3,12 @@
   "description": "NOI Techpark map app",
   "descriptionAbstract": "NOI Techpark map app",
   "license": "AGPL-3.0",
-  "repositoryUrl": "https://github.com/noi-techpark/webcomp-maps-noi",
+  "copyrightHolders":[{
+    "name":"NOI AG",
+    "email":"info@noi.bz.it", 
+    "organization": "NOI S.p.A",
+    "organizationUrl": "https://noi.bz.it"
+  }],
   "authors": [
     {
       "name": "NOI",
@@ -22,6 +27,24 @@
   },
   "configuration": {
     "tagName": "webcomponent-noi-maps",
-    "options": []
+    "options": [{
+      "key": "lang",
+      "type": "select",
+      "label": "Language",
+      "required": false,
+      "options": {
+        "values": ["en", "de", "it"],
+        "default": "en"
+      }
+    },{
+      "key": "totem",
+      "type": "select",
+      "label": "Totem",
+      "required": false,
+      "options": {
+        "default": "0",
+        "values":["0","1"]
+      }
+    }]
   }
 }
