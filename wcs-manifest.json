@@ -28,7 +28,7 @@
   "configuration": {
     "tagName": "map-view",
     "options": [{
-      "key": "lang",
+      "key": "language",
       "type": "select",
       "label": "Language",
       "required": false,

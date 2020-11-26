@@ -16,7 +16,7 @@ NOI Techpark map app
 Webcompscript file `dist/noi_maps_widget.min.js`:
 
 ```html
-<map-view lang="it" totem="0"></map-view>
+<map-view language="it" totem="0"></map-view>
 ```
 
 ### Attributes
