@@ -35,6 +35,8 @@
 	width: 100%;
 	height: 100%;
 	min-height: 400px;
+	line-height: 1.5;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 #mapContainer {
 	position: absolute;
@@ -150,7 +152,7 @@
 		width: calc(100% - 155px);
 		border: 1px solid $color4;
 		padding: 11px;
-		font-size: 1.5rem;
+		font-size: 15px;
 		@include prefix('box-sizing', 'border-box');
 		@include prefix('border-radius', '3px');
 	}
@@ -159,7 +161,7 @@
 		background: $accent;
 		color: #fff;
 		text-transform: uppercase;
-		font-size: 1.7rem;
+		font-size: 17px;
 		text-align: center;
 
 		padding: 8px 16px;
@@ -316,7 +318,7 @@
 			&:not(.icon-room){
 				width: 35px;
 				height: 32px;
-				font-size: 1.5rem;
+				font-size: 15px;
 				line-height: 30px;
 				color: #fff;
 				text-align: center;
@@ -346,14 +348,14 @@
 			}
 
 			.name{
-				font-size: 1.8rem;
+				font-size: 18px;
 				font-weight: 600;
 				line-height: 1;
 				margin-bottom: 2px;
 				color: $color4;
 			}
 			.short-description{
-				font-size: 1.6rem;
+				font-size: 16px;
 				line-height: 1;
 				color: $color6;
 			}
@@ -414,6 +416,7 @@
 		padding: 10px 20px 20px 70px;
 		color: $color4;
 		display: none;
+		font-size: 16px;
 
 		.totem & {
 			display: block !important;
@@ -444,7 +447,7 @@
 		background: $accent;
 		text-transform: uppercase;
 		color: #fff;
-		font-size: 1.6rem;
+		font-size: 16px;
 		padding: 8px 15px;
 		cursor: pointer;
 		vertical-align: middle;
@@ -472,7 +475,7 @@
 	.expand-info {
 		display: inline-block;
 		color: $accent;
-		font-size: 1.6rem;
+		font-size: 16px;
 		font-weight: bold;
 		cursor: pointer;
 		text-transform: uppercase;
@@ -690,7 +693,7 @@ html:not(.body-scrollable){
 
 	.floors-list{
 		list-style-type: none;
-		font-size: 1.8rem;
+		font-size: 18px;
 	}
 
 	.floor {
@@ -746,7 +749,7 @@ html:not(.body-scrollable){
 		color: black;
 		line-height: 1;
 		color: $color4;
-		font-size: 3rem;
+		font-size: 30px;
 
 		&:hover{
 			color: rgba($color4,0.7);
@@ -759,7 +762,7 @@ html:not(.body-scrollable){
 		border-radius: 0 0 5px 5px;
 		padding: 12px 7px 33px;
 		line-height: 0;
-		font-size: 2.4rem;
+		font-size: 24px;
 	}
 }	
 
@@ -1001,7 +1004,7 @@ body {
 		color: $color4;
 		text-decoration: none;
 		text-transform: uppercase;
-		font-size: 1.4rem;
+		font-size: 14px;
 		line-height: 1;
 		font-weight: 500;
 		margin-left: 115px;
@@ -1011,7 +1014,7 @@ body {
 		padding: 13px 0; //8px 0 9px;
 
 		.dim_5 & {
-			font-size: 1.7rem;
+			font-size: 17px;
 			max-width: calc(100% - 200px);
 			margin-left: 135px;
 		}
@@ -1066,7 +1069,7 @@ body {
 				
 				background: none;
 				border-radius: 3px;
-				font-size: 1.7rem;
+				font-size: 17px;
 				line-height: 150%;
 				font-weight: 500;
 				//padding: 9px 18px;
@@ -1140,7 +1143,7 @@ body {
 			.dropdown-trigger{
 				position: relative;
 				display: block;
-				font-size: 1.7rem;
+				font-size: 17px;
 				//background: #FBFCFC;
 				border-radius: 3px;
 				padding: 9px 28px 10px 18px;
@@ -1174,7 +1177,7 @@ body {
 				display: none;
 
 				width: 100%;
-				font-size: 1.7rem;
+				font-size: 17px;
 				background: #FBFCFC;
 				padding: 1px 18px 7px;
 
@@ -1665,7 +1668,7 @@ body {
 		position: relative;
 		display: block;
 		width: 100%;
-		font-size: 1.7rem;
+		font-size: 17px;
 		border-radius: 3px;
 		padding: 13px 28px 14px 0;
 		cursor: pointer;
@@ -1692,7 +1695,7 @@ body {
 		display: none;
 
 		width: 100%;
-		font-size: 1.7rem;
+		font-size: 17px;
 		padding: 0 18px 7px;
 
 		position: absolute;
@@ -1738,7 +1741,7 @@ body {
 	background: $color5;
 	color: $color4;
 	text-align: left;
-    font-size: 1.6rem;
+    font-size: 16px;
 	@include prefix('transition', 'all 0.3s ease-in-out');
 
 	@include prefix('box-shadow','0 0 7px 2px rgba(0,0,0,0.15)');
@@ -1771,7 +1774,7 @@ body {
 		//background: #ddd;
 		h2{
 			text-align: left;
-    		font-size: 1.6rem;
+    		font-size: 16px;
 		}
 		.dim_40 & {
 			padding: 25px 30px 26px;
@@ -1805,7 +1808,7 @@ body {
 			display: block;
 			position: relative;
 			padding-right: 33px;
-			font-size: 1.6rem;
+			font-size: 16px;
 			font-weight: 600;
 			@include prefix('box-sizing','border-box');
 
@@ -1957,7 +1960,7 @@ body {
 			border: 0;
 			padding: 29px 28px 29px 56px;//padding: 20px 20px 20px 45px;
 
-			font-size: 1.5rem;
+			font-size: 15px;
 			font-weight: 600;
 
 			margin: 0;
@@ -2059,13 +2062,13 @@ body {
 			}
 		}
 		h2{
-			font-size: 2.1rem;
+			font-size: 21px;
 			font-weight: bold;
 			line-height: 1;
 		}
 		p{
 			display: none;
-			font-size: 1.6rem;
+			font-size: 16px;
 			font-weight: 600;
 			line-height: 1;
 			color: $color4;
@@ -2114,7 +2117,7 @@ body {
 			display: block;
 			width: 25px;
 			height: 22px;
-			font-size: 1.3rem;
+			font-size: 13px;
 			line-height: 22px;
 			text-align: center;
 			display:block;
@@ -2134,7 +2137,7 @@ body {
 		}
 		.room-name{
 			display: block;
-			font-size: 1.6rem;
+			font-size: 16px;
 			font-weight: 600;
 			line-height: 1;
 			padding-left: 35px;
@@ -2143,7 +2146,7 @@ body {
 			position: relative;
 			color: $color6;
 			padding-left: 15px;
-			font-size: 1.2rem;
+			font-size: 12px;
 			line-height: 1;
 			top: -4px;
 			margin-right: 8px;
@@ -2165,7 +2168,7 @@ body {
 			position: relative;
 			color: $color6;
 			padding-left: 15px;
-			font-size: 1.2rem;
+			font-size: 12px;
 			line-height: 1;
 			top: -4px;
 			&:before{
@@ -2202,13 +2205,13 @@ body {
 
 	.content{
 		color: $color4;
-		font-size: 1.7rem;
+		font-size: 17px;
 		line-height: 1.5;
 		.dim_40 & {
-			font-size: 1.8rem;
+			font-size: 18px;
 		}
 		.dim_70 & {
-			font-size: 1.9rem;
+			font-size: 19px;
 		}
 
 		h1,h2,h3,h4{
@@ -2365,7 +2368,7 @@ body {
 		list-style-type: none;
 		padding: 35px 25px 20px;
 		font-weight: bold;
-		font-size: 1.6rem;
+		font-size: 16px;
 
 		.dim_40 & {
 			text-transform: uppercase;
@@ -2457,13 +2460,13 @@ body {
 @media only screen and (min-width:50em){ /* 800px */
 	.cm-centre{margin:0 auto;padding:0;width:95%;position:relative}
 	.cm-cookies .cm-text{margin-right:30%;margin-bottom:0}
-	.cm-cookies .cm-buttons{position:absolute;right:0;top:0;bottom:0;margin:auto 0;min-width:0;max-width:550px;width:25%;height:3.1rem}
+	.cm-cookies .cm-buttons{position:absolute;right:0;top:0;bottom:0;margin:auto 0;min-width:0;max-width:550px;width:25%;height:21px;}
 }
 #cm-cookies{
 	background: $color1;
 	color: #fff;
 	font-family: 'Source Sans Pro', sans-serif;
-	font-size:1.5rem;
+	font-size:15px;
 	text-align: left;
 
 	padding: 4px 0 10px;
