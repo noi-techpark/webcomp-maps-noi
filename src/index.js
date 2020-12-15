@@ -1204,8 +1204,8 @@ function drawRoomsCategoryIconsNOIMaps() {
 				let x = 0;
 				let y = 0;
 				let bbox = thisElement[0].getBBox();
-				let svgElementWidth = bbox.width/2 > 150 ? 150 : bbox.width/2;
-				let svgElementHeight = bbox.height/2 > 150 ? 150 : bbox.height/2;
+				let svgElementWidth = bbox.width/2 > 100 ? 100 : bbox.width/2;
+				let svgElementHeight = bbox.height/2 > 100 ? 100 : bbox.height/2;
 
 				var el = document.createElementNS('http://www.w3.org/2000/svg', 'image');
 				el.setAttributeNS('http://www.w3.org/1999/xlink', 'href', labelSVGUrl);
@@ -1213,6 +1213,25 @@ function drawRoomsCategoryIconsNOIMaps() {
 				el.setAttributeNS(null, 'height', svgElementHeight);
 				el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2));
 				el.setAttributeNS(null, 'y', bbox.y + (bbox.height/2) - (svgElementHeight / 2));
+
+				if(elementCode == 'A2-5-07') {
+					el.setAttributeNS(null, 'y', bbox.y + (bbox.height/2) - (svgElementHeight / 2) + 50);
+					el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2) - 20);
+				}
+
+				if(elementCode == 'D1-2W-16' || elementCode == 'D1-3W-14') {
+					el.setAttributeNS(null, 'width', svgElementWidth*0.8);
+					el.setAttributeNS(null, 'height', svgElementHeight*0.8);
+					el.setAttributeNS(null, 'y', bbox.y + (bbox.height/2) - (svgElementHeight / 2) + 50);
+					el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2) + 30);
+				}
+
+				if(elementCode == 'D1-4W-20') {
+					el.setAttributeNS(null, 'y', bbox.y + (bbox.height/2) - (svgElementHeight / 2) + 40);
+					el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2) + 40);
+				}
+
+
 				thisElement[0].appendChild(el);
 				thisElement.attr('data-category',NOIrooms[elementCode]['type']);
 
@@ -1234,7 +1253,7 @@ function drawRoomsCategoryIconsNOIMaps() {
 					textLabel = elementCode;
 				}
 				if( typeof NOIrooms[elementCode] !== 'undefined' && NOIrooms[elementCode]!=null && typeof NOIrooms[elementCode]['beacon_id'] !== 'undefined' && typeof NOIrooms[elementCode]['show_on_map'] !== 'undefined' && NOIrooms[elementCode]['show_on_map'] == 1 ) {
-					printElementOnMapNOIMaps( thisElement, elementCode, jQuery('<svg class="label-room" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#fff"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="30" fill="#000" font-family="Arial">'+textLabel+'</text></svg>') );				
+					printElementOnMapNOIMaps( thisElement, elementCode, jQuery('<svg class="label-room" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#fff"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="30" fill="#000" font-family="Arial">'+textLabel+'</text></svg>') );	
 				} else {
 					jQuery(thisElement).removeClass('clickable');
 				}
@@ -1260,20 +1279,73 @@ function printElementOnMapNOIMaps(thisElement, elementCode, thisSVG) {
 	}
 	let svgElement = jQuery(shadowRoot.querySelector("[id='"+elementCode+"']"))[0];
 
-	if(thisSVGWidth>(svgElement.getBBox().width*0.75)) {
-		thisSVG.attr('width',svgElement.getBBox().width*0.75);
+	if(thisSVGWidth>(svgElement.getBBox().width*0.6)) {
+		thisSVG.attr('width',svgElement.getBBox().width*0.6);
 		x = (svgElement.getBBox().x + (svgElement.getBBox().width/2)) - (thisSVG.attr('width')/2);
 	} else {
 		x = (svgElement.getBBox().x + (svgElement.getBBox().width/2)) - (thisSVGWidth/2);
 	}
 
-	if(thisSVGHeight>(svgElement.getBBox().height*0.75)) {
-		thisSVG.attr('height',svgElement.getBBox().height*0.75);
+	if(thisSVGHeight>(svgElement.getBBox().height*0.6)) {
+		thisSVG.attr('height',svgElement.getBBox().height*0.6);
 		y = (svgElement.getBBox().y + (svgElement.getBBox().height/2)) - (thisSVG.attr('height')/2);
 	} else {
 		y = (svgElement.getBBox().y + (svgElement.getBBox().height/2)) - (thisSVGHeight/2);
 	}
-	
+
+
+	/*if( thisSVG.attr('width') > 100 ) {
+		let ratio = thisSVG.attr('width') / 100;
+		thisSVG.attr('width', 100 );
+		thisSVG.attr('height', thisSVG.attr('height')/ratio );
+		x = (svgElement.getBBox().x + (svgElement.getBBox().width/2)) - (thisSVG.attr('width')/2);
+		y = (svgElement.getBBox().y + (svgElement.getBBox().height/2)) - (thisSVG.attr('height')/2);
+	}*/
+
+	if(elementCode == 'A1-0-08') {
+		x += 120;
+		y += 100;
+		thisSVG.attr('width', thisSVG.attr('width')*0.7);
+		thisSVG.attr('height', thisSVG.attr('height')*0.7);
+	}
+	if(elementCode == 'A1-0-03') {
+		y -= 40;
+	}
+	if(elementCode == 'A2--1-03') {
+		x -= 50;
+		y += 50;
+		thisSVG.attr('width', thisSVG.attr('width')*0.7);
+		thisSVG.attr('height', thisSVG.attr('height')*0.7);
+	}
+	if(elementCode == 'A2-4-03-G') {
+		thisSVG.attr('width', thisSVG.attr('width')*0.7);
+		thisSVG.attr('height', thisSVG.attr('height')*0.7);
+		x += 30;
+		y += 15;
+	}
+	if(elementCode == 'A2-4-03-H') {
+		thisSVG.attr('width', thisSVG.attr('width')*0.7);
+		thisSVG.attr('height', thisSVG.attr('height')*0.7);
+		x += 35;
+		y += 15;
+	}
+	if(elementCode == 'A4--1-34') {
+		x -= 500;
+		y += 15;
+	}
+
+	if(elementCode == 'D1-1W-05') {
+		x += 100;
+		y += 350;
+	}
+	if(elementCode == 'P1--1-01') {
+		x += 230;
+		y += 400;
+	}
+	if(elementCode == 'P1--2-28') {
+		y += 250;
+	}
+
 	//y = (svgElement.getBBox().y + (svgElement.getBBox().height/2)) - (thisSVGHeight/2);
 	thisSVG.attr('x',x);
 	thisSVG.attr('y',y);
