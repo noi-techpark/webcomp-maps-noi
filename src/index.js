@@ -20,7 +20,7 @@ class MapView extends LitElement {
 		super();
 		const userLanguage = window.navigator.userLanguage || window.navigator.language;
 		this.language = userLanguage.split('-')[0];
-		this.title = 'ODH Webcomponent';
+		//this.title = 'ODH Webcomponent';
 	}
 
 	static get properties() {
@@ -199,7 +199,8 @@ function resizeEndActionsNOIMaps() {
 
 function cleanupRoomLabelNOIMaps(roomLabel) {
 	if(typeof roomLabel !== 'undefined') {
-		return roomLabel.replace(/ |\./g,'-')
+		let temp = roomLabel.replace(/\-/g,'--');
+		return temp.replace(/ |\./g,'-');
 	}
 	return false;
 }
@@ -249,15 +250,15 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem) {
 
 	//FETCH NOI DATA
 	jQuery.getJSON(config.OPEN_DATA_HUB_ONLY_SHOW_MAP, function(result){
-		
 		ODHdata = result;
 		for(var i in ODHdata.data) {
-			let roomLabel = ODHdata.data[i].smetadata.room_label;
+			let roomLabel = ODHdata.data[i].smetadata.beacon_id;
 			if(typeof roomLabel !== 'undefined') {
 				roomLabel = cleanupRoomLabelNOIMaps(roomLabel);
 				NOIrooms[roomLabel] = ODHdata.data[i].smetadata;
 			}
 		}
+		//console.log(NOIrooms);
 
 		//CHECK RESULTS FIRST FETCH (NOI DATA ALLS) AND THEN GET BUILDINGS
 		if(Object.keys(ODHdata).length > 0) {
@@ -320,7 +321,7 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem) {
 		clickableBehaviourNOIMaps();
 		
 		/*setTimeout(function() {
-			//console.log(NOIrooms);
+			console.log(NOIrooms);
 		},500);*/
 	});
 
@@ -504,14 +505,19 @@ function writeGroupsSidebarNOIMaps(ODHdata) {
 			categoryGroupClone.find('h2').text(sorted[index].name);
 			
 			for(var k in ODHdata.data) {
-				if(ODHdata.data[k].smetadata.group == sorted[index].name && typeof ODHdata.data[k].smetadata.name !== 'undefined' && ODHdata.data[k].smetadata.name[thisNoiMapsSettingsLang]!=='undefined') {
-					let elementCode = cleanupRoomLabelNOIMaps(ODHdata.data[k].smetadata.room_label);
+				if(ODHdata.data[k].smetadata.group == sorted[index].name && typeof ODHdata.data[k].smetadata.name !== 'undefined' && typeof ODHdata.data[k].smetadata.name[thisNoiMapsSettingsLang]!=='undefined') {
+					let elementCode = cleanupRoomLabelNOIMaps(ODHdata.data[k].smetadata.beacon_id);
 					let roomPieces = elementCode.split("-");
 					let roomNr = roomPieces[roomPieces.length - 1];
 					if(isNaN(roomNr)) {
 						roomNr = roomPieces[roomPieces.length - 2] +"-"+roomPieces[roomPieces.length - 1];
 					}
-					var roomLabelCiph = ODHdata.data[k].smetadata.room_label.split('.');
+					var roomLabelCiph = ODHdata.data[k].smetadata.beacon_id.replace(/\-/g,'~-');
+					roomLabelCiph = roomLabelCiph.replace(/\s/g,'~');
+					roomLabelCiph = roomLabelCiph.replace(/\./g,'~');
+					roomLabelCiph = roomLabelCiph.replace(/~~/g,'~');
+					roomLabelCiph = roomLabelCiph.split('~');
+
 					var roomLabel;
 					for(var j = 0;j<roomLabelCiph.length;j++){
 						if(roomLabelCiph.length > 3){
@@ -932,7 +938,7 @@ function clickedElementNOIMaps(elementCode, type="room") {
 
 					//console.log('GHE SEEEEEM');
 					//console.log(NOIrooms[elementCode]);
-					name = typeof NOIrooms[elementCode]['name'] !== 'undefined' && typeof NOIrooms[elementCode]['name'][thisNoiMapsSettingsLang.toLowerCase()] !== 'undefined'  ? NOIrooms[elementCode]['name'][thisNoiMapsSettingsLang.toLowerCase()] : NOIrooms[elementCode]['room_label'];
+					name = typeof NOIrooms[elementCode]['name'] !== 'undefined' && typeof NOIrooms[elementCode]['name'][thisNoiMapsSettingsLang.toLowerCase()] !== 'undefined'  ? NOIrooms[elementCode]['name'][thisNoiMapsSettingsLang.toLowerCase()] : NOIrooms[elementCode]['beacon_id'];
 					longdesc = typeof NOIrooms[elementCode]['description'] !== 'undefined' && typeof NOIrooms[elementCode]['description'][thisNoiMapsSettingsLang.toLowerCase()] !== 'undefined'  ? NOIrooms[elementCode]['description'][thisNoiMapsSettingsLang.toLowerCase()] : '';
 					building = elementCode.split("-")[0];
 					shortdesc += '<span class="room-icon-building icon-building-'+building+'">'+building+'</span>';
@@ -1198,8 +1204,8 @@ function drawRoomsCategoryIconsNOIMaps() {
 				let x = 0;
 				let y = 0;
 				let bbox = thisElement[0].getBBox();
-				let svgElementWidth = bbox.width/2 > 150 ? 150 : bbox.width/2;
-				let svgElementHeight = bbox.height/2 > 150 ? 150 : bbox.height/2;
+				let svgElementWidth = bbox.width/2 > 100 ? 100 : bbox.width/2;
+				let svgElementHeight = bbox.height/2 > 100 ? 100 : bbox.height/2;
 
 				var el = document.createElementNS('http://www.w3.org/2000/svg', 'image');
 				el.setAttributeNS('http://www.w3.org/1999/xlink', 'href', labelSVGUrl);
@@ -1207,6 +1213,25 @@ function drawRoomsCategoryIconsNOIMaps() {
 				el.setAttributeNS(null, 'height', svgElementHeight);
 				el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2));
 				el.setAttributeNS(null, 'y', bbox.y + (bbox.height/2) - (svgElementHeight / 2));
+
+				if(elementCode == 'A2-5-07') {
+					el.setAttributeNS(null, 'y', bbox.y + (bbox.height/2) - (svgElementHeight / 2) + 50);
+					el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2) - 20);
+				}
+
+				if(elementCode == 'D1-2W-16' || elementCode == 'D1-3W-14') {
+					el.setAttributeNS(null, 'width', svgElementWidth*0.8);
+					el.setAttributeNS(null, 'height', svgElementHeight*0.8);
+					el.setAttributeNS(null, 'y', bbox.y + (bbox.height/2) - (svgElementHeight / 2) + 50);
+					el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2) + 30);
+				}
+
+				if(elementCode == 'D1-4W-20') {
+					el.setAttributeNS(null, 'y', bbox.y + (bbox.height/2) - (svgElementHeight / 2) + 40);
+					el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2) + 40);
+				}
+
+
 				thisElement[0].appendChild(el);
 				thisElement.attr('data-category',NOIrooms[elementCode]['type']);
 
@@ -1221,14 +1246,14 @@ function drawRoomsCategoryIconsNOIMaps() {
 				let textLabel = "A000000";
 				if(
 					typeof NOIrooms[elementCode] !== 'undefined' && NOIrooms[elementCode]!=null &&
-					typeof NOIrooms[elementCode]['room_label'] !== 'undefined'
+					typeof NOIrooms[elementCode]['beacon_id'] !== 'undefined'
 				) {
-					textLabel = NOIrooms[elementCode]['room_label'];
+					textLabel = NOIrooms[elementCode]['beacon_id'];
 				} else {
 					textLabel = elementCode;
 				}
-				if( typeof NOIrooms[elementCode] !== 'undefined' && NOIrooms[elementCode]!=null && typeof NOIrooms[elementCode]['room_label'] !== 'undefined' && typeof NOIrooms[elementCode]['show_on_map'] !== 'undefined' && NOIrooms[elementCode]['show_on_map'] == 1 ) {
-					printElementOnMapNOIMaps( thisElement, elementCode, jQuery('<svg class="label-room" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#fff"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="30" fill="#000" font-family="Arial">'+textLabel+'</text></svg>') );				
+				if( typeof NOIrooms[elementCode] !== 'undefined' && NOIrooms[elementCode]!=null && typeof NOIrooms[elementCode]['beacon_id'] !== 'undefined' && typeof NOIrooms[elementCode]['show_on_map'] !== 'undefined' && NOIrooms[elementCode]['show_on_map'] == 1 ) {
+					printElementOnMapNOIMaps( thisElement, elementCode, jQuery('<svg class="label-room" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#fff"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="30" fill="#000" font-family="Arial">'+textLabel+'</text></svg>') );	
 				} else {
 					jQuery(thisElement).removeClass('clickable');
 				}
@@ -1254,20 +1279,73 @@ function printElementOnMapNOIMaps(thisElement, elementCode, thisSVG) {
 	}
 	let svgElement = jQuery(shadowRoot.querySelector("[id='"+elementCode+"']"))[0];
 
-	if(thisSVGWidth>(svgElement.getBBox().width*0.75)) {
-		thisSVG.attr('width',svgElement.getBBox().width*0.75);
+	if(thisSVGWidth>(svgElement.getBBox().width*0.6)) {
+		thisSVG.attr('width',svgElement.getBBox().width*0.6);
 		x = (svgElement.getBBox().x + (svgElement.getBBox().width/2)) - (thisSVG.attr('width')/2);
 	} else {
 		x = (svgElement.getBBox().x + (svgElement.getBBox().width/2)) - (thisSVGWidth/2);
 	}
 
-	if(thisSVGHeight>(svgElement.getBBox().height*0.75)) {
-		thisSVG.attr('height',svgElement.getBBox().height*0.75);
+	if(thisSVGHeight>(svgElement.getBBox().height*0.6)) {
+		thisSVG.attr('height',svgElement.getBBox().height*0.6);
 		y = (svgElement.getBBox().y + (svgElement.getBBox().height/2)) - (thisSVG.attr('height')/2);
 	} else {
 		y = (svgElement.getBBox().y + (svgElement.getBBox().height/2)) - (thisSVGHeight/2);
 	}
-	
+
+
+	/*if( thisSVG.attr('width') > 100 ) {
+		let ratio = thisSVG.attr('width') / 100;
+		thisSVG.attr('width', 100 );
+		thisSVG.attr('height', thisSVG.attr('height')/ratio );
+		x = (svgElement.getBBox().x + (svgElement.getBBox().width/2)) - (thisSVG.attr('width')/2);
+		y = (svgElement.getBBox().y + (svgElement.getBBox().height/2)) - (thisSVG.attr('height')/2);
+	}*/
+
+	if(elementCode == 'A1-0-08') {
+		x += 120;
+		y += 100;
+		thisSVG.attr('width', thisSVG.attr('width')*0.7);
+		thisSVG.attr('height', thisSVG.attr('height')*0.7);
+	}
+	if(elementCode == 'A1-0-03') {
+		y -= 40;
+	}
+	if(elementCode == 'A2--1-03') {
+		x -= 50;
+		y += 50;
+		thisSVG.attr('width', thisSVG.attr('width')*0.7);
+		thisSVG.attr('height', thisSVG.attr('height')*0.7);
+	}
+	if(elementCode == 'A2-4-03-G') {
+		thisSVG.attr('width', thisSVG.attr('width')*0.7);
+		thisSVG.attr('height', thisSVG.attr('height')*0.7);
+		x += 30;
+		y += 15;
+	}
+	if(elementCode == 'A2-4-03-H') {
+		thisSVG.attr('width', thisSVG.attr('width')*0.7);
+		thisSVG.attr('height', thisSVG.attr('height')*0.7);
+		x += 35;
+		y += 15;
+	}
+	if(elementCode == 'A4--1-34') {
+		x -= 500;
+		y += 15;
+	}
+
+	if(elementCode == 'D1-1W-05') {
+		x += 100;
+		y += 350;
+	}
+	if(elementCode == 'P1--1-01') {
+		x += 230;
+		y += 400;
+	}
+	if(elementCode == 'P1--2-28') {
+		y += 250;
+	}
+
 	//y = (svgElement.getBBox().y + (svgElement.getBBox().height/2)) - (thisSVGHeight/2);
 	thisSVG.attr('x',x);
 	thisSVG.attr('y',y);
@@ -1377,11 +1455,21 @@ function navBarsNOIMaps(buildingCode,buildingFloor) {
 			jQuery(shadowRoot.querySelectorAll(".navbar-container, .navbar-container *")).removeClass("hide");
 			jQuery(shadowRoot.querySelectorAll(".navbar-container .dropdown-trigger, .filters-dropdown.building-select .dropdown-trigger")).text(buildingCode);
 			jQuery(shadowRoot.querySelectorAll(".navbar-container .dropdown-list, .filters-dropdown.building-select .dropdown-list")).empty();
+
 			for(var i in maps_svgs) {
 				if(i!='axonometric' && i!=buildingCode) {
 					jQuery(shadowRoot.querySelectorAll(".navbar-container .dropdown-list, .filters-dropdown.building-select .dropdown-list")).append('<li><a href="#" class="building-select-trigger" data-building-code="'+i+'">'+i+'</a></li>');
 				}
 			}
+
+			jQuery(shadowRoot.querySelectorAll(".navbar-container .dropdown-list, .filters-dropdown.building-select .dropdown-list")).removeClass('open');
+			jQuery(shadowRoot.querySelectorAll(".navbar-container .dropdown-list, .filters-dropdown.building-select .dropdown-list")).slideUp(150);
+
+
+			jQuery(shadowRoot.querySelectorAll(".navbar-container .dropdown-list, .filters-dropdown.building-select .dropdown-list")).find('li')
+			.sort((a,b) => jQuery(a).text().toUpperCase().localeCompare(jQuery(b).text().toUpperCase()))
+			.appendTo( jQuery(shadowRoot.querySelectorAll(".navbar-container .dropdown-list, .filters-dropdown.building-select .dropdown-list")) );
+
 			clickableBehaviourNOIMaps();
 		} else {
 			jQuery(shadowRoot.querySelectorAll('.inner-map-component')).addClass('axonometric');
@@ -1519,19 +1607,21 @@ function searchElementsNOIMaps(string) {
 	} else {
 		jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original)')).show();
 		jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li')).show();
+		jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group.open')).find('.group-rooms-list').hide();
+		jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group.open')).removeClass('open');
 		jQuery(shadowRoot.querySelectorAll('.search-container .no-results-container')).hide();
 	}
 
-	//console.group('ELEMENTS FOUND');
-	//console.log(founds.length);
-	//console.log(founds);
-	//console.groupEnd();
+	/*console.group('ELEMENTS FOUND');
+	console.log(founds.length);
+	console.log(founds);
+	console.groupEnd();*/
 
 	if(founds.length>0) {
 		//loadAfterSearch( JSON.stringify(founds) );
 		for(var f in founds) {
-			if(typeof founds[f]["room_label"] !== 'undefined' && founds[f]["room_label"] !== null) {
-				let roomID = cleanupRoomLabelNOIMaps(founds[f]["room_label"]);
+			if(typeof founds[f]["beacon_id"] !== 'undefined' && founds[f]["beacon_id"] !== null) {
+				let roomID = cleanupRoomLabelNOIMaps(founds[f]["beacon_id"]);
 				jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li[data-room-code="'+roomID+'"]')).show();
 				jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li[data-room-code="'+roomID+'"]')).closest('.category-group').show();
 			}
@@ -1546,10 +1636,22 @@ function searchElementsNOIMaps(string) {
 			visibleElements++;
 		}
 	});
+
+	jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group.open')).find('.group-rooms-list').hide();
+	jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group.open')).removeClass('open');
+
 	if(visibleElements == 0) {
 		jQuery(shadowRoot.querySelectorAll('.search-container .no-results-container')).show();
 	} else {
-		jQuery(shadowRoot.querySelectorAll('.search-container .no-results-container')).hide();
+		jQuery(shadowRoot.querySelectorAll('.search-container .no-results-container')).hide();	
+		if(founds.length>0) {
+			jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original)')).each(function() {
+				if(jQuery(this).is(':visible') && !jQuery(this).hasClass('open')) {
+					jQuery(this).find('.dropdown-trigger').click();
+				}
+			});
+			sidebarHeightNOIMaps();
+		}
 	}
 }
 
