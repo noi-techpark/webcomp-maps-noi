@@ -18,7 +18,7 @@ pipeline{
         }
         stage('Upload images'){
             steps{
-                s3Upload(bucket: 'it.bz.opendatahub.noi.map.planimetry', acl: 'PublicRead', file: './resources')
+                s3Upload(bucket: 'it.bz.noi.maps.images', acl: 'PublicRead', file: './resources')
             }
         }
     }
