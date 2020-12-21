@@ -819,7 +819,7 @@ function clickableBehaviourNOIMaps() {
 						//console.log('same floor same building');			
 						clickedElementNOIMaps(roomCode, 'room');
 					} else {
-						console.log('goto building '+buildingCode+' floor '+floorCode);				
+						//console.log('goto building '+buildingCode+' floor '+floorCode);				
 						goToBuildingFloorNOIMaps(buildingCode, floorCode, false);
 						clickedElementNOIMaps(roomCode, 'room');
 					}
@@ -917,10 +917,10 @@ function clickedElementNOIMaps(elementCode, type="room") {
 					//console.log(NOIrooms);
 				}*/
 
-				//console.groupCollapsed("clickedElement ROOM");
-				//console.log(elementCode);
-				//console.log(NOIrooms[elementCode]);
-				//console.groupEnd();
+				/*console.groupCollapsed("clickedElement ROOM");
+				console.log(elementCode);
+				console.log(NOIrooms[elementCode]);
+				console.groupEnd();*/
 
 				if(typeof(NOIrooms)!=='undefined' && NOIrooms!==null && NOIrooms!=='' && typeof NOIrooms[elementCode] !== 'undefined') {
 					if(
@@ -934,10 +934,7 @@ function clickedElementNOIMaps(elementCode, type="room") {
 						var floor = '';
 					}
 
-
-
-					//console.log('GHE SEEEEEM');
-					//console.log(NOIrooms[elementCode]);
+					
 					name = typeof NOIrooms[elementCode]['name'] !== 'undefined' && typeof NOIrooms[elementCode]['name'][thisNoiMapsSettingsLang.toLowerCase()] !== 'undefined'  ? NOIrooms[elementCode]['name'][thisNoiMapsSettingsLang.toLowerCase()] : NOIrooms[elementCode]['beacon_id'];
 					longdesc = typeof NOIrooms[elementCode]['description'] !== 'undefined' && typeof NOIrooms[elementCode]['description'][thisNoiMapsSettingsLang.toLowerCase()] !== 'undefined'  ? NOIrooms[elementCode]['description'][thisNoiMapsSettingsLang.toLowerCase()] : '';
 					building = elementCode.split("-")[0];
@@ -957,6 +954,11 @@ function clickedElementNOIMaps(elementCode, type="room") {
 					shortdesc += '<span class="room-number">'+roomNr+'</span>';
 
 					website = typeof NOIrooms[elementCode]['link'] !== 'undefined' && NOIrooms[elementCode]['link'] !== '' ? NOIrooms[elementCode]['link'] : false;
+
+					/*console.groupCollapsed("clickedElement ROOM data");
+					console.log(building);
+					console.log(floor);
+					console.groupEnd();*/
 					
 					//if the requested room is not the actual viewed building or floor, goto
 					if(
@@ -1253,7 +1255,11 @@ function drawRoomsCategoryIconsNOIMaps() {
 					textLabel = elementCode;
 				}
 				if( typeof NOIrooms[elementCode] !== 'undefined' && NOIrooms[elementCode]!=null && typeof NOIrooms[elementCode]['beacon_id'] !== 'undefined' && typeof NOIrooms[elementCode]['show_on_map'] !== 'undefined' && NOIrooms[elementCode]['show_on_map'] == 1 ) {
-					printElementOnMapNOIMaps( thisElement, elementCode, jQuery('<svg class="label-room" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#fff"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="30" fill="#000" font-family="Arial">'+textLabel+'</text></svg>') );	
+					if(typeof NOIrooms[elementCode]['floor_description'] !== 'undefined') {
+						//this is an element that teleports (P)
+					} else {
+						printElementOnMapNOIMaps( thisElement, elementCode, jQuery('<svg class="label-room" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#fff"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="30" fill="#000" font-family="Arial">'+textLabel+'</text></svg>') );
+					}	
 				} else {
 					jQuery(thisElement).removeClass('clickable');
 				}
@@ -1380,14 +1386,25 @@ function goToBuildingFloorNOIMaps(buildingCode, buildingFloor, close = true) {
 				//console.log('CHIUDO DA goToBuildingFloorNOIMaps( con close = true');
 				closeTooltipNOIMaps();
 			}
-			jQuery(shadowRoot.querySelectorAll('#map')).html(maps_svgs[buildingCode]['floors'][buildingFloor]);			
+			jQuery(shadowRoot.querySelectorAll('#map')).html(maps_svgs[buildingCode]['floors'][buildingFloor]);		
+
+			jQuery(shadowRoot.querySelectorAll('#map svg g')).each(function() {
+				let thisElG = this;
+				let thisID = jQuery(thisElG).get(0).id;
+				if(typeof thisID !== 'undefined' && thisID!==null && thisID!=='') {
+					if(
+						typeof NOIrooms[thisID] !== 'undefined' && NOIrooms[thisID]!==null &&
+						typeof NOIrooms[thisID]['beacon_id'] !== 'undefined'
+					) {
+						jQuery(thisElG).addClass('clickable');
+					}
+				}
+			});
 			clickableBehaviourNOIMaps();
 			floorsZoomSelectorNOIMaps(buildingCode,buildingFloor);
 			navBarsNOIMaps(buildingCode,buildingFloor);
 			drawRoomsCategoryIconsNOIMaps();
 			translateElementsNOIMaps();
-			/*			
-			setMapZoomNOIMaps();*/
 		}
 	}
 }
@@ -1499,7 +1516,6 @@ function dropdownSelectionNOIMaps(){
 
 function sharerBehavioursNOIMaps() {
 	jQuery(shadowRoot.getElementById("copy-sharer-url")).click(function() {
-		//console.log('cluck');
 		var copyText = shadowRoot.getElementById("sharer-url-input");
 		copyText.select();
 		document.execCommand("copy");
