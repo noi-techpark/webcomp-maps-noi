@@ -10,6 +10,7 @@ NOI Techpark map app
 - [Deployment](#deployment)
 - [Docker environment](#docker-environment)
 - [Information](#information)
+- [Edit SVGs](#edit-svgs)
 
 ## Usage
 
@@ -184,3 +185,55 @@ The project uses this boilerplate: [https://github.com/noi-techpark/webcomp-boil
 ### License
 
 The code in this project is licensed under the GNU AFFERO GENERAL PUBLIC LICENSE Version 3 license. See the [LICENSE.md](LICENSE.md) file for more information.
+
+
+## Edit-SVGs
+
+These steps illustrate how to change the floorplans and icons svg using Adobe Illustrator.
+
+### Floorplans
+
+* download the desired svg (e.g. https://stage.madeincima.it/noi-maps-svg-test/floors/a2-1.svg )
+* open the svg with Adobe Illustrator
+* in the "Levels" tab you'll find all the clickable rooms named after the `Beacon ID` code found in the Google Sheet **wrapped inside a group**
+    
+    #### Naming convention
+    * beacon_id: `A2 1.10`
+    illustrator level's name: `A2-1-10` *(building A2 , floor 1, room 10)*
+
+    * beacon_id: `A2 1.10.C`
+    illustrator level's name: `A2-1-10-C` *(building A2 , floor 1, room 10C)*
+    
+    * beacon_id: `A2-1.20`
+    illustrator level's name: `A2--1-20` *(building A2 , floor -1, room 20)*
+    
+    * beacon_id: `A2-1.20.B`
+    illustrator level's name: `A2--1-20-B` *(building A2 , floor -1, room 20B)*
+    
+    #### To summarize
+    
+    * **every dot (`.`) and every space (` `) must be replaced with a minus symbol (`-`)**
+    `A2 1.10.C` -> `A2-1-10-C`
+    
+    * **every minus symbol (`-`) [negative floors] must be replaced with a double minus symbol (`--`)**
+    `A2-1.20.B` -> `A1--1-20-B`
+    
+* edit the SVG as you like
+* if you've added a clickable room **remember to wrap it in a group named after the naming convention accordingly with the beacon_id on the Google Sheet**
+* Export the file using
+    * File > Export > Export as
+    * do NOT rename the file (leave the original file name)
+
+    * #### SVG export options
+        * **Styling**: Inline style
+        * **Font**: SVG
+        * **Image**: Embed
+        * **Objects IDs**: Layer names
+        * **Decimal**: 2
+        * **Minify**: checked
+        * **Responsive**: checked
+* upload the SVG
+
+### Icons
+* just edit the desidered SVG and then re-upload it
+* if possibile, use squared designs
