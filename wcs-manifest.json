@@ -1,6 +1,6 @@
 {
-  "title": "NOI Maps webcomponent",
-  "description": "NOI Techpark map app",
+  "title": "NOI Maps",
+  "description": "This web component shows where are located the offices, the laboratories, the companies and institution in  the NOI Techpark.",
   "descriptionAbstract": "NOI Techpark map app",
   "license": "AGPL-3.0",
   "copyrightHolders":[{
@@ -18,7 +18,7 @@
     }
   ],
   "image": "wcs-logo.png",
-  "searchTags": [],
+  "searchTags": ["map","NOI"],
   "dist": {
     "basePath": "dist",
     "files": [
