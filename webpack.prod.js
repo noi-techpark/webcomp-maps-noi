@@ -1,4 +1,6 @@
 var path = require('path');
+var webpack = require('webpack');
+var dotenv = require('dotenv').config({path: __dirname + '/.env'});
 
 module.exports = {
   mode: 'production',
@@ -42,5 +44,10 @@ module.exports = {
         loader: 'html-loader',
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+            "process.env": JSON.stringify(dotenv.parsed)
+    }),
+  ]
 };

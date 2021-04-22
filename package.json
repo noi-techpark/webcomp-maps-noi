@@ -10,6 +10,7 @@
     "@webcomponents/webcomponentsjs": "^2.4.3",
     "davidshimjs-qrcodejs": "0.0.2",
     "detect-browser": "^5.2.0",
+    "dotenv": "^8.2.0",
     "hammerjs": "^2.0.8",
     "lit-element": "^2.1.0",
     "lit-html": "1.2.1",
