@@ -4,7 +4,7 @@ pipeline {
 		DOCKER_IMAGE = "755952719952.dkr.ecr.eu-west-1.amazonaws.com/webcompbuild:latest"
 		WC_GIT_REMOTE = get_git_remote()
 		WC_GIT_BRANCH = get_git_branch()
-		ODH_BASE_URL = "https://mobility.api.opendatahub.testingmachine.eu/v2"
+		ODH_BASE_URL = "https://mobility.api.opendatahub.bz.it/v2/flat/NOI-Place"
 	}
 	options {
 		ansiColor('xterm')

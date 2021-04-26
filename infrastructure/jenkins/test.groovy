@@ -2,7 +2,7 @@ pipeline {
 	agent any
 	environment {
 		DOCKER_IMAGE = "755952719952.dkr.ecr.eu-west-1.amazonaws.com/webcompbuild:latest"
-		ODH_BASE_URL = "https://mobility.api.opendatahub.testingmachine.eu/v2"
+		ODH_BASE_URL = "https://mobility.api.opendatahub.testingmachine.eu/v2/flat/NOI-Place"
 	}
 	options {
 		ansiColor('xterm')
