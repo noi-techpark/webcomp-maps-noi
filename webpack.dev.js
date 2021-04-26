@@ -1,7 +1,7 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const CssnanoPlugin = require('cssnano-webpack-plugin');
-
+const Dotenv = require('dotenv-webpack') 
 
 module.exports = {
   mode: 'development',
@@ -70,7 +70,8 @@ module.exports = {
         to: path.resolve(__dirname, './work/scripts/webcomponentsjs'),
         context: 'node_modules/@webcomponents/webcomponentsjs'
       }],
-    })
+    }),
+    new Dotenv()
   ],
   devServer: {
     contentBase: path.join(__dirname, 'work'),
