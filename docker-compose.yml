@@ -8,6 +8,12 @@ services:
       - ./:/code
     working_dir: /code
     command: sh -c "test -d node_modules || npm install; npm run start"
+  serve:
+    image: python:3.6-alpine
+    volumes:
+      - ./:/code
+    working_dir: /code/src
+    command: python -m http.server
     ports:
       - "8999:8000"
     tty: true
