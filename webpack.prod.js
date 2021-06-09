@@ -1,4 +1,5 @@
-var path = require('path');
+const path = require('path');
+const Dotenv = require('dotenv-webpack')
 
 module.exports = {
   mode: 'production',
@@ -25,7 +26,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.svg$/,        
+        test: /\.svg$/,
         oneOf: [
             {
                 exclude: path.resolve(__dirname, 'src/'),
@@ -42,5 +43,8 @@ module.exports = {
         loader: 'html-loader',
       }
     ]
-  }
+  },
+  plugins: [
+    new Dotenv()
+  ]
 };

@@ -2,19 +2,19 @@
   "title": "NOI Maps",
   "description": "This web component shows where are located the offices, the laboratories, the companies and institution in  the NOI Techpark.",
   "descriptionAbstract": "NOI Techpark map app",
-  "license": "AGPL-3.0",
+  "license": "AGPL-3.0-or-later",
   "copyrightHolders":[{
     "name":"NOI AG",
-    "email":"info@noi.bz.it", 
+    "email":"info@noi.bz.it",
     "organization": "NOI S.p.A",
     "organizationUrl": "https://noi.bz.it"
   }],
   "authors": [
     {
-      "name": "NOI",
-      "email": "info@noi.bz.it",
-      "organization": "NOI S.p.A",
-      "organizationUrl": "https://noi.bz.it"
+      "name": "Made In Cima",
+      "email": "info@madeincima.it",
+      "organization": "Made In Cima s.r.l.",
+      "organizationUrl": "https://www.madeincima.it"
     }
   ],
   "image": "wcs-logo.png",
