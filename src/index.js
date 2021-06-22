@@ -448,10 +448,33 @@ function fetchMapsSVGNOIMaps(this_building_code) {
 			maps_svgs[currentBuildingCode] = [];
 			maps_svgs[currentBuildingCode]['floors'] = {};
 
-			let currentBuildingFloor = result.data[i].smetadata.floor;;
+			let currentBuildingFloor = result.data[i].smetadata.floor;
 
 			if(typeof result.data[i].smetadata.building_code !== 'undefined' && typeof result.data[i].smetadata.image !== 'undefined') {
-				jQuery.get(result.data[i].smetadata.image, (data2) => {
+				let thisImageUrl = result.data[i].smetadata.image;
+				
+				let searchParams = new URLSearchParams(window.location.search)
+				let param = searchParams.get('stage')
+				if(param == 1) {
+					//console.log(thisImageUrl);
+					if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/axonometric.svg') {
+						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg-test/2021-06/axonometric.svg';
+					}
+					if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/a1-0.svg') {
+						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg-test/2021-06/a1-0.svg';
+					}
+					if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/a1-1.svg') {
+						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg-test/2021-06/a1-1.svg';
+					}
+					if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/a1-2.svg') {
+						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg-test/2021-06/a1-2.svg';
+					}
+					if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/a2-0.svg') {
+						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg-test/2021-06/a2-0.svg';
+					}
+				}
+
+				jQuery.get(thisImageUrl, (data2) => {
 					let $svg = jQuery(data2).find('svg');
 					// Remove any invalid XML tags as per http://validator.w3.org
 					$svg = $svg.removeAttr('xmlns:a');
@@ -479,6 +502,7 @@ function writeGroupsSidebarNOIMaps(ODHdata) {
 		let objects = result.data.filter(function(v){
 			return v.mvalue=="Selettori Group";
 		});
+
 		/*objects = Object.values(objects[0].tmetadata);
 		objects = objects.sort((a, b) => (a.order > b.order) ? 1 : -1);*/
 		objects = objects[0].tmetadata;
@@ -883,12 +907,15 @@ function clickedElementNOIMaps(elementCode, type="room") {
 			let website = false;
 
 			if(type=="building") {
+				/*
+				//21 06 2021 - qui si controllava che esistesse una planimetria x questo edificio - disabilitato controllo per ottenere
+				//un tooltip anche senza planimetria
 				if(typeof maps_svgs[elementCode] == 'undefined') {
-					//console.log('ATTENZIONE! Non è presente alcuna mappa SVG per: '+elementCode);
+					console.log('ATTENZIONE! Non è presente alcuna mappa SVG per: '+elementCode);
 					closeTooltipNOIMaps();
 					return true;
-				}
-				if(typeof(buildings_summary[elementCode])!='undefined' && typeof maps_svgs[elementCode] !== 'undefined') {
+				}*/
+				if(typeof(buildings_summary[elementCode])!='undefined' /*&& typeof maps_svgs[elementCode] !== 'undefined'*/) {
 					if(typeof(buildings_summary[elementCode]['building_code'])!='undefined' && buildings_summary[elementCode]['building_code']!='') {
 						icon_code = "icon-building-"+buildings_summary[elementCode]['building_code'];
 						clickedElementID = 'building_'+buildings_summary[elementCode]['building_code'];
@@ -898,13 +925,13 @@ function clickedElementNOIMaps(elementCode, type="room") {
 							jQuery(shadowRoot.querySelector("[id='"+clickedElementID+"']")).attr('class', oldClasses);						
 						}
 					}
-					if(typeof(buildings_summary[elementCode]['building_name'][thisNoiMapsSettingsLang])!='undefined' && buildings_summary[elementCode]['building_name'][thisNoiMapsSettingsLang]!='') {
+					if(typeof(buildings_summary[elementCode]['building_name'])!=='undefined' && typeof(buildings_summary[elementCode]['building_name'][thisNoiMapsSettingsLang])!=='undefined' && buildings_summary[elementCode]['building_name'][thisNoiMapsSettingsLang]!=='') {
 						name = buildings_summary[elementCode]['building_name'][thisNoiMapsSettingsLang];
 					}
-					if(typeof(buildings_summary[elementCode]['building_short_description'][thisNoiMapsSettingsLang])!='undefined' && buildings_summary[elementCode]['building_short_description'][thisNoiMapsSettingsLang]!='') {
+					if(typeof(buildings_summary[elementCode]['building_short_description'])!=='undefined' && typeof(buildings_summary[elementCode]['building_short_description'][thisNoiMapsSettingsLang])!=='undefined' && buildings_summary[elementCode]['building_short_description'][thisNoiMapsSettingsLang]!=='') {
 						shortdesc = buildings_summary[elementCode]['building_short_description'][thisNoiMapsSettingsLang];
 					}
-					if(typeof buildings_summary[elementCode]!=='undefined' && typeof(buildings_summary[elementCode]['building_description'])!='undefined' && typeof(buildings_summary[elementCode]['building_description'][thisNoiMapsSettingsLang])!='undefined' && buildings_summary[elementCode]['building_description'][thisNoiMapsSettingsLang]!='') {
+					if(typeof(buildings_summary[elementCode]['building_description'])!=='undefined' && typeof(buildings_summary[elementCode]['building_description'][thisNoiMapsSettingsLang])!=='undefined' && buildings_summary[elementCode]['building_description'][thisNoiMapsSettingsLang]!=='') {
 						longdesc = buildings_summary[elementCode]['building_description'][thisNoiMapsSettingsLang];
 					}
 				}
@@ -984,6 +1011,7 @@ function clickedElementNOIMaps(elementCode, type="room") {
 			
 			//Tooltip data
 			jQuery(shadowRoot.querySelectorAll('.tooltip .icon, .tooltip .name, .tooltip .short-description, .tooltip .long-description, .tooltip .lower, .tooltip .view-floorplan, .tooltip .website, .tooltip .share-element, .tooltip .expand-info')).addClass('hide');
+			jQuery(shadowRoot.querySelectorAll(".tooltip")).removeClass('without-lower');
 			if(icon_code==''&&name==''&&shortdesc==''&&longdesc=='') {
 				//console.log('ATTENZIONE! Nessuna informazione per l\'elemento cliccato:\n'+elementCode+'\nControllare il foglio Google');
 				closeTooltipNOIMaps();
@@ -1038,6 +1066,11 @@ function clickedElementNOIMaps(elementCode, type="room") {
 						thisFloor = jQuery(shadowRoot.querySelectorAll("#building_"+elementCode)).data('building-floor');
 					}
 					jQuery(shadowRoot.querySelectorAll(".tooltip .lower .view-floorplan")).attr('data-building-floor',thisFloor);
+
+					if(typeof maps_svgs[elementCode] == 'undefined') {
+						jQuery(shadowRoot.querySelectorAll(".tooltip .lower")).addClass('hide');
+						jQuery(shadowRoot.querySelectorAll(".tooltip")).addClass('without-lower');
+					}
 				}
 				if(type=="room") {
 					jQuery(shadowRoot.querySelectorAll(".tooltip .lower")).removeClass('hide');
