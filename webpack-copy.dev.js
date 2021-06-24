@@ -1,8 +1,7 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const CssnanoPlugin = require('cssnano-webpack-plugin');
-const webpack = require("webpack");
-const Dotenv = require('dotenv-webpack')
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   mode: 'development',
@@ -52,17 +51,6 @@ module.exports = {
       }
     ]
   },
-  optimization: {
-    minimizer: [
-      new CssnanoPlugin({
-        cssnanoOptions: {
-          preset: ['default', {
-            discardComments: { removeAll: true }
-          }]
-        }
-      })
-    ]
-  },
   plugins: [
     new CopyPlugin({
       patterns: [{
@@ -74,10 +62,13 @@ module.exports = {
     new Dotenv()
   ],
   devServer: {
-    contentBase: path.join(__dirname, 'work'),
-    compress: true,
-    watchContentBase: true,
+    contentBase: path.resolve(__dirname, './work'),
+    inline: true,
     writeToDisk: true,
-    port: 8999
+    port: 8000,
+    watchOptions: {
+      poll: false,
+      ignored: "/node_modules"
+    }
   }
 };
