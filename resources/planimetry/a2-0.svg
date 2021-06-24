@@ -1,1 +1,626 @@
-<svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 5500 2479.09"><defs><pattern id="locale_tecnico_1_2" data-name="locale tecnico 1 2" width="57" height="57" patternTransform="matrix(-0.42, 0, 0, 0.42, -31340.85, 24523.2)" patternUnits="userSpaceOnUse" viewBox="0 0 57 57"><rect width="57" height="57" style="fill:none"/><rect width="57" height="57" style="fill:none"/><rect width="57" height="57" style="fill:none"/><rect width="57" height="57" style="fill:none"/><rect width="57" height="57" style="fill:none"/><rect width="57" height="57" style="fill:none"/><rect width="57" height="57" style="fill:none"/><rect width="57" height="57" style="fill:none"/><rect width="57" height="57" style="fill:none"/><rect width="57" height="57" style="fill:none"/><rect width="57" height="57" style="fill:none"/><rect width="57" height="57" style="fill:none"/><rect x="53" y="-53" width="60" height="58" style="fill:#f2f2f2"/><line x1="57" x2="114" y2="-57" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><rect x="-4" y="-53" width="60" height="58" style="fill:#f2f2f2"/><line x2="57" y2="-57" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><line x1="-57" y2="-57" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><rect x="53" y="4" width="60" height="58" style="fill:#f2f2f2"/><line x1="57" y1="57" x2="114" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><rect x="-4" y="4" width="60" height="58" style="fill:#f2f2f2"/><line y1="57" x2="57" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><line x1="-57" y1="57" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><line x1="57" y1="114" x2="114" y2="57" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><line y1="114" x2="57" y2="57" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><line x1="-57" y1="114" y2="57" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/></pattern></defs><polygon id="background" points="5499.58 393.26 5499.58 1042.28 5499.58 1056.32 5499.58 1364.26 5499.58 1392.7 5471.14 1392.7 5163.55 1392.7 0 1392.7 0 0 5500 0 5499.58 393.26" style="fill:#f2f2f2"/><polygon points="2472.75 1364.26 2472.75 1193.33 2876.61 1193.33 2890.59 1193.33 2890.59 1179.35 2890.59 1010.46 2947.05 1010.46 2947.05 1364.26 2472.75 1364.26" style="fill:#ddd"/><polygon id="locale_tecnico" data-name="locale tecnico" points="4496.7 1364.26 4496.7 1010.46 4535.74 1010.46 4535.74 1111.45 4535.74 1125.42 4535.74 1364.26 4496.7 1364.26" style="fill:url(#locale_tecnico_1_2)"/><polygon id="locale_tecnico-2" data-name="locale tecnico-2" points="821.7 1364.26 821.7 1010.46 857.37 1010.46 857.37 1364.26 832.87 1364.26 821.7 1364.26" style="fill:url(#locale_tecnico_1_2)"/><polygon id="locale_tecnico-4" data-name="locale tecnico-4" points="4545.08 733.08 4545.08 639.75 4935.74 639.75 4949.79 639.75 5034.2 639.75 5048.17 639.75 5140.24 639.75 5140.24 733.08 4626.48 733.08 4612.5 733.08 4545.08 733.08" style="fill:url(#locale_tecnico_1_2)"/><rect id="locale_tecnico-5" data-name="locale tecnico-5" x="3448.88" y="610.46" width="604.49" height="122.61" style="fill:url(#locale_tecnico_1_2)"/><rect id="locale_tecnico-6" data-name="locale tecnico-6" x="2906.74" y="606.6" width="101.4" height="126.4" style="fill:url(#locale_tecnico_1_2)"/><rect id="locale_tecnico-7" data-name="locale tecnico-7" x="1887.36" y="609.62" width="59.83" height="123.46" style="fill:url(#locale_tecnico_1_2)"/><polyline id="locale_tecnico-8" data-name="locale tecnico-8" points="2404.07 607.93 2458.78 607.93 2458.78 733.08 2404.07 733.08" style="fill:url(#locale_tecnico_1_2)"/><polyline id="locale_tecnico-9" data-name="locale tecnico-9" points="1372.33 612.57 1392.7 612.57 1406.74 612.57 1425.35 612.57 1425.35 733.08 1372.33 733.08" style="fill:url(#locale_tecnico_1_2)"/><rect id="senza_codice" data-name="senza codice" x="5048.17" y="393.26" width="92.06" height="232.44" style="fill:#f2f2f2"/><polygon id="senza_codice-2" data-name="senza codice-2" points="4023.24 409.76 4023.24 28.44 4531.04 28.44 4531.04 379.21 4531.04 393.26 4531.04 409.76 4023.24 409.76" style="fill:#f2f2f2"/><g class="clickable" id="A2-0-13-C" data-name="customclass A2-0-13-C"><polygon id="a" points="4549.72 1364.26 4549.72 1023.67 4686.31 1023.67 4686.31 1034.55 4686.31 1054.49 4686.31 1364.26 4549.72 1364.26" style="fill:#f2f2f2"/></g><g class="clickable" id="A2-0-10-C" data-name="customclass A2-0-10-C"><rect id="a-2" x="500.77" y="1010.46" width="159.27" height="122.19" style="fill:#f2f2f2"/></g><g class="clickable" id="A2-0-20" data-name="customclass A2-0-20"><rect x="2472.75" y="1194.59" width="416.29" height="169.59" style="fill:none"/></g><g class="clickable" id="A2-0-19" data-name="customclass A2-0-19"><polygon points="507.8 733.08 507.8 389.89 924.79 389.89 924.79 733.08 507.8 733.08" style="fill:#ddd"/></g><g id="senza-codice-x"><polygon points="379.28 733.08 379.28 389.89 495.01 389.89 495.01 733.08 379.28 733.08" style="fill:#ddd"/></g><g class="clickable" id="A2-0-18" data-name="customclass A2-0-18"><polygon points="4545.08 379.21 4545.08 28.44 5140.24 28.44 5140.24 379.21 5048.17 379.21 5034.2 379.21 4949.79 379.21 4935.74 379.21 4545.08 379.21" style="fill:#f2f2f2"/></g><g class="clickable" id="A2-0-17" data-name="customclass A2-0-17"><polygon points="379.21 375.84 379.21 28.44 924.79 28.44 924.79 375.84 481.88 375.84 467.91 375.84 379.21 375.84" style="fill:#f2f2f2"/></g><g class="clickable" id="A2-0-16" data-name="customclass A2-0-16"><polygon points="28.44 747.05 28.44 389.89 365.24 389.89 365.24 747.05 28.44 747.05" style="fill:#f2f2f2"/></g><g class="clickable" id="A2-0-13" data-name="customclass A2-0-13"><rect id="traccia" x="2472.75" y="785.04" width="474.3" height="173.67" style="fill:none"/></g><g class="clickable" id="A2-0-12" data-name="customclass A2-0-12"><polygon points="4700.35 1111.45 4700.35 1028.3 4968.82 1028.3 4968.82 1133.08 4700.35 1133.08 4700.35 1125.42 4700.35 1111.45" style="fill:#f2f2f2"/></g><g class="clickable" id="A2-0-11" data-name="customclass A2-0-11"><polygon points="5158.08 1133.08 5158.08 1056.32 5471.14 1056.32 5471.14 1364.26 5158.08 1364.26 5158.08 1147.05 5158.08 1133.08" style="fill:#f2f2f2"/></g><g class="clickable" id="A2-0-11-A" data-name="customclass A2-0-11-A"><g id="scala_D" data-name="scala D"><polygon points="4933.01 1368.68 4809.06 1368.68 4809.06 1265.94 5037.99 1265.94 5037.99 1245.65 4808.29 1245.65 4808.29 1145.3 5036.1 1145.3 5036.1 1148.81 4811.8 1148.81 4811.8 1242.13 5041.5 1242.13 5041.5 1269.45 4812.57 1269.45 4812.57 1365.17 4933.01 1365.17 4933.01 1368.68" style="fill:#b7b7b7"/><polygon points="4933.01 1320.79 4762.78 1320.79 4762.78 1195.22 5036.52 1195.22 5036.52 1198.74 4766.29 1198.74 4766.29 1317.28 4933.01 1317.28 4933.01 1320.79" style="fill:#b7b7b7"/><rect x="4930.55" y="1266.92" width="3.51" height="100.77" style="fill:#b7b7b7"/><rect x="4910.04" y="1266.92" width="3.51" height="100.77" style="fill:#b7b7b7"/><rect x="5034.76" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="5014.75" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="4993.75" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="4973.24" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="4952.74" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="4932.72" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="4910.11" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="4890.03" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="4869.03" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="4848.03" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="4827.04" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><polygon points="4910.19 1244.1 4889.54 1196.9 4908.04 1146.45 4911.34 1147.65 4893.32 1196.78 4913.41 1242.69 4910.19 1244.1" style="fill:#b7b7b7"/><polygon points="4914.97 1366.6 4911.72 1365.28 4930.27 1319.52 4910.24 1270.33 4913.49 1269 4934.06 1319.52 4914.97 1366.6" style="fill:#b7b7b7"/><polygon points="4810.81 1269.66 4808.29 1269.66 4808.29 1242.13 4871 1242.13 4871 1245.65 4811.8 1245.65 4811.8 1267.91 4810.81 1267.91 4810.81 1269.66" style="fill:#b7b7b7"/><rect x="4880.76" y="1145.37" width="3.51" height="53.09" transform="translate(-109.9 1708.71) rotate(-19.63)" style="fill:#b7b7b7"/><rect x="4827.04" y="1266.92" width="3.51" height="100.77" style="fill:#b7b7b7"/><rect x="4869.03" y="1266.92" width="3.51" height="100.77" style="fill:#b7b7b7"/><rect x="4848.03" y="1266.92" width="3.51" height="100.77" style="fill:#b7b7b7"/><rect x="4890.03" y="1266.92" width="3.51" height="100.77" style="fill:#b7b7b7"/></g><g id="d"><polygon points="4700.35 1364.26 4700.35 1147.05 4968.82 1147.05 4982.86 1147.05 5144.03 1147.05 5144.03 1364.26 5135.6 1364.26 5135.18 1364.26 4700.35 1364.26" style="fill:none"/></g></g><g class="clickable" id="A2-0-11-B" data-name="customclass A2-0-11-B"><polygon points="4982.86 1133.08 4982.86 1028.3 5144.03 1028.3 5144.03 1042.28 5144.03 1056.32 5144.03 1133.08 4982.86 1133.08" style="fill:#f2f2f2"/></g><g class="clickable" id="A2-0-10" data-name="customclass A2-0-10"><g id="scale"><polygon points="700.49 1368.68 576.54 1368.68 576.54 1365.17 696.98 1365.17 696.98 1269.45 468.05 1269.45 468.05 1242.13 697.75 1242.13 697.75 1148.81 473.45 1148.81 473.45 1145.3 701.26 1145.3 701.26 1245.65 471.56 1245.65 471.56 1265.94 700.49 1265.94 700.49 1368.68" style="fill:#b7b7b7"/><polygon points="746.7 1320.79 576.54 1320.79 576.54 1317.28 743.19 1317.28 743.19 1198.74 473.03 1198.74 473.03 1195.22 746.7 1195.22 746.7 1320.79" style="fill:#b7b7b7"/><rect x="575.49" y="1266.92" width="3.51" height="100.77" style="fill:#b7b7b7"/><rect x="596" y="1266.92" width="3.51" height="100.77" style="fill:#b7b7b7"/><rect x="471.21" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="491.22" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="512.29" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="532.8" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="553.3" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="573.24" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="595.93" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="616.01" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="637.01" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="658.01" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><rect x="679" y="1147.05" width="3.51" height="96.84" style="fill:#b7b7b7"/><polygon points="599.36 1244.1 596.14 1242.69 616.23 1196.78 598.21 1147.65 601.51 1146.45 620.01 1196.9 599.36 1244.1" style="fill:#b7b7b7"/><polygon points="594.58 1366.6 575.49 1319.52 596.06 1269 599.31 1270.33 579.28 1319.52 597.84 1365.28 594.58 1366.6" style="fill:#b7b7b7"/><polygon points="701.26 1269.66 698.74 1269.66 698.74 1267.91 697.75 1267.91 697.75 1245.65 638.55 1245.65 638.55 1242.13 701.26 1242.13 701.26 1269.66" style="fill:#b7b7b7"/><rect x="600.47" y="1170.15" width="53.06" height="3.51" transform="translate(-687.2 1370.37) rotate(-70.44)" style="fill:#b7b7b7"/><rect x="679" y="1266.92" width="3.51" height="100.77" style="fill:#b7b7b7"/><rect x="637.01" y="1266.92" width="3.51" height="100.77" style="fill:#b7b7b7"/><rect x="658.01" y="1266.92" width="3.51" height="100.77" style="fill:#b7b7b7"/><rect x="616.01" y="1266.92" width="3.51" height="100.77" style="fill:#b7b7b7"/></g><polygon points="526.9 1146.63 540.87 1146.63 660.11 1146.63 674.09 1146.63 807.73 1146.63 807.73 1364.26 71.7 1364.26 28.44 1364.26 28.44 1146.63 407.23 1146.63 526.9 1146.63" style="fill:none"/></g><g class="clickable" id="A2-0-09" data-name="customclass A2-0-09"><rect x="28.44" y="28.44" width="336.8" height="347.4" style="fill:#f2f2f2"/></g><g class="clickable" id="A2-0-06" data-name="customclass A2-0-06"><polygon points="938.76 375.84 938.76 28.44 1392.7 28.44 1392.7 598.6 1372.33 598.6 1358.36 598.6 1358.36 612.57 1358.36 733.08 938.76 733.08 938.76 634.2 938.76 620.23 938.76 389.89 938.76 375.84" style="fill:#ddd"/></g><g class="clickable" id="A2-0-05" data-name="customclass A2-0-05"><polygon points="1406.74 598.6 1406.74 28.44 4009.27 28.44 4009.27 409.76 4009.27 423.81 4009.27 596.42 3448.88 596.42 3434.9 596.42 3434.9 610.46 3434.9 733.08 3022.12 733.08 3022.12 606.6 3022.12 592.63 3008.15 592.63 2906.74 592.63 2892.77 592.63 2892.77 606.6 2892.77 733.08 2472.75 733.08 2472.75 607.93 2472.75 593.89 2458.78 593.89 2404.07 593.89 2390.03 593.89 2390.03 607.93 2390.03 733.08 1961.17 733.08 1961.17 609.62 1961.17 595.58 1947.19 595.58 1887.36 595.58 1873.32 595.58 1873.32 609.62 1873.32 733.08 1439.4 733.08 1439.4 612.57 1439.4 598.6 1425.35 598.6 1406.74 598.6" style="fill:#ddd"/></g><g class="clickable" id="A2-0-04" data-name="customclass A2-0-04"><polygon points="4023.24 596.42 4023.24 423.81 4531.04 423.81 4531.04 733.08 4067.42 733.08 4067.42 610.46 4067.42 596.42 4053.37 596.42 4023.24 596.42" style="fill:#f2f2f2"/></g><g class="clickable" id="A2-0-03-B" data-name="customclass A2-0-03-B"><rect x="4949.79" y="393.26" width="84.41" height="232.44" style="fill:#f2f2f2"/></g><g class="clickable" id="A2-0-03-A" data-name="customclass A2-0-03-A"><polygon points="4545.08 409.76 4545.08 393.26 4935.74 393.26 4935.74 625.7 4545.08 625.7 4545.08 423.81 4545.08 409.76" style="fill:#f2f2f2"/></g><g class="clickable" id="A2-0-02-D" data-name="customclass A2-0-02-D"><polygon points="871.35 1364.26 871.35 1010.46 1045.72 1010.46 1045.72 1364.26 926.05 1364.26 871.35 1364.26" style="fill:#ddd"/></g><g class="clickable" id="A2-0-02-C" data-name="customclass A2-0-02-C"><rect x="1059.69" y="1010.46" width="334.27" height="353.79" style="fill:#ddd"/></g><g class="clickable" id="A2-0-02-B" data-name="customclass A2-0-02-B"><rect x="1408.01" y="1010.46" width="496.35" height="353.79" style="fill:#ddd"/></g><g class="clickable" id="A2-0-02-A" data-name="customclass A2-0-02-A"><polygon points="1918.33 1364.26 1918.33 1010.46 2458.78 1010.46 2458.78 1179.35 2458.78 1193.33 2458.78 1364.26 1918.33 1364.26" style="fill:#ddd"/></g><g class="clickable" id="A2-0-01-C" data-name="customclass A2-0-01-C"><rect x="2961.03" y="1010.46" width="484.06" height="353.79" style="fill:#ddd"/></g><g class="clickable" id="A2-0-01-B" data-name="customclass A2-0-01-B"><rect x="3459.06" y="1010.46" width="541.71" height="353.79" style="fill:#ddd"/></g><g class="clickable" id="A2-0-01-A" data-name="customclass A2-0-01-A"><rect x="4014.82" y="1010.46" width="467.91" height="353.79" style="fill:#ddd"/></g><g id="walls"><path d="M379.21,523h-14v224H1598v-14H1439.33V598.6H1406.6V513.76h-14V598.6h-34.34V733.08H938.76V513.69h-14V733H379.21Zm993.12,89.54h53V733.08h-53Z" style="fill:#b7b7b7"/><polygon points="28.44 1392.7 110.32 1392.7 110.32 1364.26 71.7 1364.26 28.44 1364.26 28.44 1146.63 407.23 1146.63 407.23 1132.65 28.44 1132.65 28.44 1052.88 106.46 1052.88 106.46 1038.9 28.44 1038.9 28.44 524.79 0 524.79 0 1038.9 0 1052.88 0 1136.45 0 1150.49 0 1364.26 0 1392.7 28.44 1392.7" style="fill:#b7b7b7"/><polygon points="3459.06 1239.33 3459.06 1010.46 3540.52 1010.46 3540.52 996.49 3459.06 996.49 3445.08 996.49 3372.96 996.49 3372.96 1010.46 3445.08 1010.46 3445.08 1239.33 3459.06 1239.33" style="fill:#b7b7b7"/><path d="M857.37,1364.26H821.7v-353.8h35.67Zm3692.42-252.81v-115H4178.16v14h304.56v353.8h-467.9v-353.8h61.09v-14H3642.77v14h358v353.8H3459.06v-73.81h-14v73.81H2961v-353.8h359.76v-14H2568.68v14h307.94v168.82h-308v14h322V1010.39H2947v353.8h-474.3V1193.26h19.53v-14h-19.53V996.49H2077.74v14h381v353.8H1918.26v-353.8h55.12v-14H1561.45v14h342.76v353.8H1408v-353.8h49.15v-14H1196.7v14H1394v353.8H1059.69v-353.8h32.66v-14h-56.89v14h10.19v353.8H871.28v-353.8h59.9v-14H795.86v14h11.86v122.19H674.09V1010.46h70v-14H499.72v14H660.11v122.19H526.9v14H807.72v217.63H252v28.44H5263.69v-28.44H5158.08v-47.13h-14v47.13H4700.35V1147.05h457.73v-14H4982.87V1028.3h15.23v-14H4869.59v14h99.23v104.78H4700.28V1028.3h59.83v-14h-73.8v350H4549.72l.07-252.88Zm-53-100.92h39v353.8h-39Z" style="fill:#b7b7b7"/><polygon points="5471.14 1042.28 5158.08 1042.28 5158.08 1028.3 5158.08 1014.33 5144.03 1014.33 5069.8 1014.33 5069.8 1028.3 5144.03 1028.3 5144.03 1042.28 5144.03 1056.32 5158.08 1056.32 5166.5 1056.32 5471.14 1056.32 5471.14 1364.26 5401.55 1364.26 5401.55 1392.7 5471.14 1392.7 5499.58 1392.7 5499.58 1364.26 5499.58 1056.32 5499.58 1042.28 5499.58 519.66 5471.14 519.66 5471.14 1042.28" style="fill:#b7b7b7"/><path d="M28.44,419.52v-29.7H161.66v-14H28.44V28.37h336.8V375.84H268.12v14h97.12v32.65h14V389.82h21.07v-14H379.21V28.44H924.79V375.91H476.12v14h18.05V734.55h14V389.82H924.79v68.75h14V28.44H1392.7V458.57h14V28.44h2602.6v431h14v-35.6h357.17v-14H4023.24V28.44H4531V409.76h-80.62v14H4531v35.6h14V393.26h390.73v66.15h14V393.26h84.41V625.7h-84.41V513.27h-14V625.7H4545V513.27h-14V733.08H4291.78v14h862.43V519.66h-14v106h-92.07V393.26h12.93V379.21h-516V28.44h595.16V379.21H5128.3v14.05h11.94V413.2h14V393.26h97.19V379.21h-97.19V28.37h331.32V364.75h-14.39v14.46H5357.87v14.05h113.27V413.2h28.44V393.26h.42V0H0V419.52Zm5111.8,220.23v93.33H4545.08V639.75Z" style="fill:#b7b7b7"/><path d="M3022.12,592.63H2892.77V733.08H2670.08v14H4221.84v-14H4067.42V596.49h-44.11V513.34h-14v83.15H3435V733.08H3022.19V592.63Zm-14,140.45H2906.74V606.67h101.41Zm440.73-122.62h604.49V733H3448.88Z" style="fill:#b7b7b7"/><path d="M1961.17,595.58h-87.79v137.5H1656.6v14h954.92v-14h-138.7V593.89H2390.1V733H1961.24V595.58Zm-14,137.43h-59.83V609.62h59.83Zm456.88-125.14h54.71V733h-54.71Z" style="fill:#b7b7b7"/><polygon points="344.87 1010.46 344.87 1038.9 257.09 1038.9 257.09 1052.88 344.87 1052.88 358.92 1052.88 358.92 1038.9 358.92 1010.46 412.78 1010.46 412.78 996.49 358.92 996.49 344.87 996.49 344.87 1010.46" style="fill:#b7b7b7"/></g><line x1="5267.7" y1="28.02" x2="5392.84" y2="28.02" style="fill:none;stroke:#b7b7b7;stroke-miterlimit:10;stroke-width:5px"/><g class="clickable" id="A2-0-08" data-name="customclass A2-0-08"><g id="scale-2"><polygon points="5397.4 237.78 5393.89 237.78 5393.89 105.69 5267.7 105.69 5267.7 102.18 5397.4 102.18 5397.4 237.78" style="fill:#b7b7b7"/><polygon points="5473.1 237.78 5469.59 237.78 5469.59 29.77 5394.59 29.77 5394.59 103.93 5391.08 103.93 5391.08 26.26 5473.1 26.26 5473.1 237.78" style="fill:#b7b7b7"/><polygon points="5434.48 237.15 5430.97 237.15 5430.97 67.7 5267.7 67.7 5267.7 64.19 5434.48 64.19 5434.48 237.15" style="fill:#b7b7b7"/><rect x="5266.08" y="28.02" width="3.51" height="75.91" style="fill:#b7b7b7"/><rect x="5283.08" y="28.02" width="3.51" height="75.91" style="fill:#b7b7b7"/><rect x="5321.14" y="28.02" width="3.51" height="75.91" style="fill:#b7b7b7"/><rect x="5338.9" y="28.02" width="3.51" height="75.91" style="fill:#b7b7b7"/><rect x="5356.32" y="28.02" width="3.51" height="75.91" style="fill:#b7b7b7"/><rect x="5373.31" y="28.02" width="3.51" height="75.91" style="fill:#b7b7b7"/><rect x="5395.65" y="111.73" width="75.91" height="3.51" style="fill:#b7b7b7"/><rect x="5395.65" y="129.56" width="75.91" height="3.51" style="fill:#b7b7b7"/><rect x="5395.65" y="146.91" width="75.91" height="3.51" style="fill:#b7b7b7"/><rect x="5395.65" y="166.43" width="75.91" height="3.51" style="fill:#b7b7b7"/><rect x="5395.65" y="183.85" width="75.91" height="3.51" style="fill:#b7b7b7"/><rect x="5395.65" y="202.11" width="75.91" height="3.51" style="fill:#b7b7b7"/><rect x="5395.65" y="219.03" width="75.91" height="3.51" style="fill:#b7b7b7"/><rect x="5395.65" y="236.03" width="94.8" height="3.51" style="fill:#b7b7b7"/><rect x="5302.46" y="28.02" width="3.51" height="75.91" style="fill:#b7b7b7"/><polygon points="5282.23 104.4 5266.22 65.95 5281.8 27.16 5285.06 28.46 5270.02 65.93 5285.47 103.05 5282.23 104.4" style="fill:#b7b7b7"/><polygon points="5395.69 131.61 5394.34 128.37 5432.71 112.43 5471.58 128 5470.27 131.26 5432.74 116.22 5395.69 131.61" style="fill:#b7b7b7"/></g><g id="tracciato"><polygon points="5154.21 379.21 5154.21 28.44 5485.53 28.44 5485.53 364.82 5471.14 364.82 5471.14 379.21 5154.21 379.21" style="fill:none"/></g></g><line x1="28.02" y1="98.6" x2="28.02" y2="237.78" style="fill:none;stroke:#b7b7b7;stroke-miterlimit:10;stroke-width:5px"/><line x1="103.72" y1="130.69" x2="103.72" y2="237.78" style="fill:none;stroke:#b7b7b7;stroke-miterlimit:10;stroke-width:5px"/><rect x="27.81" y="112.57" width="38.55" height="3.51" style="fill:#b7b7b7"/><rect x="64.82" y="114.54" width="3.51" height="122.61" style="fill:#b7b7b7"/><rect x="45.75" y="86.03" width="3.51" height="40.86" transform="translate(-69.04 109.32) rotate(-67.36)" style="fill:#b7b7b7"/><rect x="27.81" y="129.56" width="75.91" height="3.51" style="fill:#b7b7b7"/><rect x="27.81" y="146.91" width="75.91" height="3.51" style="fill:#b7b7b7"/><rect x="27.81" y="166.43" width="75.91" height="3.51" style="fill:#b7b7b7"/><rect x="27.81" y="183.85" width="75.91" height="3.51" style="fill:#b7b7b7"/><rect x="27.81" y="202.11" width="75.91" height="3.51" style="fill:#b7b7b7"/><rect x="27.81" y="219.03" width="75.91" height="3.51" style="fill:#b7b7b7"/><rect x="27.81" y="236.03" width="75.91" height="3.51" style="fill:#b7b7b7"/><polygon points="103.68 131.61 66.56 116.22 29.09 131.26 27.79 128.01 66.58 112.43 105.03 128.36 103.68 131.61" style="fill:#b7b7b7"/><g class="clickable" id="A2-0-21" data-name="customclass A2-0-21"><g id="scale-3"><polygon points="2753.44 1183.22 2647.33 1183.22 2647.33 1179.7 2749.93 1179.7 2749.93 1105.76 2557.58 1105.76 2557.58 1091.36 2699.93 1091.36 2699.93 1094.87 2561.1 1094.87 2561.1 1102.25 2753.44 1102.25 2753.44 1183.22" style="fill:#b7b7b7"/><rect x="2647.54" y="1142.06" width="103.93" height="3.51" style="fill:#b7b7b7"/><rect x="2682.94" y="1008.36" width="3.51" height="85.46" style="fill:#b7b7b7"/><rect x="2647.75" y="1008.36" width="3.51" height="85.46" style="fill:#b7b7b7"/><rect x="2595.08" y="1008.36" width="3.51" height="85.46" style="fill:#b7b7b7"/><rect x="2577.32" y="1008.36" width="3.51" height="85.46" style="fill:#b7b7b7"/><rect x="2560.32" y="1008.36" width="3.51" height="85.46" style="fill:#b7b7b7"/><rect x="2664.68" y="1008.36" width="3.51" height="85.46" style="fill:#b7b7b7"/><rect x="2612.5" y="1008.36" width="3.51" height="85.46" style="fill:#b7b7b7"/><rect x="2629.49" y="1008.36" width="3.51" height="85.46" style="fill:#b7b7b7"/><rect x="2646" y="1104" width="3.51" height="77.46" style="fill:#b7b7b7"/><rect x="2663.41" y="1104" width="3.51" height="77.46" style="fill:#b7b7b7"/><rect x="2680.41" y="1104" width="3.51" height="77.46" style="fill:#b7b7b7"/><rect x="2698.17" y="1104" width="3.51" height="77.46" style="fill:#b7b7b7"/><rect x="2715.59" y="1104" width="3.51" height="77.46" style="fill:#b7b7b7"/><rect x="2732.16" y="1104" width="3.51" height="77.46" style="fill:#b7b7b7"/><polygon points="2734.94 1182.21 2731.77 1180.7 2749.33 1143.87 2731.9 1105.14 2735.1 1103.7 2753.2 1143.91 2734.94 1182.21" style="fill:#b7b7b7"/><polygon points="2771.63 1105.76 2736.03 1105.76 2736.03 1102.25 2768.12 1102.25 2768.12 1094.73 2699.93 1094.73 2699.93 1091.22 2771.63 1091.22 2771.63 1105.76" style="fill:#b7b7b7"/><rect x="2715.17" y="1009.06" width="3.51" height="84.06" style="fill:#b7b7b7"/><rect x="2732.09" y="1009.06" width="3.51" height="84.06" style="fill:#b7b7b7"/><rect x="2749.09" y="1009.06" width="3.51" height="84.06" style="fill:#b7b7b7"/><rect x="2767.77" y="1009.06" width="3.51" height="84.06" style="fill:#b7b7b7"/><rect x="2698.17" y="1008.22" width="3.51" height="84.06" style="fill:#b7b7b7"/><rect x="2738.72" y="1122.61" width="42.93" height="3.51" transform="translate(590.36 3167.57) rotate(-65.44)" style="fill:#b7b7b7"/><rect x="2767.77" y="1103.65" width="3.51" height="84.06" style="fill:#b7b7b7"/></g><g id="tracciato-2"><polygon points="2472.75 1010.46 2472.75 1179.35 2876.61 1179.35 2876.61 1010.46 2568.61 1010.46 2472.75 1010.46" style="fill:none"/></g></g><polygon points="5158.99 1135.74 5125.14 1135.74 5125.14 1132.23 5155.48 1132.23 5155.48 1057.72 5124.16 1057.72 5124.16 1054.21 5158.99 1054.21 5158.99 1135.74" style="fill:#b7b7b7"/><rect x="5124.16" y="1091.85" width="32.73" height="3.51" style="fill:#b7b7b7"/><rect x="5122.89" y="1055.34" width="3.51" height="79.28" style="fill:#b7b7b7"/><rect x="5139.04" y="1055.34" width="3.51" height="79.28" style="fill:#b7b7b7"/><polygon points="5139.18 1133.18 5122.9 1093.19 5137.98 1056.01 5141.23 1057.33 5126.68 1093.19 5142.43 1131.85 5139.18 1133.18" style="fill:#b7b7b7"/><polygon points="359.34 1135.74 324.02 1135.74 324.02 1132.23 355.83 1132.23 355.83 1054 322.96 1054 322.96 1050.49 359.34 1050.49 359.34 1135.74" style="fill:#b7b7b7"/><rect x="322.96" y="1089.96" width="34.27" height="3.51" style="fill:#b7b7b7"/><rect x="321.84" y="1051.62" width="3.51" height="83.01" style="fill:#b7b7b7"/><rect x="338.69" y="1051.62" width="3.51" height="83.01" style="fill:#b7b7b7"/><polygon points="338.82 1133.04 321.77 1091.29 337.56 1052.43 340.81 1053.75 325.56 1091.29 342.07 1131.71 338.82 1133.04" style="fill:#b7b7b7"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 5500 2479.1" style="enable-background:new 0 0 5500 2479.1;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#F2F2F2;}
+	.st2{fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;}
+	.st3{fill:#DDDDDD;}
+	.st4{fill:url(#locale_tecnico_1_);}
+	.st5{fill:url(#locale_tecnico-2_1_);}
+	.st6{fill:url(#locale_tecnico-4_1_);}
+	.st7{fill:url(#locale_tecnico-5_1_);}
+	.st8{fill:url(#locale_tecnico-6_1_);}
+	.st9{fill:url(#locale_tecnico-7_1_);}
+	.st10{fill:url(#locale_tecnico-8_1_);}
+	.st11{fill:url(#locale_tecnico-9_1_);}
+	.st12{fill:#B7B7B7;}
+	.st13{fill:none;stroke:#B7B7B7;stroke-width:5;stroke-miterlimit:10;}
+	.st14{fill:none;stroke:#B7B7B7;stroke-width:2;stroke-miterlimit:10;}
+</style>
+<pattern  y="2479.1" width="57" height="57" patternUnits="userSpaceOnUse" id="locale_tecnico_2_" viewBox="71.1 -128.1 57 57" style="overflow:visible;">
+	<g>
+		<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+		<g>
+			<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+			<g>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="124.1" y="-76.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="128.1" y1="-71.1" x2="185.1" y2="-14.1"/>
+				<rect x="67.1" y="-76.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="71.1" y1="-71.1" x2="128.1" y2="-14.1"/>
+				<line class="st2" x1="14.1" y1="-71.1" x2="71.1" y2="-14.1"/>
+				<rect x="124.1" y="-133.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="128.1" y1="-128.1" x2="185.1" y2="-71.1"/>
+				<rect x="67.1" y="-133.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="71.1" y1="-128.1" x2="128.1" y2="-71.1"/>
+				<line class="st2" x1="14.1" y1="-128.1" x2="71.1" y2="-71.1"/>
+				<line class="st2" x1="128.1" y1="-185.1" x2="185.1" y2="-128.1"/>
+				<line class="st2" x1="71.1" y1="-185.1" x2="128.1" y2="-128.1"/>
+				<line class="st2" x1="14.1" y1="-185.1" x2="71.1" y2="-128.1"/>
+			</g>
+		</g>
+	</g>
+</pattern>
+<pattern  y="2479.1" width="57" height="57" patternUnits="userSpaceOnUse" id="locale_tecnico-2_2_" viewBox="71.1 -128.1 57 57" style="overflow:visible;">
+	<g>
+		<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+		<g>
+			<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+			<g>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="124.1" y="-76.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="128.1" y1="-71.1" x2="185.1" y2="-14.1"/>
+				<rect x="67.1" y="-76.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="71.1" y1="-71.1" x2="128.1" y2="-14.1"/>
+				<line class="st2" x1="14.1" y1="-71.1" x2="71.1" y2="-14.1"/>
+				<rect x="124.1" y="-133.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="128.1" y1="-128.1" x2="185.1" y2="-71.1"/>
+				<rect x="67.1" y="-133.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="71.1" y1="-128.1" x2="128.1" y2="-71.1"/>
+				<line class="st2" x1="14.1" y1="-128.1" x2="71.1" y2="-71.1"/>
+				<line class="st2" x1="128.1" y1="-185.1" x2="185.1" y2="-128.1"/>
+				<line class="st2" x1="71.1" y1="-185.1" x2="128.1" y2="-128.1"/>
+				<line class="st2" x1="14.1" y1="-185.1" x2="71.1" y2="-128.1"/>
+			</g>
+		</g>
+	</g>
+</pattern>
+<pattern  y="2479.1" width="57" height="57" patternUnits="userSpaceOnUse" id="locale_tecnico-4_2_" viewBox="71.1 -128.1 57 57" style="overflow:visible;">
+	<g>
+		<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+		<g>
+			<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+			<g>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="124.1" y="-76.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="128.1" y1="-71.1" x2="185.1" y2="-14.1"/>
+				<rect x="67.1" y="-76.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="71.1" y1="-71.1" x2="128.1" y2="-14.1"/>
+				<line class="st2" x1="14.1" y1="-71.1" x2="71.1" y2="-14.1"/>
+				<rect x="124.1" y="-133.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="128.1" y1="-128.1" x2="185.1" y2="-71.1"/>
+				<rect x="67.1" y="-133.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="71.1" y1="-128.1" x2="128.1" y2="-71.1"/>
+				<line class="st2" x1="14.1" y1="-128.1" x2="71.1" y2="-71.1"/>
+				<line class="st2" x1="128.1" y1="-185.1" x2="185.1" y2="-128.1"/>
+				<line class="st2" x1="71.1" y1="-185.1" x2="128.1" y2="-128.1"/>
+				<line class="st2" x1="14.1" y1="-185.1" x2="71.1" y2="-128.1"/>
+			</g>
+		</g>
+	</g>
+</pattern>
+<pattern  y="2479.1" width="57" height="57" patternUnits="userSpaceOnUse" id="locale_tecnico-5_2_" viewBox="71.1 -128.1 57 57" style="overflow:visible;">
+	<g>
+		<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+		<g>
+			<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+			<g>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="124.1" y="-76.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="128.1" y1="-71.1" x2="185.1" y2="-14.1"/>
+				<rect x="67.1" y="-76.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="71.1" y1="-71.1" x2="128.1" y2="-14.1"/>
+				<line class="st2" x1="14.1" y1="-71.1" x2="71.1" y2="-14.1"/>
+				<rect x="124.1" y="-133.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="128.1" y1="-128.1" x2="185.1" y2="-71.1"/>
+				<rect x="67.1" y="-133.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="71.1" y1="-128.1" x2="128.1" y2="-71.1"/>
+				<line class="st2" x1="14.1" y1="-128.1" x2="71.1" y2="-71.1"/>
+				<line class="st2" x1="128.1" y1="-185.1" x2="185.1" y2="-128.1"/>
+				<line class="st2" x1="71.1" y1="-185.1" x2="128.1" y2="-128.1"/>
+				<line class="st2" x1="14.1" y1="-185.1" x2="71.1" y2="-128.1"/>
+			</g>
+		</g>
+	</g>
+</pattern>
+<pattern  y="2479.1" width="57" height="57" patternUnits="userSpaceOnUse" id="locale_tecnico-6_2_" viewBox="71.1 -128.1 57 57" style="overflow:visible;">
+	<g>
+		<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+		<g>
+			<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+			<g>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="124.1" y="-76.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="128.1" y1="-71.1" x2="185.1" y2="-14.1"/>
+				<rect x="67.1" y="-76.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="71.1" y1="-71.1" x2="128.1" y2="-14.1"/>
+				<line class="st2" x1="14.1" y1="-71.1" x2="71.1" y2="-14.1"/>
+				<rect x="124.1" y="-133.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="128.1" y1="-128.1" x2="185.1" y2="-71.1"/>
+				<rect x="67.1" y="-133.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="71.1" y1="-128.1" x2="128.1" y2="-71.1"/>
+				<line class="st2" x1="14.1" y1="-128.1" x2="71.1" y2="-71.1"/>
+				<line class="st2" x1="128.1" y1="-185.1" x2="185.1" y2="-128.1"/>
+				<line class="st2" x1="71.1" y1="-185.1" x2="128.1" y2="-128.1"/>
+				<line class="st2" x1="14.1" y1="-185.1" x2="71.1" y2="-128.1"/>
+			</g>
+		</g>
+	</g>
+</pattern>
+<pattern  y="2479.1" width="57" height="57" patternUnits="userSpaceOnUse" id="locale_tecnico-7_2_" viewBox="71.1 -128.1 57 57" style="overflow:visible;">
+	<g>
+		<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+		<g>
+			<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+			<g>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="124.1" y="-76.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="128.1" y1="-71.1" x2="185.1" y2="-14.1"/>
+				<rect x="67.1" y="-76.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="71.1" y1="-71.1" x2="128.1" y2="-14.1"/>
+				<line class="st2" x1="14.1" y1="-71.1" x2="71.1" y2="-14.1"/>
+				<rect x="124.1" y="-133.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="128.1" y1="-128.1" x2="185.1" y2="-71.1"/>
+				<rect x="67.1" y="-133.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="71.1" y1="-128.1" x2="128.1" y2="-71.1"/>
+				<line class="st2" x1="14.1" y1="-128.1" x2="71.1" y2="-71.1"/>
+				<line class="st2" x1="128.1" y1="-185.1" x2="185.1" y2="-128.1"/>
+				<line class="st2" x1="71.1" y1="-185.1" x2="128.1" y2="-128.1"/>
+				<line class="st2" x1="14.1" y1="-185.1" x2="71.1" y2="-128.1"/>
+			</g>
+		</g>
+	</g>
+</pattern>
+<pattern  y="2479.1" width="57" height="57" patternUnits="userSpaceOnUse" id="locale_tecnico-8_2_" viewBox="71.1 -128.1 57 57" style="overflow:visible;">
+	<g>
+		<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+		<g>
+			<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+			<g>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="124.1" y="-76.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="128.1" y1="-71.1" x2="185.1" y2="-14.1"/>
+				<rect x="67.1" y="-76.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="71.1" y1="-71.1" x2="128.1" y2="-14.1"/>
+				<line class="st2" x1="14.1" y1="-71.1" x2="71.1" y2="-14.1"/>
+				<rect x="124.1" y="-133.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="128.1" y1="-128.1" x2="185.1" y2="-71.1"/>
+				<rect x="67.1" y="-133.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="71.1" y1="-128.1" x2="128.1" y2="-71.1"/>
+				<line class="st2" x1="14.1" y1="-128.1" x2="71.1" y2="-71.1"/>
+				<line class="st2" x1="128.1" y1="-185.1" x2="185.1" y2="-128.1"/>
+				<line class="st2" x1="71.1" y1="-185.1" x2="128.1" y2="-128.1"/>
+				<line class="st2" x1="14.1" y1="-185.1" x2="71.1" y2="-128.1"/>
+			</g>
+		</g>
+	</g>
+</pattern>
+<pattern  y="2479.1" width="57" height="57" patternUnits="userSpaceOnUse" id="locale_tecnico-9_2_" viewBox="71.1 -128.1 57 57" style="overflow:visible;">
+	<g>
+		<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+		<g>
+			<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+			<g>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="71.1" y="-128.1" class="st0" width="57" height="57"/>
+				<rect x="124.1" y="-76.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="128.1" y1="-71.1" x2="185.1" y2="-14.1"/>
+				<rect x="67.1" y="-76.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="71.1" y1="-71.1" x2="128.1" y2="-14.1"/>
+				<line class="st2" x1="14.1" y1="-71.1" x2="71.1" y2="-14.1"/>
+				<rect x="124.1" y="-133.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="128.1" y1="-128.1" x2="185.1" y2="-71.1"/>
+				<rect x="67.1" y="-133.1" class="st1" width="60" height="58"/>
+				<line class="st2" x1="71.1" y1="-128.1" x2="128.1" y2="-71.1"/>
+				<line class="st2" x1="14.1" y1="-128.1" x2="71.1" y2="-71.1"/>
+				<line class="st2" x1="128.1" y1="-185.1" x2="185.1" y2="-128.1"/>
+				<line class="st2" x1="71.1" y1="-185.1" x2="128.1" y2="-128.1"/>
+				<line class="st2" x1="14.1" y1="-185.1" x2="71.1" y2="-128.1"/>
+			</g>
+		</g>
+	</g>
+</pattern>
+<polygon id="background" class="st1" points="5499.6,393.3 5499.6,1042.3 5499.6,1056.3 5499.6,1364.3 5499.6,1392.7 5471.1,1392.7 
+	5163.5,1392.7 0,1392.7 0,0 5500,0 "/>
+<polygon class="st3" points="2472.8,1364.3 2472.8,1193.3 2876.6,1193.3 2890.6,1193.3 2890.6,1179.3 2890.6,1010.5 2947.1,1010.5 
+	2947.1,1364.3 "/>
+<pattern  id="locale_tecnico_1_" xlink:href="#locale_tecnico_2_" patternTransform="matrix(-0.42 0 0 -0.42 -54391.043 -43281.5508)">
+</pattern>
+<polygon id="locale_tecnico" class="st4" points="4496.7,1364.3 4496.7,1010.5 4535.7,1010.5 4535.7,1111.4 4535.7,1125.4 
+	4535.7,1364.3 "/>
+<pattern  id="locale_tecnico-2_1_" xlink:href="#locale_tecnico-2_2_" patternTransform="matrix(-0.42 0 0 -0.42 -54391.043 -43281.5508)">
+</pattern>
+<polygon id="locale_tecnico-2" class="st5" points="821.7,1364.3 821.7,1010.5 857.4,1010.5 857.4,1364.3 832.9,1364.3 "/>
+<pattern  id="locale_tecnico-4_1_" xlink:href="#locale_tecnico-4_2_" patternTransform="matrix(-0.42 0 0 -0.42 -54391.043 -43281.5508)">
+</pattern>
+<polygon id="locale_tecnico-4" class="st6" points="4545.1,733.1 4545.1,639.7 4935.7,639.7 4949.8,639.7 5034.2,639.7 
+	5048.2,639.7 5140.2,639.7 5140.2,733.1 4626.5,733.1 4612.5,733.1 "/>
+<pattern  id="locale_tecnico-5_1_" xlink:href="#locale_tecnico-5_2_" patternTransform="matrix(-0.42 0 0 -0.42 -54391.043 -43281.5508)">
+</pattern>
+<rect id="locale_tecnico-5" x="3448.9" y="610.5" class="st7" width="604.5" height="122.6"/>
+<pattern  id="locale_tecnico-6_1_" xlink:href="#locale_tecnico-6_2_" patternTransform="matrix(-0.42 0 0 -0.42 -54391.043 -43281.5508)">
+</pattern>
+<rect id="locale_tecnico-6" x="2906.7" y="606.6" class="st8" width="101.4" height="126.4"/>
+<pattern  id="locale_tecnico-7_1_" xlink:href="#locale_tecnico-7_2_" patternTransform="matrix(-0.42 0 0 -0.42 -54391.043 -43281.5508)">
+</pattern>
+<rect id="locale_tecnico-7" x="1887.4" y="609.6" class="st9" width="59.8" height="123.5"/>
+<pattern  id="locale_tecnico-8_1_" xlink:href="#locale_tecnico-8_2_" patternTransform="matrix(-0.42 0 0 -0.42 -54391.043 -43281.5508)">
+</pattern>
+<polyline id="locale_tecnico-8" class="st10" points="2404.1,607.9 2458.8,607.9 2458.8,733.1 2404.1,733.1 "/>
+<pattern  id="locale_tecnico-9_1_" xlink:href="#locale_tecnico-9_2_" patternTransform="matrix(-0.42 0 0 -0.42 -54391.043 -43281.5508)">
+</pattern>
+<polyline id="locale_tecnico-9" class="st11" points="1372.3,612.6 1392.7,612.6 1406.7,612.6 1425.3,612.6 1425.3,733.1 
+	1372.3,733.1 "/>
+<rect id="senza_codice" x="5048.2" y="393.3" class="st1" width="92.1" height="232.4"/>
+<polygon id="senza_codice-2" class="st1" points="4023.2,409.8 4023.2,28.4 4531,28.4 4531,379.2 4531,393.3 4531,409.8 "/>
+<g class="clickable" id="A2-0-13-C">
+	<polygon id="a" class="st1" points="4549.7,1364.3 4549.7,1023.7 4686.3,1023.7 4686.3,1034.5 4686.3,1054.5 4686.3,1364.3 	"/>
+</g>
+<g class="clickable" id="A2-0-10-C">
+	<rect id="a-2" x="500.8" y="1010.5" class="st1" width="159.3" height="122.2"/>
+</g>
+<g class="clickable" id="A2-0-20">
+	<rect x="2472.8" y="1194.6" class="st0" width="416.3" height="169.6"/>
+</g>
+<g class="clickable" id="A2-0-19">
+	<polygon class="st3" points="507.8,733.1 507.8,389.9 924.8,389.9 924.8,733.1 	"/>
+</g>
+<g id="senza-codice-x">
+	<polygon class="st3" points="379.3,733.1 379.3,389.9 495,389.9 495,733.1 	"/>
+</g>
+<g class="clickable" id="A2-0-18">
+	<polygon class="st1" points="4545.1,379.2 4545.1,28.4 5140.2,28.4 5140.2,379.2 5048.2,379.2 5034.2,379.2 4949.8,379.2 
+		4935.7,379.2 	"/>
+</g>
+<g class="clickable" id="A2-0-17">
+	<polygon class="st1" points="379.2,375.8 379.2,28.4 924.8,28.4 924.8,375.8 481.9,375.8 467.9,375.8 	"/>
+</g>
+<g class="clickable" id="A2-0-16">
+	<polygon class="st1" points="28.4,747 28.4,389.9 365.2,389.9 365.2,747 	"/>
+</g>
+<g class="clickable" id="A2-0-13">
+	<rect id="traccia" x="2472.8" y="785" class="st0" width="474.3" height="173.7"/>
+</g>
+<g class="clickable" id="A2-0-12">
+	<polygon class="st1" points="4700.4,1111.4 4700.4,1028.3 4968.8,1028.3 4968.8,1133.1 4700.4,1133.1 4700.4,1125.4 	"/>
+</g>
+<g class="clickable" id="A2-0-11">
+	<polygon class="st1" points="5158.1,1133.1 5158.1,1056.3 5471.1,1056.3 5471.1,1364.3 5158.1,1364.3 5158.1,1147 	"/>
+</g>
+<g class="clickable" id="A2-0-11-A">
+	<g id="scala_D">
+		<polygon class="st12" points="4933,1368.7 4809.1,1368.7 4809.1,1265.9 5038,1265.9 5038,1245.6 4808.3,1245.6 4808.3,1145.3 
+			5036.1,1145.3 5036.1,1148.8 4811.8,1148.8 4811.8,1242.1 5041.5,1242.1 5041.5,1269.4 4812.6,1269.4 4812.6,1365.2 4933,1365.2 
+					"/>
+		<polygon class="st12" points="4933,1320.8 4762.8,1320.8 4762.8,1195.2 5036.5,1195.2 5036.5,1198.7 4766.3,1198.7 4766.3,1317.3 
+			4933,1317.3 		"/>
+		<rect x="4930.5" y="1266.9" class="st12" width="3.5" height="100.8"/>
+		<rect x="4910" y="1266.9" class="st12" width="3.5" height="100.8"/>
+		<rect x="5034.8" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="5014.8" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="4993.8" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="4973.2" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="4952.7" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="4932.7" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="4910.1" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="4890" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="4869" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="4848" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="4827" y="1147" class="st12" width="3.5" height="96.8"/>
+		<polygon class="st12" points="4910.2,1244.1 4889.5,1196.9 4908,1146.4 4911.3,1147.6 4893.3,1196.8 4913.4,1242.7 		"/>
+		<polygon class="st12" points="4915,1366.6 4911.7,1365.3 4930.3,1319.5 4910.2,1270.3 4913.5,1269 4934.1,1319.5 		"/>
+		<polygon class="st12" points="4810.8,1269.7 4808.3,1269.7 4808.3,1242.1 4871,1242.1 4871,1245.6 4811.8,1245.6 4811.8,1267.9 
+			4810.8,1267.9 		"/>
+		
+			<rect x="4880.8" y="1145.9" transform="matrix(0.9419 -0.3359 0.3359 0.9419 -110.143 1708.1672)" class="st12" width="3.5" height="53.1"/>
+		<rect x="4827" y="1266.9" class="st12" width="3.5" height="100.8"/>
+		<rect x="4869" y="1266.9" class="st12" width="3.5" height="100.8"/>
+		<rect x="4848" y="1266.9" class="st12" width="3.5" height="100.8"/>
+		<rect x="4890" y="1266.9" class="st12" width="3.5" height="100.8"/>
+	</g>
+	<g id="d">
+		<polygon class="st0" points="4700.4,1364.3 4700.4,1147 4968.8,1147 4982.9,1147 5144,1147 5144,1364.3 5135.6,1364.3 
+			5135.2,1364.3 		"/>
+	</g>
+</g>
+<g class="clickable" id="A2-0-11-B">
+	<polygon class="st1" points="4982.9,1133.1 4982.9,1028.3 5144,1028.3 5144,1042.3 5144,1056.3 5144,1133.1 	"/>
+</g>
+<g class="clickable" id="A2-0-10">
+	<g id="scale">
+		<polygon class="st12" points="700.5,1368.7 576.5,1368.7 576.5,1365.2 697,1365.2 697,1269.4 468,1269.4 468,1242.1 697.8,1242.1 
+			697.8,1148.8 473.5,1148.8 473.5,1145.3 701.3,1145.3 701.3,1245.6 471.6,1245.6 471.6,1265.9 700.5,1265.9 		"/>
+		<polygon class="st12" points="746.7,1320.8 576.5,1320.8 576.5,1317.3 743.2,1317.3 743.2,1198.7 473,1198.7 473,1195.2 
+			746.7,1195.2 		"/>
+		<rect x="575.5" y="1266.9" class="st12" width="3.5" height="100.8"/>
+		<rect x="596" y="1266.9" class="st12" width="3.5" height="100.8"/>
+		<rect x="471.2" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="491.2" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="512.3" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="532.8" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="553.3" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="573.2" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="595.9" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="616" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="637" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="658" y="1147" class="st12" width="3.5" height="96.8"/>
+		<rect x="679" y="1147" class="st12" width="3.5" height="96.8"/>
+		<polygon class="st12" points="599.4,1244.1 596.1,1242.7 616.2,1196.8 598.2,1147.6 601.5,1146.4 620,1196.9 		"/>
+		<polygon class="st12" points="594.6,1366.6 575.5,1319.5 596.1,1269 599.3,1270.3 579.3,1319.5 597.8,1365.3 		"/>
+		<polygon class="st12" points="701.3,1269.7 698.7,1269.7 698.7,1267.9 697.8,1267.9 697.8,1245.6 638.5,1245.6 638.5,1242.1 
+			701.3,1242.1 		"/>
+		
+			<rect x="600.5" y="1170.1" transform="matrix(0.3348 -0.9423 0.9423 0.3348 -687.1503 1370.3433)" class="st12" width="53.1" height="3.5"/>
+		<rect x="679" y="1266.9" class="st12" width="3.5" height="100.8"/>
+		<rect x="637" y="1266.9" class="st12" width="3.5" height="100.8"/>
+		<rect x="658" y="1266.9" class="st12" width="3.5" height="100.8"/>
+		<rect x="616" y="1266.9" class="st12" width="3.5" height="100.8"/>
+	</g>
+	<polygon class="st0" points="526.9,1146.6 540.9,1146.6 660.1,1146.6 674.1,1146.6 807.7,1146.6 807.7,1364.3 71.7,1364.3 
+		28.4,1364.3 28.4,1146.6 407.2,1146.6 	"/>
+</g>
+<g class="clickable" id="A2-0-09">
+	<rect x="28.4" y="28.4" class="st1" width="336.8" height="347.4"/>
+</g>
+<g class="clickable" id="A2-0-06">
+	<polygon class="st3" points="938.8,375.8 938.8,28.4 1392.7,28.4 1392.7,598.6 1372.3,598.6 1358.4,598.6 1358.4,612.6 
+		1358.4,733.1 938.8,733.1 938.8,634.2 938.8,620.2 938.8,389.9 	"/>
+</g>
+<g class="clickable" id="A2-0-04">
+	<polygon class="st1" points="4023.2,596.4 4023.2,423.8 4531,423.8 4531,733.1 4067.4,733.1 4067.4,610.5 4067.4,596.4 
+		4053.4,596.4 	"/>
+</g>
+<g class="clickable" id="A2-0-03-B">
+	<rect x="4949.8" y="393.3" class="st1" width="84.4" height="232.4"/>
+</g>
+<g class="clickable" id="A2-0-03-A">
+	<polygon class="st1" points="4545.1,409.8 4545.1,393.3 4935.7,393.3 4935.7,625.7 4545.1,625.7 4545.1,423.8 	"/>
+</g>
+<g class="clickable" id="A2-0-02-D">
+	<polygon class="st3" points="871.3,1364.3 871.3,1010.5 1045.7,1010.5 1045.7,1364.3 926,1364.3 	"/>
+</g>
+<g class="clickable" id="A2-0-02-C">
+	<rect x="1059.7" y="1010.5" class="st3" width="334.3" height="353.8"/>
+</g>
+<g class="clickable" id="A2-0-02-B">
+	<rect x="1408" y="1010.5" class="st3" width="496.3" height="353.8"/>
+</g>
+<g class="clickable" id="A2-0-02-A">
+	<polygon class="st3" points="1918.3,1364.3 1918.3,1010.5 2458.8,1010.5 2458.8,1179.3 2458.8,1193.3 2458.8,1364.3 	"/>
+</g>
+<g class="clickable" id="A2-0-01-C">
+	<rect x="2961" y="1010.5" class="st3" width="484.1" height="353.8"/>
+</g>
+<g class="clickable" id="A2-0-01-B">
+	<rect x="3459.1" y="1010.5" class="st3" width="541.7" height="353.8"/>
+</g>
+<g class="clickable" id="A2-0-01-A">
+	<rect x="4014.8" y="1010.5" class="st3" width="467.9" height="353.8"/>
+</g>
+<g class="clickable" id="A2-0-05-D">
+	<polygon id="tracciato_4_" class="st3" points="1406.6,28.4 1873.4,28.4 1873.4,733 1439.3,733 1439.3,598.6 1406.6,598.6 	"/>
+</g>
+<g class="clickable" id="A2-0-05-C">
+	<rect id="tracciato_3_" x="1953.5" y="28.4" class="st3" width="441.7" height="704.6"/>
+</g>
+<g class="clickable" id="A2-0-05-B">
+	<rect id="tracciato_2_" x="2461.9" y="28.4" class="st3" width="441.7" height="707.1"/>
+</g>
+<g class="clickable" id="A2-0-05-A">
+	<polygon id="tracciato_1_" class="st3" points="4009.3,28.4 3445.1,28.4 3390.3,28.4 3016.3,28.4 3016.3,735.5 3445.1,735.5 
+		3445.1,596 4009.3,596 	"/>
+</g>
+<g id="walls">
+	<path class="st12" d="M379.2,523h-14v224H1598v-14h-158.7V598.6h-32.7v-84.8h-14v84.8h-34.3v134.5H938.8V513.7h-14V733H379.2V523z
+		 M1372.3,612.5h53V733h-53V612.5z"/>
+	<polygon class="st12" points="28.4,1392.7 110.3,1392.7 110.3,1364.3 71.7,1364.3 28.4,1364.3 28.4,1146.6 407.2,1146.6 
+		407.2,1132.6 28.4,1132.6 28.4,1052.9 106.5,1052.9 106.5,1038.9 28.4,1038.9 28.4,524.8 0,524.8 0,1038.9 0,1052.9 0,1136.4 
+		0,1150.5 0,1364.3 0,1392.7 	"/>
+	<polygon class="st12" points="3459.1,1239.3 3459.1,1010.5 3540.5,1010.5 3540.5,996.5 3459.1,996.5 3445.1,996.5 3373,996.5 
+		3373,1010.5 3445.1,1010.5 3445.1,1239.3 	"/>
+	<path class="st12" d="M857.4,1364.3h-35.7v-353.8h35.7V1364.3z M4549.8,1111.4v-115h-371.6v14h304.6v353.8h-467.9v-353.8h61.1v-14
+		h-433.1v14h358v353.8h-541.7v-73.8h-14v73.8H2961v-353.8h359.8v-14h-752.1v14h307.9v168.8h-308v14h322v-182.9h56.4v353.8h-474.3
+		v-170.9h19.5v-14h-19.5V996.5h-395v14h381v353.8h-540.5v-353.8h55.1v-14h-411.9v14h342.8v353.8H1408v-353.8h49.2v-14h-260.5v14
+		H1394v353.8h-334.3v-353.8h32.7v-14h-56.9v14h10.2v353.8H871.3v-353.8h59.9v-14H795.9v14h11.9v122.2H674.1v-122.2h70v-14H499.7v14
+		h160.4v122.2H526.9v14h280.8v217.6H252v28.4h5011.7v-28.4h-105.6v-47.1h-14v47.1h-443.7V1147h457.7v-14h-175.2v-104.8h15.2v-14
+		h-128.5v14h99.2V1133h-268.5v-104.8h59.8v-14h-73.8v350h-136.6L4549.8,1111.4L4549.8,1111.4z M4496.8,1010.5h39v353.8h-39V1010.5z"
+		/>
+	<polygon class="st12" points="5471.1,1042.3 5158.1,1042.3 5158.1,1028.3 5158.1,1014.3 5144,1014.3 5069.8,1014.3 5069.8,1028.3 
+		5144,1028.3 5144,1042.3 5144,1056.3 5158.1,1056.3 5166.5,1056.3 5471.1,1056.3 5471.1,1364.3 5401.5,1364.3 5401.5,1392.7 
+		5471.1,1392.7 5499.6,1392.7 5499.6,1364.3 5499.6,1056.3 5499.6,1042.3 5499.6,519.7 5471.1,519.7 	"/>
+	<path class="st12" d="M28.4,419.5v-29.7h133.2v-14H28.4V28.4h336.8v347.5h-97.1v14h97.1v32.6h14v-32.7h21.1v-14h-21.1V28.4h545.6
+		v347.5H476.1v14h18v344.6h14V389.8h416.6v68.8h14V28.4h453.9v430.1h14V28.4h2602.6v431h14v-35.6h357.2v-14h-357.2V28.4H4531v381.3
+		h-80.6v14h80.6v35.6h14v-66.1h390.7v66.1h14v-66.1h84.4v232.4h-84.4V513.3h-14v112.4H4545V513.3h-14v219.8h-239.2v14h862.4V519.7
+		h-14v106h-92.1V393.3h12.9v-14.1h-516V28.4h595.2v350.8h-11.9v14h11.9v19.9h14v-19.9h97.2v-14.1h-97.2V28.4h331.3v336.4h-14.4v14.5
+		h-113.3v14h113.3v19.9h28.4v-19.9h0.4V0H0v419.5H28.4z M5140.2,639.7V733H4545v-93.3H5140.2z"/>
+	<path class="st12" d="M3022.1,592.6h-129.4v140.5H2670v14h1551.8v-14h-154.4V596.5h-44.1v-83.1h-14v83.2H3435v136.6h-412.8
+		L3022.1,592.6L3022.1,592.6z M3008.1,733.1h-101.4V606.7h101.4V733.1z M3448.9,610.5h604.5V733h-604.5V610.5z"/>
+	<path class="st12" d="M1961.2,595.6h-87.8v137.5h-216.8v14h954.9v-14h-138.7V593.9h-82.7V733h-428.9L1961.2,595.6L1961.2,595.6z
+		 M1947.2,733h-59.8V609.6h59.8V733z M2404.1,607.9h54.7V733h-54.7V607.9z"/>
+	<polygon class="st12" points="344.9,1010.5 344.9,1038.9 257.1,1038.9 257.1,1052.9 344.9,1052.9 358.9,1052.9 358.9,1038.9 
+		358.9,1010.5 412.8,1010.5 412.8,996.5 358.9,996.5 344.9,996.5 	"/>
+</g>
+<line class="st13" x1="5267.7" y1="28" x2="5392.8" y2="28"/>
+<g class="clickable" id="A2-0-08">
+	<g id="scale-2">
+		<polygon class="st12" points="5397.4,237.8 5393.9,237.8 5393.9,105.7 5267.7,105.7 5267.7,102.2 5397.4,102.2 		"/>
+		<polygon class="st12" points="5473.1,237.8 5469.6,237.8 5469.6,29.8 5394.6,29.8 5394.6,103.9 5391.1,103.9 5391.1,26.3 
+			5473.1,26.3 		"/>
+		<polygon class="st12" points="5434.5,237.1 5431,237.1 5431,67.7 5267.7,67.7 5267.7,64.2 5434.5,64.2 		"/>
+		<rect x="5266.1" y="28" class="st12" width="3.5" height="75.9"/>
+		<rect x="5283.1" y="28" class="st12" width="3.5" height="75.9"/>
+		<rect x="5321.1" y="28" class="st12" width="3.5" height="75.9"/>
+		<rect x="5338.9" y="28" class="st12" width="3.5" height="75.9"/>
+		<rect x="5356.3" y="28" class="st12" width="3.5" height="75.9"/>
+		<rect x="5373.3" y="28" class="st12" width="3.5" height="75.9"/>
+		<rect x="5395.6" y="111.7" class="st12" width="75.9" height="3.5"/>
+		<rect x="5395.6" y="129.6" class="st12" width="75.9" height="3.5"/>
+		<rect x="5395.6" y="146.9" class="st12" width="75.9" height="3.5"/>
+		<rect x="5395.6" y="166.4" class="st12" width="75.9" height="3.5"/>
+		<rect x="5395.6" y="183.8" class="st12" width="75.9" height="3.5"/>
+		<rect x="5395.6" y="202.1" class="st12" width="75.9" height="3.5"/>
+		<rect x="5395.6" y="219" class="st12" width="75.9" height="3.5"/>
+		<rect x="5395.6" y="236" class="st12" width="94.8" height="3.5"/>
+		<rect x="5302.5" y="28" class="st12" width="3.5" height="75.9"/>
+		<polygon class="st12" points="5282.2,104.4 5266.2,65.9 5281.8,27.2 5285.1,28.5 5270,65.9 5285.5,103 		"/>
+		<polygon class="st12" points="5395.7,131.6 5394.3,128.4 5432.7,112.4 5471.6,128 5470.3,131.3 5432.7,116.2 		"/>
+	</g>
+	<g id="tracciato">
+		<polygon class="st0" points="5154.2,379.2 5154.2,28.4 5485.5,28.4 5485.5,364.8 5471.1,364.8 5471.1,379.2 		"/>
+	</g>
+</g>
+<line class="st13" x1="28" y1="98.6" x2="28" y2="237.8"/>
+<line class="st13" x1="103.7" y1="130.7" x2="103.7" y2="237.8"/>
+<rect x="27.8" y="112.6" class="st12" width="38.6" height="3.5"/>
+<rect x="64.8" y="114.5" class="st12" width="3.5" height="122.6"/>
+<rect x="45.8" y="86.1" transform="matrix(0.3849 -0.9229 0.9229 0.3849 -69.1121 109.3715)" class="st12" width="3.5" height="40.9"/>
+<rect x="27.8" y="129.6" class="st12" width="75.9" height="3.5"/>
+<rect x="27.8" y="146.9" class="st12" width="75.9" height="3.5"/>
+<rect x="27.8" y="166.4" class="st12" width="75.9" height="3.5"/>
+<rect x="27.8" y="183.8" class="st12" width="75.9" height="3.5"/>
+<rect x="27.8" y="202.1" class="st12" width="75.9" height="3.5"/>
+<rect x="27.8" y="219" class="st12" width="75.9" height="3.5"/>
+<rect x="27.8" y="236" class="st12" width="75.9" height="3.5"/>
+<polygon class="st12" points="103.7,131.6 66.6,116.2 29.1,131.3 27.8,128 66.6,112.4 105,128.4 "/>
+<g class="clickable" id="A2-0-21">
+	<g id="scale-3">
+		<polygon class="st12" points="2753.4,1183.2 2647.3,1183.2 2647.3,1179.7 2749.9,1179.7 2749.9,1105.8 2557.6,1105.8 
+			2557.6,1091.4 2699.9,1091.4 2699.9,1094.9 2561.1,1094.9 2561.1,1102.2 2753.4,1102.2 		"/>
+		<rect x="2647.5" y="1142.1" class="st12" width="103.9" height="3.5"/>
+		<rect x="2682.9" y="1008.4" class="st12" width="3.5" height="85.5"/>
+		<rect x="2647.8" y="1008.4" class="st12" width="3.5" height="85.5"/>
+		<rect x="2595.1" y="1008.4" class="st12" width="3.5" height="85.5"/>
+		<rect x="2577.3" y="1008.4" class="st12" width="3.5" height="85.5"/>
+		<rect x="2560.3" y="1008.4" class="st12" width="3.5" height="85.5"/>
+		<rect x="2664.7" y="1008.4" class="st12" width="3.5" height="85.5"/>
+		<rect x="2612.5" y="1008.4" class="st12" width="3.5" height="85.5"/>
+		<rect x="2629.5" y="1008.4" class="st12" width="3.5" height="85.5"/>
+		<rect x="2646" y="1104" class="st12" width="3.5" height="77.5"/>
+		<rect x="2663.4" y="1104" class="st12" width="3.5" height="77.5"/>
+		<rect x="2680.4" y="1104" class="st12" width="3.5" height="77.5"/>
+		<rect x="2698.2" y="1104" class="st12" width="3.5" height="77.5"/>
+		<rect x="2715.6" y="1104" class="st12" width="3.5" height="77.5"/>
+		<rect x="2732.2" y="1104" class="st12" width="3.5" height="77.5"/>
+		<polygon class="st12" points="2734.9,1182.2 2731.8,1180.7 2749.3,1143.9 2731.9,1105.1 2735.1,1103.7 2753.2,1143.9 		"/>
+		<polygon class="st12" points="2771.6,1105.8 2736,1105.8 2736,1102.2 2768.1,1102.2 2768.1,1094.7 2699.9,1094.7 2699.9,1091.2 
+			2771.6,1091.2 		"/>
+		<rect x="2715.2" y="1009.1" class="st12" width="3.5" height="84.1"/>
+		<rect x="2732.1" y="1009.1" class="st12" width="3.5" height="84.1"/>
+		<rect x="2749.1" y="1009.1" class="st12" width="3.5" height="84.1"/>
+		<rect x="2767.8" y="1009.1" class="st12" width="3.5" height="84.1"/>
+		<rect x="2698.2" y="1008.2" class="st12" width="3.5" height="84.1"/>
+		
+			<rect x="2738.6" y="1122.8" transform="matrix(0.4156 -0.9095 0.9095 0.4156 590.1093 3167.4753)" class="st12" width="42.9" height="3.5"/>
+		<rect x="2767.8" y="1103.6" class="st12" width="3.5" height="84.1"/>
+	</g>
+	<g id="tracciato-2">
+		<polygon class="st0" points="2472.8,1010.5 2472.8,1179.3 2876.6,1179.3 2876.6,1010.5 2568.6,1010.5 		"/>
+	</g>
+</g>
+<polygon class="st12" points="5159,1135.7 5125.1,1135.7 5125.1,1132.2 5155.5,1132.2 5155.5,1057.7 5124.2,1057.7 5124.2,1054.2 
+	5159,1054.2 "/>
+<rect x="5124.2" y="1091.8" class="st12" width="32.7" height="3.5"/>
+<rect x="5122.9" y="1055.3" class="st12" width="3.5" height="79.3"/>
+<rect x="5139" y="1055.3" class="st12" width="3.5" height="79.3"/>
+<polygon class="st12" points="5139.2,1133.2 5122.9,1093.2 5138,1056 5141.2,1057.3 5126.7,1093.2 5142.4,1131.8 "/>
+<polygon class="st12" points="359.3,1135.7 324,1135.7 324,1132.2 355.8,1132.2 355.8,1054 323,1054 323,1050.5 359.3,1050.5 "/>
+<rect x="323" y="1090" class="st12" width="34.3" height="3.5"/>
+<rect x="321.8" y="1051.6" class="st12" width="3.5" height="83"/>
+<rect x="338.7" y="1051.6" class="st12" width="3.5" height="83"/>
+<polygon class="st12" points="338.8,1133 321.8,1091.3 337.6,1052.4 340.8,1053.7 325.6,1091.3 342.1,1131.7 "/>
+<g>
+	<rect x="1873.4" y="28.4" class="st3" width="87.8" height="567.1"/>
+	<rect x="2387.5" y="28.4" class="st3" width="87.8" height="567.1"/>
+	<rect x="2903.2" y="28.4" class="st3" width="123.2" height="564.2"/>
+</g>
+<line class="st14" x1="1917.3" y1="593.9" x2="1917.3" y2="0"/>
+<line class="st14" x1="2431.5" y1="593.9" x2="2431.5" y2="0"/>
+<line class="st14" x1="2957.4" y1="593.9" x2="2957.4" y2="0"/>
+</svg>
