@@ -23,6 +23,12 @@
     "basePath": "dist",
     "files": [
       "noi_maps_widget.min.js"
+    ],
+    "scripts": [
+      {
+        "file": "noi_maps_widget.min.js",
+        "parameter": ""
+      }
     ]
   },
   "configuration": {
