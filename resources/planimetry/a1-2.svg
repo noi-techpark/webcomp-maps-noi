@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 25.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="floor-01" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 5443.6 3040.1" style="enable-background:new 0 0 5443.6 3040.1;" xml:space="preserve">
 <style type="text/css">
@@ -9,13 +9,13 @@
 	.st3{fill:none;stroke:#FFFFFF;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;}
 	.st4{fill:#F2F2F2;stroke:#B7B7B7;stroke-width:2;stroke-miterlimit:10;}
 	.st5{fill:#B7B7B7;}
-	.st6{fill:url(#SVGID_6_);}
-	.st7{fill:url(#SVGID_7_);}
-	.st8{fill:url(#SVGID_8_);}
-	.st9{fill:url(#SVGID_9_);}
-	.st10{fill:url(#SVGID_10_);}
-	.st11{fill:url(#SVGID_11_);}
-	.st12{fill:url(#SVGID_12_);}
+	.st6{fill:url(#SVGID_00000072975568774073251580000014133673218117027726_);}
+	.st7{fill:url(#SVGID_00000153673875199559648580000014194312877807919011_);}
+	.st8{fill:url(#SVGID_00000085951466329881506640000015982438577313395643_);}
+	.st9{fill:url(#SVGID_00000028315746466284009990000007283695605357663127_);}
+	.st10{fill:url(#SVGID_00000022561020202622669280000011047626985874066859_);}
+	.st11{fill:url(#SVGID_00000063608213511872786310000004994721898898151298_);}
+	.st12{fill:url(#SVGID_00000059296036512576869820000002851124131806202296_);}
 	.st13{fill:#DDDDDD;}
 	.st14{opacity:0.4;}
 	.st15{fill:none;stroke:#B7B7B7;stroke-width:4;stroke-miterlimit:10;}
@@ -27,62 +27,249 @@
 	.st21{fill:#D2E4CC;stroke:#AAC1A0;stroke-width:4;stroke-miterlimit:10;}
 	.st22{fill:none;stroke:#AAC1A0;stroke-width:4;stroke-miterlimit:10;}
 </style>
-<pattern  y="3040.1" width="44.9" height="44.9" patternUnits="userSpaceOnUse" id="SVGID_42_" viewBox="59 -103.9 44.9 44.9" style="overflow:visible;">
+<pattern  y="3040.1" width="44.9" height="44.9" patternUnits="userSpaceOnUse" id="SVGID_0000000669909357044273506" viewBox="59 -103.9 44.9 44.9" style="overflow:visible;">
 	<g>
 		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="100.7" y="-145.6" class="st1" width="47.2" height="45.7"/>
-		<line class="st2" x1="103.9" y1="-103.9" x2="148.8" y2="-148.8"/>
-		<rect x="55.8" y="-145.6" class="st1" width="47.2" height="45.7"/>
-		<line class="st2" x1="59" y1="-103.9" x2="103.9" y2="-148.8"/>
-		<line class="st2" x1="14.1" y1="-103.9" x2="59" y2="-148.8"/>
-		<rect x="100.7" y="-100.8" class="st1" width="47.2" height="45.7"/>
-		<line class="st2" x1="103.9" y1="-59" x2="148.8" y2="-103.9"/>
-		<rect x="55.8" y="-100.8" class="st1" width="47.2" height="45.7"/>
-		<line class="st2" x1="59" y1="-59" x2="103.9" y2="-103.9"/>
-		<line class="st2" x1="14.1" y1="-59" x2="59" y2="-103.9"/>
-		<line class="st2" x1="103.9" y1="-14.1" x2="148.8" y2="-59"/>
-		<line class="st2" x1="59" y1="-14.1" x2="103.9" y2="-59"/>
-		<line class="st2" x1="14.1" y1="-14.1" x2="59" y2="-59"/>
+		<g>
+			<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+			<g>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="100.7" y="-145.6" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="103.9" y1="-103.9" x2="148.8" y2="-148.8"/>
+				<rect x="55.8" y="-145.6" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="59" y1="-103.9" x2="103.9" y2="-148.8"/>
+				<line class="st2" x1="14.1" y1="-103.9" x2="59" y2="-148.8"/>
+				<rect x="100.7" y="-100.8" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="103.9" y1="-59" x2="148.8" y2="-103.9"/>
+				<rect x="55.8" y="-100.8" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="59" y1="-59" x2="103.9" y2="-103.9"/>
+				<line class="st2" x1="14.1" y1="-59" x2="59" y2="-103.9"/>
+				<line class="st2" x1="103.9" y1="-14.1" x2="148.8" y2="-59"/>
+				<line class="st2" x1="59" y1="-14.1" x2="103.9" y2="-59"/>
+				<line class="st2" x1="14.1" y1="-14.1" x2="59" y2="-59"/>
+			</g>
+		</g>
 	</g>
 </pattern>
-<pattern  y="3040.1" width="44.9" height="44.9" patternUnits="userSpaceOnUse" id="SVGID_48_" viewBox="59 -103.9 44.9 44.9" style="overflow:visible;">
+<pattern  y="3040.1" width="44.9" height="44.9" patternUnits="userSpaceOnUse" id="SVGID_0000005495321437331086348" viewBox="59 -103.9 44.9 44.9" style="overflow:visible;">
 	<g>
 		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+		<g>
+			<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+			<g>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="100.7" y="-145.6" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="103.9" y1="-103.9" x2="148.8" y2="-148.8"/>
+				<rect x="55.8" y="-145.6" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="59" y1="-103.9" x2="103.9" y2="-148.8"/>
+				<line class="st2" x1="14.1" y1="-103.9" x2="59" y2="-148.8"/>
+				<rect x="100.7" y="-100.8" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="103.9" y1="-59" x2="148.8" y2="-103.9"/>
+				<rect x="55.8" y="-100.8" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="59" y1="-59" x2="103.9" y2="-103.9"/>
+				<line class="st2" x1="14.1" y1="-59" x2="59" y2="-103.9"/>
+				<line class="st2" x1="103.9" y1="-14.1" x2="148.8" y2="-59"/>
+				<line class="st2" x1="59" y1="-14.1" x2="103.9" y2="-59"/>
+				<line class="st2" x1="14.1" y1="-14.1" x2="59" y2="-59"/>
+			</g>
+		</g>
+	</g>
+</pattern>
+<pattern  y="3040.1" width="44.9" height="44.9" patternUnits="userSpaceOnUse" id="SVGID_0000008881305510465565709" viewBox="59 -103.9 44.9 44.9" style="overflow:visible;">
+	<g>
 		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+		<g>
+			<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+			<g>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="100.7" y="-145.6" class="st1" width="47.2" height="45.7"/>
+				<line class="st3" x1="103.9" y1="-103.9" x2="148.8" y2="-148.8"/>
+				<rect x="55.8" y="-145.6" class="st1" width="47.2" height="45.7"/>
+				<line class="st3" x1="59" y1="-103.9" x2="103.9" y2="-148.8"/>
+				<line class="st3" x1="14.1" y1="-103.9" x2="59" y2="-148.8"/>
+				<rect x="100.7" y="-100.8" class="st1" width="47.2" height="45.7"/>
+				<line class="st3" x1="103.9" y1="-59" x2="148.8" y2="-103.9"/>
+				<rect x="55.8" y="-100.8" class="st1" width="47.2" height="45.7"/>
+				<line class="st3" x1="59" y1="-59" x2="103.9" y2="-103.9"/>
+				<line class="st3" x1="14.1" y1="-59" x2="59" y2="-103.9"/>
+				<line class="st3" x1="103.9" y1="-14.1" x2="148.8" y2="-59"/>
+				<line class="st3" x1="59" y1="-14.1" x2="103.9" y2="-59"/>
+				<line class="st3" x1="14.1" y1="-14.1" x2="59" y2="-59"/>
+			</g>
+		</g>
+	</g>
+</pattern>
+<pattern  y="3040.1" width="44.9" height="44.9" patternUnits="userSpaceOnUse" id="SVGID_0000013280996269715852526" viewBox="59 -103.9 44.9 44.9" style="overflow:visible;">
+	<g>
 		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+		<g>
+			<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+			<g>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="100.7" y="-145.6" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="103.9" y1="-103.9" x2="148.8" y2="-148.8"/>
+				<rect x="55.8" y="-145.6" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="59" y1="-103.9" x2="103.9" y2="-148.8"/>
+				<line class="st2" x1="14.1" y1="-103.9" x2="59" y2="-148.8"/>
+				<rect x="100.7" y="-100.8" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="103.9" y1="-59" x2="148.8" y2="-103.9"/>
+				<rect x="55.8" y="-100.8" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="59" y1="-59" x2="103.9" y2="-103.9"/>
+				<line class="st2" x1="14.1" y1="-59" x2="59" y2="-103.9"/>
+				<line class="st2" x1="103.9" y1="-14.1" x2="148.8" y2="-59"/>
+				<line class="st2" x1="59" y1="-14.1" x2="103.9" y2="-59"/>
+				<line class="st2" x1="14.1" y1="-14.1" x2="59" y2="-59"/>
+			</g>
+		</g>
+	</g>
+</pattern>
+<pattern  y="3040.1" width="44.9" height="44.9" patternUnits="userSpaceOnUse" id="SVGID_0000016234690349091635923" viewBox="59 -103.9 44.9 44.9" style="overflow:visible;">
+	<g>
 		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+		<g>
+			<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+			<g>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="100.7" y="-145.6" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="103.9" y1="-103.9" x2="148.8" y2="-148.8"/>
+				<rect x="55.8" y="-145.6" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="59" y1="-103.9" x2="103.9" y2="-148.8"/>
+				<line class="st2" x1="14.1" y1="-103.9" x2="59" y2="-148.8"/>
+				<rect x="100.7" y="-100.8" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="103.9" y1="-59" x2="148.8" y2="-103.9"/>
+				<rect x="55.8" y="-100.8" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="59" y1="-59" x2="103.9" y2="-103.9"/>
+				<line class="st2" x1="14.1" y1="-59" x2="59" y2="-103.9"/>
+				<line class="st2" x1="103.9" y1="-14.1" x2="148.8" y2="-59"/>
+				<line class="st2" x1="59" y1="-14.1" x2="103.9" y2="-59"/>
+				<line class="st2" x1="14.1" y1="-14.1" x2="59" y2="-59"/>
+			</g>
+		</g>
+	</g>
+</pattern>
+<pattern  y="3040.1" width="44.9" height="44.9" patternUnits="userSpaceOnUse" id="SVGID_0000017528895180732280685" viewBox="59 -103.9 44.9 44.9" style="overflow:visible;">
+	<g>
 		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+		<g>
+			<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+			<g>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="100.7" y="-145.6" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="103.9" y1="-103.9" x2="148.8" y2="-148.8"/>
+				<rect x="55.8" y="-145.6" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="59" y1="-103.9" x2="103.9" y2="-148.8"/>
+				<line class="st2" x1="14.1" y1="-103.9" x2="59" y2="-148.8"/>
+				<rect x="100.7" y="-100.8" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="103.9" y1="-59" x2="148.8" y2="-103.9"/>
+				<rect x="55.8" y="-100.8" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="59" y1="-59" x2="103.9" y2="-103.9"/>
+				<line class="st2" x1="14.1" y1="-59" x2="59" y2="-103.9"/>
+				<line class="st2" x1="103.9" y1="-14.1" x2="148.8" y2="-59"/>
+				<line class="st2" x1="59" y1="-14.1" x2="103.9" y2="-59"/>
+				<line class="st2" x1="14.1" y1="-14.1" x2="59" y2="-59"/>
+			</g>
+		</g>
+	</g>
+</pattern>
+<pattern  y="3040.1" width="44.9" height="44.9" patternUnits="userSpaceOnUse" id="SVGID_1_" viewBox="59 -103.9 44.9 44.9" style="overflow:visible;">
+	<g>
 		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
-		<rect x="100.7" y="-145.6" class="st1" width="47.2" height="45.7"/>
-		<line class="st3" x1="103.9" y1="-103.9" x2="148.8" y2="-148.8"/>
-		<rect x="55.8" y="-145.6" class="st1" width="47.2" height="45.7"/>
-		<line class="st3" x1="59" y1="-103.9" x2="103.9" y2="-148.8"/>
-		<line class="st3" x1="14.1" y1="-103.9" x2="59" y2="-148.8"/>
-		<rect x="100.7" y="-100.8" class="st1" width="47.2" height="45.7"/>
-		<line class="st3" x1="103.9" y1="-59" x2="148.8" y2="-103.9"/>
-		<rect x="55.8" y="-100.8" class="st1" width="47.2" height="45.7"/>
-		<line class="st3" x1="59" y1="-59" x2="103.9" y2="-103.9"/>
-		<line class="st3" x1="14.1" y1="-59" x2="59" y2="-103.9"/>
-		<line class="st3" x1="103.9" y1="-14.1" x2="148.8" y2="-59"/>
-		<line class="st3" x1="59" y1="-14.1" x2="103.9" y2="-59"/>
-		<line class="st3" x1="14.1" y1="-14.1" x2="59" y2="-59"/>
+		<g>
+			<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+			<g>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="59" y="-103.9" class="st0" width="44.9" height="44.9"/>
+				<rect x="100.7" y="-145.6" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="103.9" y1="-103.9" x2="148.8" y2="-148.8"/>
+				<rect x="55.8" y="-145.6" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="59" y1="-103.9" x2="103.9" y2="-148.8"/>
+				<line class="st2" x1="14.1" y1="-103.9" x2="59" y2="-148.8"/>
+				<rect x="100.7" y="-100.8" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="103.9" y1="-59" x2="148.8" y2="-103.9"/>
+				<rect x="55.8" y="-100.8" class="st1" width="47.2" height="45.7"/>
+				<line class="st2" x1="59" y1="-59" x2="103.9" y2="-103.9"/>
+				<line class="st2" x1="14.1" y1="-59" x2="59" y2="-103.9"/>
+				<line class="st2" x1="103.9" y1="-14.1" x2="148.8" y2="-59"/>
+				<line class="st2" x1="59" y1="-14.1" x2="103.9" y2="-59"/>
+				<line class="st2" x1="14.1" y1="-14.1" x2="59" y2="-59"/>
+			</g>
+		</g>
 	</g>
 </pattern>
 <g id="a1-2">
@@ -139,8 +326,8 @@
 			2397.8,2150.9 2397.8,2404.6 2551.2,2404.6 		"/>
 		<path class="st5" d="M649.2,2901.1h74v0.5h20.1v-0.5H884v0.5h20.1v-0.5h151.1v0.5h20.1v-0.5h0.1V2881h-0.1v-62.9h0.1v-20.2h-0.1
 			v-180.8h0.1v-20h-0.1v-58.7h0.1v-19.6H1032v19h23.2v138.6h-0.1v0.5h-151v-0.5l0,0v-138.6h23.2v-19H713.7v19.6h9.4v0.6h0.1v258.9
-			h-9.5v20.2h29V2539h0.5v-0.6h140.7v0.6h2.6v341.9h-94.6v0.5H649.2V2818h9.5v-20.1h-9.5v-259.5h9.5v-19.6h-29.6v382.9h20.1
-			L649.2,2901.1L649.2,2901.1z M1055.1,2881h-0.4v-62.7h0.4V2881z M1055.1,2798h-0.4v-100.9h0.4V2798z"/>
+			h-9.5v20.2h29V2539h0.5v-0.6h140.7v0.6h2.6v341.9h-94.6v0.5H649.2V2818h9.5v-20.1h-9.5v-259.5h9.5v-19.6h-29.6v382.9h20.1V2901.1
+			L649.2,2901.1z M1055.1,2881h-0.4v-62.7h0.4V2881z M1055.1,2798h-0.4v-100.9h0.4V2798z"/>
 		<polygon class="st5" points="1167,2901.1 1286.7,2901.1 1286.7,2901.7 1306.8,2901.7 1306.8,2901.1 1388.1,2901.1 1388.1,2901.7 
 			1408.1,2901.7 1408.1,2901.1 1619.2,2901.1 1619.2,2901.7 1639.4,2901.7 1639.4,2901.1 1639.9,2901.1 1639.9,2881 1639.4,2881 
 			1639.4,2818.1 1639.9,2818.1 1639.9,2798 1639.4,2798 1639.4,2656.9 1639.9,2656.9 1639.9,2636.8 1639.4,2636.8 1639.4,2617.1 
@@ -206,8 +393,8 @@
 			h-0.2v0.3h-499.4v-63.6h-19.6v409h342.4v-19.6h-88.3 M4539,1312.2h122.7v-19.7H4592v-218.9h48.6v-20h-222.2V943.2h153.5v0.2h20.1
 			v-0.2h48.6v-18.8H4592v-249l0,0v-20.2h-516v20.2h323.1v31.2h19.3v-31.3h153.5V923h-153.5v-32.5h-19.3v32.9h-519.8v129.9h-21.1v20
 			h21.1v70.9h20.1v-70.7h672.5v218.9H4539V1312.2z M4113.9,2385h-215.1v-70.8h0.6v-20h-0.6v-215h0.6v-0.2 M3899.4,1312.2h498.9v0.3
-			h-498.9L3899.4,1312.2z M3898.8,1350.5h0.6v193.9h-0.6V1350.5z M3898.8,1564.5h0.6v242.3h-0.6V1564.5z M4993.2,943.2h269v0.2h-269
-			V943.2z M4926.1,943.2h46.9v0.2h-45.9v110h-1V943.2z M3899.4,943.2h498.9v0.2h-498.9L3899.4,943.2z"/>
+			h-498.9V1312.2z M3898.8,1350.5h0.6v193.9h-0.6V1350.5z M3898.8,1564.5h0.6v242.3h-0.6V1564.5z M4993.2,943.2h269v0.2h-269V943.2z
+			 M4926.1,943.2h46.9v0.2h-45.9v110h-1V943.2z M3899.4,943.2h498.9v0.2h-498.9V943.2z"/>
 		<polygon class="st5" points="1284.1,1120.1 1264.5,1120.1 1264.5,1192.9 1264,1192.9 1264,1193 1199,1193 1199,1213 1264.5,1213 
 			1264.5,1213.1 1284.6,1213.1 1284.6,1213 1317.4,1213 1317.4,1193 1284.1,1193 		"/>
 		<polygon class="st5" points="1032.4,1120.1 1012.9,1120.1 1012.9,1192.9 1012.4,1192.9 1012.4,1193 930.4,1193 930.4,1213 
@@ -225,25 +412,25 @@
 			l0.6-63.5v200.8h1551.2v0.3h34.2V106.8l-1.4-95.2V1.4H2237v10.2l-0.6,95.2v1065.1h-39.8l-0.2-10.6V902H1.6 M3441.4,2257.7v-0.6
 			H3422v-77.7h20.6v-100.2h161.3v178.5H3441.4z M3603.9,2277.8V2385h-162.4v-107.2H3603.9z M3059.3,2384.6v0.4h-120.2v-107.2h120.2
 			v1h20.1v-1h145.9v26.4h20.1v58.1h-20.1v22.7h-145.9v-0.4H3059.3z M3245.4,2257.7h-306.3v-0.6h-0.3v-177.6h0.3v-0.3h285.7v100.2
-			h20.6L3245.4,2257.7z M3244.8,2159.4v-80.1h76.7v0.3h20.1v-0.3h79.8v0.3h1.1v79.8h-44.4v20.1h-88.8v-20.1H3244.8z M43.4,2518.8
-			v-0.5h-0.5V2405h0.5v-0.5l-0.5-19.6v-107.2h0.5v-20.1h-0.5v-178.5h0.5v-20h-0.5v-232.2h292.5v0.5h20.1v-0.5h82.7v0.5h20.2v-0.5
-			h86.2V2385h-49.7v19.6h69.7v-577.7h64.5v64h20.1v-64h74.1v0.5h20v-0.5H884v130h-0.1v20.2h0.1v82.1H743.3v-0.3h-20v0.3h-74.1v-63.7
-			h-20.1v83.5h344.7v-19.9h-9.5v-0.3h-20.1v0.3h-40.1v-0.3l0,0v-231.5l0,0v-0.5h40.1v0.5h20.1v-0.5h89.9v0.5h20.1v-0.5h72.7v0.5h0.2
-			v231.5h-0.2v0.3h-68.5v19.9h88.9v-19.9h-0.3V1977h0.3v-20.2h-0.3v-130h119.8v64h20v-64h81.4v0.5h20v-0.5h126.6v0.5h0.5v231.5h-0.5
-			v0.3h-126.6v-0.3h-20v0.3h-81.4v-63.7h-20v83.5h280.2V2059H1555v-82.1h0.6v-20.2h-0.6v-130h128.5V2059h-11.6v19.9h48.5V2059h-3.2
-			v-0.3h-13.6v-231.5h13.6v-0.5h123.5v0.5h0.3v231.5h-0.3v0.3h-15.6v19.9h36V2059h-0.2v-82.1h0.2v-20.2h-0.2v-130h172.5v75.6h20.2
-			v-75.6h101.8v0.5h20.1v-0.5h101.1v0.5h20.1v-0.5h101.1v0.5h0.5v231.5h-0.5v0.3h-101.1v-0.3h-20.1v0.3h-101.1v-0.3h-20.1v0.3
-			h-101.8v-52.1h-20.2v72H2418V2059h-0.5v-82.1h0.5v-20.2h-0.5v-130h110.4v75.6h20.2v-75.6h108.5v0.5h20.5v-0.5H2788v0.5h20.1v-0.5
-			H2919v0.5h0.1v231.5h-0.1v0.3h-110.9v-0.3H2788v0.3h-110.9v-0.3h-20.5v0.3h-108.5v-52.1h-20.2v72h391.2v325.6h326.8v-0.5h175.6
-			v0.5h202.9v-19.6h-0.5v-107.2h25.9v-20.1h-25.9v-178.5h0.5v-0.2h108.4v177.6h-0.2v1h-24.7v20.1h24.7v107.2h-0.3v19.6h21.1v-19.6
-			h-0.8V2079h0.8v-20h-0.8v-232.1h0.8v-20.1h-0.8v-242.3h0.8v-20.1h-0.8v-232.3h0.8V1292h-0.8v-79h0.8v-20.1h-0.8v-119.5h21.1v-20
-			h-21.3v-129h-69.8v-1h-241.1V923h-0.1V675.3h241.1v-0.5h87.8v0.5h117.4V655h-559.3v20.3h93V923h-1.5v0.8h-252.2V675.3h73V655
-			h-88.9v288.3h15.9v-0.2h253.8v0.2h20v-0.2h291.2v110.2h-0.3v20.1h0.3v119.5h-0.3v20.1h0.3v79h-0.3v0.4H3283v-250.9h-20v11.8h-53.1
-			v20h53.1v219h-174.4v-0.4h-0.6v-79h0.6v-20.1h-0.6v-119.5h37.5v-20h-57.1v239h-383.8v-0.4h-0.5v-10.2h-19.6v10.6h-489.6v-10.6
-			h-19.7v10.2h-0.4v0.4h-132.1v-10.6h-20.1v10.2h-0.5v0.4h-141.2v-0.4h-0.2v-10.2h-19.8v10.6H355.3v-10.6h-19.9v10.2h-0.2v0.4H210.5
-			v-0.4h-0.6v-9.2h-20v10.1h-147v-350h146.9v281.8h20v-11.7h125.6v10.6h19.9v-40.2h-19.9v9.5H209.8v-76.5h0.6v-0.6h124.7v0.6h0.2
-			v8.9h19.9v-28.6h-56.1v-0.6h-89.4V942.9h125.6v98.7h29.3v-20.1h-9.4v-78.3h0.2v-0.3H433v0.3h0.5v78.3H423v20.1h10.5v171.3H536v-20
-			h-83V943.1h91.5v0.3h20v-0.3h158.6v114.4h19.6V943.2h0.5v-0.3h140.7v0.3H904v-0.3h108.8v114.6h19.6V942.9H1264v0.2h0.5v114.6h19.6
+			h20.6V2257.7z M3244.8,2159.4v-80.1h76.7v0.3h20.1v-0.3h79.8v0.3h1.1v79.8h-44.4v20.1h-88.8v-20.1H3244.8z M43.4,2518.8v-0.5h-0.5
+			V2405h0.5v-0.5l-0.5-19.6v-107.2h0.5v-20.1h-0.5v-178.5h0.5v-20h-0.5v-232.2h292.5v0.5h20.1v-0.5h82.7v0.5h20.2v-0.5h86.2V2385
+			h-49.7v19.6h69.7v-577.7h64.5v64h20.1v-64h74.1v0.5h20v-0.5H884v130h-0.1v20.2h0.1v82.1H743.3v-0.3h-20v0.3h-74.1v-63.7h-20.1
+			v83.5h344.7v-19.9h-9.5v-0.3h-20.1v0.3h-40.1v-0.3l0,0v-231.5l0,0v-0.5h40.1v0.5h20.1v-0.5h89.9v0.5h20.1v-0.5h72.7v0.5h0.2v231.5
+			h-0.2v0.3h-68.5v19.9h88.9v-19.9h-0.3V1977h0.3v-20.2h-0.3v-130h119.8v64h20v-64h81.4v0.5h20v-0.5h126.6v0.5h0.5v231.5h-0.5v0.3
+			h-126.6v-0.3h-20v0.3h-81.4v-63.7h-20v83.5h280.2V2059H1555v-82.1h0.6v-20.2h-0.6v-130h128.5V2059h-11.6v19.9h48.5V2059h-3.2v-0.3
+			h-13.6v-231.5h13.6v-0.5h123.5v0.5h0.3v231.5h-0.3v0.3h-15.6v19.9h36V2059h-0.2v-82.1h0.2v-20.2h-0.2v-130h172.5v75.6h20.2v-75.6
+			h101.8v0.5h20.1v-0.5h101.1v0.5h20.1v-0.5h101.1v0.5h0.5v231.5h-0.5v0.3h-101.1v-0.3h-20.1v0.3h-101.1v-0.3h-20.1v0.3h-101.8
+			v-52.1h-20.2v72H2418V2059h-0.5v-82.1h0.5v-20.2h-0.5v-130h110.4v75.6h20.2v-75.6h108.5v0.5h20.5v-0.5H2788v0.5h20.1v-0.5H2919
+			v0.5h0.1v231.5h-0.1v0.3h-110.9v-0.3H2788v0.3h-110.9v-0.3h-20.5v0.3h-108.5v-52.1h-20.2v72h391.2v325.6h326.8v-0.5h175.6v0.5
+			h202.9v-19.6h-0.5v-107.2h25.9v-20.1h-25.9v-178.5h0.5v-0.2h108.4v177.6h-0.2v1h-24.7v20.1h24.7v107.2h-0.3v19.6h21.1v-19.6h-0.8
+			V2079h0.8v-20h-0.8v-232.1h0.8v-20.1h-0.8v-242.3h0.8v-20.1h-0.8v-232.3h0.8V1292h-0.8v-79h0.8v-20.1h-0.8v-119.5h21.1v-20h-21.3
+			v-129h-69.8v-1h-241.1V923h-0.1V675.3h241.1v-0.5h87.8v0.5h117.4V655h-559.3v20.3h93V923h-1.5v0.8h-252.2V675.3h73V655h-88.9
+			v288.3h15.9v-0.2h253.8v0.2h20v-0.2h291.2v110.2h-0.3v20.1h0.3v119.5h-0.3v20.1h0.3v79h-0.3v0.4H3283v-250.9h-20v11.8h-53.1v20
+			h53.1v219h-174.4v-0.4h-0.6v-79h0.6v-20.1h-0.6v-119.5h37.5v-20h-57.1v239h-383.8v-0.4h-0.5v-10.2h-19.6v10.6h-489.6v-10.6h-19.7
+			v10.2h-0.4v0.4h-132.1v-10.6h-20.1v10.2h-0.5v0.4h-141.2v-0.4h-0.2v-10.2h-19.8v10.6H355.3v-10.6h-19.9v10.2h-0.2v0.4H210.5v-0.4
+			h-0.6v-9.2h-20v10.1h-147v-350h146.9v281.8h20v-11.7h125.6v10.6h19.9v-40.2h-19.9v9.5H209.8v-76.5h0.6v-0.6h124.7v0.6h0.2v8.9
+			h19.9v-28.6h-56.1v-0.6h-89.4V942.9h125.6v98.7h29.3v-20.1h-9.4v-78.3h0.2v-0.3H433v0.3h0.5v78.3H423v20.1h10.5v171.3H536v-20h-83
+			V943.1h91.5v0.3h20v-0.3h158.6v114.4h19.6V943.2h0.5v-0.3h140.7v0.3H904v-0.3h108.8v114.6h19.6V942.9H1264v0.2h0.5v114.6h19.6
 			V942.9h171.2v72.5h0.6v104.7h-0.6v72.9H1422v20h66.6v-20.2H1475V943h121.5v249.4h-14.8v20.6h101.5v-20.9h-66.6V942.9h2.6v0.6h20.2
 			v-0.6h201.1v250h-63.2v20.1h63.5v10.5h19.8v-10.6h0.2v-20.1h-0.2v-67.6h16v-20h-16V943.1h141.9v162.1h-21.1v20h21.1v67.7h-0.5
 			v20.1h0.5v10.6h20.1V943h132.5v249.8h-0.4v20.2h0.4v10.5h19.7V1213h489.6v10.5h19.5v-10.6h0.6v-20h-264.7v-21.1H2400v12.7h-0.2
@@ -271,29 +458,43 @@
 		<rect id="room-box-2" x="3752.3" y="922.9" class="st1" width="126.9" height="130.5"/>
 		<polygon id="room-box-3" class="st1" points="1860.7,1292.4 1860.7,1213.1 433.4,1213.1 433.4,1040.8 355.2,1040.8 355.2,1213.1 
 			355.2,1284.9 355.2,1292.4 		"/>
-		<pattern  id="SVGID_6_" xlink:href="#SVGID_42_" patternTransform="matrix(-0.63 0 0 0.63 -36379.9062 31104.1699)">
+		
+			<pattern  id="SVGID_00000100376735282048375030000016497160962273807536_" xlink:href="#SVGID_1_" patternTransform="matrix(-0.63 0 0 0.63 -54176.8359 43472.5234)">
 		</pattern>
-		<rect x="3899" y="1312.2" class="st6" width="499.4" height="496.2"/>
-		<pattern  id="SVGID_7_" xlink:href="#SVGID_42_" patternTransform="matrix(-0.63 0 0 0.63 -36379.9062 31104.1699)">
+		
+			<rect x="3899" y="1312.2" style="fill:url(#SVGID_00000100376735282048375030000016497160962273807536_);" width="499.4" height="496.2"/>
+		
+			<pattern  id="SVGID_00000170263840186852455120000008129241921828355774_" xlink:href="#SVGID_0000016234690349091635923" patternTransform="matrix(-0.63 0 0 0.63 -54176.8359 43472.5234)">
 		</pattern>
-		<rect x="3899" y="943.4" class="st7" width="500" height="110"/>
-		<pattern  id="SVGID_8_" xlink:href="#SVGID_42_" patternTransform="matrix(-0.63 0 0 0.63 -36379.9062 31104.1699)">
+		
+			<rect x="3899" y="943.4" style="fill:url(#SVGID_00000170263840186852455120000008129241921828355774_);" width="500" height="110"/>
+		
+			<pattern  id="SVGID_00000000191984696679783040000002886482591887879337_" xlink:href="#SVGID_0000013280996269715852526" patternTransform="matrix(-0.63 0 0 0.63 -54176.8359 43472.5234)">
 		</pattern>
-		<rect x="4926" y="943.4" class="st8" width="336" height="110"/>
-		<pattern  id="SVGID_9_" xlink:href="#SVGID_42_" patternTransform="matrix(-0.63 0 0 0.63 -36379.9062 31104.1699)">
+		
+			<rect x="4926" y="943.4" style="fill:url(#SVGID_00000000191984696679783040000002886482591887879337_);" width="336" height="110"/>
+		
+			<pattern  id="SVGID_00000160160255996080173040000010226443344431696788_" xlink:href="#SVGID_0000017528895180732280685" patternTransform="matrix(-0.63 0 0 0.63 -54176.8359 43472.5234)">
 		</pattern>
-		<rect x="2561.7" y="675.1" class="st9" width="250.6" height="89.2"/>
-		<pattern  id="SVGID_10_" xlink:href="#SVGID_42_" patternTransform="matrix(-0.63 0 0 0.63 -36379.9062 31104.1699)">
+		
+			<rect x="2561.7" y="675.1" style="fill:url(#SVGID_00000160160255996080173040000010226443344431696788_);" width="250.6" height="89.2"/>
+		
+			<pattern  id="SVGID_00000150798019548549493970000014160100681868458416_" xlink:href="#SVGID_0000005495321437331086348" patternTransform="matrix(-0.63 0 0 0.63 -54176.8359 43472.5234)">
 		</pattern>
-		<rect x="904.9" y="2168.8" class="st10" width="150.1" height="216.1"/>
-		<pattern  id="SVGID_11_" xlink:href="#SVGID_42_" patternTransform="matrix(-0.63 0 0 0.63 -36379.9062 31104.1699)">
+		
+			<rect x="904.9" y="2168.8" style="fill:url(#SVGID_00000150798019548549493970000014160100681868458416_);" width="150.1" height="216.1"/>
+		
+			<pattern  id="SVGID_00000155132225302677155260000013049039986931155075_" xlink:href="#SVGID_0000000669909357044273506" patternTransform="matrix(-0.63 0 0 0.63 -54176.8359 43472.5234)">
 		</pattern>
-		<rect x="904.9" y="2697" class="st11" width="150.1" height="184"/>
+		
+			<rect x="904.9" y="2697" style="fill:url(#SVGID_00000155132225302677155260000013049039986931155075_);" width="150.1" height="184"/>
 	</g>
 	<g id="floor-wall-alternative">
-		<pattern  id="SVGID_12_" xlink:href="#SVGID_48_" patternTransform="matrix(-0.63 0 0 0.63 -36379.9062 31104.1699)">
+		
+			<pattern  id="SVGID_00000082360235503636754090000005697436215961086104_" xlink:href="#SVGID_0000008881305510465565709" patternTransform="matrix(-0.63 0 0 0.63 -54176.8359 43472.5234)">
 		</pattern>
-		<polyline class="st12" points="3712.2,1337.6 43.9,1337.6 43.9,1787.9 2958.6,1787.9 2958.6,2040.1 3713.8,2040.1 		"/>
+		<polyline style="fill:url(#SVGID_00000082360235503636754090000005697436215961086104_);" points="3712.2,1337.6 43.9,1337.6 
+			43.9,1787.9 2958.6,1787.9 2958.6,2040.1 3713.8,2040.1 		"/>
 		<rect x="177.3" y="2404.3" class="st5" width="20.6" height="116.1"/>
 		<rect x="41.5" y="2451.8" class="st5" width="135.7" height="20.6"/>
 		<rect x="177.3" y="2519.3" class="st5" width="212.3" height="18.9"/>
@@ -501,7 +702,42 @@
 			</g>
 		</g>
 		<g class="clickable" id="A1-2-39">
-			<rect id="room-box-63" x="42.8" y="941.3" class="st1" width="147" height="350"/>
+			<g id="scale_00000060732360141860903920000006116009616875048383_">
+				<polygon id="room-box-54_00000080901460181272895000000010175229347864199314_" class="st1" points="43.4,942.2 43.4,1292.1 
+					190.2,1292.1 190.2,1141.4 190.2,942.2 				"/>
+				<g id="scale_00000114045027008154651220000003349323594177128851_">
+					<g id="scale_00000085248639819382846290000003955667504570166687_" class="st14">
+						<line class="st15" x1="45" y1="941.5" x2="189.9" y2="942.1"/>
+						<polyline class="st15" points="189.9,942.1 188.5,1154.6 123,1154.4 124.1,1012.4 108.3,1012.4 107.2,1154.3 43.4,1154.2 
+							45,941.5 						"/>
+						<polyline class="st15" points="156.9,1154.3 158,983.4 77.5,983.1 76.4,1154.1 						"/>
+						<line class="st15" x1="189.9" y1="1040.4" x2="123.2" y2="1040.1"/>
+						<line class="st15" x1="189.9" y1="1027.2" x2="123.4" y2="1027"/>
+						<line class="st15" x1="189.9" y1="1014.6" x2="123.5" y2="1014.4"/>
+						<line class="st15" x1="123.2" y1="1053.1" x2="189.7" y2="1053.3"/>
+						<line class="st15" x1="108.3" y1="1014.4" x2="44.4" y2="1014.2"/>
+						<line class="st15" x1="108.1" y1="1026.9" x2="44.4" y2="1026.7"/>
+						<line class="st15" x1="108.1" y1="1040.1" x2="44.3" y2="1039.9"/>
+						<line class="st15" x1="108.1" y1="1052.9" x2="44.3" y2="1052.7"/>
+						<line class="st15" x1="108" y1="1065.8" x2="44" y2="1065.5"/>
+						<line class="st15" x1="108" y1="1078.3" x2="44" y2="1078.1"/>
+						<line class="st15" x1="107.7" y1="1091" x2="44" y2="1090.8"/>
+						<line class="st15" x1="107.5" y1="1129.7" x2="43.8" y2="1129.4"/>
+						<line class="st15" x1="107.3" y1="1141.8" x2="43.6" y2="1141.6"/>
+						<polyline class="st15" points="43.6,1142.7 76.3,1154.4 107.2,1142.6 						"/>
+						<polyline class="st15" points="107.3,1142.3 107.2,1156.4 123.2,1156.5 123.4,1116.3 						"/>
+						<line class="st15" x1="189.3" y1="1103.9" x2="123" y2="1103.7"/>
+						<line class="st15" x1="189.6" y1="1078.4" x2="123" y2="1078.2"/>
+						<line class="st15" x1="189.3" y1="1091.3" x2="123" y2="1091"/>
+						<line class="st15" x1="189.6" y1="1065.8" x2="123.2" y2="1065.5"/>
+						<line class="st15" x1="189.3" y1="1116.6" x2="122.7" y2="1116.4"/>
+						<line class="st15" x1="189.1" y1="1129.3" x2="122.7" y2="1129.1"/>
+						<line class="st15" x1="189.1" y1="1142.1" x2="122.6" y2="1141.9"/>
+						<line class="st15" x1="107.7" y1="1103.5" x2="43.9" y2="1103.3"/>
+						<line class="st15" x1="107.7" y1="1116.5" x2="43.8" y2="1116.3"/>
+					</g>
+				</g>
+			</g>
 		</g>
 		<g class="clickable" id="A1-2-41">
 			<rect id="room-box-64" x="2420.1" y="782.8" class="st1" width="392.3" height="139.6"/>
