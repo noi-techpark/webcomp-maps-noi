@@ -982,11 +982,11 @@ body {
 
 		@include media('screen', '>dim_5') {
 			width: 75px;
-			height: 27px;
+			height: 28px;
 		}
 		@include media('screen', '>dim_50') {
 			width: 100px;
-			height: 36px;
+			height: 40px;
 		}
 	}
 
