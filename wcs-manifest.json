@@ -3,12 +3,14 @@
   "description": "This web component shows where are located the offices, the laboratories, the companies and institution in  the NOI Techpark.",
   "descriptionAbstract": "NOI Techpark map app",
   "license": "AGPL-3.0-or-later",
-  "copyrightHolders":[{
-    "name":"NOI AG",
-    "email":"info@noi.bz.it",
-    "organization": "NOI S.p.A",
-    "organizationUrl": "https://noi.bz.it"
-  }],
+  "copyrightHolders": [
+    {
+      "name": "NOI AG",
+      "email": "info@noi.bz.it",
+      "organization": "NOI S.p.A",
+      "organizationUrl": "https://noi.bz.it"
+    }
+  ],
   "authors": [
     {
       "name": "Made In Cima",
@@ -18,33 +20,53 @@
     }
   ],
   "image": "wcs-logo.png",
-  "searchTags": ["map","NOI"],
+  "searchTags": [
+    "map",
+    "NOI"
+  ],
   "dist": {
     "basePath": "dist",
     "files": [
-      "noi_maps_widget.min.js"
+      "noi_maps_widget.min.js",
+      "noi_maps_widget.min.js.LICENSE.txt"
+    ],
+    "scripts": [
+      {
+        "file": "noi_maps_widget.min.js",
+        "parameter": ""
+      }
     ]
   },
   "configuration": {
     "tagName": "map-view",
-    "options": [{
-      "key": "language",
-      "type": "select",
-      "label": "Language",
-      "required": false,
-      "options": {
-        "values": ["en", "de", "it"],
-        "default": "en"
+    "options": [
+      {
+        "key": "language",
+        "type": "select",
+        "label": "Language",
+        "required": false,
+        "options": {
+          "values": [
+            "en",
+            "de",
+            "it"
+          ],
+          "default": "en"
+        }
+      },
+      {
+        "key": "totem",
+        "type": "select",
+        "label": "Totem",
+        "required": false,
+        "options": {
+          "default": "0",
+          "values": [
+            "0",
+            "1"
+          ]
+        }
       }
-    },{
-      "key": "totem",
-      "type": "select",
-      "label": "Totem",
-      "required": false,
-      "options": {
-        "default": "0",
-        "values":["0","1"]
-      }
-    }]
+    ]
   }
 }
