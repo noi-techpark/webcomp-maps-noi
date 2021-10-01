@@ -183,7 +183,7 @@ var maps_svgs = [];
 var NOIrooms = [];
 var selettoriType = [];
 var translations = [];
-var minCharsToSearch = 2;
+var minCharsToSearch = 3;
 
 function resizeEndActionsNOIMaps() {
 	sidebarHeightNOIMaps();
@@ -453,11 +453,13 @@ function fetchMapsSVGNOIMaps(this_building_code) {
 			if(typeof result.data[i].smetadata.building_code !== 'undefined' && typeof result.data[i].smetadata.image !== 'undefined') {
 				let thisImageUrl = result.data[i].smetadata.image;
 				
-				let searchParams = new URLSearchParams(window.location.search)
-				let param = searchParams.get('stage')
+				let searchParams = new URLSearchParams(window.location.search);
+				let param = searchParams.get('stage');
 				if(param == 1) {
 					//console.log(thisImageUrl);
-					if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/axonometric.svg') {
+					thisImageUrl = thisImageUrl.replace("https://images.maps.noi.opendatahub.bz.it/planimetry","https://stage.madeincima.it/noi-maps-svg-test/2021-09");
+					console.log(thisImageUrl);
+					/*if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/axonometric.svg') {
 						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg-test/2021-06/axonometric.svg';
 					}
 					if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/a1-0.svg') {
@@ -471,7 +473,7 @@ function fetchMapsSVGNOIMaps(this_building_code) {
 					}
 					if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/a2-0.svg') {
 						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg-test/2021-06/a2-0.svg';
-					}
+					}*/
 				}
 
 				jQuery.get(thisImageUrl, (data2) => {
@@ -502,7 +504,9 @@ function writeGroupsSidebarNOIMaps(ODHdata) {
 		let objects = result.data.filter(function(v){
 			return v.mvalue=="Selettori Group";
 		});
-
+		if(typeof objects[0] == 'undefined' || typeof objects[0].tmetadata == 'undefined' ) {
+			location.reload();
+		}
 		/*objects = Object.values(objects[0].tmetadata);
 		objects = objects.sort((a, b) => (a.order > b.order) ? 1 : -1);*/
 		objects = objects[0].tmetadata;
@@ -529,10 +533,11 @@ function writeGroupsSidebarNOIMaps(ODHdata) {
 			categoryGroupClone.find('h2').text(sorted[index].name);
 			
 			for(var k in ODHdata.data) {
-				if(ODHdata.data[k].smetadata.group == sorted[index].name && typeof ODHdata.data[k].smetadata.name !== 'undefined' && typeof ODHdata.data[k].smetadata.name[thisNoiMapsSettingsLang]!=='undefined') {
+				if(ODHdata.data[k].smetadata.group == sorted[index].name) {
 					let elementCode = cleanupRoomLabelNOIMaps(ODHdata.data[k].smetadata.beacon_id);
 					let roomPieces = elementCode.split("-");
 					let roomNr = roomPieces[roomPieces.length - 1];
+					let roomName = typeof ODHdata.data[k].smetadata.name !== 'undefined' && typeof ODHdata.data[k].smetadata.name !== 'undefined' && typeof ODHdata.data[k].smetadata.name[thisNoiMapsSettingsLang]!=='undefined' ? ODHdata.data[k].smetadata.name[thisNoiMapsSettingsLang] : '';
 					if(isNaN(roomNr)) {
 						roomNr = roomPieces[roomPieces.length - 2] +"-"+roomPieces[roomPieces.length - 1];
 					}
@@ -551,7 +556,7 @@ function writeGroupsSidebarNOIMaps(ODHdata) {
 						}
 						
 					}
-					categoryGroupClone.find('.group-rooms-list').append('<li class="clickable" data-building-code="'+roomPieces[0]+'" data-room-code="'+elementCode+'" data-floor-code="'+ODHdata.data[k].smetadata.floor+'"><span class="room-icon-building icon-building-'+roomPieces[0]+'">'+roomPieces[0]+'</span><span class="room-name">' + ODHdata.data[k].smetadata.name[thisNoiMapsSettingsLang] + '</span><span class="room-floor">' + ODHdata.data[k].smetadata.floor + '</span><span class="room-number">' + roomLabel + '</span></li>')
+					categoryGroupClone.find('.group-rooms-list').append('<li class="clickable" data-building-code="'+roomPieces[0]+'" data-room-code="'+elementCode+'" data-floor-code="'+ODHdata.data[k].smetadata.floor+'"><span class="room-icon-building icon-building-'+roomPieces[0]+'">'+roomPieces[0]+'</span><span class="room-name">' + roomName + '</span><span class="room-floor">' + ODHdata.data[k].smetadata.floor + '</span><span class="room-number">' + roomLabel + '</span></li>')
 				}
 			}
 
@@ -602,7 +607,7 @@ function filtersBehavioursNOIMaps() {
 }
 
 function getSelettoriTypeNOIMaps() {
-	jQuery.getJSON(config.OPEN_DATA_HUB_TYPES_GROUPS, function(result){
+	jQuery.getJSON(config.OPEN_DATA_HUB_TYPES, function(result){
 		let objects = result.data.filter(function(v){
 			return v.mvalue=="Selettori Type";
 		});
@@ -683,7 +688,7 @@ function setupMapBehavioursNOIMaps() {
 				jQuery(shadowRoot.querySelectorAll('.sharer-container')).find('input').val(location.origin+location.pathname+'?shared='+jQuery(shadowRoot.querySelectorAll('.share-element')).attr('data-element-code')+'&lang='+thisNoiMapsSettingsLang);
 				jQuery(shadowRoot.querySelectorAll('.sharer-container')).find('input').select();
 			}
-			if(
+			/*if(
 				jQuery(ev.firstTarget).parents('.tooltip').length>0 &&
 				!jQuery(shadowRoot.querySelectorAll('.outer-map-container')).hasClass("totem") &&
 				(
@@ -695,7 +700,7 @@ function setupMapBehavioursNOIMaps() {
 			) {
 				
 				jQuery(shadowRoot.querySelectorAll('.tooltip')).find('.long-description').slideToggle();
-			}
+			}*/
 		}
 		if(
 			jQuery(ev.firstTarget).hasClass('view-floorplan') &&
@@ -1010,7 +1015,8 @@ function clickedElementNOIMaps(elementCode, type="room") {
 			}
 			
 			//Tooltip data
-			jQuery(shadowRoot.querySelectorAll('.tooltip .icon, .tooltip .name, .tooltip .short-description, .tooltip .long-description, .tooltip .lower, .tooltip .view-floorplan, .tooltip .website, .tooltip .share-element, .tooltip .expand-info')).addClass('hide');
+			//jQuery(shadowRoot.querySelectorAll('.tooltip .icon, .tooltip .name, .tooltip .short-description, .tooltip .long-description, .tooltip .lower, .tooltip .view-floorplan, .tooltip .website, .tooltip .share-element, .tooltip .expand-info')).addClass('hide');
+			jQuery(shadowRoot.querySelectorAll('.tooltip .icon, .tooltip .name, .tooltip .short-description, .tooltip .lower, .tooltip .view-floorplan, .tooltip .website, .tooltip .share-element, .tooltip .expand-info')).addClass('hide');
 			jQuery(shadowRoot.querySelectorAll(".tooltip")).removeClass('without-lower');
 			if(icon_code==''&&name==''&&shortdesc==''&&longdesc=='') {
 				//console.log('ATTENZIONE! Nessuna informazione per l\'elemento cliccato:\n'+elementCode+'\nControllare il foglio Google');
@@ -1051,8 +1057,8 @@ function clickedElementNOIMaps(elementCode, type="room") {
 					}
 				}
 				if(longdesc!='') {
-					jQuery(shadowRoot.querySelectorAll(".tooltip .long-description")).removeClass('hide');
-					jQuery(shadowRoot.querySelectorAll(".tooltip .expand-info")).removeClass('hide');
+					/*jQuery(shadowRoot.querySelectorAll(".tooltip .long-description")).removeClass('hide');
+					jQuery(shadowRoot.querySelectorAll(".tooltip .expand-info")).removeClass('hide');*/
 					jQuery(shadowRoot.querySelectorAll(".tooltip .long-description")).text(longdesc);
 				} else {
 					jQuery(shadowRoot.querySelectorAll(".tooltip .long-description")).text('');
@@ -1089,7 +1095,7 @@ function clickedElementNOIMaps(elementCode, type="room") {
 						jQuery(shadowRoot.querySelectorAll(".tooltip .lower .website")).attr('href',website);
 					}
 				}
-				jQuery(shadowRoot.querySelectorAll(".tooltip .long-description")).hide();
+				//jQuery(shadowRoot.querySelectorAll(".tooltip .long-description")).hide();
 				jQuery(shadowRoot.querySelectorAll(".tooltip")).fadeIn();
 				jQuery(shadowRoot.querySelectorAll(".tooltip")).addClass('active');
 			}
@@ -1155,9 +1161,22 @@ function setTooltipPositionNOIMaps() {
 				left: jQuery(jsElem).offset().left + (jsElem.getBoundingClientRect().width/2),
 				top: jQuery(jsElem).offset().top + (jsElem.getBoundingClientRect().height/2)-8
 			});*/
+			let thisLeft = jQuery(jsElem).offset().left + (jsElem.getBoundingClientRect().width/2) - jQuery(shadowRoot.querySelectorAll('.inner-map-component')).position().left;
+			let thisTop = jQuery(jsElem).offset().top - jQuery(shadowRoot.querySelectorAll('.inner-map-component'))[0].offsetTop + (jsElem.getBoundingClientRect().height/2)-8;
+			
+			if(clickedElementID == 'A1-1-07-A') {
+				thisLeft += 60;
+				thisTop += 30;
+			}
+			if(clickedElementID == 'A2-4-06-A') {
+				//thisLeft += 60;
+				thisTop += 20;
+			}
+			
+
 			jQuery(shadowRoot.querySelectorAll(".tooltip")).css({
-				left: jQuery(jsElem).offset().left + (jsElem.getBoundingClientRect().width/2) - jQuery(shadowRoot.querySelectorAll('.inner-map-component')).position().left,
-				top: jQuery(jsElem).offset().top - jQuery(shadowRoot.querySelectorAll('.inner-map-component'))[0].offsetTop + (jsElem.getBoundingClientRect().height/2)-8
+				left: thisLeft,
+				top: thisTop
 			});
 			/*jQuery(shadowRoot.querySelectorAll(".tooltip")).css({
 				top: getOffsetPosition(jQuery(shadowRoot.querySelectorAll(".inner-map-component svg")), jQuery(jsElem)).top - document.querySelectorAll("map-view")[0].offsetTop + (jsElem.getBoundingClientRect().height/2)-8,
@@ -1341,6 +1360,8 @@ function printElementOnMapNOIMaps(thisElement, elementCode, thisSVG) {
 		y = (svgElement.getBBox().y + (svgElement.getBBox().height/2)) - (thisSVG.attr('height')/2);
 	}*/
 
+
+
 	if(elementCode == 'A1-0-08') {
 		x += 120;
 		y += 100;
@@ -1349,6 +1370,10 @@ function printElementOnMapNOIMaps(thisElement, elementCode, thisSVG) {
 	}
 	if(elementCode == 'A1-0-03') {
 		y -= 40;
+	}
+
+	if(elementCode == 'A1-1-07-A') { //TOOLTIP CHANGED
+		x += 160;
 	}
 	if(elementCode == 'A2--1-03') {
 		x -= 50;
@@ -1367,6 +1392,9 @@ function printElementOnMapNOIMaps(thisElement, elementCode, thisSVG) {
 		thisSVG.attr('height', thisSVG.attr('height')*0.7);
 		x += 35;
 		y += 15;
+	}
+	if(elementCode == 'A2-4-06-A') {  //TOOLTIPCHANGED
+		y += 90;
 	}
 	if(elementCode == 'A4--1-34') {
 		x -= 500;
@@ -1609,8 +1637,9 @@ function searchElementsStarterNOIMaps() {
 }
 
 
-function searchElementsNOIMaps(string) {	
+function searchElementsNOIMaps(string) {
 	jQuery(shadowRoot.querySelectorAll('.search-container .no-results-container')).hide();
+	jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group.misc .group-rooms-list')).empty();
 	var founds = [];
 	jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group')).hide();
 	jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group .group-rooms-list li')).hide();
@@ -1634,6 +1663,12 @@ function searchElementsNOIMaps(string) {
 
 								//check se oggetti con multilingua, guardiamo solo la lingua corrente
 								if(typeof obj[thisNoiMapsSettingsLang] !== 'undefined' && obj[thisNoiMapsSettingsLang]!==null) {
+									/*console.log(room);
+									console.log(property+" "+obj[thisNoiMapsSettingsLang]);
+									console.log(typeof obj[thisNoiMapsSettingsLang]);
+									console.log(string.toString().toLowerCase());
+									console.log(obj[thisNoiMapsSettingsLang].toLowerCase());*/
+									
 									if(typeof obj[thisNoiMapsSettingsLang] == 'string' && obj[thisNoiMapsSettingsLang].toLowerCase().indexOf(string.toString().toLowerCase())!=-1) {
 										found = true;
 									}
@@ -1655,6 +1690,7 @@ function searchElementsNOIMaps(string) {
 		}
 	} else {
 		jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original)')).show();
+		jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group.misc')).hide();
 		jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li')).show();
 		jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group.open')).find('.group-rooms-list').hide();
 		jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group.open')).removeClass('open');
@@ -1669,10 +1705,17 @@ function searchElementsNOIMaps(string) {
 	if(founds.length>0) {
 		//loadAfterSearch( JSON.stringify(founds) );
 		for(var f in founds) {
+
 			if(typeof founds[f]["beacon_id"] !== 'undefined' && founds[f]["beacon_id"] !== null) {
 				let roomID = cleanupRoomLabelNOIMaps(founds[f]["beacon_id"]);
-				jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li[data-room-code="'+roomID+'"]')).show();
-				jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li[data-room-code="'+roomID+'"]')).closest('.category-group').show();
+				//createSidebarSingleElementWithoutGroup(founds[f]);
+
+				if( shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li[data-room-code="'+roomID+'"]').length > 0 ) {
+					jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li[data-room-code="'+roomID+'"]')).show();
+					jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li[data-room-code="'+roomID+'"]')).closest('.category-group').show();
+				} else {
+					createSidebarSingleElementWithoutGroup(founds[f]);
+				}
 			}
 		}
 	} else {
@@ -1700,6 +1743,7 @@ function searchElementsNOIMaps(string) {
 				}
 			});
 			sidebarHeightNOIMaps();
+			clickableBehaviourNOIMaps();
 		}
 	}
 }
@@ -1712,6 +1756,46 @@ function sidebarHeightNOIMaps() {
 
 	jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container')).css('height', h - jQuery(shadowRoot.querySelectorAll('.search-container .input-container')).outerHeight() - 110);
 
+}
+
+function createSidebarSingleElementWithoutGroup(element) {
+	if(typeof element.sheetName !== 'undefined' && element.sheetName == 'Floors') {
+		return;
+	}
+
+	let categoryGroupMisc = jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group.misc'));
+	if(categoryGroupMisc.length == 0) {
+		let categoryGroup = jQuery(shadowRoot.querySelectorAll(".search-container .category-group.original")).clone();
+		categoryGroup.removeClass("original");		
+		categoryGroupMisc = categoryGroup.clone().removeAttr("style").addClass('misc');
+	}
+	categoryGroupMisc.find('h2').text('Various');	
+	let elementCode = cleanupRoomLabelNOIMaps(element.beacon_id);
+	let roomPieces = elementCode.split("-");
+	let roomNr = roomPieces[roomPieces.length - 1];
+	if(isNaN(roomNr)) {
+		roomNr = roomPieces[roomPieces.length - 2] +"-"+roomPieces[roomPieces.length - 1];
+	}
+	var roomLabelCiph = element.beacon_id.replace(/\-/g,'~-');
+	roomLabelCiph = roomLabelCiph.replace(/\s/g,'~');
+	roomLabelCiph = roomLabelCiph.replace(/\./g,'~');
+	roomLabelCiph = roomLabelCiph.replace(/~~/g,'~');
+	roomLabelCiph = roomLabelCiph.split('~');
+
+	var roomLabel;
+	for(var j = 0;j<roomLabelCiph.length;j++){
+		if(roomLabelCiph.length > 3){
+			roomLabel =  roomLabelCiph[roomLabelCiph.length - 2] + '-' +roomLabelCiph[roomLabelCiph.length - 1];
+		}else{
+			roomLabel = roomLabelCiph[roomLabelCiph.length - 1];
+		}
+		
+	}
+	let roomName = typeof element.name !== 'undefined' && typeof element.name[thisNoiMapsSettingsLang] !== 'undefined' ? element.name[thisNoiMapsSettingsLang] : '';
+	categoryGroupMisc.find('.group-rooms-list').append('<li class="clickable" data-building-code="'+roomPieces[0]+'" data-room-code="'+elementCode+'" data-floor-code="'+element.floor+'"><span class="room-icon-building icon-building-'+roomPieces[0]+'">'+roomPieces[0]+'</span><span class="room-name">' + roomName + '</span><span class="room-floor">' + element.floor + '</span><span class="room-number">' + roomLabel + '</span></li>')
+	categoryGroupMisc.css('display','block');
+	categoryGroupMisc.find('.group-rooms-list').css('display','block');
+	jQuery(shadowRoot.querySelectorAll(".search-container .category-group-container")).append(categoryGroupMisc);
 }
 
 function setMediaQueriesNOIMaps() {

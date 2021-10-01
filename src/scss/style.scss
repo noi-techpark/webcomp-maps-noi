@@ -505,7 +505,7 @@
 		color: $color4;
 		display: none;
 		font-size: 16px;
-
+		display: block;
 
 		.totem & {
 			padding: 0px 20px 20px 20px; /*21/06/2021*/
@@ -575,6 +575,9 @@
 		&:hover{
 			text-decoration: underline;
 		}
+	}
+	.expand-info {
+		display: none !important;
 	}
 	#room-qrcode {
 		position: absolute;
