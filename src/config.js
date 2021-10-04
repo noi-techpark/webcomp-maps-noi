@@ -1,4 +1,5 @@
 export default {
+  OPEN_DATA_HUB_RESOURCE_URL: process.env.ODH_RESOURCE_URL,
 	OPEN_DATA_HUB_BASE: process.env.ODH_BASE_URL,
 	OPEN_DATA_HUB_ALL_ELEMENTS: process.env.ODH_BASE_URL+'?limit=-1&offset=0&select=sname,smetadata&where=sactive.eq.true,sorigin.eq.office365&shownull=true&distinct=true',
 	OPEN_DATA_HUB_ONLY_SHOW_MAP: process.env.ODH_BASE_URL+'?limit=-1&offset=0&select=sname,smetadata&where=smetadata.show_on_map.eq."1",sactive.eq.true,sorigin.eq.office365&shownull=true&distinct=true',

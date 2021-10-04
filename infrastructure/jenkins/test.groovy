@@ -3,6 +3,7 @@ pipeline {
 	environment {
 		DOCKER_IMAGE = "755952719952.dkr.ecr.eu-west-1.amazonaws.com/webcompbuild:latest"
 		ODH_BASE_URL = "https://mobility.api.opendatahub.bz.it/v2/flat/NOI-Place"
+		ODH_RESOURCE_URL = "https://images.maps.noi.opendatahub.testingmachine.eu"
 	}
 	options {
 		ansiColor('xterm')
@@ -29,6 +30,7 @@ pipeline {
 							cp /webcompbuild/.env .env
 							rm -rf $(jq -r ".dist.basePath" wcs-manifest.json)
 							echo "ODH_BASE_URL=$ODH_BASE_URL" >> .env
+							echo "ODH_RESOURCE_URL=$ODH_RESOURCE_URL" >> .env
 						'''
 					}
 				}
