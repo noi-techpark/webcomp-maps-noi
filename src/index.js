@@ -29,7 +29,7 @@ class MapView extends LitElement {
 			language: { type: String },
 			totem: { type: String },
 		};
-  	}
+		}
 
 	render() {
 		return html`
@@ -56,11 +56,11 @@ class MapView extends LitElement {
 							<div class="category-group-container">
 								<div class="no-results-container"><p>No results</p></div>
 								<div class="category-group original" style="display:none;">
-								    <div class="group-title-container dropdown-trigger">
-								        <h2></h2>
-								    </div>
-								    <ul class="group-rooms-list dropdown-list" style="/*display:block;*/">
-								    </ul>
+		<div class="group-title-container dropdown-trigger">
+				<h2></h2>
+		</div>
+		<ul class="group-rooms-list dropdown-list" style="/*display:block;*/">
+		</ul>
 								</div>
 							</div>
 						</div>
@@ -302,22 +302,22 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem) {
 			})
 			.fail(function(jqXHR, textStatus, errorThrown) {
 				location.reload();
-		        //console.log("error " + textStatus);
-		        //console.log("incoming Text " + jqXHR.responseText);
-		    	setTimeout(function() {
-		    		documentReadyNOIMaps(shadowRootInit,thisLang);
-		    	})
-		    })
+				//console.log("error " + textStatus);
+				//console.log("incoming Text " + jqXHR.responseText);
+			setTimeout(function() {
+				documentReadyNOIMaps(shadowRootInit,thisLang);
+			})
+		})
 			.always(function() {
 				setupMapBehavioursNOIMaps();
 			});
 
 		}
 	}).fail(function(jqXHR, textStatus, errorThrown) {
-        //console.log("error " + textStatus);
-        //console.log("incoming Text " + jqXHR.responseText);
-    })
-    .always(function() {
+				//console.log("error " + textStatus);
+				//console.log("incoming Text " + jqXHR.responseText);
+		})
+		.always(function() {
 		clickableBehaviourNOIMaps();
 
 		/*setTimeout(function() {
@@ -440,6 +440,10 @@ function printMapNOIMaps(this_building_code) {
 	}
 }
 
+function replaceImageUrl(url) {
+	return url.replace("https://images.maps.noi.opendatahub.bz.it", config.OPEN_DATA_HUB_RESOURCE_URL);
+}
+
 function fetchMapsSVGNOIMaps(this_building_code) {
 	jQuery.getJSON(config.OPEN_DATA_HUB_FLOORS, function(result){
 		for(var i in result.data) {
@@ -451,30 +455,7 @@ function fetchMapsSVGNOIMaps(this_building_code) {
 			let currentBuildingFloor = result.data[i].smetadata.floor;
 
 			if(typeof result.data[i].smetadata.building_code !== 'undefined' && typeof result.data[i].smetadata.image !== 'undefined') {
-				let thisImageUrl = result.data[i].smetadata.image;
-
-				let searchParams = new URLSearchParams(window.location.search);
-				let param = searchParams.get('stage');
-				if(param == 1) {
-					//console.log(thisImageUrl);
-					thisImageUrl = thisImageUrl.replace(config.OPEN_DATA_HUB_RESOURCE_URL + "/planimetry","https://stage.madeincima.it/noi-maps-svg-test/2021-09");
-					console.log(thisImageUrl);
-					/*if(thisImageUrl == config.OPEN_DATA_HUB_RESOURCE_URL + '/planimetry/axonometric.svg') {
-						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg-test/2021-06/axonometric.svg';
-					}
-					if(thisImageUrl == config.OPEN_DATA_HUB_RESOURCE_URL + '/planimetry/a1-0.svg') {
-						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg-test/2021-06/a1-0.svg';
-					}
-					if(thisImageUrl == config.OPEN_DATA_HUB_RESOURCE_URL + '/planimetry/a1-1.svg') {
-						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg-test/2021-06/a1-1.svg';
-					}
-					if(thisImageUrl == config.OPEN_DATA_HUB_RESOURCE_URL + '/planimetry/a1-2.svg') {
-						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg-test/2021-06/a1-2.svg';
-					}
-					if(thisImageUrl == config.OPEN_DATA_HUB_RESOURCE_URL + '/planimetry/a2-0.svg') {
-						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg-test/2021-06/a2-0.svg';
-					}*/
-				}
+				let thisImageUrl = replaceImageUrl(result.data[i].smetadata.image);
 
 				jQuery.get(thisImageUrl, (data2) => {
 					let $svg = jQuery(data2).find('svg');
@@ -527,7 +508,7 @@ function writeGroupsSidebarNOIMaps(ODHdata) {
 			////console.log(objects);
 			let image = '';
 			if(typeof sorted[index].image !== 'undefined'){
-				image = '<img src="'+sorted[index].image+'" />';
+				image = '<img src="'+replaceImageUrl(sorted[index].image)+'" />';
 			}
 			categoryGroupClone.find('.group-title-container').prepend(image);
 			categoryGroupClone.find('h2').text(sorted[index].name);
@@ -550,7 +531,7 @@ function writeGroupsSidebarNOIMaps(ODHdata) {
 					var roomLabel;
 					for(var j = 0;j<roomLabelCiph.length;j++){
 						if(roomLabelCiph.length > 3){
-							roomLabel =  roomLabelCiph[roomLabelCiph.length - 2] + '-' +roomLabelCiph[roomLabelCiph.length - 1];
+							roomLabel = roomLabelCiph[roomLabelCiph.length - 2] + '-' +roomLabelCiph[roomLabelCiph.length - 1];
 						}else{
 							roomLabel = roomLabelCiph[roomLabelCiph.length - 1];
 						}
@@ -961,14 +942,14 @@ function clickedElementNOIMaps(elementCode, type="room") {
 						typeof selettoriType[NOIrooms[elementCode]['type']] !== 'undefined' && selettoriType[NOIrooms[elementCode]['type']]!==null &&
 						typeof selettoriType[NOIrooms[elementCode]['type']]['image'] !== 'undefined' && selettoriType[NOIrooms[elementCode]['type']]['image']!==null
 					) {
-						icon_code = selettoriType[NOIrooms[elementCode]['type']]['image'];
+						icon_code = replaceImageUrl(selettoriType[NOIrooms[elementCode]['type']]['image']);
 						var building = '';
 						var floor = '';
 					}
 
 
-					name = typeof NOIrooms[elementCode]['name'] !== 'undefined' && typeof NOIrooms[elementCode]['name'][thisNoiMapsSettingsLang.toLowerCase()] !== 'undefined'  ? NOIrooms[elementCode]['name'][thisNoiMapsSettingsLang.toLowerCase()] : NOIrooms[elementCode]['beacon_id'];
-					longdesc = typeof NOIrooms[elementCode]['description'] !== 'undefined' && typeof NOIrooms[elementCode]['description'][thisNoiMapsSettingsLang.toLowerCase()] !== 'undefined'  ? NOIrooms[elementCode]['description'][thisNoiMapsSettingsLang.toLowerCase()] : '';
+					name = typeof NOIrooms[elementCode]['name'] !== 'undefined' && typeof NOIrooms[elementCode]['name'][thisNoiMapsSettingsLang.toLowerCase()] !== 'undefined' ? NOIrooms[elementCode]['name'][thisNoiMapsSettingsLang.toLowerCase()] : NOIrooms[elementCode]['beacon_id'];
+					longdesc = typeof NOIrooms[elementCode]['description'] !== 'undefined' && typeof NOIrooms[elementCode]['description'][thisNoiMapsSettingsLang.toLowerCase()] !== 'undefined' ? NOIrooms[elementCode]['description'][thisNoiMapsSettingsLang.toLowerCase()] : '';
 					building = elementCode.split("-")[0];
 					shortdesc += '<span class="room-icon-building icon-building-'+building+'">'+building+'</span>';
 
@@ -1125,7 +1106,7 @@ function clickedElementNOIMaps(elementCode, type="room") {
 function roomQRCodeNOIMaps() {
 	if(jQuery(shadowRoot.querySelectorAll('.outer-map-container')).hasClass("totem") && typeof QRCode !== 'undefined' && jQuery(shadowRoot.querySelectorAll(".inner-map-component")).attr('data-building')!=='axonometric') {
 		jQuery(shadowRoot.querySelectorAll("#room-qrcode")).html('');
-		thisQrcode = new QRCode(  jQuery(shadowRoot.querySelectorAll("#room-qrcode"))[0] , {
+		thisQrcode = new QRCode(jQuery(shadowRoot.querySelectorAll("#room-qrcode"))[0] , {
 			text: location.origin+location.pathname,
 			width: 100,
 			height: 100,
@@ -1136,16 +1117,16 @@ function roomQRCodeNOIMaps() {
 }
 
 /*function getOffsetPosition($this, $el) {
-    var rect = $this[0].getBoundingClientRect();
-    var win = $this[0].ownerDocument.defaultView;
+		var rect = $this[0].getBoundingClientRect();
+		var win = $this[0].ownerDocument.defaultView;
 
-    var elW = $el.width();
-    var elH = $el.height();
-    var marginB = 20;
-    return {
-         top: rect.top + win.pageYOffset - (elH + marginB),
-         left: rect.left + win.pageXOffset - (elW/2)
-    };
+		var elW = $el.width();
+		var elH = $el.height();
+		var marginB = 20;
+		return {
+				 top: rect.top + win.pageYOffset - (elH + marginB),
+				 left: rect.left + win.pageXOffset - (elW/2)
+		};
 }*/
 
 function setTooltipPositionNOIMaps() {
@@ -1785,7 +1766,7 @@ function createSidebarSingleElementWithoutGroup(element) {
 	var roomLabel;
 	for(var j = 0;j<roomLabelCiph.length;j++){
 		if(roomLabelCiph.length > 3){
-			roomLabel =  roomLabelCiph[roomLabelCiph.length - 2] + '-' +roomLabelCiph[roomLabelCiph.length - 1];
+			roomLabel = roomLabelCiph[roomLabelCiph.length - 2] + '-' +roomLabelCiph[roomLabelCiph.length - 1];
 		}else{
 			roomLabel = roomLabelCiph[roomLabelCiph.length - 1];
 		}
