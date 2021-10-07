@@ -5,6 +5,7 @@ pipeline {
 		WC_GIT_REMOTE = get_git_remote()
 		WC_GIT_BRANCH = get_git_branch()
 		ODH_BASE_URL = "https://mobility.api.opendatahub.bz.it/v2/flat/NOI-Place"
+		ODH_RESOURCE_URL = "https://images.maps.noi.opendatahub.bz.it"
 	}
 	options {
 		ansiColor('xterm')
@@ -34,6 +35,7 @@ pipeline {
 							cp /webcompbuild/.env .env
 							rm -rf $(jq -r ".dist.basePath" wcs-manifest.json)
 							echo "ODH_BASE_URL=$ODH_BASE_URL" >> .env
+							echo "ODH_RESOURCE_URL=$ODH_RESOURCE_URL" >> .env
 						'''
 					}
 				}
