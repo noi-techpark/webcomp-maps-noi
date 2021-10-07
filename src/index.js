@@ -301,9 +301,9 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem) {
 				}
 			})
 			.fail(function(jqXHR, textStatus, errorThrown) {
-				location.reload();
-				//console.log("error " + textStatus);
-				//console.log("incoming Text " + jqXHR.responseText);
+				//location.reload();
+				console.log("305 error " + textStatus);
+				console.log("incoming Text " + jqXHR.responseText);
 			setTimeout(function() {
 				documentReadyNOIMaps(shadowRootInit,thisLang);
 			})
@@ -396,13 +396,14 @@ function getTranslationsNOIMaps() {
 			searchElementsStarterNOIMaps();
 			translateElementsNOIMaps();
 		} else {
-			location.reload();
+			//location.reload();
+			console.log("400 error: reload ");
 			//getTranslationsNOIMaps();
 			return;
 		}
 	})
 	.fail(function(jqXHR, textStatus, errorThrown) {
-		location.reload();
+		//location.reload();
 		return;
 	})
 	.always(function() {
@@ -486,7 +487,8 @@ function writeGroupsSidebarNOIMaps(ODHdata) {
 			return v.mvalue=="Selettori Group";
 		});
 		if(typeof objects[0] == 'undefined' || typeof objects[0].tmetadata == 'undefined' ) {
-			location.reload();
+			//location.reload();
+			console.log("490 object undefined xxx1");
 		}
 		/*objects = Object.values(objects[0].tmetadata);
 		objects = objects.sort((a, b) => (a.order > b.order) ? 1 : -1);*/
@@ -546,7 +548,9 @@ function writeGroupsSidebarNOIMaps(ODHdata) {
 		}
 	})
 	.fail(function(jqXHR, textStatus, errorThrown) {
-		location.reload();
+		// location.reload();
+		console.log("551 error " + textStatus);
+		console.log("incoming Text " + jqXHR.responseText);
 		return;
 	})
 }
