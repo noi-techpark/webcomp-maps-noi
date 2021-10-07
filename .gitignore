@@ -15,3 +15,9 @@ node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+work/scripts
+
+.env
+
+# !! Never ignore dist folders, since they are used for deployment to the
+# production web component store
