@@ -9,7 +9,6 @@ NOI Techpark map web application to search places and see an overview of the NOI
     - [Attributes](#attributes)
       - [lang](#lang)
       - [totem](#totem)
-      - [fullview](#fullview)
   - [Getting started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Source code](#source-code)
@@ -54,13 +53,6 @@ Options: "it", "de", "en"
 
 Optional. Ability to turn off (0) or on (1) the totem functionalities (e.g. for
 Pepper Robot) with QR Code sharing
-
-Type: Int
-Options: "0", "1"
-
-#### fullview
-
-Optional. Ability to turn off (0) or on (1) the fullview display (no header, no cookies, no footer)
 
 Type: Int
 Options: "0", "1"
