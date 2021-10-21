@@ -495,6 +495,29 @@ function fetchMapsSVGNOIMaps(this_building_code) {
 			if(typeof result.data[i].smetadata.building_code !== 'undefined' && typeof result.data[i].smetadata.image !== 'undefined') {
 				let thisImageUrl = replaceImageUrl(result.data[i].smetadata.image);
 
+				/*let searchParams = new URLSearchParams(window.location.search);
+				let param = searchParams.get('stage');
+				if(param == 1) {
+					//console.log(thisImageUrl);
+					thisImageUrl = thisImageUrl.replace("https://images.maps.noi.opendatahub.bz.it/planimetry","https://stage.madeincima.it/noi-maps-svg-test/2021-10");
+					console.log(thisImageUrl);
+					if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/axonometric.svg') {
+						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg/axonometric.svg';
+					}
+					if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/a1-0.svg') {
+						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg/a1-0.svg';
+					}
+					if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/a1-1.svg') {
+						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg/a1-1.svg';
+					}
+					if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/a1-2.svg') {
+						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg/a1-2.svg';
+					}
+					if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/a2-0.svg') {
+						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg/a2-0.svg';
+					}
+				}*/
+
 				jQuery.get(thisImageUrl, (data2) => {
 					let $svg = jQuery(data2).find('svg');
 					// Remove any invalid XML tags as per http://validator.w3.org
