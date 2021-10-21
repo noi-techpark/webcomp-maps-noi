@@ -7,6 +7,7 @@ const Dotenv = require('dotenv-webpack')
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
+  watch: true,
   output: {
     path: path.resolve(__dirname, './work/src/js/webcomponent'),
     filename: 'noi_maps_widget.min.js'

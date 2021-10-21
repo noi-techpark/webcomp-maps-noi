@@ -28,8 +28,9 @@ class MapView extends LitElement {
 		return {
 			language: { type: String },
 			totem: { type: String },
+			fullview: { type: String },
 		};
-		}
+	}
 
 	render() {
 		return html`
@@ -56,11 +57,11 @@ class MapView extends LitElement {
 							<div class="category-group-container">
 								<div class="no-results-container"><p>No results</p></div>
 								<div class="category-group original" style="display:none;">
-		<div class="group-title-container dropdown-trigger">
-				<h2></h2>
-		</div>
-		<ul class="group-rooms-list dropdown-list" style="/*display:block;*/">
-		</ul>
+									<div class="group-title-container dropdown-trigger">
+								        <h2></h2>
+								    </div>
+								    <ul class="group-rooms-list dropdown-list" style="/*display:block;*/">
+								    </ul>
 								</div>
 							</div>
 						</div>
@@ -91,7 +92,6 @@ class MapView extends LitElement {
 					<div class="loader loader-map">
 						<svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" stroke="#010101"> <g fill="none" fill-rule="evenodd" stroke-width="2"> <circle cx="22" cy="22" r="1"> <animate attributeName="r" begin="0s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite" /> <animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite" /> </circle> <circle cx="22" cy="22" r="1"> <animate attributeName="r" begin="-0.9s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite" /> <animate attributeName="stroke-opacity" begin="-0.9s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite" /> </circle> </g></svg>
 					</div>
-
 					<div class="tooltip">
 						<div class="pin">PIN</div>
 						<div class="card">
@@ -153,7 +153,8 @@ class MapView extends LitElement {
 		var shadowRoot = this.shadowRoot;
 		var thisLang = this.language;
 		var thisTotem = Number.parseInt(this.totem);
-		documentReadyNOIMaps(shadowRoot,thisLang,thisTotem);
+		var thisFullview = Number.parseInt(this.fullview);
+		documentReadyNOIMaps(shadowRoot,thisLang,thisTotem,thisFullview);
 			/*jQuery.each(result.data, function(i, field){
 					//console.log(field.sname);
 					jQuery(results).append('<li>'+field.sname+'</li>');
@@ -178,12 +179,16 @@ var buildings_summary = [];
 var clickedElementID = '';
 var thisNoiMapsSettingsLang = 'it';
 var thisNoiMapsSettingsTotem = false;
+var thisNoiMapsSettingsFullview = false;
 var originalTooltip = '';
 var maps_svgs = [];
 var NOIrooms = [];
 var selettoriType = [];
 var translations = [];
 var minCharsToSearch = 3;
+var getParams = new URLSearchParams(window.location.search);
+var debugActive = getParams.get('debug');
+var hideZoomActive = getParams.get('hidezoom');
 
 function resizeEndActionsNOIMaps() {
 	sidebarHeightNOIMaps();
@@ -205,7 +210,7 @@ function cleanupRoomLabelNOIMaps(roomLabel) {
 	return false;
 }
 
-function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem) {
+function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview) {
 	shadowRoot = shadowRootInit;
 	setMediaQueriesNOIMaps();
 	//Disables scroll events from mousewheels, touchmoves and keypresses.
@@ -219,7 +224,8 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem) {
 	var NoiMapsSettingsShared = NoiMapsSettingsUrlChecker.searchParams.get("shared");
 	var NoiMapsSettingsLang = NoiMapsSettingsUrlChecker.searchParams.get("lang");
 	var NoiMapsSettingsTotem = NoiMapsSettingsUrlChecker.searchParams.get("totem");
-
+	var NoiMapsSettingsFullview = NoiMapsSettingsUrlChecker.searchParams.get("fullview");
+	
 	if(typeof thisLang != 'undefined' && thisLang !== null || jQuery.inArray( thisLang, ['it','en','de'] ) >= 0) {
 		thisNoiMapsSettingsLang = thisLang;
 	}
@@ -241,11 +247,34 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem) {
 			thisNoiMapsSettingsTotem = false;
 		}
 	}
+	if(typeof thisFullview != 'undefined' && thisFullview !== null && !isNaN(thisFullview)) {
+		if(thisFullview > 0) {
+			thisNoiMapsSettingsFullview = true;
+		} else {
+			thisNoiMapsSettingsFullview = false;
+		}
+	}
+	if(typeof NoiMapsSettingsFullview != 'undefined' && NoiMapsSettingsFullview !== null && !isNaN(NoiMapsSettingsFullview)) {
+		if(NoiMapsSettingsFullview > 0) {
+			thisNoiMapsSettingsFullview = true;
+		} else {
+			thisNoiMapsSettingsFullview = false;
+		}
+	}
 
 	if(thisNoiMapsSettingsTotem) {
 		jQuery(shadowRoot.querySelectorAll('.outer-map-container')).addClass("totem");
 	}
 
+	if(thisNoiMapsSettingsFullview) {
+		jQuery('map-view').attr('fullview',"1");
+		jQuery('body').addClass("fullview");
+	}
+
+	if(hideZoomActive) {
+		jQuery(shadowRoot.querySelectorAll('.floors-zoom-selector .zoom-selector')).hide();
+	}
+	
 	//console.log("Lingua "+thisNoiMapsSettingsLang);
 
 	//FETCH NOI DATA
@@ -294,30 +323,33 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem) {
 						setTimeout(function() {
 							if(typeof(NoiMapsSettingsShared)!='undefined' && NoiMapsSettingsShared!=null && NoiMapsSettingsShared!='') {
 								clickedElementNOIMaps(NoiMapsSettingsShared.toUpperCase());
-
 							}
 						}, 500)
 					},500);
 				}
 			})
-			.fail(function(jqXHR, textStatus, errorThrown) {
-				//location.reload();
+			.fail(function(jqXHR, textStatus, errorThrown) { // fix error handling
+				if(debugActive == 1) {
+					console.log('Error on documentReadyNOIMaps (ajax fail)');
+					console.log("error " + textStatus);
+					console.log("incoming Text " + jqXHR.responseText);
+				}
 				console.log("305 error " + textStatus);
 				console.log("incoming Text " + jqXHR.responseText);
-			setTimeout(function() {
-				documentReadyNOIMaps(shadowRootInit,thisLang);
+				setTimeout(function() {
+					documentReadyNOIMaps(shadowRootInit,thisLang);
+				})
 			})
-		})
 			.always(function() {
 				setupMapBehavioursNOIMaps();
 			});
 
 		}
 	}).fail(function(jqXHR, textStatus, errorThrown) {
-				//console.log("error " + textStatus);
-				//console.log("incoming Text " + jqXHR.responseText);
-		})
-		.always(function() {
+		//console.log("error " + textStatus);
+		//console.log("incoming Text " + jqXHR.responseText);
+	})
+	.always(function() {
 		clickableBehaviourNOIMaps();
 
 		/*setTimeout(function() {
@@ -325,10 +357,8 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem) {
 		},500);*/
 	});
 
-
 	//startHammer(shadowRoot);
-
-
+	
 	originalTooltip = jQuery(shadowRoot.querySelectorAll('.tooltip')).html();
 
 	jQuery(shadowRoot.querySelectorAll('.option-trigger')).on('click',function(){
@@ -372,7 +402,6 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem) {
 
 	jQuery(shadowRoot.getElementById('loadToMap')).click(function() {
 		//console.log('click');
-
 		clickable(shadowRoot);
 	});
 
@@ -395,14 +424,22 @@ function getTranslationsNOIMaps() {
 			getSelettoriTypeNOIMaps();
 			searchElementsStarterNOIMaps();
 			translateElementsNOIMaps();
-		} else {
+		} else { // fix error handling
+			if(debugActive == 1) {
+				console.log('Error on getTranslationsNOIMaps fetching translations');
+			}
 			//location.reload();
 			console.log("400 error: reload ");
 			//getTranslationsNOIMaps();
 			return;
 		}
 	})
-	.fail(function(jqXHR, textStatus, errorThrown) {
+	.fail(function(jqXHR, textStatus, errorThrown) { // fix error handling
+		if(debugActive == 1) {
+			console.log('Error on getTranslationsNOIMaps (ajax fail)');
+			console.log("error " + textStatus);
+			console.log("incoming Text " + jqXHR.responseText);
+		}
 		//location.reload();
 		return;
 	})
@@ -486,7 +523,10 @@ function writeGroupsSidebarNOIMaps(ODHdata) {
 		let objects = result.data.filter(function(v){
 			return v.mvalue=="Selettori Group";
 		});
-		if(typeof objects[0] == 'undefined' || typeof objects[0].tmetadata == 'undefined' ) {
+		if(typeof objects[0] == 'undefined' || typeof objects[0].tmetadata == 'undefined' ) { //fix error handling
+			if(debugActive == 1) {
+				console.log('Error on writeGroupsSidebarNOIMaps');
+			}
 			//location.reload();
 			console.log("490 object undefined xxx1");
 		}
@@ -502,7 +542,6 @@ function writeGroupsSidebarNOIMaps(ODHdata) {
 			var temp = objects[groupName];
 			temp['name'] = groupName;
 			sorted[orderN] = temp;
-
 		}
 
 		for(var index in sorted) {
@@ -514,7 +553,7 @@ function writeGroupsSidebarNOIMaps(ODHdata) {
 			}
 			categoryGroupClone.find('.group-title-container').prepend(image);
 			categoryGroupClone.find('h2').text(sorted[index].name);
-
+			
 			for(var k in ODHdata.data) {
 				if(ODHdata.data[k].smetadata.group == sorted[index].name) {
 					let elementCode = cleanupRoomLabelNOIMaps(ODHdata.data[k].smetadata.beacon_id);
@@ -537,17 +576,20 @@ function writeGroupsSidebarNOIMaps(ODHdata) {
 						}else{
 							roomLabel = roomLabelCiph[roomLabelCiph.length - 1];
 						}
-
 					}
 					categoryGroupClone.find('.group-rooms-list').append('<li class="clickable" data-building-code="'+roomPieces[0]+'" data-room-code="'+elementCode+'" data-floor-code="'+ODHdata.data[k].smetadata.floor+'"><span class="room-icon-building icon-building-'+roomPieces[0]+'">'+roomPieces[0]+'</span><span class="room-name">' + roomName + '</span><span class="room-floor">' + ODHdata.data[k].smetadata.floor + '</span><span class="room-number">' + roomLabel + '</span></li>')
 				}
 			}
 
 			jQuery(shadowRoot.querySelectorAll(".search-container .category-group-container")).append(categoryGroupClone);
-
 		}
 	})
-	.fail(function(jqXHR, textStatus, errorThrown) {
+	.fail(function(jqXHR, textStatus, errorThrown) { // fix error handling
+		if(debugActive == 1) {
+			console.log('Error on writeGroupsSidebarNOIMaps (ajax fail)');
+			console.log("error " + textStatus);
+			console.log("incoming Text " + jqXHR.responseText);
+		}
 		// location.reload();
 		console.log("551 error " + textStatus);
 		console.log("incoming Text " + jqXHR.responseText);
@@ -1121,16 +1163,16 @@ function roomQRCodeNOIMaps() {
 }
 
 /*function getOffsetPosition($this, $el) {
-		var rect = $this[0].getBoundingClientRect();
-		var win = $this[0].ownerDocument.defaultView;
+	var rect = $this[0].getBoundingClientRect();
+	var win = $this[0].ownerDocument.defaultView;
 
-		var elW = $el.width();
-		var elH = $el.height();
-		var marginB = 20;
-		return {
-				 top: rect.top + win.pageYOffset - (elH + marginB),
-				 left: rect.left + win.pageXOffset - (elW/2)
-		};
+	var elW = $el.width();
+	var elH = $el.height();
+	var marginB = 20;
+	return {
+			 top: rect.top + win.pageYOffset - (elH + marginB),
+			 left: rect.left + win.pageXOffset - (elW/2)
+	};
 }*/
 
 function setTooltipPositionNOIMaps() {
@@ -1149,6 +1191,7 @@ function setTooltipPositionNOIMaps() {
 			let thisLeft = jQuery(jsElem).offset().left + (jsElem.getBoundingClientRect().width/2) - jQuery(shadowRoot.querySelectorAll('.inner-map-component')).position().left;
 			let thisTop = jQuery(jsElem).offset().top - jQuery(shadowRoot.querySelectorAll('.inner-map-component'))[0].offsetTop + (jsElem.getBoundingClientRect().height/2)-8;
 
+			//CLICKED ELEMENT CUSTOM POSITION
 			if(clickedElementID == 'A1-1-07-A') {
 				thisLeft += 60;
 				thisTop += 30;
@@ -1157,7 +1200,18 @@ function setTooltipPositionNOIMaps() {
 				//thisLeft += 60;
 				thisTop += 20;
 			}
-
+			if(clickedElementID == 'A2--1-10-D') {
+				thisLeft += 60;
+				thisTop += 30;
+			}
+			if(clickedElementID == 'A2--1-10-B') {
+				thisLeft += 60;
+				thisTop += 30;
+			}
+			if(clickedElementID == 'A4--1-34') {
+				thisLeft += 160;
+				thisTop += 90;
+			}
 
 			jQuery(shadowRoot.querySelectorAll(".tooltip")).css({
 				left: thisLeft,
@@ -1252,10 +1306,17 @@ function drawRoomsCategoryIconsNOIMaps() {
 				el.setAttributeNS(null, 'height', svgElementHeight);
 				el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2));
 				el.setAttributeNS(null, 'y', bbox.y + (bbox.height/2) - (svgElementHeight / 2));
-
+				//ELEMENT CUSTOM POSITION
 				if(elementCode == 'A2-5-07') {
 					el.setAttributeNS(null, 'y', bbox.y + (bbox.height/2) - (svgElementHeight / 2) + 50);
 					el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2) - 20);
+				}
+				if(elementCode == 'A2--1-10-D') {
+					el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2) + 80);
+				}
+				if(elementCode == 'A2--1-10-B') {
+					el.setAttributeNS(null, 'y', bbox.y + (bbox.height/2) - (svgElementHeight / 2) + 80);
+					el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2) + 80);
 				}
 
 				if(elementCode == 'D1-2W-16' || elementCode == 'D1-3W-14') {
@@ -1346,7 +1407,7 @@ function printElementOnMapNOIMaps(thisElement, elementCode, thisSVG) {
 	}*/
 
 
-
+	//ELEMENT CUSTOM POSITION
 	if(elementCode == 'A1-0-08') {
 		x += 120;
 		y += 100;
@@ -1382,8 +1443,8 @@ function printElementOnMapNOIMaps(thisElement, elementCode, thisSVG) {
 		y += 90;
 	}
 	if(elementCode == 'A4--1-34') {
-		x -= 500;
-		y += 15;
+		x += 500;
+		y += 400;
 	}
 
 	if(elementCode == 'D1-1W-05') {
