@@ -206,9 +206,6 @@
 	}
 	
 	$(document).ready(function(){
-		if($("map-view").attr('fullview') == 1) {
-			return;
-		}
 		$.cookieMadeincima();
 		$(window).resize(function() {
 			clearTimeout(window.resizedFinishedCm);
