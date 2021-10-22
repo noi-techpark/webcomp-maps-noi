@@ -23,6 +23,9 @@ function dropdownSelection(){
 	});
 }
 function mapContainerMargin(){
+	if($("map-view").attr('fullview') == 1) {
+		return;
+	}
 	var headerH = $(".header").outerHeight();
 	var footerH = $(".panel-footer-container").outerHeight();
 	var windowH = window.innerHeight ? window.innerHeight : $(window).height();

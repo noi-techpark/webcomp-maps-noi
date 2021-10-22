@@ -57,6 +57,22 @@ Pepper Robot) with QR Code sharing
 Type: Int
 Options: "0", "1"
 
+#### fullview
+
+Optional. Ability to turn off (0) or on (1) header, footer and cookie banner
+
+Type: Int
+Options: "0", "1"
+Default: "0"
+
+#### hidezoom
+
+Optional. Ability to show (0) or hide (1) the zoom buttons
+
+Type: Int
+Options: "0", "1"
+Default: "0"
+
 
 ## Getting started
 
