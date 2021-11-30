@@ -13,7 +13,6 @@ You can also download it, and see how to integrate it in your web page.
 		- [Attributes](#attributes)
 			- [lang](#lang)
 			- [totem](#totem)
-			- [fullview](#fullview)
 			- [hidezoom](#hidezoom)
 	- [Getting started](#getting-started)
 		- [Prerequisites](#prerequisites)
@@ -62,14 +61,6 @@ Pepper Robot) with QR Code sharing
 
 Type: Int
 Options: "0", "1"
-
-#### fullview
-
-Optional. Ability to turn off (0) or on (1) header, footer and cookie banner
-
-Type: Int
-Options: "0", "1"
-Default: "0"
 
 #### hidezoom
 
