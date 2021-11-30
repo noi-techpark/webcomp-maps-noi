@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>NOI Techpark Maps</title>
+		<title>NOI Techpark Maps Webcomponent</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,width=device-width, initial-scale=1" />
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="src/css/style.css">
@@ -12,67 +12,37 @@
 	<body class="external" data-building='external' data-floor=''>
 		<div class="header">
 			<div class="aux">
-				<a class="logo" href="/">NOI Techpark Suedtirol/Alto Adige</a>
-				<div class="language-selector-container">
-					<div class="title-container">
-						<span class="lang-close icon-close"><span class="icon translatable">Chiudi</span></span>
-						<h2 class="translatable">Opzioni</h2>
-					</div>
-					<div class="language-container hide-on-mobile">
-						<nav class="language-selector language-selector-desktop">
-							<ul class="language-list">
-								<li class="active"><a href="/" data-language="it" class="translatable language-tag">IT</a></li>
-								<li><a href="/en/" data-language="en" class="translatable language-tag">EN</a></li>
-								<li><a href="/de/" data-language="de" class="translatable language-tag">DE</a></li>
-							</ul>
-						</nav>
-					</div>
-					<div class="language-container hide-on-desktop">
-						<p class="accent-color translatable">Scegli la lingua</p>
-						<nav class="filters-dropdown dropdown language-selector">
-							<span class="dropdown-trigger translatable language-tag" data-language="it">Italiano</span>
-							<ul class="dropdown-list language-list">
-								<li><a href="/en/" data-language="en" class="translatable language-tag">Inglese</a></li>
-								<li><a href="/de/" data-language="de" class="translatable language-tag">Tedesco</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-				<span class="menu-trigger icon-hamburger"><span class="icon translatable">Menu</span></span>
-				<span class="lang-trigger icon-lang"><span class="icon translatable">Lingua</span></span>
+				<h1>NOI Techpark Maps Webcomponent</h1>
 			</div>
 		</div>
+		<div class="content">
+			<div class="intro">
+				<p><strong>Demo page container.</strong> This is the <strong>page container</strong> content.</p>
+				<p>The component is independent from the page and viceversa.</p>
+				<div class="dummy">
+					<p>Dummy text. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.<br>Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
+				</div>
+				<p>Here you can find the webcomponent element:</p>
+				<pre>&lt;map-view language=&quot;it&quot; totem=&quot;0&quot; hidezoom=&quot;0&quot;&gt;&lt;/map-view&gt;</pre>
+			</div>
 
-		<map-view language="it" totem="0" fullview="1" hidezoom="1"></map-view>
+			<map-view language="it" totem="0" hidezoom="0"></map-view>
 
-		<div class="panel-footer-container">
-			<span class="panel-footer-overlay"></span>
-			<div class="panel-footer">
-				<span class="logo hide-on-desktop">NOI Techpark Suedtirol/Alto Adige</span>
-				<nav class="panel-menu">
-					<ul>
-						<li><a href="https://noi.bz.it/" target="_blank">NOI Techpark Website</a></li>
-						<li><a class="link-translatable" data-link-traslation="privacy" href="/cookies-privacy-policy">Cookies & Privacy Policy</a></li>
-						<li><a class="link-translatable" data-link-traslation="credits" href="/credits">Credits</a></li>
-					</ul>
-				</nav>
+			<div class="outro">
+				<p class="strong align-center">Find out more on: <a href="https://webcomponents.opendatahub.bz.it/webcomponent/9232cce6-2f39-11eb-adc1-0242ac120002" target="_blank">ODH Webcomponents</a></p>
+				<div class="dummy">
+					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+					<p>Phasellus tempus. Suspendisse eu ligula. Etiam rhoncus. Maecenas egestas arcu quis ligula mattis placerat. Nunc sed turpis.</p>
+					<p>In ac felis quis tortor malesuada pretium. Maecenas nec odio et ante tincidunt tempus. Quisque rutrum. Fusce egestas elit eget lorem. Etiam rhoncus.</p>
+					<p>Suspendisse potenti. Duis leo. Phasellus tempus. Phasellus viverra nulla ut metus varius laoreet. Cras risus ipsum, faucibus ut, ullamcorper id, varius ac, leo.</p>
+					<p>Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Mauris turpis nunc, blandit et, volutpat molestie, porta ut, ligula. Vestibulum dapibus nunc ac augue.</p>
+				</div>
 			</div>
 		</div>
 		<span class="js-media-query-tester"></span>
 	</body>
 	<script src='noi_maps_widget.min.js'></script>
 	<script src="src/js/jquery.min.js"></script>
-	<!-- Google Tag Manager -->
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-MX2MHKX');</script>
-	<!-- End Google Tag Manager -->
-	<script type="text/javascript">
-		var cookie_config = {"cookieAcceptedName":"cm_cookie_accept_noi_maps","cookieDeclinedName":"cm_cookie_decline_noi_maps","cookiePrivacyUrl":"\/credits","cookiePosition":"bottom","cookieActivation":"a, .menu-trigger","cookieMainContainerClasses":"","cookieBodyClasses":"","cookieMessage":"<span class=\"translatable\">Questo sito utilizza cookie, anche di terze parti. Continuando la navigazione acconsenti all'utilizzo dei cookies.<\/span><a href=\"\/cookies-privacy-policy\" class=\"cm-privacy-link translatable link-translatable\" data-link-traslation=\"privacy\" target=\"_blank\">Leggi l'informativa.<\/a>","cookieErrorMessage":"Questo contenuto \u00e8 disabilitato perch\u00e9 non hai autorizzato l'utilizzo dei cookie.","cookieErrorMessageEn":"This content is disabled because you haven't authorised the use of the cookie.","cookieAcceptButtonText":"<span class='translatable'>Accetto<\/span>","cookieDeclineButtonText":"<span class='translatable'>Rifiuto<\/span>","cookieTable":{"tech":false,"extra":false,"wpml":false,"w3tc":false,"wordpress":false,"google_analitycs":false,"facebook":false,"twitter":false,"pinterest":false,"google":false,"youtube":false,"vimeo":false,"slideshare":false,"doubleclick":false,"linkedin":false},"cookieTableDomain":"","cookieTableName":"","cookieCurrentLanguage":"it"};
-	</script>
-	<script src='src/js/jquery.cookie-madeincima.js'></script>
-	<script src='src/js/ua-parser.min.js'></script>
 	<script src='src/js/utility-simple-page.js'></script>
 </html>
