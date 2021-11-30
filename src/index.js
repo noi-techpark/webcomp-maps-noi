@@ -28,7 +28,6 @@ class MapView extends LitElement {
 		return {
 			language: { type: String },
 			totem: { type: String },
-			fullview: { type: String },
 		};
 	}
 
@@ -153,8 +152,7 @@ class MapView extends LitElement {
 		var shadowRoot = this.shadowRoot;
 		var thisLang = this.language;
 		var thisTotem = Number.parseInt(this.totem);
-		var thisFullview = Number.parseInt(this.fullview);
-		documentReadyNOIMaps(shadowRoot,thisLang,thisTotem,thisFullview);
+		documentReadyNOIMaps(shadowRoot,thisLang,thisTotem);
 			/*jQuery.each(result.data, function(i, field){
 					//console.log(field.sname);
 					jQuery(results).append('<li>'+field.sname+'</li>');
@@ -179,7 +177,6 @@ var buildings_summary = [];
 var clickedElementID = '';
 var thisNoiMapsSettingsLang = 'it';
 var thisNoiMapsSettingsTotem = false;
-var thisNoiMapsSettingsFullview = false;
 var originalTooltip = '';
 var maps_svgs = [];
 var NOIrooms = [];
@@ -210,7 +207,7 @@ function cleanupRoomLabelNOIMaps(roomLabel) {
 	return false;
 }
 
-function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview) {
+function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem) {
 	shadowRoot = shadowRootInit;
 	setMediaQueriesNOIMaps();
 	//Disables scroll events from mousewheels, touchmoves and keypresses.
@@ -224,7 +221,6 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview) {
 	var NoiMapsSettingsShared = NoiMapsSettingsUrlChecker.searchParams.get("shared");
 	var NoiMapsSettingsLang = NoiMapsSettingsUrlChecker.searchParams.get("lang");
 	var NoiMapsSettingsTotem = NoiMapsSettingsUrlChecker.searchParams.get("totem");
-	var NoiMapsSettingsFullview = NoiMapsSettingsUrlChecker.searchParams.get("fullview");
 	
 	if(typeof thisLang != 'undefined' && thisLang !== null || jQuery.inArray( thisLang, ['it','en','de'] ) >= 0) {
 		thisNoiMapsSettingsLang = thisLang;
@@ -247,28 +243,9 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview) {
 			thisNoiMapsSettingsTotem = false;
 		}
 	}
-	if(typeof thisFullview != 'undefined' && thisFullview !== null && !isNaN(thisFullview)) {
-		if(thisFullview > 0) {
-			thisNoiMapsSettingsFullview = true;
-		} else {
-			thisNoiMapsSettingsFullview = false;
-		}
-	}
-	if(typeof NoiMapsSettingsFullview != 'undefined' && NoiMapsSettingsFullview !== null && !isNaN(NoiMapsSettingsFullview)) {
-		if(NoiMapsSettingsFullview > 0) {
-			thisNoiMapsSettingsFullview = true;
-		} else {
-			thisNoiMapsSettingsFullview = false;
-		}
-	}
 
 	if(thisNoiMapsSettingsTotem) {
 		jQuery(shadowRoot.querySelectorAll('.outer-map-container')).addClass("totem");
-	}
-
-	if(thisNoiMapsSettingsFullview) {
-		jQuery('map-view').attr('fullview',"1");
-		jQuery('body').addClass("fullview");
 	}
 
 	if(hideZoomActive) {
