@@ -28,6 +28,7 @@ class MapView extends LitElement {
 		return {
 			language: { type: String },
 			totem: { type: String },
+			hidezoom: { type: String },
 		};
 	}
 
@@ -152,7 +153,8 @@ class MapView extends LitElement {
 		var shadowRoot = this.shadowRoot;
 		var thisLang = this.language;
 		var thisTotem = Number.parseInt(this.totem);
-		documentReadyNOIMaps(shadowRoot,thisLang,thisTotem);
+		var thisHideZoom = Number.parseInt(this.hidezoom);
+		documentReadyNOIMaps(shadowRoot,thisLang,thisTotem,thisHideZoom);
 			/*jQuery.each(result.data, function(i, field){
 					//console.log(field.sname);
 					jQuery(results).append('<li>'+field.sname+'</li>');
@@ -177,6 +179,7 @@ var buildings_summary = [];
 var clickedElementID = '';
 var thisNoiMapsSettingsLang = 'it';
 var thisNoiMapsSettingsTotem = false;
+var thisNoiMapsSettingsHideZoom = false;
 var originalTooltip = '';
 var maps_svgs = [];
 var NOIrooms = [];
@@ -185,7 +188,6 @@ var translations = [];
 var minCharsToSearch = 3;
 var getParams = new URLSearchParams(window.location.search);
 var debugActive = getParams.get('debug');
-var hideZoomActive = getParams.get('hidezoom');
 
 function resizeEndActionsNOIMaps() {
 	sidebarHeightNOIMaps();
@@ -207,7 +209,7 @@ function cleanupRoomLabelNOIMaps(roomLabel) {
 	return false;
 }
 
-function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem) {
+function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisHideZoom) {
 	shadowRoot = shadowRootInit;
 	setMediaQueriesNOIMaps();
 	//Disables scroll events from mousewheels, touchmoves and keypresses.
@@ -221,6 +223,7 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem) {
 	var NoiMapsSettingsShared = NoiMapsSettingsUrlChecker.searchParams.get("shared");
 	var NoiMapsSettingsLang = NoiMapsSettingsUrlChecker.searchParams.get("lang");
 	var NoiMapsSettingsTotem = NoiMapsSettingsUrlChecker.searchParams.get("totem");
+	var NoiMapsSettingsHideZoom = NoiMapsSettingsUrlChecker.searchParams.get("hidezoom");
 	
 	if(typeof thisLang != 'undefined' && thisLang !== null || jQuery.inArray( thisLang, ['it','en','de'] ) >= 0) {
 		thisNoiMapsSettingsLang = thisLang;
@@ -244,11 +247,26 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem) {
 		}
 	}
 
+	if(typeof thisHideZoom != 'undefined' && thisHideZoom !== null && !isNaN(thisHideZoom)) {
+		if(thisHideZoom > 0) {
+			thisNoiMapsSettingsHideZoom = true;
+		} else {
+			thisNoiMapsSettingsHideZoom = false;
+		}
+	}
+	if(typeof NoiMapsSettingsHideZoom != 'undefined' && NoiMapsSettingsHideZoom !== null && !isNaN(NoiMapsSettingsHideZoom)) {
+		if(NoiMapsSettingsHideZoom > 0) {
+			thisNoiMapsSettingsHideZoom = true;
+		} else {
+			thisNoiMapsSettingsHideZoom = false;
+		}
+	}
+
 	if(thisNoiMapsSettingsTotem) {
 		jQuery(shadowRoot.querySelectorAll('.outer-map-container')).addClass("totem");
 	}
 
-	if(hideZoomActive) {
+	if(thisNoiMapsSettingsHideZoom) {
 		jQuery(shadowRoot.querySelectorAll('.floors-zoom-selector .zoom-selector')).hide();
 	}
 	
