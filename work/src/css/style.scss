@@ -56,6 +56,7 @@ body {
 	width: 100%;
 	z-index: 18;
 	padding: 25px 15px;
+	margin-bottom: 20px;
 
 	@include prefix('box-sizing', 'border-box');
 
@@ -68,6 +69,7 @@ body {
 		padding: 30px 25px;
 	}
 	@include media('screen', '>dim_50') {
+		margin-bottom: 0px;
 		padding: 50px 20px;
 		z-index: 16;
 		@include prefix('box-shadow','none');
@@ -116,6 +118,10 @@ body {
 }
 .strong.align-center {
 	margin-bottom: 20px;
+}
+.dummy {
+	font-style: italic;
+	opacity: 0.5;
 }
 
 .js-media-query-tester{
