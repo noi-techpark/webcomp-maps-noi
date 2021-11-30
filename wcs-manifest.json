@@ -68,19 +68,6 @@
         }
       },
       {
-        "key": "fullview",
-        "type": "select",
-        "label": "Full view: Show header, footer and cookie banner",
-        "required": false,
-        "options": {
-          "default": "0",
-          "values": [
-            "0",
-            "1"
-          ]
-        }
-      },
-      {
         "key": "hidezoom",
         "type": "select",
         "label": "Show or hide zoom buttons",
