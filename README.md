@@ -1,6 +1,7 @@
 # NOI Maps
 
 [![REUSE status](https://api.reuse.software/badge/github.com/noi-techpark/webcomp-maps-noi)](https://api.reuse.software/info/github.com/noi-techpark/webcomp-maps-noi)
+[![CI](https://github.com/noi-techpark/webcomp-maps-noi/actions/workflows/ci.yml/badge.svg)](https://github.com/noi-techpark/webcomp-maps-noi/actions/workflows/ci.yml)
 
 NOI Techpark map web application to search places and see an overview of the NOI Techpark area.
 
