@@ -3,6 +3,7 @@
   "description": "This web component shows where are located the offices, the laboratories, the companies and institution in  the NOI Techpark.",
   "descriptionAbstract": "NOI Techpark map app",
   "license": "AGPL-3.0-or-later",
+  "repositoryUrl": "https://github.com/noi-techpark/webcomp-maps-noi.git",
   "copyrightHolders": [
     {
       "name": "NOI AG",
