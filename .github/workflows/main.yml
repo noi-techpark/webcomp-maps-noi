@@ -29,6 +29,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Create .env file
+        uses: noi-techpark/github-actions/env-file@v2
+        env:
+          X_ODH_BASE_URL: "https://mobility.api.opendatahub.testingmachine.eu/v2/flat/NOI-Place"
+          X_ODH_RESOURCE_URL: "https://images.maps.noi.opendatahub.testingmachine.eu"
+
       - uses: noi-techpark/github-actions/npm-build@v2
         with:
           build-command: npm run build
@@ -46,6 +52,12 @@ jobs:
     concurrency: deploy-prod
     steps:
       - uses: actions/checkout@v2
+
+      - name: Create .env file
+        uses: noi-techpark/github-actions/env-file@v2
+        env:
+          X_ODH_BASE_URL: "https://mobility.api.opendatahub.bz.it/v2/flat/NOI-Place"
+          X_ODH_RESOURCE_URL: "https://images.maps.noi.opendatahub.bz.it"
 
       - uses: noi-techpark/github-actions/npm-build@v2
         with:
