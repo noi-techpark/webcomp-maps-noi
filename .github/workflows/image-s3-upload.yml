@@ -1,0 +1,50 @@
+name: Image S3 upload
+
+on:
+  push:
+    paths:
+      - 'resources/*'
+  pull_request:
+    paths:
+      - 'resources/*'
+
+env:
+  AWS_REGION : "eu-west-1"
+
+jobs:
+  upload-test:
+    runs-on: ubuntu-20.04
+    if: github.ref == 'refs/heads/main'
+    concurrency: upload-test
+    env:
+      AWS_S3_BUCKET_NAME : "it.bz.noi.maps.images.test"
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Sync to S3 bucket
+        uses: noi-techpark/github-actions/aws-s3-bucket-sync@v2
+        with:
+          access-key-id: ${{ secrets.AWS_S3_ACCESS_KEY_ID }}
+          secret-access-key: ${{ secrets.AWS_S3_SECRET_ACCESS_KEY }}
+          region: ${{ env.AWS_REGION }}
+          s3-bucket-name: ${{ env.AWS_S3_BUCKET_NAME }}
+          folder: ./resources
+
+
+  upload-prod:
+    runs-on: ubuntu-20.04
+    if: github.ref == 'refs/heads/prod'
+    concurrency: upload-prod
+    env:
+      AWS_S3_BUCKET_NAME : "it.bz.noi.maps.images"
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Sync to S3 bucket
+        uses: noi-techpark/github-actions/aws-s3-bucket-sync@v2
+        with:
+          access-key-id: ${{ secrets.AWS_S3_ACCESS_KEY_ID }}
+          secret-access-key: ${{ secrets.AWS_S3_SECRET_ACCESS_KEY }}
+          region: ${{ env.AWS_REGION }}
+          s3-bucket-name: ${{ env.AWS_S3_BUCKET_NAME }}
+          folder: ./resources
