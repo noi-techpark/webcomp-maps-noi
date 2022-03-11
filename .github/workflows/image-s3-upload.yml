@@ -4,11 +4,11 @@ on:
   push:
     paths:
       - 'resources/*'
-      - 'image-s3-upload.yml'
+      - .github/workflows/image-s3-upload.yml'
   pull_request:
     paths:
       - 'resources/*'
-      - 'image-s3-upload.yml'
+      - '.github/workflows/image-s3-upload.yml'
 
 env:
   AWS_REGION : "eu-west-1"
