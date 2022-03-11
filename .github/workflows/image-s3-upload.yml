@@ -35,7 +35,7 @@ jobs:
 
   upload-prod:
     runs-on: ubuntu-20.04
-    if: github.ref == 'refs/heads/prod'
+    if: startsWith(github.ref, 'refs/tags/v')
     concurrency: upload-prod
     env:
       AWS_S3_BUCKET_NAME : "it.bz.noi.maps.images"
