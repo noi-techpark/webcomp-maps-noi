@@ -11,7 +11,7 @@ Files: src/*.md src/*.txt .env.* *.js.LICENSE.txt *.json .env resources/*/*.svg 
 Copyright: (c) 2021 NOI Techpark <info@noi.bz.it>
 License: CC0-1.0
 
-Files: infrastructure/* *.groovy .github/workflows/main.yml
+Files: infrastructure/* *.groovy .github/workflows/*
 Copyright: (c) 2021 NOI Techpark <info@noi.bz.it>
 License: CC0-1.0
 
