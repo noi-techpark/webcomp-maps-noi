@@ -3,11 +3,11 @@ name: Image S3 upload
 on:
   push:
     paths:
-      - 'resources/*'
-      - .github/workflows/image-s3-upload.yml'
+      - 'resources/**'
+      - '.github/workflows/image-s3-upload.yml'
   pull_request:
     paths:
-      - 'resources/*'
+      - 'resources/**'
       - '.github/workflows/image-s3-upload.yml'
 
 env:
