@@ -212,6 +212,7 @@ function cleanupRoomLabelNOIMaps(roomLabel) {
 	return false;
 }
 
+
 function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview,thisHidezoom) {
 	shadowRoot = shadowRootInit;
 	setMediaQueriesNOIMaps();
@@ -250,18 +251,19 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview,thi
 			thisNoiMapsSettingsTotem = false;
 		}
 	}
-	if(typeof thisFullview != 'undefined' && thisFullview !== null && !isNaN(thisFullview)) {
-		if(thisFullview > 0) {
-			thisNoiMapsSettingsFullview = true;
+
+	if(typeof thisHideZoom != 'undefined' && thisHideZoom !== null && !isNaN(thisHideZoom)) {
+		if(thisHideZoom > 0) {
+			thisNoiMapsSettingsHideZoom = true;
 		} else {
-			thisNoiMapsSettingsFullview = false;
+			thisNoiMapsSettingsHideZoom = false;
 		}
 	}
-	if(typeof NoiMapsSettingsFullview != 'undefined' && NoiMapsSettingsFullview !== null && !isNaN(NoiMapsSettingsFullview)) {
-		if(NoiMapsSettingsFullview > 0) {
-			thisNoiMapsSettingsFullview = true;
+	if(typeof NoiMapsSettingsHideZoom != 'undefined' && NoiMapsSettingsHideZoom !== null && !isNaN(NoiMapsSettingsHideZoom)) {
+		if(NoiMapsSettingsHideZoom > 0) {
+			thisNoiMapsSettingsHideZoom = true;
 		} else {
-			thisNoiMapsSettingsFullview = false;
+			thisNoiMapsSettingsHideZoom = false;
 		}
 	}
 
@@ -277,6 +279,14 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview,thi
 			thisNoiMapsSettingsHidezoom = true;
 		} else {
 			thisNoiMapsSettingsHidezoom = false;
+		}
+	}
+
+	if(typeof NoiMapsSettingsFullview != 'undefined' && NoiMapsSettingsFullview !== null && !isNaN(NoiMapsSettingsFullview)) {
+		if(NoiMapsSettingsFullview > 0) {
+			thisNoiMapsSettingsFullview = true;
+		} else {
+			thisNoiMapsSettingsFullview = false;
 		}
 	}
 

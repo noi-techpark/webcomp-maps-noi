@@ -22,5 +22,4 @@ work/src/js/webcomponent
 
 .sass-cache/
 
-# !! Never ignore dist folders, since they are used for deployment to the
-# production web component store
+dist/
