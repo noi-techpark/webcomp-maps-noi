@@ -1,1 +1,221 @@
-<svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 5500 3451.34"><defs><pattern id="locale_tecnico-5_2_" data-name="locale tecnico-5 2 " width="48.1" height="48.1" patternTransform="matrix(-0.6, 0, 0, 0.38, -9710.89, 9297.29)" patternUnits="userSpaceOnUse" viewBox="0 0 48.1 48.1"><rect width="48.1" height="48.1" style="fill:none"/><rect width="48.1" height="48.1" style="fill:none"/><rect width="48.1" height="48.1" style="fill:none"/><rect width="48.1" height="48.1" style="fill:none"/><rect width="48.1" height="48.1" style="fill:none"/><rect width="48.1" height="48.1" style="fill:none"/><rect width="48.1" height="48.1" style="fill:none"/><rect width="48.1" height="48.1" style="fill:none"/><rect width="48.1" height="48.1" style="fill:none"/><rect width="48.1" height="48.1" style="fill:none"/><rect x="44.7" y="-44.7" width="50.6" height="48.9" style="fill:#f2f2f2"/><line x1="48.1" x2="96.1" y2="-48.1" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><rect x="-3.4" y="-44.7" width="50.6" height="48.9" style="fill:#f2f2f2"/><line x2="48.1" y2="-48.1" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><line x1="-48.1" y2="-48.1" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><rect x="44.7" y="3.4" width="50.6" height="48.9" style="fill:#f2f2f2"/><line x1="48.1" y1="48.1" x2="96.1" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><rect x="-3.4" y="3.4" width="50.6" height="48.9" style="fill:#f2f2f2"/><line y1="48.1" x2="48.1" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><line x1="-48.1" y1="48.1" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><line x1="48.1" y1="96.1" x2="96.1" y2="48.1" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><line y1="96.1" x2="48.1" y2="48.1" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><line x1="-48.1" y1="96.1" y2="48.1" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/></pattern><pattern id="locale_tecnico-6_2_" data-name="locale tecnico-6 2 " width="48.1" height="48.1" patternTransform="matrix(-0.6, 0, 0, 0.6, -9710.89, 13647.65)" patternUnits="userSpaceOnUse" viewBox="0 0 48.1 48.1"><rect width="48.1" height="48.1" style="fill:none"/><rect width="48.1" height="48.1" style="fill:none"/><rect width="48.1" height="48.1" style="fill:none"/><rect width="48.1" height="48.1" style="fill:none"/><rect width="48.1" height="48.1" style="fill:none"/><rect width="48.1" height="48.1" style="fill:none"/><rect width="48.1" height="48.1" style="fill:none"/><rect width="48.1" height="48.1" style="fill:none"/><rect width="48.1" height="48.1" style="fill:none"/><rect width="48.1" height="48.1" style="fill:none"/><rect x="44.7" y="-44.7" width="50.6" height="48.9" style="fill:#f2f2f2"/><line x1="48.1" x2="96.1" y2="-48.1" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><rect x="-3.4" y="-44.7" width="50.6" height="48.9" style="fill:#f2f2f2"/><line x2="48.1" y2="-48.1" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><line x1="-48.1" y2="-48.1" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><rect x="44.7" y="3.4" width="50.6" height="48.9" style="fill:#f2f2f2"/><line x1="48.1" y1="48.1" x2="96.1" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><rect x="-3.4" y="3.4" width="50.6" height="48.9" style="fill:#f2f2f2"/><line y1="48.1" x2="48.1" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><line x1="-48.1" y1="48.1" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><line x1="48.1" y1="96.1" x2="96.1" y2="48.1" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><line y1="96.1" x2="48.1" y2="48.1" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/><line x1="-48.1" y1="96.1" y2="48.1" style="fill:none;stroke:#ddd;stroke-linecap:square;stroke-linejoin:round;stroke-width:20px"/></pattern></defs><g id="A4-floor-1"><g id="background"><path d="M28.1,2201.48c3.8,9.24,8,18.35,12.4,27.17a375.35,375.35,0,0,0,65.89,92.52,364.51,364.51,0,0,0,91.47,68.75q12.25,6.45,25,12a354.07,354.07,0,0,0,113.27,28.46H844.49V2628H2411.81v823.34H5500V210.17H2411.81V853.38H0v1223.5A382.12,382.12,0,0,0,28.1,2201.48Z" transform="translate(0 0)" style="fill:#f2f2f2"/></g><g id="rooms"><rect id="senza_codice" data-name="senza codice" x="3002.38" y="1764.32" width="177.07" height="94.92" style="fill:#f2f2f2"/><rect id="senza_codice-2" data-name="senza codice-2" x="3002.38" y="1648.83" width="177.07" height="94.27" style="fill:#f2f2f2"/><rect id="senza_codice-3" data-name="senza codice-3" x="3002.38" y="1340.57" width="177.07" height="93.12" style="fill:#f2f2f2"/><rect id="senza_codice-4" data-name="senza codice-4" x="3002.38" y="1226.3" width="177.07" height="93.12" style="fill:#f2f2f2"/><rect id="locale_tecnico-5" data-name="locale tecnico-5" x="2982.45" y="250.69" width="132.41" height="183.74" style="fill:url(#locale_tecnico-5_2_)"/><path id="locale_tecnico-6" data-name="locale tecnico-6" d="M346.18,2389.94H885v197.65H2452.4v823.27H5459.64V1879.17H2432.38v-672.8h-92.47V994.82h92.47V893.88H40.5V2055.09C40.5,2233.23,175.92,2379.48,346.18,2389.94Z" transform="translate(0 0)" style="fill:url(#locale_tecnico-6_2_)"/><g class="clickable" id="A4--1-34" data-name="customclass A4--1-34"><polygon id="tracciato_11" data-name="tracciato 11" points="3393.51 1859.16 3413.44 1859.16 3978.63 1859.16 3998.56 1859.16 4435 1859.16 4977.18 1859.16 4997.18 1859.16 5459.57 1859.16 5459.57 250.69 4435 250.69 4435 413.28 4435 434.43 4435 683.48 4435 704.69 4435 928.94 4435 950.08 4435 1205.15 4435 1226.3 3199.45 1226.3 3199.45 1319.42 3199.45 1340.57 3199.45 1433.62 3199.45 1454.77 3199.45 1627.68 3199.45 1648.83 3199.45 1743.1 3199.45 1764.32 3199.45 1859.16 3393.51 1859.16" style="fill:#ddd"/><rect x="3199.45" y="250.76" width="2253.03" height="1606.16" style="fill:none"/></g><g class="clickable" id="A4--1-LIFT-A" data-name="customclass A4--1-LIFT-A"><rect id="a" x="2452.31" y="458.02" width="214.56" height="223.02" style="fill:#f2f2f2"/></g><g class="clickable" id="A4--1-STAIR-A" data-name="customclass A4--1-STAIR-A" style="opacity:0.4000000059604645"><g id="scale"><rect x="3047.11" y="436.37" width="3.58" height="395.86" style="fill:#b7b7b7"/><rect x="2980.44" y="585.91" width="137.93" height="3.58" style="fill:#b7b7b7"/><rect x="2982.88" y="680.18" width="137.86" height="3.58" style="fill:#b7b7b7"/><rect x="2980.44" y="557.81" width="137.93" height="3.58" style="fill:#b7b7b7"/><rect x="2980.44" y="527.84" width="137.93" height="3.58" style="fill:#b7b7b7"/><rect x="2977" y="465.61" width="143.74" height="3.58" style="fill:#b7b7b7"/><polygon points="2977.44 469.62 2975.99 466.34 3049.26 434.05 3121.32 465.77 3119.87 469.05 3049.26 437.97 2977.44 469.62" style="fill:#b7b7b7"/><rect x="2980.44" y="494" width="137.93" height="3.58" style="fill:#b7b7b7"/><rect x="2978.79" y="800.47" width="140.22" height="3.58" style="fill:#b7b7b7"/><rect x="2978.79" y="830.72" width="140.22" height="3.58" style="fill:#b7b7b7"/><rect x="2978.79" y="739.46" width="140.22" height="3.58" style="fill:#b7b7b7"/><rect x="2978.79" y="709.21" width="140.22" height="3.58" style="fill:#b7b7b7"/><rect x="2978.79" y="770.86" width="140.22" height="3.58" style="fill:#b7b7b7"/><rect x="2976.96" y="785.81" width="143.59" height="3.58" transform="translate(-96.89 645.59) rotate(-11.9)" style="fill:#b7b7b7"/><rect x="2982.88" y="434.07" width="137.86" height="3.58" style="fill:#b7b7b7"/></g><rect x="2982.88" y="435.86" width="131.98" height="432.42" style="fill:none"/></g><g id="STAIR" style="opacity:0.4000000059604645"><g id="scale-2"><rect x="2823.95" y="453.43" width="3.58" height="247.32" style="fill:#b7b7b7"/><rect x="2684.94" y="451.71" width="280.52" height="3.58" style="fill:#b7b7b7"/><rect x="2684.94" y="515.15" width="280.52" height="3.58" style="fill:#b7b7b7"/><rect x="2685.09" y="482.53" width="280.44" height="3.58" style="fill:#b7b7b7"/><rect x="2684.94" y="547.2" width="280.52" height="3.58" style="fill:#b7b7b7"/><rect x="2684.94" y="637.88" width="280.52" height="3.58" style="fill:#b7b7b7"/><rect x="2684.94" y="673.58" width="280.52" height="3.58" style="fill:#b7b7b7"/><polygon points="2825.53 701.85 2685.44 678.79 2686.02 675.26 2825.52 698.22 2963.37 675.26 2963.96 678.79 2825.53 701.85" style="fill:#b7b7b7"/><rect x="2684.94" y="576.23" width="280.52" height="3.58" style="fill:#b7b7b7"/><rect x="2684.94" y="605.84" width="280.52" height="3.58" style="fill:#b7b7b7"/><rect x="2684.94" y="698.96" width="280.52" height="3.58" style="fill:#b7b7b7"/></g><rect x="2688.1" y="414.21" width="273.2" height="312.85" style="fill:none"/></g><g class="clickable" id="A4--1-26" data-name="customclass A4--1-26"><polygon id="_tracciato_3" data-name=" tracciato 3" points="3789.16 928.94 3789.16 250.69 4413.85 250.69 4413.85 683.48 4413.85 704.69 4413.85 928.94 3789.16 928.94" style="fill:#f2f2f2"/></g><g class="clickable" id="A4--1-24" data-name="customclass A4--1-24"><polygon id="_tracciato_5" data-name=" tracciato 5" points="3136.01 683.48 3136.01 250.69 3767.94 250.69 3767.94 928.94 3136.01 928.94 3136.01 704.69 3136.01 683.48" style="fill:#f2f2f2"/></g><g class="clickable" id="A4--1-20" data-name="customclass A4--1-20"><polygon id="_tracciato_8" data-name=" tracciato 8" points="2700.79 1433.62 2700.79 1226.3 2982.45 1226.3 2982.45 1319.42 2982.45 1340.57 2982.45 1433.62 2700.79 1433.62" style="fill:#f2f2f2"/></g><g class="clickable" id="A4--1-19" data-name="customclass A4--1-19"><polygon id="_tracciato_9" data-name=" tracciato 9" points="2700.79 1627.68 2700.79 1454.77 2982.45 1454.77 3002.38 1454.77 3179.52 1454.77 3179.52 1627.68 3002.38 1627.68 2982.45 1627.68 2700.79 1627.68" style="fill:#f2f2f2"/></g><g class="clickable" id="A4--1-18" data-name="customclass A4--1-18"><polygon id="_tracciato_10" data-name=" tracciato 10" points="2700.79 1859.16 2700.79 1648.83 2982.45 1648.83 2982.45 1743.1 2982.45 1764.32 2982.45 1859.16 2700.79 1859.16" style="fill:#f2f2f2"/></g><g class="clickable" id="A4--1-21" data-name="customclass A4--1-21"><polygon id="_tracciato_7" data-name=" tracciato 7" points="2452.31 1206.37 2452.31 1185.8 2452.31 1185.22 2359.84 1185.22 2359.84 1014.75 2432.39 1014.75 2452.31 1014.75 2452.31 994.82 2452.31 950.08 2452.31 950.08 2452.31 950.08 2666.95 950.08 2688.1 950.08 2688.1 950.08 2688.1 950.08 2688.1 950.08 2666.95 950.08 2452.31 950.08 2452.31 950.08 2961.3 950.08 2961.3 950.08 2961.3 950.08 2961.3 950.08 2982.45 950.08 2982.45 950.08 3114.86 950.08 3114.86 950.08 3114.86 950.08 3114.86 1002.06 3136.01 1002.06 3136.01 950.08 3475.09 950.08 3496.24 950.08 3767.94 950.08 3789.16 950.08 4060.86 950.08 4082.01 950.08 4413.85 950.08 4413.85 1205.15 3199.45 1205.15 3179.52 1205.15 3002.38 1205.15 2982.45 1205.15 2700.79 1205.15 2680.86 1205.15 2452.31 1206.37" style="fill:#f2f2f2"/></g><g class="clickable" data-building-code="P1" id="A1--1-G1--1" data-floor-code="-1"><rect id="room-box-29" x="2469.38" y="0.5" width="194.49" height="209.76" style="fill:none;stroke:#f2f2f2;stroke-miterlimit:10"/><path d="M2566.59,47a58.55,58.55,0,0,0-58.65,58.28h0v.07a58.65,58.65,0,0,0,117.29.07v-.07C2625.3,73.12,2599,47,2566.59,47" transform="translate(0 0)" style="fill:#fff;stroke:#303030"/><path d="M2557.7,112.33h6.88c10.32,0,14.55-4.22,14.55-12,0-6.59-3.87-11.32-14.26-11.32h-7.17Zm-6.89,29.4V83.3h14.7c11.76,0,20.65,5.66,20.65,16.85s-8,18-21.58,18h-6.88v23.59Zm52.34-54.41-36.49-13.15-36.49,13.27L2528.52,83l38.14-13.82L2604.8,83Z" transform="translate(0 0)"/></g></g><g id="walls"><path d="M4248.25,250.69h165.6V928.86H3908V950h506v49h21.15V250.69H5459.64V1859.17H4162.37v19.93h1297.2V3410.86H2452.31V2587.59H884.92V2389.94H346.18C175.92,2379.48,40.5,2233.31,40.5,2055.09V893.88H2432.38V994.82h-92.47v37.49h19.93v-17.49h92.47V702.33H2471V681.17h-18.71v-223H2471v-21.3h-18.71V250.69H2471V210.17h-59.21V853.38H0v1223.5a383.1,383.1,0,0,0,28.1,124.67c3.8,9.25,8,18.35,12.4,27.17a375.5,375.5,0,0,0,65.89,92.45,364.71,364.71,0,0,0,91.47,68.74q12.25,6.47,25,12.05a354.07,354.07,0,0,0,113.27,28.46H844.49v197.64H2411.81v823.27H5500V210.17H2666.3v40.5h295v15.7h21.15v-15.7h132.41V1002H3136V950h474.5V928.9H3136V250.76h631.93V928.94h-55.27v21.14h93.12V928.94h-16.63V250.76l459.09-.07ZM2452.31,1879.17h34.49v-20h-34.49V1185.22h-92.47V1032.31h-19.93v152.91h0v21.15h92.47v672.8M2982.45,266.39H2961.3v568.2h21.15Z" transform="translate(0 0)" style="fill:#b7b7b7"/><polygon points="3393.51 1879.16 3199.45 1879.16 3199.45 1879.16 3179.52 1879.16 3179.52 1879.16 3002.38 1879.16 2982.45 1879.16 2700.79 1879.16 2700.79 1879.16 2680.86 1879.16 2680.86 1879.16 2486.8 1879.16 2486.8 1859.16 2680.86 1859.16 2680.86 1746.18 2700.79 1746.18 2700.79 1859.16 2982.45 1859.16 2982.45 1831.35 3002.38 1831.35 3002.38 1859.16 3179.52 1859.16 3179.52 1764.32 3002.38 1764.32 3002.38 1777.01 2982.45 1777.01 2982.45 1764.32 2982.45 1743.1 2982.45 1722.6 3002.38 1722.6 3002.38 1743.1 3179.52 1743.1 3179.52 1648.83 3002.38 1648.83 3002.38 1668.19 2982.45 1668.19 2982.45 1648.83 2700.79 1648.83 2700.79 1657.94 2680.86 1657.94 2680.86 1648.83 2680.86 1627.68 2680.86 1556.93 2700.79 1556.93 2700.79 1627.68 2982.45 1627.68 3002.38 1627.68 3179.52 1627.68 3179.52 1454.77 3002.38 1454.77 2982.45 1454.77 2700.79 1454.77 2700.79 1468.68 2680.86 1468.68 2680.86 1454.77 2680.86 1433.62 2680.86 1341.14 2700.79 1341.14 2700.79 1433.62 2982.45 1433.62 2982.45 1411.9 3002.38 1411.9 3002.38 1433.62 3179.52 1433.62 3179.52 1340.57 3002.38 1340.57 3002.38 1357.49 2982.45 1357.49 2982.45 1340.57 2982.45 1319.42 2982.45 1301.86 3002.38 1301.86 3002.38 1319.42 3179.52 1319.42 3179.52 1226.3 3002.38 1226.3 3002.38 1247.45 2982.45 1247.45 2982.45 1226.3 2700.79 1226.3 2700.79 1252.9 2680.86 1252.9 2680.86 1226.3 2680.86 1205.15 2700.79 1205.15 2982.45 1205.15 3002.38 1205.15 3179.52 1205.15 3199.45 1205.15 4007.02 1205.15 4007.02 1226.3 3199.45 1226.3 3199.45 1319.42 3199.45 1340.57 3199.45 1433.62 3199.45 1454.77 3199.45 1627.68 3199.45 1648.83 3199.45 1743.1 3199.45 1764.32 3199.45 1859.16 3393.51 1859.16 3413.44 1859.16 3978.63 1859.16 3998.56 1859.16 4162.37 1859.16 4162.37 1879.16 3998.56 1879.16 3978.63 1879.16 3413.44 1879.16 3393.51 1879.16" style="fill:#b7b7b7"/><polygon points="2655.48 436.87 2655.48 458.02 2666.95 458.02 2666.95 681.11 2655.48 681.11 2655.48 702.26 2666.95 702.26 2688.1 702.26 2688.1 681.11 2688.1 458.02 2688.1 436.87 2666.95 436.87 2655.48 436.87" style="fill:#b7b7b7"/><polygon points="4162.37 1226.3 4413.85 1226.3 4435 1226.3 4435 1205.15 4435 1188.23 4413.85 1188.23 4413.85 1205.15 4162.37 1205.15 4162.37 1226.3" style="fill:#b7b7b7"/><polyline points="2961.3 414.21 2961.3 435.36 3136.01 435.36 3136.01 414.21" style="fill:#b7b7b7"/></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.0" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 5500 3451.3" style="enable-background:new 0 0 5500 3451.3;" xml:space="preserve">
+<pattern  y="3451.3" width="48.1" height="48.1" patternUnits="userSpaceOnUse" id="locale_tecnico-5_00000129915519" viewBox="62.2 -110.2 48.1 48.1" style="overflow:visible;">
+	<g>
+		<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+		<g>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="106.9" y="-154.9" style="fill:#F2F2F2;" width="50.6" height="48.9"/>
+			
+				<line style="fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;" x1="110.3" y1="-110.2" x2="158.3" y2="-158.3"/>
+			<rect x="58.8" y="-154.9" style="fill:#F2F2F2;" width="50.6" height="48.9"/>
+			
+				<line style="fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;" x1="62.2" y1="-110.2" x2="110.3" y2="-158.3"/>
+			
+				<line style="fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;" x1="14.1" y1="-110.2" x2="62.2" y2="-158.3"/>
+			<rect x="106.9" y="-106.8" style="fill:#F2F2F2;" width="50.6" height="48.9"/>
+			
+				<line style="fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;" x1="110.3" y1="-62.1" x2="158.3" y2="-110.2"/>
+			<rect x="58.8" y="-106.8" style="fill:#F2F2F2;" width="50.6" height="48.9"/>
+			
+				<line style="fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;" x1="62.2" y1="-62.1" x2="110.3" y2="-110.2"/>
+			
+				<line style="fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;" x1="14.1" y1="-62.1" x2="62.2" y2="-110.2"/>
+			
+				<line style="fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;" x1="110.3" y1="-14.1" x2="158.3" y2="-62.1"/>
+			
+				<line style="fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;" x1="62.2" y1="-14.1" x2="110.3" y2="-62.1"/>
+			
+				<line style="fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;" x1="14.1" y1="-14.1" x2="62.2" y2="-62.1"/>
+		</g>
+	</g>
+</pattern>
+<pattern  y="3451.3" width="48.1" height="48.1" patternUnits="userSpaceOnUse" id="locale_tecnico-6_00000054233695" viewBox="62.2 -110.2 48.1 48.1" style="overflow:visible;">
+	<g>
+		<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+		<g>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="62.2" y="-110.2" style="fill:none;" width="48.1" height="48.1"/>
+			<rect x="106.9" y="-154.9" style="fill:#F2F2F2;" width="50.6" height="48.9"/>
+			
+				<line style="fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;" x1="110.3" y1="-110.2" x2="158.3" y2="-158.3"/>
+			<rect x="58.8" y="-154.9" style="fill:#F2F2F2;" width="50.6" height="48.9"/>
+			
+				<line style="fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;" x1="62.2" y1="-110.2" x2="110.3" y2="-158.3"/>
+			
+				<line style="fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;" x1="14.1" y1="-110.2" x2="62.2" y2="-158.3"/>
+			<rect x="106.9" y="-106.8" style="fill:#F2F2F2;" width="50.6" height="48.9"/>
+			
+				<line style="fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;" x1="110.3" y1="-62.1" x2="158.3" y2="-110.2"/>
+			<rect x="58.8" y="-106.8" style="fill:#F2F2F2;" width="50.6" height="48.9"/>
+			
+				<line style="fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;" x1="62.2" y1="-62.1" x2="110.3" y2="-110.2"/>
+			
+				<line style="fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;" x1="14.1" y1="-62.1" x2="62.2" y2="-110.2"/>
+			
+				<line style="fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;" x1="110.3" y1="-14.1" x2="158.3" y2="-62.1"/>
+			
+				<line style="fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;" x1="62.2" y1="-14.1" x2="110.3" y2="-62.1"/>
+			
+				<line style="fill:none;stroke:#DDDDDD;stroke-width:20;stroke-linecap:square;stroke-linejoin:round;" x1="14.1" y1="-14.1" x2="62.2" y2="-62.1"/>
+		</g>
+	</g>
+</pattern>
+<g id="A4-floor-1">
+	<g id="background">
+		<path style="fill:#F2F2F2;" d="M28.1,2201.5c3.8,9.2,8,18.4,12.4,27.2c17.1,34,39.4,65.2,65.9,92.5c26.7,27.6,57.6,50.8,91.5,68.8
+			c8.2,4.3,16.5,8.3,25,12c35.9,15.7,74.2,25.3,113.3,28.5h508.4V2628h1567.3v823.3H5500V210.2H2411.8v643.2H0v1223.5
+			C2.3,2119.7,11.8,2161.8,28.1,2201.5z"/>
+	</g>
+	<g id="rooms">
+		<rect id="senza_codice" x="3002.4" y="1764.3" style="fill:#F2F2F2;" width="177.1" height="94.9"/>
+		<rect id="senza_codice-2" x="3002.4" y="1648.8" style="fill:#F2F2F2;" width="177.1" height="94.3"/>
+		<rect id="senza_codice-3" x="3002.4" y="1340.6" style="fill:#F2F2F2;" width="177.1" height="93.1"/>
+		<rect id="senza_codice-4" x="3002.4" y="1226.3" style="fill:#F2F2F2;" width="177.1" height="93.1"/>
+		
+			<pattern  id="locale_tecnico-5_00000131341142389498206520000005779961408366963370_" xlink:href="#locale_tecnico-5_00000129915519" patternTransform="matrix(-0.6 0 0 0.38 -27016.7539 13128.583)">
+		</pattern>
+		
+			<rect id="locale_tecnico-5" x="2982.4" y="250.7" style="fill:url(#locale_tecnico-5_00000131341142389498206520000005779961408366963370_);" width="132.4" height="183.7"/>
+		
+			<pattern  id="locale_tecnico-6_00000141430160698167993170000002785093161022197931_" xlink:href="#locale_tecnico-6_00000054233695" patternTransform="matrix(-0.6 0 0 0.6 -27016.7539 21878.6113)">
+		</pattern>
+		<path id="locale_tecnico-6" style="fill:url(#locale_tecnico-6_00000141430160698167993170000002785093161022197931_);" d="
+			M346.2,2389.9H885v197.6h1567.4v823.3h3007.2V1879.2H2432.4v-672.8h-92.5V994.8h92.5V893.9H40.5v1161.2
+			C40.5,2233.2,175.9,2379.5,346.2,2389.9z"/>
+		<g class="clickable" id="A4--1-34">
+			<polygon id="tracciato_11" style="fill:#DDDDDD;" points="3393.5,1859.2 3413.4,1859.2 3978.6,1859.2 3998.6,1859.2 4435,1859.2 
+				4977.2,1859.2 4997.2,1859.2 5459.6,1859.2 5459.6,250.7 4435,250.7 4435,413.3 4435,434.4 4435,683.5 4435,704.7 4435,928.9 
+				4435,950.1 4435,1205.2 4435,1226.3 3199.4,1226.3 3199.4,1319.4 3199.4,1340.6 3199.4,1433.6 3199.4,1454.8 3199.4,1627.7 
+				3199.4,1648.8 3199.4,1743.1 3199.4,1764.3 3199.4,1859.2 			"/>
+			<rect x="3199.4" y="250.8" style="fill:none;" width="2253" height="1606.2"/>
+		</g>
+		<g id="STAIR" style="opacity:0.4;">
+			<g id="scale-2">
+				<rect x="2823.9" y="453.4" style="fill:#B7B7B7;" width="3.6" height="247.3"/>
+				<rect x="2684.9" y="451.7" style="fill:#B7B7B7;" width="280.5" height="3.6"/>
+				<rect x="2684.9" y="515.2" style="fill:#B7B7B7;" width="280.5" height="3.6"/>
+				<rect x="2685.1" y="482.5" style="fill:#B7B7B7;" width="280.4" height="3.6"/>
+				<rect x="2684.9" y="547.2" style="fill:#B7B7B7;" width="280.5" height="3.6"/>
+				<rect x="2684.9" y="637.9" style="fill:#B7B7B7;" width="280.5" height="3.6"/>
+				<rect x="2684.9" y="673.6" style="fill:#B7B7B7;" width="280.5" height="3.6"/>
+				<polygon style="fill:#B7B7B7;" points="2825.5,701.8 2685.4,678.8 2686,675.3 2825.5,698.2 2963.4,675.3 2964,678.8 				"/>
+				<rect x="2684.9" y="576.2" style="fill:#B7B7B7;" width="280.5" height="3.6"/>
+				<rect x="2684.9" y="605.8" style="fill:#B7B7B7;" width="280.5" height="3.6"/>
+				<rect x="2684.9" y="699" style="fill:#B7B7B7;" width="280.5" height="3.6"/>
+			</g>
+			<rect x="2688.1" y="414.2" style="fill:none;" width="273.2" height="312.9"/>
+		</g>
+		<g class="clickable" id="A4--1-26">
+			<polygon id="_tracciato_3" style="fill:#F2F2F2;" points="3789.2,928.9 3789.2,250.7 4413.9,250.7 4413.9,683.5 4413.9,704.7 
+				4413.9,928.9 			"/>
+		</g>
+		<g class="clickable" id="A4--1-24">
+			<polygon id="_tracciato_5" style="fill:#F2F2F2;" points="3136,683.5 3136,250.7 3767.9,250.7 3767.9,928.9 3136,928.9 
+				3136,704.7 			"/>
+		</g>
+		<g class="clickable" id="A4--1-20">
+			<polygon id="_tracciato_8" style="fill:#F2F2F2;" points="2700.8,1433.6 2700.8,1226.3 2982.4,1226.3 2982.4,1319.4 
+				2982.4,1340.6 2982.4,1433.6 			"/>
+		</g>
+		<g class="clickable" id="A4--1-19">
+			<polygon id="_tracciato_9" style="fill:#F2F2F2;" points="2700.8,1627.7 2700.8,1454.8 2982.4,1454.8 3002.4,1454.8 
+				3179.5,1454.8 3179.5,1627.7 3002.4,1627.7 2982.4,1627.7 			"/>
+		</g>
+		<g class="clickable" id="A4--1-18">
+			<polygon id="_tracciato_10" style="fill:#F2F2F2;" points="2700.8,1859.2 2700.8,1648.8 2982.4,1648.8 2982.4,1743.1 
+				2982.4,1764.3 2982.4,1859.2 			"/>
+		</g>
+		<g class="clickable" id="A4--1-21">
+			<polygon id="_tracciato_7" style="fill:#F2F2F2;" points="2452.3,1206.4 2452.3,1185.8 2452.3,1185.2 2359.8,1185.2 
+				2359.8,1014.8 2432.4,1014.8 2452.3,1014.8 2452.3,994.8 2452.3,950.1 2452.3,950.1 2452.3,950.1 2666.9,950.1 2688.1,950.1 
+				2688.1,950.1 2688.1,950.1 2688.1,950.1 2666.9,950.1 2452.3,950.1 2452.3,950.1 2961.3,950.1 2961.3,950.1 2961.3,950.1 
+				2961.3,950.1 2982.4,950.1 2982.4,950.1 3114.9,950.1 3114.9,950.1 3114.9,950.1 3114.9,1002.1 3136,1002.1 3136,950.1 
+				3475.1,950.1 3496.2,950.1 3767.9,950.1 3789.2,950.1 4060.9,950.1 4082,950.1 4413.9,950.1 4413.9,1205.2 3199.4,1205.2 
+				3179.5,1205.2 3002.4,1205.2 2982.4,1205.2 2700.8,1205.2 2680.9,1205.2 			"/>
+		</g>
+		<g class="clickable" data-building-code="P1" id="A1--1-G1--1" data-floor-code="-1">
+			
+				<rect id="room-box-29" x="2469.4" y="0.5" style="fill:none;stroke:#F2F2F2;stroke-miterlimit:10;" width="194.5" height="209.8"/>
+			<path style="fill:#FFFFFF;stroke:#303030;" d="M2566.6,47c-32.3-0.1-58.5,26-58.6,58.3l0,0v0.1c0.4,32.4,27,58.3,59.4,57.9
+				c31.8-0.4,57.5-26.1,57.9-57.8v-0.1C2625.3,73.1,2599,47,2566.6,47"/>
+			<path d="M2557.7,112.3h6.9c10.3,0,14.6-4.2,14.6-12c0-6.6-3.9-11.3-14.3-11.3h-7.2V112.3z M2550.8,141.7V83.3h14.7
+				c11.8,0,20.6,5.7,20.6,16.8s-8,18-21.6,18h-6.9v23.6L2550.8,141.7z M2603.2,87.3l-36.5-13.2l-36.5,13.3l-1.7-4.4l38.1-13.8
+				l38.1,13.8L2603.2,87.3z"/>
+		</g>
+		<g class="clickable" id="A4--1-LIFT-A">
+			<rect id="a" x="2452.3" y="458" style="fill:#F2F2F2;" width="214.6" height="223"/>
+		</g>
+		<g class="clickable" id="A4--1-STAIR-A" style="opacity:0.4;">
+			<g id="scale">
+				<rect x="3047.1" y="436.4" style="fill:#B7B7B7;" width="3.6" height="395.9"/>
+				<rect x="2980.4" y="585.9" style="fill:#B7B7B7;" width="137.9" height="3.6"/>
+				<rect x="2982.9" y="680.2" style="fill:#B7B7B7;" width="137.9" height="3.6"/>
+				<rect x="2980.4" y="557.8" style="fill:#B7B7B7;" width="137.9" height="3.6"/>
+				<rect x="2980.4" y="527.8" style="fill:#B7B7B7;" width="137.9" height="3.6"/>
+				<rect x="2977" y="465.6" style="fill:#B7B7B7;" width="143.7" height="3.6"/>
+				<polygon style="fill:#B7B7B7;" points="2977.4,469.6 2976,466.3 3049.3,434 3121.3,465.8 3119.9,469 3049.3,438 				"/>
+				<rect x="2980.4" y="494" style="fill:#B7B7B7;" width="137.9" height="3.6"/>
+				<rect x="2978.8" y="800.5" style="fill:#B7B7B7;" width="140.2" height="3.6"/>
+				<rect x="2978.8" y="830.7" style="fill:#B7B7B7;" width="140.2" height="3.6"/>
+				<rect x="2978.8" y="739.5" style="fill:#B7B7B7;" width="140.2" height="3.6"/>
+				<rect x="2978.8" y="709.2" style="fill:#B7B7B7;" width="140.2" height="3.6"/>
+				<rect x="2978.8" y="770.9" style="fill:#B7B7B7;" width="140.2" height="3.6"/>
+				
+					<rect x="2977" y="785.8" transform="matrix(0.9785 -0.2062 0.2062 0.9785 -96.884 645.5881)" style="fill:#B7B7B7;" width="143.6" height="3.6"/>
+				<rect x="2982.9" y="434.1" style="fill:#B7B7B7;" width="137.9" height="3.6"/>
+			</g>
+			<rect x="2982.9" y="435.9" style="fill:none;" width="132" height="432.4"/>
+		</g>
+	</g>
+	<g id="walls">
+		<path style="fill:#B7B7B7;" d="M4248.2,250.7h165.6v678.2H3908V950h506v49h21.1V250.7h1024.5v1608.5H4162.4v19.9h1297.2v1531.8
+			H2452.3v-823.3H884.9v-197.7H346.2c-170.3-10.5-305.7-156.6-305.7-334.8V893.9h2391.9v100.9h-92.5v37.5h19.9v-17.5h92.5V702.3
+			h18.7v-21.2h-18.7v-223h18.7v-21.3h-18.7V250.7h18.7v-40.5h-59.2v643.2H0v1223.5c2.3,42.8,11.8,85,28.1,124.7
+			c3.8,9.2,8,18.4,12.4,27.2c17.2,34,39.4,65.2,65.9,92.4c26.7,27.6,57.6,50.8,91.5,68.7c8.2,4.3,16.5,8.3,25,12.1
+			c35.9,15.7,74.2,25.3,113.3,28.5h508.4v197.6h1567.3v823.3H5500V210.2H2666.3v40.5h295v15.7h21.1v-15.7h132.4V1002h21.1v-52h474.5
+			v-21.1H3136V250.8h631.9V929h-55.3v21.1h93.1V929h-16.6V250.8L4248.2,250.7L4248.2,250.7z M2452.3,1879.2h34.5v-20h-34.5v-674
+			h-92.5v-152.9h-19.9v152.9l0,0v21.2h92.5v672.8 M2982.4,266.4h-21.1v568.2h21.1V266.4z"/>
+		<polygon style="fill:#B7B7B7;" points="3393.5,1879.2 3199.4,1879.2 3199.4,1879.2 3179.5,1879.2 3179.5,1879.2 3002.4,1879.2 
+			2982.4,1879.2 2700.8,1879.2 2700.8,1879.2 2680.9,1879.2 2680.9,1879.2 2486.8,1879.2 2486.8,1859.2 2680.9,1859.2 
+			2680.9,1746.2 2700.8,1746.2 2700.8,1859.2 2982.4,1859.2 2982.4,1831.3 3002.4,1831.3 3002.4,1859.2 3179.5,1859.2 
+			3179.5,1764.3 3002.4,1764.3 3002.4,1777 2982.4,1777 2982.4,1764.3 2982.4,1743.1 2982.4,1722.6 3002.4,1722.6 3002.4,1743.1 
+			3179.5,1743.1 3179.5,1648.8 3002.4,1648.8 3002.4,1668.2 2982.4,1668.2 2982.4,1648.8 2700.8,1648.8 2700.8,1657.9 
+			2680.9,1657.9 2680.9,1648.8 2680.9,1627.7 2680.9,1556.9 2700.8,1556.9 2700.8,1627.7 2982.4,1627.7 3002.4,1627.7 
+			3179.5,1627.7 3179.5,1454.8 3002.4,1454.8 2982.4,1454.8 2700.8,1454.8 2700.8,1468.7 2680.9,1468.7 2680.9,1454.8 
+			2680.9,1433.6 2680.9,1341.1 2700.8,1341.1 2700.8,1433.6 2982.4,1433.6 2982.4,1411.9 3002.4,1411.9 3002.4,1433.6 
+			3179.5,1433.6 3179.5,1340.6 3002.4,1340.6 3002.4,1357.5 2982.4,1357.5 2982.4,1340.6 2982.4,1319.4 2982.4,1301.9 
+			3002.4,1301.9 3002.4,1319.4 3179.5,1319.4 3179.5,1226.3 3002.4,1226.3 3002.4,1247.4 2982.4,1247.4 2982.4,1226.3 
+			2700.8,1226.3 2700.8,1252.9 2680.9,1252.9 2680.9,1226.3 2680.9,1205.2 2700.8,1205.2 2982.4,1205.2 3002.4,1205.2 
+			3179.5,1205.2 3199.4,1205.2 4007,1205.2 4007,1226.3 3199.4,1226.3 3199.4,1319.4 3199.4,1340.6 3199.4,1433.6 3199.4,1454.8 
+			3199.4,1627.7 3199.4,1648.8 3199.4,1743.1 3199.4,1764.3 3199.4,1859.2 3393.5,1859.2 3413.4,1859.2 3978.6,1859.2 
+			3998.6,1859.2 4162.4,1859.2 4162.4,1879.2 3998.6,1879.2 3978.6,1879.2 3413.4,1879.2 		"/>
+		<polygon style="fill:#B7B7B7;" points="2655.5,436.9 2655.5,458 2666.9,458 2666.9,681.1 2655.5,681.1 2655.5,702.3 2666.9,702.3 
+			2688.1,702.3 2688.1,681.1 2688.1,458 2688.1,436.9 2666.9,436.9 		"/>
+		<polygon style="fill:#B7B7B7;" points="4162.4,1226.3 4413.9,1226.3 4435,1226.3 4435,1205.2 4435,1188.2 4413.9,1188.2 
+			4413.9,1205.2 4162.4,1205.2 		"/>
+		<polyline style="fill:#B7B7B7;" points="2961.3,414.2 2961.3,435.4 3136,435.4 3136,414.2 		"/>
+	</g>
+</g>
+</svg>
