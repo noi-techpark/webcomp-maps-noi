@@ -28,6 +28,7 @@ class MapView extends LitElement {
 		return {
 			language: { type: String },
 			totem: { type: String },
+			fullview: { type: String },
 			hidezoom: { type: String },
 		};
 	}
@@ -153,8 +154,9 @@ class MapView extends LitElement {
 		var shadowRoot = this.shadowRoot;
 		var thisLang = this.language;
 		var thisTotem = Number.parseInt(this.totem);
-		var thisHideZoom = Number.parseInt(this.hidezoom);
-		documentReadyNOIMaps(shadowRoot,thisLang,thisTotem,thisHideZoom);
+		var thisFullview = Number.parseInt(this.fullview);
+		var thisHidezoom = Number.parseInt(this.hidezoom);
+		documentReadyNOIMaps(shadowRoot,thisLang,thisTotem,thisFullview,thisHidezoom);
 			/*jQuery.each(result.data, function(i, field){
 					//console.log(field.sname);
 					jQuery(results).append('<li>'+field.sname+'</li>');
@@ -179,7 +181,8 @@ var buildings_summary = [];
 var clickedElementID = '';
 var thisNoiMapsSettingsLang = 'it';
 var thisNoiMapsSettingsTotem = false;
-var thisNoiMapsSettingsHideZoom = false;
+var thisNoiMapsSettingsFullview = false;
+var thisNoiMapsSettingsHidezoom = false;
 var originalTooltip = '';
 var maps_svgs = [];
 var NOIrooms = [];
@@ -209,7 +212,8 @@ function cleanupRoomLabelNOIMaps(roomLabel) {
 	return false;
 }
 
-function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisHideZoom) {
+
+function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview,thisHidezoom) {
 	shadowRoot = shadowRootInit;
 	setMediaQueriesNOIMaps();
 	//Disables scroll events from mousewheels, touchmoves and keypresses.
@@ -223,7 +227,8 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisHideZoom) {
 	var NoiMapsSettingsShared = NoiMapsSettingsUrlChecker.searchParams.get("shared");
 	var NoiMapsSettingsLang = NoiMapsSettingsUrlChecker.searchParams.get("lang");
 	var NoiMapsSettingsTotem = NoiMapsSettingsUrlChecker.searchParams.get("totem");
-	var NoiMapsSettingsHideZoom = NoiMapsSettingsUrlChecker.searchParams.get("hidezoom");
+	var NoiMapsSettingsFullview = NoiMapsSettingsUrlChecker.searchParams.get("fullview");
+	var NoiMapsSettingsHidezoom = NoiMapsSettingsUrlChecker.searchParams.get("hidezoom");
 	
 	if(typeof thisLang != 'undefined' && thisLang !== null || jQuery.inArray( thisLang, ['it','en','de'] ) >= 0) {
 		thisNoiMapsSettingsLang = thisLang;
@@ -262,11 +267,39 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisHideZoom) {
 		}
 	}
 
+	if(typeof thisHidezoom != 'undefined' && thisHidezoom !== null && !isNaN(thisHidezoom)) {
+		if(thisHidezoom > 0) {
+			thisNoiMapsSettingsHidezoom = true;
+		} else {
+			thisNoiMapsSettingsHidezoom = false;
+		}
+	}
+	if(typeof NoiMapsSettingsHidezoom != 'undefined' && NoiMapsSettingsHidezoom !== null && !isNaN(NoiMapsSettingsHidezoom)) {
+		if(NoiMapsSettingsHidezoom > 0) {
+			thisNoiMapsSettingsHidezoom = true;
+		} else {
+			thisNoiMapsSettingsHidezoom = false;
+		}
+	}
+
+	if(typeof NoiMapsSettingsFullview != 'undefined' && NoiMapsSettingsFullview !== null && !isNaN(NoiMapsSettingsFullview)) {
+		if(NoiMapsSettingsFullview > 0) {
+			thisNoiMapsSettingsFullview = true;
+		} else {
+			thisNoiMapsSettingsFullview = false;
+		}
+	}
+
 	if(thisNoiMapsSettingsTotem) {
 		jQuery(shadowRoot.querySelectorAll('.outer-map-container')).addClass("totem");
 	}
 
-	if(thisNoiMapsSettingsHideZoom) {
+	if(thisNoiMapsSettingsFullview) {
+		jQuery('map-view').attr('fullview',"1");
+		jQuery('body').addClass("fullview");
+	}
+
+	if(thisNoiMapsSettingsHidezoom) {
 		jQuery(shadowRoot.querySelectorAll('.floors-zoom-selector .zoom-selector')).hide();
 	}
 	
@@ -474,7 +507,7 @@ function printMapNOIMaps(this_building_code) {
 }
 
 function replaceImageUrl(url) {
-	return url.replace("https://images.maps.noi.opendatahub.bz.it", config.OPEN_DATA_HUB_RESOURCE_URL);
+	return url.replace("https://images.maps.noi.opendatahub.bz.it", config.OPEN_DATA_HUB_RESOURCE_URL);;
 }
 
 function fetchMapsSVGNOIMaps(this_building_code) {
@@ -523,6 +556,24 @@ function fetchMapsSVGNOIMaps(this_building_code) {
 					}
 
 					maps_svgs[currentBuildingCode]['floors'][currentBuildingFloor] = $svg.prop("outerHTML");
+
+					/*
+					//DEBUG
+					jQuery.get("https://stage.madeincima.it/noi-maps-svg/planimetry/a5-0.svg", (data3) => {
+						let $svg2 = jQuery(data3).find('svg');
+						$svg2 = $svg2.removeAttr('xmlns:a');
+						// Check if the viewport is set, if the viewport is not set the SVG wont't scale.
+						if (!$svg.attr('viewBox') && $svg2.attr('height') && $svg2.attr('width')) {
+							$svg2.attr(`viewBox 0 0  ${$svg2.attr('height')} ${$svg2.attr('width')}`);
+						}
+						maps_svgs["A5"] = [];
+						maps_svgs["A5"]['floors'] = {};
+						maps_svgs["A5"]['floors']["0"] = $svg2.prop("outerHTML");
+						//jQuery(shadowRoot.getElementById('map')).html($svg2.prop("outerHTML"));
+						setTimeout(function() {
+							clickableBehaviourNOIMaps();
+						},50);
+					});*/
 
 					if(typeof this_building_code !== 'undefined' && typeof currentBuildingCode !== 'undefined' && currentBuildingCode == this_building_code) {
 						jQuery(shadowRoot.getElementById('map')).html($svg.prop("outerHTML"));
@@ -1530,6 +1581,7 @@ function goToBuildingFloorNOIMaps(buildingCode, buildingFloor, close = true) {
 			navBarsNOIMaps(buildingCode,buildingFloor);
 			drawRoomsCategoryIconsNOIMaps();
 			translateElementsNOIMaps();
+			debugPrintIDs();
 		}
 	}
 }
@@ -1894,6 +1946,56 @@ function setMediaQueriesNOIMaps() {
 	}
 	if(responsiveClass !== '') {
 		jQuery(shadowRoot.querySelectorAll('.inner-map-component')).addClass(responsiveClass);
+	}
+}
+
+function debugPrintIDs() {
+	var debugIDs = getParams.get('showids');
+	if(debugIDs == 1) {
+		jQuery(shadowRoot.querySelectorAll('#map *[data-name~="customclass"]')).each(function(i) {
+			let thisElement = jQuery(this);
+			let elementCode = thisElement.attr('id');
+			let labelSVG = '';
+			let textLabel = "NOTFOUND";
+			
+			textLabel = elementCode;
+			if( true ) {
+				var thisSVG = jQuery('<svg class="label-room debug" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#ff7f00"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="35" fill="#000" font-family="Arial" font-weight="bold">'+textLabel+'</text></svg>');
+
+				shadowRoot.querySelectorAll('#map svg').innerHTML += '';
+				let x = 0;
+				let y = 0;
+				let thisSVGWidth = thisSVG.attr('width');
+				let thisSVGHeight = thisSVG.attr('height');
+
+				if(typeof(thisSVGWidth)=='undefined' || thisSVGWidth==null || thisSVGWidth == '') {
+					thisSVGWidth = '30';
+				}
+				if(typeof(thisSVGHeight)=='undefined' || thisSVGHeight==null || thisSVGHeight == '') {
+					thisSVGHeight = '30';
+				}
+				let svgElement = jQuery(shadowRoot.querySelector("[id='"+elementCode+"']"))[0];
+
+				if(thisSVGWidth>(svgElement.getBBox().width*0.6)) {
+					thisSVG.attr('width',svgElement.getBBox().width*0.6);
+					x = (svgElement.getBBox().x + (svgElement.getBBox().width/2)) - (thisSVG.attr('width')/2);
+				} else {
+					x = (svgElement.getBBox().x + (svgElement.getBBox().width/2)) - (thisSVGWidth/2);
+				}
+
+				if(thisSVGHeight>(svgElement.getBBox().height*0.6)) {
+					thisSVG.attr('height',svgElement.getBBox().height*0.6);
+					y = (svgElement.getBBox().y + (svgElement.getBBox().height/2)) - (thisSVG.attr('height')/2);
+				} else {
+					y = (svgElement.getBBox().y + (svgElement.getBBox().height/2)) - (thisSVGHeight/2);
+				}
+
+				thisSVG.attr('x',x);
+				thisSVG.attr('y',y);
+				thisElement.append(thisSVG);
+			}
+		});
+
 	}
 }
 
