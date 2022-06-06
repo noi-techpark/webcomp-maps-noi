@@ -557,9 +557,55 @@ function fetchMapsSVGNOIMaps(this_building_code) {
 
 					maps_svgs[currentBuildingCode]['floors'][currentBuildingFloor] = $svg.prop("outerHTML");
 
-					/*
+					
 					//DEBUG
-					jQuery.get("https://stage.madeincima.it/noi-maps-svg/planimetry/a5-0.svg", (data3) => {
+					var new_svg = [
+						{
+							'url' : 'https://stage.madeincima.it/noi-maps-svg/planimetry/a5-0.svg',
+							'building_code' : 'A5',
+							'floor' : '0',
+						},
+						{
+							'url' : 'https://stage.madeincima.it/noi-maps-svg/planimetry/a6-0.svg',
+							'building_code' : 'A6',
+							'floor' : '0',
+						},
+						{
+							'url' : 'https://stage.madeincima.it/noi-maps-svg/planimetry/a6-1.svg',
+							'building_code' : 'A6',
+							'floor' : '1',
+						},
+						{
+							'url' : 'https://stage.madeincima.it/noi-maps-svg/planimetry/a6--1.svg',
+							'building_code' : 'A6',
+							'floor' : '-1',
+						},
+					];
+					new_svg.forEach((element, index, array) => {
+						var thisObj = element;
+					    jQuery.get(thisObj.url, (data3) => {
+							let $svg2 = jQuery(data3).find('svg');
+							$svg2 = $svg2.removeAttr('xmlns:a');
+							// Check if the viewport is set, if the viewport is not set the SVG wont't scale.
+							if (!$svg.attr('viewBox') && $svg2.attr('height') && $svg2.attr('width')) {
+								$svg2.attr(`viewBox 0 0  ${$svg2.attr('height')} ${$svg2.attr('width')}`);
+							}
+							if(typeof maps_svgs[thisObj.building_code] == 'undefined') {
+								maps_svgs[thisObj.building_code] = [];
+							}
+							if( typeof maps_svgs[thisObj.building_code]['floors'] == 'undefined' ) {
+								maps_svgs[thisObj.building_code]['floors'] = {}
+							}
+							maps_svgs[thisObj.building_code]['floors'][thisObj.floor] = $svg2.prop("outerHTML");
+							//jQuery(shadowRoot.getElementById('map')).html($svg2.prop("outerHTML"));
+							setTimeout(function() {
+								clickableBehaviourNOIMaps();
+							},50);
+						});
+					});
+
+
+					/*jQuery.get("https://stage.madeincima.it/noi-maps-svg/planimetry/a5-0.svg", (data3) => {
 						let $svg2 = jQuery(data3).find('svg');
 						$svg2 = $svg2.removeAttr('xmlns:a');
 						// Check if the viewport is set, if the viewport is not set the SVG wont't scale.
@@ -1050,6 +1096,10 @@ function clickedElementNOIMaps(elementCode, type="room") {
 				console.log(NOIrooms[elementCode]);
 				console.groupEnd();*/
 
+				if(debugActive) {
+					alert(elementCode);
+				}
+
 				if(typeof(NOIrooms)!=='undefined' && NOIrooms!==null && NOIrooms!=='' && typeof NOIrooms[elementCode] !== 'undefined') {
 					if(
 						typeof NOIrooms[elementCode] !== 'undefined' && NOIrooms[elementCode]!=null &&
@@ -1334,8 +1384,9 @@ function closeTooltipNOIMaps(ev) {
 	} else {
 		jQuery(shadowRoot.querySelectorAll('.tooltip')).fadeOut(fadeSpeed, function() {
 			jQuery(shadowRoot.querySelectorAll('.tooltip')).removeClass('active').html(originalTooltip);
-			//console.log(jQuery(shadowRoot.querySelectorAll('.tooltip')).html());
+			jQuery(shadowRoot.querySelectorAll('.tooltip')).removeClass('active').html(originalTooltip);			
 		});
+		jQuery(shadowRoot.querySelectorAll('*[id^="building"]')).removeClass('active');
 	}
 }
 
@@ -1412,23 +1463,30 @@ function drawRoomsCategoryIconsNOIMaps() {
 
 				//printElementOnMapNOIMaps( thisElement, elementCode, jQuery(selettoriType[NOIrooms[elementCode]['type']]['image']) );
 			} else {
-				let textLabel = "A000000";
-				if(
-					typeof NOIrooms[elementCode] !== 'undefined' && NOIrooms[elementCode]!=null &&
-					typeof NOIrooms[elementCode]['beacon_id'] !== 'undefined'
-				) {
-					textLabel = NOIrooms[elementCode]['beacon_id'];
-				} else {
+				let textLabel = "A000000";		
+
+
+				if(debugActive) {
 					textLabel = elementCode;
-				}
-				if( typeof NOIrooms[elementCode] !== 'undefined' && NOIrooms[elementCode]!=null && typeof NOIrooms[elementCode]['beacon_id'] !== 'undefined' && typeof NOIrooms[elementCode]['show_on_map'] !== 'undefined' && NOIrooms[elementCode]['show_on_map'] == 1 ) {
-					if(typeof NOIrooms[elementCode]['floor_description'] !== 'undefined') {
-						//this is an element that teleports (P)
-					} else {
-						printElementOnMapNOIMaps( thisElement, elementCode, jQuery('<svg class="label-room" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#fff"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="30" fill="#000" font-family="Arial">'+textLabel+'</text></svg>') );
-					}
+					printElementOnMapNOIMaps( thisElement, elementCode, jQuery('<svg class="label-room" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#fff"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="30" fill="#000" font-family="Arial">'+textLabel+'</text></svg>') );
 				} else {
-					jQuery(thisElement).removeClass('clickable');
+					if(
+						typeof NOIrooms[elementCode] !== 'undefined' && NOIrooms[elementCode]!=null &&
+						typeof NOIrooms[elementCode]['beacon_id'] !== 'undefined'
+					) {
+						textLabel = NOIrooms[elementCode]['beacon_id'];
+					} else {
+						textLabel = elementCode;
+					}
+					if( typeof NOIrooms[elementCode] !== 'undefined' && NOIrooms[elementCode]!=null && typeof NOIrooms[elementCode]['beacon_id'] !== 'undefined' && typeof NOIrooms[elementCode]['show_on_map'] !== 'undefined' && NOIrooms[elementCode]['show_on_map'] == 1 ) {
+						if(typeof NOIrooms[elementCode]['floor_description'] !== 'undefined') {
+							//this is an element that teleports (P)
+						} else {
+							printElementOnMapNOIMaps( thisElement, elementCode, jQuery('<svg class="label-room" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#fff"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="30" fill="#000" font-family="Arial">'+textLabel+'</text></svg>') );
+						}
+					} else {
+						jQuery(thisElement).removeClass('clickable');
+					}
 				}
 			}
 		});
@@ -1582,6 +1640,8 @@ function goToBuildingFloorNOIMaps(buildingCode, buildingFloor, close = true) {
 			drawRoomsCategoryIconsNOIMaps();
 			translateElementsNOIMaps();
 			debugPrintIDs();
+		} else {
+			closeTooltipNOIMaps();
 		}
 	}
 }
@@ -1916,8 +1976,11 @@ function createSidebarSingleElementWithoutGroup(element) {
 
 function setMediaQueriesNOIMaps() {
 	let w = jQuery(shadowRoot.querySelectorAll('.inner-map-component')).outerWidth();
-	let breakpoints = ["dim_5","dim_10","dim_20","dim_30","dim_40","dim_50","dim_70"];
+	let h = jQuery(shadowRoot.querySelectorAll('.inner-map-component')).outerHeight();
+	let breakpoints = ["dim_5","dim_10","dim_20","dim_30","dim_40","dim_50","dim_70","h_min_750","h_min_850"];
 	jQuery(shadowRoot.querySelectorAll('.inner-map-component')).removeClass(breakpoints);
+	jQuery(shadowRoot.querySelectorAll('.inner-map-component')).removeAttr("data-height");
+	jQuery(shadowRoot.querySelectorAll('.inner-map-component')).attr("data-height",Math.round(h/10));
 	let responsiveClass = '';
 	switch(true) {
 		case (w <= 400):
