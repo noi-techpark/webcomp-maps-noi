@@ -1489,6 +1489,11 @@ function drawRoomsCategoryIconsNOIMaps() {
 					}
 				}
 			}
+
+
+			if(typeof thisElement.data('name') == 'undefined') {
+				thisElement.attr('data-name', "customclass "+thisElement.attr('id'));
+			}
 		});
 
 	}
