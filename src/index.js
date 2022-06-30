@@ -182,7 +182,7 @@ function resizeEndActionsNOIMaps() {
 function cleanupRoomLabelNOIMaps(roomLabel) {
 	if(typeof roomLabel !== 'undefined') {
 		let temp = roomLabel.replace(/\-/g,'--');
-		return temp.replace(/ |\./g,'-');
+		return temp.replace(/[ \.]/g,'-');
 	}
 	return false;
 }
@@ -279,7 +279,7 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview,thi
 	//FETCH NOI DATA
 	jQuery.getJSON(config.OPEN_DATA_HUB_ONLY_SHOW_MAP, function(result){
 		ODHdata = result;
-		for(var i in ODHdata.data) {
+		for(let i in ODHdata.data) {
 			let roomLabel = ODHdata.data[i].smetadata.beacon_id;
 			if(typeof roomLabel !== 'undefined') {
 				roomLabel = cleanupRoomLabelNOIMaps(roomLabel);
@@ -295,7 +295,7 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview,thi
 			jQuery.getJSON(config.OPEN_DATA_HUB_BUILDINGS, function(_result){
 				printMapNOIMaps("axonometric");
 
-				for(var i in _result.data) {
+				for(let i in _result.data) {
 					buildings_summary[_result.data[i].smetadata.building_code] = _result.data[i].smetadata;
 				}
 				if(typeof roomLabel !== 'undefined') {
@@ -616,7 +616,7 @@ function setupMapBehavioursNOIMaps() {
 		boundsPadding: 1,
 		boundsDisabledForZoom: true,
 	});
-	controller.on('transform', function(e) {
+	controller.on('transform', function() {
 		setTooltipPositionNOIMaps();
 	});
 
@@ -639,7 +639,7 @@ function setupMapBehavioursNOIMaps() {
 	hammertime.on('tap', function(ev) {
 		ev.stopPropagation();
 		if( jQuery(ev.firstTarget).parents('.tooltip.active').length==0 ) {
-			jQuery(shadowRoot.querySelectorAll("#map .clickable")).each(function(i) {
+			jQuery(shadowRoot.querySelectorAll("#map .clickable")).each(function() {
 				var thisClickable = jQuery(this);
 				var oldClasses = thisClickable.attr('class');
 				if(oldClasses.indexOf('active')!=-1) {
@@ -686,12 +686,12 @@ function setupMapBehavioursNOIMaps() {
 	//Zoom controls
 	var hammertimeZoom = new Hammer(shadowRoot.querySelectorAll(".floors-zoom-selector .zoom-selector .plus")[0], {});
 	hammertimeZoom.off('tap');
-	hammertimeZoom.on('tap', function(evt) {
+	hammertimeZoom.on('tap', function() {
 		controller.smoothZoom(jQuery(shadowRoot.getElementById("map")).outerWidth()/2,jQuery(shadowRoot.getElementById("map")).outerHeight()/2,1.5);
 	});
 	var hammertimeZoom2 = new Hammer(shadowRoot.querySelectorAll(".floors-zoom-selector .zoom-selector .minus")[0], {});
 	hammertimeZoom2.off('tap');
-	hammertimeZoom2.on('tap', function(evt) {
+	hammertimeZoom2.on('tap', function() {
 		controller.smoothZoom(jQuery(shadowRoot.getElementById("map")).outerWidth()/2,jQuery(shadowRoot.getElementById("map")).outerHeight()/2,0.5);
 	});
 
@@ -1115,7 +1115,7 @@ function drawRoomsCategoryIconsNOIMaps() {
 			return;
 		}
 
-		jQuery(shadowRoot.querySelectorAll("#map .clickable")).each(function(i) {
+		jQuery(shadowRoot.querySelectorAll("#map .clickable")).each(function() {
 			let thisElement = jQuery(this);
 			let elementCode = thisElement.attr('id');
 
