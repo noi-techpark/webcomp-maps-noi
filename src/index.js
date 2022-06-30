@@ -134,18 +134,18 @@ class MapView extends LitElement {
 	}
 
 	firstUpdated() {
-		var shadowRoot = this.shadowRoot;
+		shadowRoot = this.shadowRoot;
 		var thisLang = this.language;
 		var thisTotem = Number.parseInt(this.totem);
 		var thisFullview = Number.parseInt(this.fullview);
-		var thisHidezoom = Number.parseInt(this.hidezoom);
-		documentReadyNOIMaps(shadowRoot,thisLang,thisTotem,thisFullview,thisHidezoom);
+		var thisHideZoom = Number.parseInt(this.hidezoom);
+		documentReadyNOIMaps(shadowRoot,thisLang,thisTotem,thisFullview,thisHideZoom);
 	}
 
 }
 
-function getStyle(style) {
-	return style[0][1];
+function getStyle(_style) {
+	return _style[0][1];
 }
 
 var ODHdata = '';
@@ -157,7 +157,7 @@ var clickedElementID = '';
 var thisNoiMapsSettingsLang = 'it';
 var thisNoiMapsSettingsTotem = false;
 var thisNoiMapsSettingsFullview = false;
-var thisNoiMapsSettingsHidezoom = false;
+var thisNoiMapsSettingsHideZoom = false;
 var originalTooltip = '';
 var maps_svgs = [];
 var NOIrooms = [];
@@ -188,7 +188,7 @@ function cleanupRoomLabelNOIMaps(roomLabel) {
 }
 
 
-function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview,thisHidezoom) {
+function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview,thisHideZoom) {
 	shadowRoot = shadowRootInit;
 	setMediaQueriesNOIMaps();
 
@@ -201,7 +201,7 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview,thi
 	var NoiMapsSettingsLang = NoiMapsSettingsUrlChecker.searchParams.get("lang");
 	var NoiMapsSettingsTotem = NoiMapsSettingsUrlChecker.searchParams.get("totem");
 	var NoiMapsSettingsFullview = NoiMapsSettingsUrlChecker.searchParams.get("fullview");
-	var NoiMapsSettingsHidezoom = NoiMapsSettingsUrlChecker.searchParams.get("hidezoom");
+	var NoiMapsSettingsHideZoom = NoiMapsSettingsUrlChecker.searchParams.get("hidezoom");
 
 	if(typeof thisLang != 'undefined' && thisLang !== null || jQuery.inArray( thisLang, ['it','en','de'] ) >= 0) {
 		thisNoiMapsSettingsLang = thisLang;
@@ -240,18 +240,18 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview,thi
 		}
 	}
 
-	if(typeof thisHidezoom != 'undefined' && thisHidezoom !== null && !isNaN(thisHidezoom)) {
-		if(thisHidezoom > 0) {
-			thisNoiMapsSettingsHidezoom = true;
+	if(typeof thisHideZoom != 'undefined' && thisHideZoom !== null && !isNaN(thisHideZoom)) {
+		if(thisHideZoom > 0) {
+			thisNoiMapsSettingsHideZoom = true;
 		} else {
-			thisNoiMapsSettingsHidezoom = false;
+			thisNoiMapsSettingsHideZoom = false;
 		}
 	}
-	if(typeof NoiMapsSettingsHidezoom != 'undefined' && NoiMapsSettingsHidezoom !== null && !isNaN(NoiMapsSettingsHidezoom)) {
-		if(NoiMapsSettingsHidezoom > 0) {
-			thisNoiMapsSettingsHidezoom = true;
+	if(typeof NoiMapsSettingsHideZoom != 'undefined' && NoiMapsSettingsHideZoom !== null && !isNaN(NoiMapsSettingsHideZoom)) {
+		if(NoiMapsSettingsHideZoom > 0) {
+			thisNoiMapsSettingsHideZoom = true;
 		} else {
-			thisNoiMapsSettingsHidezoom = false;
+			thisNoiMapsSettingsHideZoom = false;
 		}
 	}
 
@@ -272,7 +272,7 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview,thi
 		jQuery('body').addClass("fullview");
 	}
 
-	if(thisNoiMapsSettingsHidezoom) {
+	if(thisNoiMapsSettingsHideZoom) {
 		jQuery(shadowRoot.querySelectorAll('.floors-zoom-selector .zoom-selector')).hide();
 	}
 
@@ -292,14 +292,14 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview,thi
 			writeGroupsSidebarNOIMaps(ODHdata);
 
 			//THEN GET BUILDINGS
-			jQuery.getJSON(config.OPEN_DATA_HUB_BUILDINGS, function(result){
+			jQuery.getJSON(config.OPEN_DATA_HUB_BUILDINGS, function(_result){
 				printMapNOIMaps("axonometric");
 
-				for(var i in result.data) {
-					buildings_summary[result.data[i].smetadata.building_code] = result.data[i].smetadata;
+				for(var i in _result.data) {
+					buildings_summary[_result.data[i].smetadata.building_code] = _result.data[i].smetadata;
 				}
 				if(typeof roomLabel !== 'undefined') {
-					roomLabel = roomLabel.replace(/ |\./g,'-');
+					let roomLabel = roomLabel.replace(/[ \.]/g,'-');
 					NOIrooms[roomLabel] = ODHdata.data[i].smetadata;
 				}
 
@@ -491,16 +491,12 @@ function writeGroupsSidebarNOIMaps(ODHdata) {
 			if(debugActive == 1) {
 				console.log('Error on writeGroupsSidebarNOIMaps');
 			}
-			//location.reload();
 			console.log("490 object undefined xxx1");
 		}
-		/*objects = Object.values(objects[0].tmetadata);
-		objects = objects.sort((a, b) => (a.order > b.order) ? 1 : -1);*/
 		objects = objects[0].tmetadata;
 		let categoryGroup = jQuery(shadowRoot.querySelectorAll(".search-container .category-group")).clone();
 		categoryGroup.removeClass("original");
 		var sorted = [];
-		////console.log(objects);
 		for(var groupName in objects) {
 			var orderN = objects[groupName]['order'];
 			var temp = objects[groupName];
@@ -510,7 +506,6 @@ function writeGroupsSidebarNOIMaps(ODHdata) {
 
 		for(var index in sorted) {
 			let categoryGroupClone = categoryGroup.clone().removeAttr("style");
-			////console.log(objects);
 			let image = '';
 			if(typeof sorted[index].image !== 'undefined'){
 				image = '<img src="'+replaceImageUrl(sorted[index].image)+'" />';
@@ -523,7 +518,7 @@ function writeGroupsSidebarNOIMaps(ODHdata) {
 					let elementCode = cleanupRoomLabelNOIMaps(ODHdata.data[k].smetadata.beacon_id);
 					let roomPieces = elementCode.split("-");
 					let roomNr = roomPieces[roomPieces.length - 1];
-					let roomName = typeof ODHdata.data[k].smetadata.name !== 'undefined' && typeof ODHdata.data[k].smetadata.name !== 'undefined' && typeof ODHdata.data[k].smetadata.name[thisNoiMapsSettingsLang]!=='undefined' ? ODHdata.data[k].smetadata.name[thisNoiMapsSettingsLang] : '';
+					let roomName = typeof ODHdata.data[k].smetadata.name !== 'undefined' && typeof ODHdata.data[k].smetadata.name[thisNoiMapsSettingsLang]!=='undefined' ? ODHdata.data[k].smetadata.name[thisNoiMapsSettingsLang] : '';
 					if(isNaN(roomNr)) {
 						roomNr = roomPieces[roomPieces.length - 2] +"-"+roomPieces[roomPieces.length - 1];
 					}
@@ -625,7 +620,7 @@ function setupMapBehavioursNOIMaps() {
 		setTooltipPositionNOIMaps();
 	});
 
-	setMapZoomNOIMaps(shadowRoot);
+	setMapZoomNOIMaps();
 
 	//Clickables
 	//Tooltip & View floorplans
@@ -658,7 +653,7 @@ function setupMapBehavioursNOIMaps() {
 
 		if(typeof(ev)!='undefined' && typeof(ev.firstTarget)!='undefined') {
 			if( jQuery(ev.firstTarget).parents('.tooltip').length == 0 && !jQuery(ev.firstTarget).hasClass('clickable') && jQuery(ev.firstTarget).parents('.clickable').length == 0 ) {
-				closeTooltipNOIMaps(ev, shadowRoot);
+				closeTooltipNOIMaps(ev);
 			}
 			if( jQuery(ev.firstTarget).hasClass('share-element') ) {
 				jQuery(shadowRoot.querySelectorAll('.sharer-container')).removeClass('hide').fadeIn();
@@ -894,17 +889,15 @@ function clickedElementNOIMaps(elementCode, type="room") {
 						typeof selettoriType[NOIrooms[elementCode]['type']]['image'] !== 'undefined' && selettoriType[NOIrooms[elementCode]['type']]['image']!==null
 					) {
 						icon_code = replaceImageUrl(selettoriType[NOIrooms[elementCode]['type']]['image']);
-						var building = '';
-						var floor = '';
 					}
 
 
 					name = typeof NOIrooms[elementCode]['name'] !== 'undefined' && typeof NOIrooms[elementCode]['name'][thisNoiMapsSettingsLang.toLowerCase()] !== 'undefined' ? NOIrooms[elementCode]['name'][thisNoiMapsSettingsLang.toLowerCase()] : NOIrooms[elementCode]['beacon_id'];
 					longdesc = typeof NOIrooms[elementCode]['description'] !== 'undefined' && typeof NOIrooms[elementCode]['description'][thisNoiMapsSettingsLang.toLowerCase()] !== 'undefined' ? NOIrooms[elementCode]['description'][thisNoiMapsSettingsLang.toLowerCase()] : '';
-					building = elementCode.split("-")[0];
+					let building = elementCode.split("-")[0];
 					shortdesc += '<span class="room-icon-building icon-building-'+building+'">'+building+'</span>';
 
-					floor = typeof NOIrooms[elementCode]['floor'] !== 'undefined' && !isNaN(NOIrooms[elementCode]['floor']) ? NOIrooms[elementCode]['floor'] : false;
+					var floor = typeof NOIrooms[elementCode]['floor'] !== 'undefined' && !isNaN(NOIrooms[elementCode]['floor']) ? NOIrooms[elementCode]['floor'] : false;
 					if(!isNaN(floor)) {
 						shortdesc += '<span class="room-floor">'+floor+'</span>';
 					}
@@ -1702,11 +1695,11 @@ function setMediaQueriesNOIMaps() {
 function debugPrintIDs() {
 	var debugIDs = getParams.get('showids');
 	if(debugIDs == 1) {
-		jQuery(shadowRoot.querySelectorAll('#map *[data-name~="customclass"]')).each(function(i) {
+		jQuery(shadowRoot.querySelectorAll('#map *[data-name~="customclass"]')).each(function() {
 			let thisElement = jQuery(this);
 			let elementCode = thisElement.attr('id');
 			let textLabel = elementCode;
-			if( true ) {
+			if( debugActive ) {
 				var thisSVG = jQuery('<svg class="label-room debug" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#ff7f00"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="35" fill="#000" font-family="Arial" font-weight="bold">'+textLabel+'</text></svg>');
 
 				shadowRoot.querySelectorAll('#map svg').innerHTML += '';

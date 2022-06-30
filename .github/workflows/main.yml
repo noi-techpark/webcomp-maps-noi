@@ -34,6 +34,7 @@ jobs:
         env:
           X_ODH_BASE_URL: "https://mobility.api.opendatahub.testingmachine.eu/v2/flat/NOI-Place"
           X_ODH_RESOURCE_URL: "https://images.maps.noi.opendatahub.testingmachine.eu"
+          X_ODH_ORIGIN: "webcomp-maps-noi"
 
       - uses: noi-techpark/github-actions/npm-build@v2
         with:
@@ -58,6 +59,7 @@ jobs:
         env:
           X_ODH_BASE_URL: "https://mobility.api.opendatahub.bz.it/v2/flat/NOI-Place"
           X_ODH_RESOURCE_URL: "https://images.maps.noi.opendatahub.bz.it"
+          X_ODH_ORIGIN: "webcomp-maps-noi"
 
       - uses: noi-techpark/github-actions/npm-build@v2
         with:
