@@ -1692,43 +1692,40 @@ function debugPrintIDs() {
 			let thisElement = jQuery(this);
 			let elementCode = thisElement.attr('id');
 			let textLabel = elementCode;
-			if( debugActive ) {
-				var thisSVG = jQuery('<svg class="label-room debug" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#ff7f00"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="35" fill="#000" font-family="Arial" font-weight="bold">'+textLabel+'</text></svg>');
+			var thisSVG = jQuery('<svg class="label-room debug" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#ff7f00"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="35" fill="#000" font-family="Arial" font-weight="bold">'+textLabel+'</text></svg>');
 
-				shadowRoot.querySelectorAll('#map svg').innerHTML += '';
-				let x = 0;
-				let y = 0;
-				let thisSVGWidth = thisSVG.attr('width');
-				let thisSVGHeight = thisSVG.attr('height');
+			shadowRoot.querySelectorAll('#map svg').innerHTML += '';
+			let x = 0;
+			let y = 0;
+			let thisSVGWidth = thisSVG.attr('width');
+			let thisSVGHeight = thisSVG.attr('height');
 
-				if(typeof(thisSVGWidth)=='undefined' || thisSVGWidth==null || thisSVGWidth == '') {
-					thisSVGWidth = '30';
-				}
-				if(typeof(thisSVGHeight)=='undefined' || thisSVGHeight==null || thisSVGHeight == '') {
-					thisSVGHeight = '30';
-				}
-				let svgElement = jQuery(shadowRoot.querySelector("[id='"+elementCode+"']"))[0];
-
-				if(thisSVGWidth>(svgElement.getBBox().width*0.6)) {
-					thisSVG.attr('width',svgElement.getBBox().width*0.6);
-					x = (svgElement.getBBox().x + (svgElement.getBBox().width/2)) - (thisSVG.attr('width')/2);
-				} else {
-					x = (svgElement.getBBox().x + (svgElement.getBBox().width/2)) - (thisSVGWidth/2);
-				}
-
-				if(thisSVGHeight>(svgElement.getBBox().height*0.6)) {
-					thisSVG.attr('height',svgElement.getBBox().height*0.6);
-					y = (svgElement.getBBox().y + (svgElement.getBBox().height/2)) - (thisSVG.attr('height')/2);
-				} else {
-					y = (svgElement.getBBox().y + (svgElement.getBBox().height/2)) - (thisSVGHeight/2);
-				}
-
-				thisSVG.attr('x',x);
-				thisSVG.attr('y',y);
-				thisElement.append(thisSVG);
+			if(typeof(thisSVGWidth)=='undefined' || thisSVGWidth==null || thisSVGWidth == '') {
+				thisSVGWidth = '30';
 			}
-		});
+			if(typeof(thisSVGHeight)=='undefined' || thisSVGHeight==null || thisSVGHeight == '') {
+				thisSVGHeight = '30';
+			}
+			let svgElement = jQuery(shadowRoot.querySelector("[id='"+elementCode+"']"))[0];
 
+			if(thisSVGWidth>(svgElement.getBBox().width*0.6)) {
+				thisSVG.attr('width',svgElement.getBBox().width*0.6);
+				x = (svgElement.getBBox().x + (svgElement.getBBox().width/2)) - (thisSVG.attr('width')/2);
+			} else {
+				x = (svgElement.getBBox().x + (svgElement.getBBox().width/2)) - (thisSVGWidth/2);
+			}
+
+			if(thisSVGHeight>(svgElement.getBBox().height*0.6)) {
+				thisSVG.attr('height',svgElement.getBBox().height*0.6);
+				y = (svgElement.getBBox().y + (svgElement.getBBox().height/2)) - (thisSVG.attr('height')/2);
+			} else {
+				y = (svgElement.getBBox().y + (svgElement.getBBox().height/2)) - (thisSVGHeight/2);
+			}
+
+			thisSVG.attr('x',x);
+			thisSVG.attr('y',y);
+			thisElement.append(thisSVG);
+		});
 	}
 }
 
