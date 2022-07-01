@@ -188,7 +188,7 @@ function cleanupRoomLabelNOIMaps(roomLabel) {
 }
 
 
-function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview,thisHideZoom) {
+function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem, _thisFullview /* not used anymore */,thisHideZoom) {
 	shadowRoot = shadowRootInit;
 	setMediaQueriesNOIMaps();
 
@@ -324,12 +324,8 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview,thi
 				}
 			})
 			.fail(function(jqXHR, textStatus, errorThrown) { // fix error handling
-				if(debugActive == 1) {
-					console.log('Error on documentReadyNOIMaps (ajax fail)');
-					console.log("error " + textStatus);
-					console.log("incoming Text " + jqXHR.responseText);
-				}
-				console.log("305 error " + textStatus);
+				console.log('Error on documentReadyNOIMaps (ajax fail)');
+				console.log("305 error " + textStatus + ":::" + errorThrown);
 				console.log("incoming Text " + jqXHR.responseText);
 				setTimeout(function() {
 					documentReadyNOIMaps(shadowRootInit,thisLang);
@@ -340,7 +336,15 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview,thi
 			});
 
 		}
-	}).fail(function(jqXHR, textStatus, errorThrown) {
+	})
+	.fail(function(jqXHR, textStatus) {
+		if(debugActive == 1) {
+			console.log('Error on documentReadyNOIMaps (ajax fail)');
+			console.log("error " + textStatus);
+			console.log("incoming Text " + jqXHR.responseText);
+		}
+		console.log("306 error " + textStatus);
+		console.log("incoming Text " + jqXHR.responseText);
 	})
 	.always(function() {
 		clickableBehaviourNOIMaps();
@@ -403,12 +407,9 @@ function getTranslationsNOIMaps() {
 	.fail(function(jqXHR, textStatus, errorThrown) { // fix error handling
 		if(debugActive == 1) {
 			console.log('Error on getTranslationsNOIMaps (ajax fail)');
-			console.log("error " + textStatus);
+			console.log("error " + textStatus + ":::" + errorThrown);
 			console.log("incoming Text " + jqXHR.responseText);
 		}
-	})
-	.always(function() {
-
 	});
 }
 
@@ -482,7 +483,7 @@ function fetchMapsSVGNOIMaps(this_building_code) {
 	});
 }
 
-function writeGroupsSidebarNOIMaps(ODHdata) {
+function writeGroupsSidebarNOIMaps(_ODHdata) {
 	jQuery.getJSON(config.OPEN_DATA_HUB_TYPES_GROUPS, function(result){
 		let objects = result.data.filter(function(v){
 			return v.mvalue=="Selettori Group";
@@ -513,16 +514,12 @@ function writeGroupsSidebarNOIMaps(ODHdata) {
 			categoryGroupClone.find('.group-title-container').prepend(image);
 			categoryGroupClone.find('h2').text(sorted[index].name);
 
-			for(var k in ODHdata.data) {
-				if(ODHdata.data[k].smetadata.group == sorted[index].name) {
-					let elementCode = cleanupRoomLabelNOIMaps(ODHdata.data[k].smetadata.beacon_id);
+			for(var k in _ODHdata.data) {
+				if(_ODHdata.data[k].smetadata.group == sorted[index].name) {
+					let elementCode = cleanupRoomLabelNOIMaps(_ODHdata.data[k].smetadata.beacon_id);
 					let roomPieces = elementCode.split("-");
-					let roomNr = roomPieces[roomPieces.length - 1];
-					let roomName = typeof ODHdata.data[k].smetadata.name !== 'undefined' && typeof ODHdata.data[k].smetadata.name[thisNoiMapsSettingsLang]!=='undefined' ? ODHdata.data[k].smetadata.name[thisNoiMapsSettingsLang] : '';
-					if(isNaN(roomNr)) {
-						roomNr = roomPieces[roomPieces.length - 2] +"-"+roomPieces[roomPieces.length - 1];
-					}
-					var roomLabelCiph = ODHdata.data[k].smetadata.beacon_id.replace(/\-/g,'~-');
+					let roomName = typeof _ODHdata.data[k].smetadata.name !== 'undefined' && typeof _ODHdata.data[k].smetadata.name[thisNoiMapsSettingsLang]!=='undefined' ? _ODHdata.data[k].smetadata.name[thisNoiMapsSettingsLang] : '';
+					var roomLabelCiph = _ODHdata.data[k].smetadata.beacon_id.replace(/\-/g,'~-');
 					roomLabelCiph = roomLabelCiph.replace(/\s/g,'~');
 					roomLabelCiph = roomLabelCiph.replace(/\./g,'~');
 					roomLabelCiph = roomLabelCiph.replace(/~~/g,'~');
@@ -536,14 +533,14 @@ function writeGroupsSidebarNOIMaps(ODHdata) {
 							roomLabel = roomLabelCiph[roomLabelCiph.length - 1];
 						}
 					}
-					categoryGroupClone.find('.group-rooms-list').append('<li class="clickable" data-building-code="'+roomPieces[0]+'" data-room-code="'+elementCode+'" data-floor-code="'+ODHdata.data[k].smetadata.floor+'"><span class="room-icon-building icon-building-'+roomPieces[0]+'">'+roomPieces[0]+'</span><span class="room-name">' + roomName + '</span><span class="room-floor">' + ODHdata.data[k].smetadata.floor + '</span><span class="room-number">' + roomLabel + '</span></li>')
+					categoryGroupClone.find('.group-rooms-list').append('<li class="clickable" data-building-code="'+roomPieces[0]+'" data-room-code="'+elementCode+'" data-floor-code="'+_ODHdata.data[k].smetadata.floor+'"><span class="room-icon-building icon-building-'+roomPieces[0]+'">'+roomPieces[0]+'</span><span class="room-name">' + roomName + '</span><span class="room-floor">' + _ODHdata.data[k].smetadata.floor + '</span><span class="room-number">' + roomLabel + '</span></li>')
 				}
 			}
 
 			jQuery(shadowRoot.querySelectorAll(".search-container .category-group-container")).append(categoryGroupClone);
 		}
 	})
-	.fail(function(jqXHR, textStatus, errorThrown) { // fix error handling
+	.fail(function(jqXHR, textStatus) { // fix error handling
 		if(debugActive == 1) {
 			console.log('Error on writeGroupsSidebarNOIMaps (ajax fail)');
 			console.log("error " + textStatus);
@@ -1628,10 +1625,6 @@ function createSidebarSingleElementWithoutGroup(element) {
 	categoryGroupMisc.find('h2').text('Various');
 	let elementCode = cleanupRoomLabelNOIMaps(element.beacon_id);
 	let roomPieces = elementCode.split("-");
-	let roomNr = roomPieces[roomPieces.length - 1];
-	if(isNaN(roomNr)) {
-		roomNr = roomPieces[roomPieces.length - 2] +"-"+roomPieces[roomPieces.length - 1];
-	}
 	var roomLabelCiph = element.beacon_id.replace(/\-/g,'~-');
 	roomLabelCiph = roomLabelCiph.replace(/\s/g,'~');
 	roomLabelCiph = roomLabelCiph.replace(/\./g,'~');
