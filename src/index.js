@@ -324,7 +324,7 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem, _thisFullview /
 									if (innerMap.data('building') == buildingCode || innerMap.data('floor') == NOIrooms[elementCode]['floor']) {
 										clearInterval(interval);
 									}
-							}, 100);
+							}, 500);
 						}
 					},500);
 				}
