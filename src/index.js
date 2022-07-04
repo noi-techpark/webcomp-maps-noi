@@ -311,15 +311,21 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem, _thisFullview /
 						dropdownToggleNOIMaps(); //NOTE: Aggiunto qua dopo il caricamento
 						//CHECK SHARE
 
-
 						//EVERYTHING IS LOADED (PROBABLY)
 						jQuery(shadowRoot.querySelectorAll(".loader-map")).addClass('map-loaded');
 
-						setTimeout(function() {
-							if(typeof(NoiMapsSettingsShared)!='undefined' && NoiMapsSettingsShared!=null && NoiMapsSettingsShared!='') {
-								clickedElementNOIMaps(NoiMapsSettingsShared.toUpperCase());
-							}
-						}, 500)
+						// FIXME: Hack with polling to open "shared" parameter links
+						if(typeof(NoiMapsSettingsShared)!='undefined' && NoiMapsSettingsShared!=null && NoiMapsSettingsShared!='') {
+							let elementCode = NoiMapsSettingsShared.toUpperCase();
+							let buildingCode =  elementCode.split("-")[0];
+							var interval = setInterval(function() {
+									clickedElementNOIMaps(elementCode);
+									let innerMap = jQuery(shadowRoot.querySelectorAll('.inner-map-component'));
+									if (innerMap.data('building') == buildingCode || innerMap.data('floor') == NOIrooms[elementCode]['floor']) {
+										clearInterval(interval);
+									}
+							}, 100);
+						}
 					},500);
 				}
 			})
