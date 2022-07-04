@@ -317,7 +317,7 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem, _thisFullview /
 						// FIXME: Hack with polling to open "shared" parameter links
 						if(typeof(NoiMapsSettingsShared)!='undefined' && NoiMapsSettingsShared!=null && NoiMapsSettingsShared!='') {
 							let elementCode = NoiMapsSettingsShared.toUpperCase();
-							if (NOIrooms[elementCode] !== 'undefined' && NOIrooms[elementCode] != null) {
+							if (elementCode in NOIrooms) {
 								let buildingCode =  elementCode.split("-")[0];
 								var interval = setInterval(function() {
 									clickedElementNOIMaps(elementCode);
@@ -326,6 +326,8 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem, _thisFullview /
 										clearInterval(interval);
 									}
 								}, 500);
+							} else {
+								console.log("ERROR: Element with code '" + elementCode + "' not found.")
 							}
 						}
 					},500);
