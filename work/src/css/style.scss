@@ -8,7 +8,7 @@
 // ============
 // @include media('screen', '>dim_50') {
 // 	// rules
-// } 
+// }
 
 // Browser prefixes:
 // =================
@@ -28,9 +28,6 @@ map-view {
 	margin: 0 auto;
 	min-height: 320px;
 }
-
-
-
 
 
 body {
@@ -90,6 +87,7 @@ body {
 
 .content {
 	display: block;
+	height: 1024px;
 	width: 100%;
 	max-width: 90%;
 	margin: 0 auto;
