@@ -82,12 +82,12 @@
         }
       },
       {
-        "key": "height",
+        "key": "style",
         "type": "text",
         "label": "Height of the component as css property",
         "required": false,
         "options": {
-          "default": "500px"
+          "default": "height:500px"
         }
       }
     ]
