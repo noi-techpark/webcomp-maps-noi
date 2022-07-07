@@ -15,6 +15,7 @@ You can also download it, and see how to integrate it in your web page.
 			- [lang](#lang)
 			- [totem](#totem)
 			- [hidezoom](#hidezoom)
+			- [style](#style)
 	- [Getting started](#getting-started)
 		- [Prerequisites](#prerequisites)
 		- [Source code](#source-code)
@@ -70,6 +71,13 @@ Optional. Ability to show (0) or hide (1) the zoom buttons
 Type: Int
 Options: "0", "1"
 Default: "0"
+
+#### style
+
+Optional. Ability add css style like height to fix visualization issues.
+
+Type: text
+Default: "height: 500px"
 
 
 ## Getting started
