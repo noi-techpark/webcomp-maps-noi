@@ -23,3 +23,6 @@ work/src/js/webcomponent
 .sass-cache/
 
 dist/
+
+src/index.min.js
+
