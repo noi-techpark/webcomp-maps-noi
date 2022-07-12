@@ -480,7 +480,6 @@ function fetchMapsSVGNOIMaps(this_building_code) {
 					}
 
 					maps_svgs[currentBuildingCode]['floors'][currentBuildingFloor] = $svg.prop("outerHTML");
-
 					if(typeof this_building_code !== 'undefined' && typeof currentBuildingCode !== 'undefined' && currentBuildingCode == this_building_code) {
 						jQuery(shadowRoot.getElementById('map')).html($svg.prop("outerHTML"));
 						setTimeout(function() {
@@ -1062,6 +1061,13 @@ function setTooltipPositionNOIMaps() {
 				thisLeft += 160;
 				thisTop += 90;
 			}
+			if(clickedElementID == 'A2--1-22') {
+				thisLeft += 20;
+			}
+			if(clickedElementID == 'A2--1-10-3') {
+				thisLeft += 20;
+				thisTop += 20;
+			}
 
 			jQuery(shadowRoot.querySelectorAll(".tooltip")).css({
 				left: thisLeft,
@@ -1108,7 +1114,6 @@ function closeTooltipNOIMaps(ev) {
 		}
 	} else {
 		jQuery(shadowRoot.querySelectorAll('.tooltip')).fadeOut(fadeSpeed, function() {
-			jQuery(shadowRoot.querySelectorAll('.tooltip')).removeClass('active').html(originalTooltip);
 			jQuery(shadowRoot.querySelectorAll('.tooltip')).removeClass('active').html(originalTooltip);
 		});
 		jQuery(shadowRoot.querySelectorAll('*[id^="building"]')).removeClass('active');
@@ -1173,6 +1178,21 @@ function drawRoomsCategoryIconsNOIMaps() {
 					el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2) + 40);
 				}
 
+				if(elementCode == 'A2--1-10-4') {
+					el.setAttributeNS(null, 'width', svgElementWidth*0.6);
+					el.setAttributeNS(null, 'height', svgElementHeight*0.6);
+					el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2) + 40);
+				}
+
+				if(elementCode == 'A2--1-10-3') {
+					el.setAttributeNS(null, 'y', bbox.y + (bbox.height/2) - (svgElementHeight / 2) + 80);
+					el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2) + 80);
+				}
+
+				if(elementCode == 'A2--1-10-2') {
+					el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2) - 60);
+				}
+
 
 				thisElement[0].appendChild(el);
 				thisElement.attr('data-category',NOIrooms[elementCode]['type']);
@@ -1185,8 +1205,6 @@ function drawRoomsCategoryIconsNOIMaps() {
 
 			} else {
 				let textLabel = "A000000";
-
-
 				if(debugActive) {
 					textLabel = elementCode;
 					printElementOnMapNOIMaps( thisElement, elementCode, jQuery('<svg class="label-room" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#fff"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="30" fill="#000" font-family="Arial">'+textLabel+'</text></svg>') );
@@ -1301,6 +1319,11 @@ function printElementOnMapNOIMaps(thisElement, elementCode, thisSVG) {
 	}
 	if(elementCode == 'P1--2-28') {
 		y += 250;
+	}
+
+	if(elementCode == 'A2--1-22') {
+		x += 80;
+		y -= 50;
 	}
 
 	thisSVG.attr('x',x);
