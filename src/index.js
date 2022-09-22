@@ -852,6 +852,15 @@ function setupMapBehavioursNOIMaps() {
 			goToBuildingFloorNOIMaps(jQuery(ev.firstTarget).data('building-code'),jQuery(ev.firstTarget).data('building-floor'), true);
 		}
 
+		// fix tripple touch bug for the floors on mobile, now only one click is enough
+		if(
+			jQuery(ev.firstTarget).hasClass('floor') &&
+			typeof(jQuery(ev.firstTarget).data('buildingCode'))!=='undefined' && jQuery(ev.firstTarget).data('buildingCode')!==null && jQuery(ev.firstTarget).data('buildingCode')!=='' &&
+			typeof(jQuery(ev.firstTarget).data('floorCode'))!=='undefined' && jQuery(ev.firstTarget).data('floorCode')!==null && jQuery(ev.firstTarget).data('floorCode')!==''
+		) {
+			goToBuildingFloorNOIMaps(jQuery(ev.firstTarget).data('buildingCode'),jQuery(ev.firstTarget).data('floorCode'), true);
+		}
+
 		setTimeout(function() {
 			controller.pause();
 			setTimeout(function() {
