@@ -1121,8 +1121,9 @@ function clickedElementNOIMaps(elementCode, type="room") {
 						var floor = '';
 					}
 
+					let tempName = typeof NOIrooms[elementCode]['room_label'] !== 'undefined' ? NOIrooms[elementCode]['room_label'] : NOIrooms[elementCode]['beacon_id'];
+					name = typeof NOIrooms[elementCode]['name'] !== 'undefined' && typeof NOIrooms[elementCode]['name'][thisNoiMapsSettingsLang.toLowerCase()] !== 'undefined' ? NOIrooms[elementCode]['name'][thisNoiMapsSettingsLang.toLowerCase()] : tempName;
 
-					name = typeof NOIrooms[elementCode]['name'] !== 'undefined' && typeof NOIrooms[elementCode]['name'][thisNoiMapsSettingsLang.toLowerCase()] !== 'undefined' ? NOIrooms[elementCode]['name'][thisNoiMapsSettingsLang.toLowerCase()] : NOIrooms[elementCode]['beacon_id'];
 					longdesc = typeof NOIrooms[elementCode]['description'] !== 'undefined' && typeof NOIrooms[elementCode]['description'][thisNoiMapsSettingsLang.toLowerCase()] !== 'undefined' ? NOIrooms[elementCode]['description'][thisNoiMapsSettingsLang.toLowerCase()] : '';
 					building = elementCode.split("-")[0];
 					shortdesc += '<span class="room-icon-building icon-building-'+building+'">'+building+'</span>';
@@ -1476,11 +1477,18 @@ function drawRoomsCategoryIconsNOIMaps() {
 				} else {
 					if(
 						typeof NOIrooms[elementCode] !== 'undefined' && NOIrooms[elementCode]!=null &&
-						typeof NOIrooms[elementCode]['beacon_id'] !== 'undefined'
+						typeof NOIrooms[elementCode]['room_label'] !== 'undefined'
 					) {
-						textLabel = NOIrooms[elementCode]['beacon_id'];
+						textLabel = NOIrooms[elementCode]['room_label'];
 					} else {
-						textLabel = elementCode;
+						if(
+							typeof NOIrooms[elementCode] !== 'undefined' && NOIrooms[elementCode]!=null &&
+							typeof NOIrooms[elementCode]['beacon_id'] !== 'undefined'
+						) {
+							textLabel = NOIrooms[elementCode]['beacon_id'];
+						} else {
+							textLabel = elementCode;
+						}
 					}
 					if( typeof NOIrooms[elementCode] !== 'undefined' && NOIrooms[elementCode]!=null && typeof NOIrooms[elementCode]['beacon_id'] !== 'undefined' && typeof NOIrooms[elementCode]['show_on_map'] !== 'undefined' && NOIrooms[elementCode]['show_on_map'] == 1 ) {
 						if(typeof NOIrooms[elementCode]['floor_description'] !== 'undefined') {
@@ -1642,7 +1650,7 @@ function goToBuildingFloorNOIMaps(buildingCode, buildingFloor, close = true) {
 				if(typeof thisID !== 'undefined' && thisID!==null && thisID!=='') {
 					if(
 						typeof NOIrooms[thisID] !== 'undefined' && NOIrooms[thisID]!==null &&
-						typeof NOIrooms[thisID]['beacon_id'] !== 'undefined'
+						(typeof NOIrooms[thisID]['beacon_id'] !== 'undefined' || typeof NOIrooms[thisID]['room_label'] !== 'undefined')
 					) {
 						jQuery(thisElG).addClass('clickable');
 					}
@@ -1896,7 +1904,17 @@ function searchElementsNOIMaps(string) {
 		//loadAfterSearch( JSON.stringify(founds) );
 		for(var f in founds) {
 
-			if(typeof founds[f]["beacon_id"] !== 'undefined' && founds[f]["beacon_id"] !== null) {
+			if(typeof founds[f]["room_label"] !== 'undefined' && founds[f]["room_label"] !== null) {
+				let roomID = cleanupRoomLabelNOIMaps(founds[f]["room_label"]);
+				//createSidebarSingleElementWithoutGroup(founds[f]);
+
+				if( shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li[data-room-code="'+roomID+'"]').length > 0 ) {
+					jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li[data-room-code="'+roomID+'"]')).show();
+					jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li[data-room-code="'+roomID+'"]')).closest('.category-group').show();
+				} else {
+					createSidebarSingleElementWithoutGroup(founds[f]);
+				}
+			} else if(typeof founds[f]["beacon_id"] !== 'undefined' && founds[f]["beacon_id"] !== null) {
 				let roomID = cleanupRoomLabelNOIMaps(founds[f]["beacon_id"]);
 				//createSidebarSingleElementWithoutGroup(founds[f]);
 
