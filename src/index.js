@@ -353,7 +353,7 @@ function documentReadyNOIMaps(shadowRootInit,thisLang,thisTotem,thisFullview,thi
 								clickedElementNOIMaps(NoiMapsSettingsShared.toUpperCase());
 							}
 						}, 500)
-					},500);
+					},2000);
 				}
 			})
 			.fail(function(jqXHR, textStatus, errorThrown) { // fix error handling
