@@ -1903,9 +1903,8 @@ function searchElementsNOIMaps(string) {
 	if(founds.length>0) {
 		//loadAfterSearch( JSON.stringify(founds) );
 		for(var f in founds) {
-
-			if(typeof founds[f]["room_label"] !== 'undefined' && founds[f]["room_label"] !== null) {
-				let roomID = cleanupRoomLabelNOIMaps(founds[f]["room_label"]);
+			if(typeof founds[f]["beacon_id"] !== 'undefined' && founds[f]["beacon_id"] !== null) {
+				let roomID = cleanupRoomLabelNOIMaps(founds[f]["beacon_id"]);
 				//createSidebarSingleElementWithoutGroup(founds[f]);
 
 				if( shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li[data-room-code="'+roomID+'"]').length > 0 ) {
@@ -1914,11 +1913,11 @@ function searchElementsNOIMaps(string) {
 				} else {
 					createSidebarSingleElementWithoutGroup(founds[f]);
 				}
-			} else if(typeof founds[f]["beacon_id"] !== 'undefined' && founds[f]["beacon_id"] !== null) {
-				let roomID = cleanupRoomLabelNOIMaps(founds[f]["beacon_id"]);
+			} else if(typeof founds[f]["room_label"] !== 'undefined' && founds[f]["room_label"] !== null) {
+				let roomID = cleanupRoomLabelNOIMaps(founds[f]["room_label"]);
 				//createSidebarSingleElementWithoutGroup(founds[f]);
-
 				if( shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li[data-room-code="'+roomID+'"]').length > 0 ) {
+					console.log("inside!")
 					jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li[data-room-code="'+roomID+'"]')).show();
 					jQuery(shadowRoot.querySelectorAll('.search-container .category-group-container .category-group:not(.original) .group-rooms-list li[data-room-code="'+roomID+'"]')).closest('.category-group').show();
 				} else {
