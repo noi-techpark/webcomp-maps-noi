@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2021 NOI Techpark <digital@noi.bz.it>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 export default {
   OPEN_DATA_HUB_RESOURCE_URL: process.env.ODH_RESOURCE_URL,
 	OPEN_DATA_HUB_BASE: process.env.ODH_BASE_URL,
