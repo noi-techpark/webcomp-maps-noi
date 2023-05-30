@@ -3,18 +3,6 @@ Upstream-Name: webcomp-maps-noi
 Upstream-Contact: NOI Techpark <digital@noi.bz.it>
 Source: https://github.com/noi-techpark/webcomp-maps-noi
 
-Files: src/* work/* dist/*.js babel.config.js vue.config.js webcomp-recipe.iml
-Copyright: (c) 2021 NOI Techpark <digital@noi.bz.it>
-License: AGPL-3.0-or-later
-
-Files: src/*.md src/*.txt .env.* *.js.LICENSE.txt *.json .env resources/*/*.svg resources/*/*.svg.1 resources/*/*.png webpack-copy.dev.js
-Copyright: (c) 2021 NOI Techpark <digital@noi.bz.it>
-License: CC0-1.0
-
-Files: infrastructure/* *.groovy .github/workflows/*
-Copyright: (c) 2021 NOI Techpark <digital@noi.bz.it>
-License: CC0-1.0
-
-Files: .editorconfig .gitignore README.md docker-compose.yml package.json wcs-manifest.json yarn.lock webpack.* wcs-logo.png wcs-logo.webp karma.conf.js browserslist
-Copyright: (c) 2021 NOI Techpark <digital@noi.bz.it>
+Files: .github/* infrastructure/* .gitignore LICENSE.md .editorconfig .env.example *.png *.json *.svg* *.map *.ico
+Copyright: (c) NOI Techpark <digital@noi.bz.it>
 License: CC0-1.0
