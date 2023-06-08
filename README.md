@@ -6,7 +6,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # NOI Maps
 
-![REUSE Compliance](https://github.com/noi-techpark/REPONAME/actions/workflows/reuse.yml/badge.svg)
+![REUSE Compliance](https://github.com/noi-techpark/webcomp-maps-noi/actions/workflows/reuse.yml/badge.svg)
 [![REUSE status](https://api.reuse.software/badge/github.com/noi-techpark/webcomp-maps-noi)](https://api.reuse.software/info/github.com/noi-techpark/webcomp-maps-noi)
 [![CI/CD](https://github.com/noi-techpark/webcomp-maps-noi/actions/workflows/main.yml/badge.svg)](https://github.com/noi-techpark/webcomp-maps-noi/actions/workflows/main.yml)
 
