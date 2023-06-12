@@ -3,6 +3,6 @@ Upstream-Name: webcomp-maps-noi
 Upstream-Contact: NOI Techpark <digital@noi.bz.it>
 Source: https://github.com/noi-techpark/webcomp-maps-noi
 
-Files: .github/* infrastructure/* .gitignore LICENSE.md .editorconfig .env.example *.png *.json *.svg* *.map *.ico
+Files: .github/* infrastructure/* .gitignore .pre-commit-config.yaml LICENSE.md .editorconfig .env.example *.png *.json *.svg* *.map *.ico
 Copyright: (c) NOI Techpark <digital@noi.bz.it>
 License: CC0-1.0
