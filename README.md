@@ -13,7 +13,7 @@ SPDX-License-Identifier: CC0-1.0
 NOI Techpark map web application to search places and see an overview of the NOI Techpark area.
 
 You want to see it in action? Please have a look at our [Web Component
-Store](https://webcomponents.opendatahub.bz.it/webcomponent/9232cce6-2f39-11eb-adc1-0242ac120002).
+Store](https://webcomponents.opendatahub.com/webcomponent/9232cce6-2f39-11eb-adc1-0242ac120002).
 You can also download it, and see how to integrate it in your web page.
 
 - [NOI Maps](#noi-maps)
@@ -273,7 +273,7 @@ Illustrator.
 
 ### Support
 
-For support, please contact [help@opendatahub.bz.it](mailto:help@opendatahub.bz.it).
+For support, please contact [help@opendatahub.com](mailto:help@opendatahub.com).
 
 ### Contributing
 
