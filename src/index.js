@@ -511,7 +511,7 @@ function printMapNOIMaps(this_building_code) {
 }
 
 function replaceImageUrl(url) {
-	return url.replace("https://images.maps.noi.opendatahub.bz.it", config.OPEN_DATA_HUB_RESOURCE_URL);;
+	return url.replace("https://images.maps.noi.opendatahub.com", config.OPEN_DATA_HUB_RESOURCE_URL);;
 }
 
 function fetchMapsSVGNOIMaps(this_building_code) {
@@ -531,21 +531,21 @@ function fetchMapsSVGNOIMaps(this_building_code) {
 				let param = searchParams.get('stage');
 				if(param == 1) {
 					//console.log(thisImageUrl);
-					thisImageUrl = thisImageUrl.replace("https://images.maps.noi.opendatahub.bz.it/planimetry","https://stage.madeincima.it/noi-maps-svg-test/2021-10");
+					thisImageUrl = thisImageUrl.replace("https://images.maps.noi.opendatahub.com/planimetry","https://stage.madeincima.it/noi-maps-svg-test/2021-10");
 					console.log(thisImageUrl);
-					if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/axonometric.svg') {
+					if(thisImageUrl == 'https://images.maps.noi.opendatahub.com/planimetry/axonometric.svg') {
 						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg/axonometric.svg';
 					}
-					if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/a1-0.svg') {
+					if(thisImageUrl == 'https://images.maps.noi.opendatahub.com/planimetry/a1-0.svg') {
 						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg/a1-0.svg';
 					}
-					if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/a1-1.svg') {
+					if(thisImageUrl == 'https://images.maps.noi.opendatahub.com/planimetry/a1-1.svg') {
 						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg/a1-1.svg';
 					}
-					if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/a1-2.svg') {
+					if(thisImageUrl == 'https://images.maps.noi.opendatahub.com/planimetry/a1-2.svg') {
 						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg/a1-2.svg';
 					}
-					if(thisImageUrl == 'https://images.maps.noi.opendatahub.bz.it/planimetry/a2-0.svg') {
+					if(thisImageUrl == 'https://images.maps.noi.opendatahub.com/planimetry/a2-0.svg') {
 						thisImageUrl = 'https://stage.madeincima.it/noi-maps-svg/a2-0.svg';
 					}
 				}*/
