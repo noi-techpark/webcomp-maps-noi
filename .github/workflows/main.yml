@@ -56,7 +56,7 @@ jobs:
       - name: Create .env file
         uses: noi-techpark/github-actions/env-file@v2
         env:
-          X_ODH_BASE_URL: "https://mobility.api.opendatahub.bz.it/v2/flat/NOI-Place"
+          X_ODH_BASE_URL: "https://mobility.api.opendatahub.com/v2/flat/NOI-Place"
           X_ODH_RESOURCE_URL: "https://images.maps.noi.opendatahub.bz.it"
           X_ODH_ORIGIN: "webcomp-maps-noi"
 
