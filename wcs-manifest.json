@@ -4,6 +4,7 @@
   "descriptionAbstract": "NOI Techpark map app",
   "license": "AGPL-3.0-or-later",
   "repositoryUrl": "https://github.com/noi-techpark/webcomp-maps-noi.git",
+  "shortName": "noi-maps",
   "copyrightHolders": [
     {
       "name": "NOI AG",
