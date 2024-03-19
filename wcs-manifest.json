@@ -23,8 +23,7 @@
   ],
   "image": "wcs-logo.png",
   "searchTags": [
-    "map",
-    "NOI"
+    "map"
   ],
   "dist": {
     "basePath": "dist",
