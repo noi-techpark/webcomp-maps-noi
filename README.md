@@ -14,7 +14,7 @@ NOI Techpark map web application to search places and see an overview of the NOI
 
 You want to see it in action? Please have a look at our [Web Component
 Store](https://webcomponents.opendatahub.com/webcomponent/9232cce6-2f39-11eb-adc1-0242ac120002).
-You can also download it, and see how to integrate it in your web page.
+You can also download it, and see how to integrate it in your web page. 
 
 - [NOI Maps](#noi-maps)
 	- [Usage](#usage)
