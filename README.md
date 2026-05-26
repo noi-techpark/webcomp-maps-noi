@@ -297,5 +297,3 @@ The project uses this boilerplate:
 
 The code in this project is licensed under the GNU AFFERO GENERAL PUBLIC LICENSE
 Version 3 license. See the [LICENSE.md](LICENSE.md) file for more information.
-
-
