@@ -191,6 +191,7 @@ var translations = [];
 var minCharsToSearch = 3;
 var getParams = new URLSearchParams(window.location.search);
 var debugActive = getParams.get('debug');
+var urlLogActive = debugActive == 1;
 
 function resizeEndActionsNOIMaps() {
 	sidebarHeightNOIMaps();
@@ -507,7 +508,201 @@ function printMapNOIMaps(this_building_code) {
 }
 
 function replaceImageUrl(url) {
-	return url.replace("https://images.maps.noi.opendatahub.bz.it", config.OPEN_DATA_HUB_RESOURCE_URL);;
+	return appendResourceVersionNOIMaps(url.replace("https://images.maps.noi.opendatahub.bz.it", config.OPEN_DATA_HUB_RESOURCE_URL));
+}
+
+function isStageResourceHostNOIMaps() {
+	return typeof config.OPEN_DATA_HUB_RESOURCE_URL === 'string' &&
+		config.OPEN_DATA_HUB_RESOURCE_URL.indexOf('stage.madeincima.it/noi-maps-svg') !== -1;
+}
+
+function appendResourceVersionNOIMaps(url) {
+	var resourceVersionFromQuery = getParams.get('v');
+	var resourceVersion = resourceVersionFromQuery;
+	if(
+		typeof resourceVersion === 'undefined' ||
+		resourceVersion === null ||
+		('' + resourceVersion).trim() === ''
+	) {
+		resourceVersion = config.OPEN_DATA_HUB_RESOURCE_VERSION;
+	}
+
+	if(
+		typeof resourceVersion === 'undefined' ||
+		resourceVersion === null ||
+		('' + resourceVersion).trim() === ''
+	) {
+		return url;
+	}
+	var separator = url.indexOf('?') === -1 ? '?' : '&';
+	return url + separator + 'v=' + encodeURIComponent(('' + resourceVersion).trim());
+}
+
+function buildStageFloorImageUrlNOIMaps(buildingCode, floorValue) {
+	if(typeof buildingCode === 'undefined' || buildingCode === null || buildingCode === '') {
+		return false;
+	}
+	if(typeof floorValue === 'undefined' || floorValue === null || floorValue === '' || isNaN(floorValue)) {
+		return false;
+	}
+
+	var normalizedFloor = parseInt(floorValue, 10);
+	var floorSuffix = normalizedFloor < 0 ? '--' + Math.abs(normalizedFloor) : '-' + normalizedFloor;
+	var buildingSlug = ('' + buildingCode).toLowerCase();
+
+	return appendResourceVersionNOIMaps(config.OPEN_DATA_HUB_RESOURCE_URL + '/planimetry/' + buildingSlug + floorSuffix + '.svg');
+}
+
+function extractSvgMarkupNOIMaps(rawData) {
+	if(typeof rawData !== 'string' || rawData === '') {
+		return false;
+	}
+
+	try {
+		var parser = new DOMParser();
+		var parsed = parser.parseFromString(rawData, 'image/svg+xml');
+		var parsedSvg = parsed.querySelector('svg');
+		if(parsedSvg) {
+			return parsedSvg.outerHTML;
+		}
+	} catch (e) {}
+
+	var match = rawData.match(/<svg[\s\S]*<\/svg>/i);
+	if(match && match[0]) {
+		return match[0];
+	}
+
+	return false;
+}
+
+function loadStageFloorSvgOnDemandNOIMaps(buildingCode, floorValue, onDone) {
+	var fallbackDone = typeof onDone === 'function' ? onDone : function() {};
+	if(!isStageResourceHostNOIMaps()) {
+		fallbackDone(false);
+		return;
+	}
+
+	var thisImageUrl = buildStageFloorImageUrlNOIMaps(buildingCode, floorValue);
+	if(urlLogActive) {
+		console.log('[NOIMaps][SVG URL][on-demand]', buildingCode, floorValue, thisImageUrl);
+	}
+	if(!thisImageUrl) {
+		if(debugActive == 1) {
+			console.log('[NOIMaps] stage load skipped: invalid url', buildingCode, floorValue);
+		}
+		fallbackDone(false);
+		return;
+	}
+	if(debugActive == 1) {
+		console.log('[NOIMaps] stage load try', buildingCode, floorValue, thisImageUrl);
+	}
+
+	jQuery.ajax({
+		url: thisImageUrl,
+		method: 'GET',
+		dataType: 'xml',
+		cache: false
+	}).done((data2) => {
+		let $svg = jQuery(data2).find('svg');
+		if(!$svg.length) {
+			if(debugActive == 1) {
+				console.log('[NOIMaps] stage xml parsed but no <svg>, retry as raw', buildingCode, floorValue);
+			}
+			jQuery.ajax({
+				url: thisImageUrl,
+				method: 'GET',
+				dataType: 'text',
+				cache: false
+			}).done((rawData) => {
+				var svgMarkupRaw = extractSvgMarkupNOIMaps(rawData);
+				if(!svgMarkupRaw) {
+					if(debugActive == 1) {
+						console.log('[NOIMaps] stage raw parsed but no <svg>', buildingCode, floorValue);
+					}
+					fallbackDone(false);
+					return;
+				}
+				let $svgRaw = jQuery(svgMarkupRaw);
+				$svgRaw = $svgRaw.removeAttr('xmlns:a');
+				if (!$svgRaw.attr('viewBox') && $svgRaw.attr('height') && $svgRaw.attr('width')) {
+					$svgRaw.attr('viewBox', `0 0 ${$svgRaw.attr('width')} ${$svgRaw.attr('height')}`);
+				}
+				if(typeof maps_svgs[buildingCode] == 'undefined') {
+					maps_svgs[buildingCode] = [];
+				}
+				if(typeof maps_svgs[buildingCode]['floors'] == 'undefined') {
+					maps_svgs[buildingCode]['floors'] = {};
+				}
+				maps_svgs[buildingCode]['floors'][floorValue] = $svgRaw.prop("outerHTML");
+				if(debugActive == 1) {
+					console.log('[NOIMaps] stage load ok raw', buildingCode, floorValue, Object.keys(maps_svgs[buildingCode]['floors']));
+				}
+				fallbackDone(true);
+			}).fail(function() {
+				if(debugActive == 1) {
+					console.log('[NOIMaps] stage raw request failed', buildingCode, floorValue, thisImageUrl);
+				}
+				fallbackDone(false);
+			});
+			return;
+		}
+		$svg = $svg.removeAttr('xmlns:a');
+		if (!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+			$svg.attr('viewBox', `0 0 ${$svg.attr('width')} ${$svg.attr('height')}`);
+		}
+
+		if(typeof maps_svgs[buildingCode] == 'undefined') {
+			maps_svgs[buildingCode] = [];
+		}
+		if(typeof maps_svgs[buildingCode]['floors'] == 'undefined') {
+			maps_svgs[buildingCode]['floors'] = {};
+		}
+		maps_svgs[buildingCode]['floors'][floorValue] = $svg.prop("outerHTML");
+		if(debugActive == 1) {
+			console.log('[NOIMaps] stage load ok xml', buildingCode, floorValue, Object.keys(maps_svgs[buildingCode]['floors']));
+		}
+		fallbackDone(true);
+	}).fail(function() {
+		if(debugActive == 1) {
+			console.log('[NOIMaps] stage xml request failed, retry raw', buildingCode, floorValue, thisImageUrl);
+		}
+		jQuery.ajax({
+			url: thisImageUrl,
+			method: 'GET',
+			dataType: 'text',
+			cache: false
+		}).done((rawData) => {
+			var svgMarkup = extractSvgMarkupNOIMaps(rawData);
+			if(!svgMarkup) {
+				if(debugActive == 1) {
+					console.log('[NOIMaps] stage raw parsed but no <svg> after xml fail', buildingCode, floorValue);
+				}
+				fallbackDone(false);
+				return;
+			}
+			let $svg = jQuery(svgMarkup);
+			$svg = $svg.removeAttr('xmlns:a');
+			if (!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+				$svg.attr('viewBox', `0 0 ${$svg.attr('width')} ${$svg.attr('height')}`);
+			}
+			if(typeof maps_svgs[buildingCode] == 'undefined') {
+				maps_svgs[buildingCode] = [];
+			}
+			if(typeof maps_svgs[buildingCode]['floors'] == 'undefined') {
+				maps_svgs[buildingCode]['floors'] = {};
+			}
+			maps_svgs[buildingCode]['floors'][floorValue] = $svg.prop("outerHTML");
+			if(debugActive == 1) {
+				console.log('[NOIMaps] stage load ok raw after xml fail', buildingCode, floorValue, Object.keys(maps_svgs[buildingCode]['floors']));
+			}
+			fallbackDone(true);
+		}).fail(function() {
+			if(debugActive == 1) {
+				console.log('[NOIMaps] stage raw request failed after xml fail', buildingCode, floorValue, thisImageUrl);
+			}
+			fallbackDone(false);
+		});
+	});
 }
 
 function fetchMapsSVGNOIMaps(this_building_code) {
@@ -515,13 +710,29 @@ function fetchMapsSVGNOIMaps(this_building_code) {
 		for(var i in result.data) {
 			let currentBuildingCode = result.data[i].smetadata.building_code;
 
-			maps_svgs[currentBuildingCode] = [];
-			maps_svgs[currentBuildingCode]['floors'] = {};
+			if(typeof maps_svgs[currentBuildingCode] == 'undefined') {
+				maps_svgs[currentBuildingCode] = [];
+			}
+			if(typeof maps_svgs[currentBuildingCode]['floors'] == 'undefined') {
+				maps_svgs[currentBuildingCode]['floors'] = {};
+			}
 
 			let currentBuildingFloor = result.data[i].smetadata.floor;
 
-			if(typeof result.data[i].smetadata.building_code !== 'undefined' && typeof result.data[i].smetadata.image !== 'undefined') {
-				let thisImageUrl = replaceImageUrl(result.data[i].smetadata.image);
+			if(typeof result.data[i].smetadata.building_code !== 'undefined') {
+				let thisImageUrl = false;
+				if(typeof result.data[i].smetadata.image !== 'undefined' && result.data[i].smetadata.image !== null && result.data[i].smetadata.image !== '') {
+					thisImageUrl = replaceImageUrl(result.data[i].smetadata.image);
+				} else if(isStageResourceHostNOIMaps()) {
+					thisImageUrl = buildStageFloorImageUrlNOIMaps(currentBuildingCode, currentBuildingFloor);
+				}
+
+				if(!thisImageUrl) {
+					continue;
+				}
+				if(urlLogActive) {
+					console.log('[NOIMaps][SVG URL][preload]', currentBuildingCode, currentBuildingFloor, thisImageUrl);
+				}
 
 				/*let searchParams = new URLSearchParams(window.location.search);
 				let param = searchParams.get('stage');
@@ -546,13 +757,21 @@ function fetchMapsSVGNOIMaps(this_building_code) {
 					}
 				}*/
 
-				jQuery.get(thisImageUrl, (data2) => {
+				jQuery.ajax({
+					url: thisImageUrl,
+					method: 'GET',
+					dataType: 'xml',
+					cache: false
+				}).done((data2) => {
 					let $svg = jQuery(data2).find('svg');
+					if(!$svg.length) {
+						return;
+					}
 					// Remove any invalid XML tags as per http://validator.w3.org
 					$svg = $svg.removeAttr('xmlns:a');
 					// Check if the viewport is set, if the viewport is not set the SVG wont't scale.
 					if (!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
-						$svg.attr(`viewBox 0 0  ${$svg.attr('height')} ${$svg.attr('width')}`);
+						$svg.attr('viewBox', `0 0 ${$svg.attr('width')} ${$svg.attr('height')}`);
 					}
 
 					maps_svgs[currentBuildingCode]['floors'][currentBuildingFloor] = $svg.prop("outerHTML");
@@ -587,8 +806,8 @@ function fetchMapsSVGNOIMaps(this_building_code) {
 							let $svg2 = jQuery(data3).find('svg');
 							$svg2 = $svg2.removeAttr('xmlns:a');
 							// Check if the viewport is set, if the viewport is not set the SVG wont't scale.
-							if (!$svg.attr('viewBox') && $svg2.attr('height') && $svg2.attr('width')) {
-								$svg2.attr(`viewBox 0 0  ${$svg2.attr('height')} ${$svg2.attr('width')}`);
+							if (!$svg2.attr('viewBox') && $svg2.attr('height') && $svg2.attr('width')) {
+								$svg2.attr('viewBox', `0 0 ${$svg2.attr('width')} ${$svg2.attr('height')}`);
 							}
 							if(typeof maps_svgs[thisObj.building_code] == 'undefined') {
 								maps_svgs[thisObj.building_code] = [];
@@ -627,7 +846,7 @@ function fetchMapsSVGNOIMaps(this_building_code) {
 							clickableBehaviourNOIMaps();
 						},50);
 					}
-				}, 'xml');
+				});
 			}
 		}
 	});
@@ -1456,6 +1675,31 @@ function drawRoomsCategoryIconsNOIMaps() {
 					el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2) + 40);
 				}
 
+				if(elementCode == 'D2-0-26') {
+					el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2) - 100);
+				}
+
+				if(elementCode == 'D2-0-08' || elementCode == 'D2-0-10') {
+					el.setAttributeNS(null, 'y', bbox.y + (bbox.height/2) - (svgElementHeight / 2) - 50);
+				}
+
+				if(elementCode == 'D2-1-26') {
+					el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2) - 125);
+				}
+
+				if(elementCode == 'D2-1-04') {
+					el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2) + 75);
+				}
+
+				if(elementCode == 'D2-1-08' || elementCode == 'D2-1-10') {
+					el.setAttributeNS(null, 'y', bbox.y + (bbox.height/2) - (svgElementHeight / 2) - 75);
+				}
+
+				if(elementCode == 'F1-2-32') {
+					el.setAttributeNS(null, 'x', bbox.x + (bbox.width/2) - (svgElementWidth / 2) + 50);
+					el.setAttributeNS(null, 'y', bbox.y + (bbox.height/2) - (svgElementHeight / 2) + 50);
+				}
+
 
 				thisElement[0].appendChild(el);
 				thisElement.attr('data-category',NOIrooms[elementCode]['type']);
@@ -1474,6 +1718,21 @@ function drawRoomsCategoryIconsNOIMaps() {
 				if(debugActive) {
 					textLabel = elementCode;
 					printElementOnMapNOIMaps( thisElement, elementCode, jQuery('<svg class="label-room" id="map_floorplan_label" data-name="map floorplan label" xmlns="http://www.w3.org/2000/svg" width="230" height="69.7" viewBox="0 0 230 69.7"> <rect id="Rectangle" width="230" height="69.7" rx="17.4" fill="#fff"/> <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="30" fill="#000" font-family="Arial">'+textLabel+'</text></svg>') );
+					var dbgHasRoom = typeof NOIrooms[elementCode] !== 'undefined' && NOIrooms[elementCode]!==null;
+					var dbgHasBeaconId = dbgHasRoom && typeof NOIrooms[elementCode]['beacon_id'] !== 'undefined';
+					var dbgHasShowOnMap = dbgHasRoom && typeof NOIrooms[elementCode]['show_on_map'] !== 'undefined';
+					var dbgShowOnMapValue = dbgHasShowOnMap ? NOIrooms[elementCode]['show_on_map'] : 'undefined';
+					var dbgIsTeleport = dbgHasRoom && typeof NOIrooms[elementCode]['floor_description'] !== 'undefined';
+					var dbgWouldBeClickable = dbgHasRoom && dbgHasBeaconId && dbgHasShowOnMap && NOIrooms[elementCode]['show_on_map'] == 1 && !dbgIsTeleport;
+					if(!dbgWouldBeClickable) {
+						var dbgReason = [];
+						if(!dbgHasRoom) dbgReason.push('missing NOIrooms entry');
+						if(dbgHasRoom && !dbgHasBeaconId) dbgReason.push('missing beacon_id');
+						if(dbgHasRoom && !dbgHasShowOnMap) dbgReason.push('missing show_on_map');
+						if(dbgHasRoom && dbgHasShowOnMap && NOIrooms[elementCode]['show_on_map'] != 1) dbgReason.push('show_on_map=' + dbgShowOnMapValue);
+						if(dbgIsTeleport) dbgReason.push('teleport element (has floor_description)');
+						console.log('[NOIMaps][debug only clickable] ', elementCode, 'would be removed in non-debug:', dbgReason.join(', '));
+					}
 				} else {
 					if(
 						typeof NOIrooms[elementCode] !== 'undefined' && NOIrooms[elementCode]!=null &&
@@ -1608,6 +1867,49 @@ function printElementOnMapNOIMaps(thisElement, elementCode, thisSVG) {
 		y -= 50;
 	}
 
+	if(elementCode == 'D2-3-18') {
+		x -= 1285;
+		y += 250;
+	}
+
+	if(elementCode == 'D2-0-04') {
+		x += 75;
+	}
+
+	if(elementCode == 'D2-3-07') {
+		y -= 35;
+	}
+
+	if(elementCode == 'D3-0-05') {
+		x -= 250;
+	}
+
+	if(elementCode == 'D3-0-01') {
+		y -= 175;
+	}
+
+	if(elementCode == 'D3-1-01') {
+		y += 100;
+	}
+
+	if(elementCode == 'F1-0-04-1') {
+		y += 100;
+	}
+
+	if(elementCode == 'F1-0-05-1'||elementCode == 'F1-1-39') {
+		x += 50;
+		y += 50;
+	}
+
+	if(elementCode == 'F1-1-24') {
+		x -= 100;
+		y -= 50;
+	}
+
+	if(elementCode == 'F1-2-09') {
+		x += 75;
+	}
+
 	//y = (svgElement.getBBox().y + (svgElement.getBBox().height/2)) - (thisSVGHeight/2);
 	thisSVG.attr('x',x);
 	thisSVG.attr('y',y);
@@ -1620,6 +1922,11 @@ function goToBuildingFloorNOIMaps(buildingCode, buildingFloor, close = true) {
 		typeof(buildingFloor)!=='undefined' && buildingFloor!==null && buildingFloor!=='' &&
 		typeof(maps_svgs)!=='undefined' && maps_svgs!==null && maps_svgs!==''
 	) {
+		var requestedFloor = buildingFloor;
+		if(debugActive == 1) {
+			var floorsDebug = (typeof maps_svgs[buildingCode] !== 'undefined' && typeof maps_svgs[buildingCode]['floors'] !== 'undefined') ? Object.keys(maps_svgs[buildingCode]['floors']) : [];
+			console.log('[NOIMaps] goTo start', buildingCode, buildingFloor, 'available floors:', floorsDebug);
+		}
 		//console.group("goToBuildingFloorNOIMaps(");
 		//console.log('--------------');
 		//console.log('goToBuildingFloorNOIMaps( '+buildingCode+' '+buildingFloor+' close '+close);
@@ -1628,16 +1935,13 @@ function goToBuildingFloorNOIMaps(buildingCode, buildingFloor, close = true) {
 
 		//Check if requested building and requested floor are keys of maps_svgs array
 
-		//if floor 0 is not defined, try with -1
-		if(typeof(maps_svgs[buildingCode]) !== 'undefined' && (typeof(maps_svgs[buildingCode]['floors'][buildingFloor])==='undefined' || maps_svgs[buildingCode]['floors'][buildingFloor]===null || maps_svgs[buildingCode]['floors'][buildingFloor]==='')) {
-			buildingFloor = -1;
-		}
-
-
 		if(
 			typeof(maps_svgs[buildingCode])!=='undefined' && maps_svgs[buildingCode]!==null && maps_svgs[buildingCode]!=='' &&
 			typeof(maps_svgs[buildingCode]['floors'][buildingFloor])!=='undefined' && maps_svgs[buildingCode]['floors'][buildingFloor]!==null && maps_svgs[buildingCode]['floors'][buildingFloor]!==''
 		) {
+			if(debugActive == 1) {
+				console.log('[NOIMaps] goTo render', buildingCode, buildingFloor);
+			}
 			if(close) {
 				//console.log('CHIUDO DA goToBuildingFloorNOIMaps( con close = true');
 				closeTooltipNOIMaps();
@@ -1663,7 +1967,38 @@ function goToBuildingFloorNOIMaps(buildingCode, buildingFloor, close = true) {
 			translateElementsNOIMaps();
 			debugPrintIDs();
 		} else {
-			closeTooltipNOIMaps();
+			loadStageFloorSvgOnDemandNOIMaps(buildingCode, requestedFloor, function(loaded){
+				if(debugActive == 1) {
+					console.log('[NOIMaps] goTo stage result', buildingCode, requestedFloor, loaded);
+				}
+				if(loaded) {
+					goToBuildingFloorNOIMaps(buildingCode, requestedFloor, close);
+				} else {
+					// Legacy fallback: if floor 0 is missing, try -1 before giving up.
+					if(('' + requestedFloor) === '0') {
+						var fallbackFloor = -1;
+						if(
+							typeof(maps_svgs[buildingCode])!=='undefined' && maps_svgs[buildingCode]!==null && maps_svgs[buildingCode]!=='' &&
+							typeof(maps_svgs[buildingCode]['floors'][fallbackFloor])!=='undefined' && maps_svgs[buildingCode]['floors'][fallbackFloor]!==null && maps_svgs[buildingCode]['floors'][fallbackFloor]!==''
+						) {
+							goToBuildingFloorNOIMaps(buildingCode, fallbackFloor, close);
+							return;
+						}
+						loadStageFloorSvgOnDemandNOIMaps(buildingCode, fallbackFloor, function(loadedFallback){
+							if(debugActive == 1) {
+								console.log('[NOIMaps] goTo fallback result', buildingCode, fallbackFloor, loadedFallback);
+							}
+							if(loadedFallback) {
+								goToBuildingFloorNOIMaps(buildingCode, fallbackFloor, close);
+							} else {
+								closeTooltipNOIMaps();
+							}
+						});
+						return;
+					}
+					closeTooltipNOIMaps();
+				}
+			});
 		}
 	}
 }

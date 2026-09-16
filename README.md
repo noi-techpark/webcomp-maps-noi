@@ -1,43 +1,36 @@
 # NOI Maps
 
 [![REUSE status](https://api.reuse.software/badge/github.com/noi-techpark/webcomp-maps-noi)](https://api.reuse.software/info/github.com/noi-techpark/webcomp-maps-noi)
-[![CI/CD](https://github.com/noi-techpark/webcomp-maps-noi/actions/workflows/main.yml/badge.svg)](https://github.com/noi-techpark/webcomp-maps-noi/actions/workflows/main.yml)
 
 NOI Techpark map web application to search places and see an overview of the NOI Techpark area.
 
-You want to see it in action? Please have a look at our [Web Component
-Store](https://webcomponents.opendatahub.bz.it/webcomponent/9232cce6-2f39-11eb-adc1-0242ac120002).
-You can also download it, and see how to integrate it in your web page.
-
 - [NOI Maps](#noi-maps)
-	- [Usage](#usage)
-		- [Attributes](#attributes)
-			- [lang](#lang)
-			- [totem](#totem)
-			- [hidezoom](#hidezoom)
-			- [style](#style)
-	- [Getting started](#getting-started)
-		- [Prerequisites](#prerequisites)
-		- [Source code](#source-code)
-		- [Dependencies](#dependencies)
-		- [Build / Test](#build--test)
-	- [Deployment](#deployment)
-	- [Deployment server prerequisites](#deployment-server-prerequisites)
-	- [Folders](#folders)
-	- [Docker environment](#docker-environment)
-		- [Installation](#installation)
-		- [Dependenices](#dependenices)
-		- [Start and stop the containers](#start-and-stop-the-containers)
-		- [Running commands inside the container](#running-commands-inside-the-container)
-	- [Edit-SVGs](#edit-svgs)
-		- [Floorplans](#floorplans)
-		- [Icons](#icons)
-	- [Information](#information)
-		- [Support](#support)
-		- [Contributing](#contributing)
-		- [Documentation](#documentation)
-		- [Boilerplate](#boilerplate)
-		- [License](#license)
+  - [Usage](#usage)
+    - [Attributes](#attributes)
+      - [lang](#lang)
+      - [totem](#totem)
+  - [Getting started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Source code](#source-code)
+    - [Dependencies](#dependencies)
+    - [Build / Test](#build--test)
+  - [Deployment](#deployment)
+  - [Deployment server prerequisites](#deployment-server-prerequisites)
+  - [Folders](#folders)
+  - [Docker environment](#docker-environment)
+    - [Installation](#installation)
+    - [Dependenices](#dependenices)
+    - [Start and stop the containers](#start-and-stop-the-containers)
+    - [Running commands inside the container](#running-commands-inside-the-container)
+  - [Edit-SVGs](#edit-svgs)
+    - [Floorplans](#floorplans)
+    - [Icons](#icons)
+  - [Information](#information)
+    - [Support](#support)
+    - [Contributing](#contributing)
+    - [Documentation](#documentation)
+    - [Boilerplate](#boilerplate)
+    - [License](#license)
 
 ## Usage
 
@@ -64,6 +57,14 @@ Pepper Robot) with QR Code sharing
 Type: Int
 Options: "0", "1"
 
+#### fullview
+
+Optional. Ability to turn off (0) or on (1) header, footer and cookie banner
+
+Type: Int
+Options: "0", "1"
+Default: "0"
+
 #### hidezoom
 
 Optional. Ability to show (0) or hide (1) the zoom buttons
@@ -71,13 +72,6 @@ Optional. Ability to show (0) or hide (1) the zoom buttons
 Type: Int
 Options: "0", "1"
 Default: "0"
-
-#### style
-
-Optional. Ability add css style like height to fix visualization issues.
-
-Type: text
-Default: "height: 500px"
 
 
 ## Getting started
@@ -90,6 +84,10 @@ on your local machine for development and testing purposes.
 To build the project, the following prerequisites must be met:
 
 * Node.js https://nodejs.org/
+* npm (included with Node.js)
+
+Recommended local runtime:
+* Node.js 20.x
 
 For a ready to use Docker environment with all prerequisites already installed
 and prepared, you can check out the [Docker environment](#docker-environment)
@@ -117,6 +115,38 @@ Download all dependencies:
 npm install
 ```
 
+Create local environment file:
+
+```bash
+cp .env.example .env
+```
+
+Required variables in `.env`:
+
+```env
+ODH_BASE_URL=https://mobility.api.opendatahub.testingmachine.eu/v2/flat/NOI-Place
+ODH_RESOURCE_URL=https://images.maps.noi.opendatahub.testingmachine.eu
+ODH_ORIGIN=noi
+```
+
+Example `.env` switch between OpenDataHub and Stage resources:
+
+```env
+# API base (choose ONE)
+ODH_BASE_URL=https://mobility.api.opendatahub.testingmachine.eu/v2/flat/NOI-Place
+# ODH_BASE_URL=https://stage.example.com/NOI-Place
+
+ODH_ORIGIN=noi
+
+# Resource host (choose ONE)
+ODH_RESOURCE_URL=https://images.maps.noi.opendatahub.testingmachine.eu
+# ODH_RESOURCE_URL=https://stage.madeincima.it/noi-maps-svg
+```
+
+Notes:
+* `ODH_BASE_URL` must point to an endpoint compatible with the ODH query params used by the app (`limit`, `offset`, `select`, `where`, ...).
+* If `ODH_BASE_URL` is hosted on another domain, the server must allow CORS from your local origin (for example `http://localhost:8999`).
+
 ### Build / Test
 
 Build and start the project:
@@ -125,8 +155,14 @@ Build and start the project:
 npm run start
 ```
 
+```bash
+npm run start -- --host localhost
+```
+
 The application will be served and can be accessed at
-[http://localhost:8080](http://localhost:8080).
+[http://localhost:8999](http://localhost:8999).
+
+`npm run start` keeps the dev server running in foreground by design.
 
 
 ## Deployment
@@ -153,7 +189,7 @@ cross-origin domain request. You can use an .htaccess file like:
 ## Folders
 * dist - compiled and distributable file (*npm run build*)
 * node_modules - installed node modules (*npm install*)
-* work - production (*npm start*)
+* work - local static files served by webpack-dev-server (*npm run start*)
 
 ## Docker environment
 
@@ -297,3 +333,5 @@ The project uses this boilerplate:
 
 The code in this project is licensed under the GNU AFFERO GENERAL PUBLIC LICENSE
 Version 3 license. See the [LICENSE.md](LICENSE.md) file for more information.
+
+
