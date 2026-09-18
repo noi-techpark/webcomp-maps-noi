@@ -15,7 +15,7 @@ env:
 
 jobs:
   upload-test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     if: github.ref == 'refs/heads/main'
     concurrency: upload-test
     env:
@@ -34,7 +34,7 @@ jobs:
 
 
   upload-prod:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     if: startsWith(github.ref, 'refs/tags/v')
     concurrency: upload-prod
     env:
