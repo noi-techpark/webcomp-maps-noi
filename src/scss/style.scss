@@ -56,6 +56,7 @@
 // AXONOMETRIC
 #isometric-map {
 	.clickable:hover, .clickable.active {
+		// Legacy axonometric (class-based colors)
 		.st0 {
 			fill: #5b792a;
 		}
@@ -70,6 +71,28 @@
 		circle.st9 ,
 		circle.st10 {
 			fill: none;
+		}
+
+		// New axonometric exports often use inline style fill; force hover colors by wall id prefix.
+		[id^="W-T"] {
+			fill: #A9BF00 !important;
+		}
+		[id^="W-L"] {
+			fill: #c1cd07 !important;
+		}
+		[id^="W-M"] {
+			fill: #5b792a !important;
+		}
+
+		// Some exports (e.g. D1 legacy subgroup) use semantic ids instead of W-*.
+		[id="light"], [id^="light-"] {
+			fill: #A9BF00 !important;
+		}
+		[id="medium"], [id^="medium-"] {
+			fill: #c1cd07 !important;
+		}
+		[id="black"], [id^="black-"] {
+			fill: #5b792a !important;
 		}
 	}
 }
@@ -867,7 +890,7 @@ html:not(.body-scrollable){
 }	
 
 .label-room{
-	@include prefix('transform',translate(-50%, -50%));
+	//@include prefix('transform',translate(-50%, -50%));
 	text{
 		//fill: red;
 	}
