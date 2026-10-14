@@ -4,7 +4,6 @@
 
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
-const CssnanoPlugin = require('cssnano-webpack-plugin');
 const webpack = require("webpack");
 const Dotenv = require('dotenv-webpack')
 
@@ -54,17 +53,6 @@ module.exports = {
         test: /\.html$/i,
         loader: 'html-loader',
       }
-    ]
-  },
-  optimization: {
-    minimizer: [
-      new CssnanoPlugin({
-        cssnanoOptions: {
-          preset: ['default', {
-            discardComments: { removeAll: true }
-          }]
-        }
-      })
     ]
   },
   plugins: [

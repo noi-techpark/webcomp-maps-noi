@@ -4,7 +4,6 @@
 
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
-const CssnanoPlugin = require('cssnano-webpack-plugin');
 const Dotenv = require("dotenv-webpack");
 
 module.exports = {
